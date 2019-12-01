@@ -1,6 +1,7 @@
 {
   "name": "el-tiptap",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,8 +9,28 @@
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leecason/el-tiptap.git"
+  },
+  "keywords": [
+    "editor",
+    "element",
+    "element-ui",
+    "tiptap",
+    "prosemirror",
+    "vue.js",
+    "wysiwyg"
+  ],
+  "author": "leecason",
+  "bugs": {
+    "url": "https://github.com/Leecason/el-tiptap/issues"
+  },
+  "homepage": "https://github.com/Leecason/el-tiptapr#readme",
   "dependencies": {
     "core-js": "^3.4.3",
+    "tiptap": "^1.26.4",
+    "tiptap-extensions": "^1.28.4",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3"
   },
