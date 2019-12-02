@@ -1,7 +1,12 @@
 <template>
-  <div class="index">
-    <el-tiptap :extensions="extensions" />
-  </div>
+  <el-container>
+    <el-header>ElTiptap</el-header>
+    <el-main>
+      <div class="el-tiptap-editor__wrapper">
+        <el-tiptap :extensions="extensions" />
+      </div>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -47,3 +52,23 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.el-header {
+  align-items: center;
+  display: flex;
+}
+
+.el-main {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.el-tiptap-editor {
+  &__wrapper {
+    margin-top: 50px;
+    width: 75vw;
+  }
+}
+</style>
