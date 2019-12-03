@@ -91,6 +91,13 @@
       />
 
       <command-button
+        :is-active="editorContext.isActive.paragraph()"
+        :command="editorContext.commands.paragraph"
+        tooltip="Paragraph"
+        icon="paragraph"
+      />
+
+      <command-button
         :command="editorContext.commands.undo"
         tooltip="Undo"
         icon="undo"

@@ -68,6 +68,7 @@ export default {
     outline: 0;
 
     p {
+      line-height: 1.5;
       margin-top: 16px;
       margin-bottom: 16px;
     }
@@ -92,14 +93,13 @@ export default {
       &::before {
         content: counter(el-tiptap-counter) '.';
         display: inline-block;
-        font-size: 1em;
-        line-height: 1em;
+        line-height: 1.5;
         position: relative;
         text-align: right;
         top: 0;
         left: -5px;
         margin-left: -24px;
-        width: 20px;
+        width: 24px;
       }
     }
 
