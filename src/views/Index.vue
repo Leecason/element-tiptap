@@ -24,6 +24,9 @@ import {
   BulletList,
   OrderedList,
 
+  HorizontalRule,
+  TrailingNode,
+
   History,
 } from 'tiptap-extensions';
 
@@ -66,6 +69,9 @@ export default {
         new ListItem(),
         new BulletList(),
         new OrderedList(),
+
+        new HorizontalRule(),
+        new TrailingNode(),
 
         new History(),
       ],

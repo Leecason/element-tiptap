@@ -85,6 +85,12 @@
       />
 
       <command-button
+        :command="editorContext.commands.horizontal_rule"
+        tooltip="Horizontal line"
+        icon="minus"
+      />
+
+      <command-button
         :command="editorContext.commands.undo"
         tooltip="Undo"
         icon="undo"

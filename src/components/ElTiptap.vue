@@ -126,6 +126,11 @@ export default {
       padding-left: 1em;
     }
 
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
     *[data-text-align=right] {
       text-align: right!important;
     }
