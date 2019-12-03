@@ -37,6 +37,33 @@
       />
 
       <command-button
+        :command="editorContext.commands.align_left"
+        tooltip="Align left"
+        icon="align-left"
+      />
+
+      <command-button
+        :is-active="isTextAlignActive('center')"
+        :command="editorContext.commands.align_center"
+        tooltip="Align center"
+        icon="align-center"
+      />
+
+      <command-button
+        :is-active="isTextAlignActive('right')"
+        :command="editorContext.commands.align_right"
+        tooltip="Align right"
+        icon="align-right"
+      />
+
+      <command-button
+        :is-active="isTextAlignActive('justify')"
+        :command="editorContext.commands.align_justify"
+        tooltip="Align justify"
+        icon="align-justify"
+      />
+
+      <command-button
         :is-active="editorContext.isActive.bullet_list()"
         :command="editorContext.commands.bullet_list"
         tooltip="Bullet list"
@@ -67,6 +94,8 @@
 
 <script>
 import { Editor, EditorMenuBar } from 'tiptap';
+import { isTextAlignActive } from '@/extensions/text_align';
+
 import HeadingDropdown from './HeadingDropdown.vue';
 import CommandButton from './CommandButton.vue';
 
@@ -90,6 +119,12 @@ export default {
     return {
       editor: this.editor,
     };
+  },
+
+  methods: {
+    isTextAlignActive (align) {
+      return isTextAlignActive(this.editor.state, align);
+    },
   },
 };
 </script>

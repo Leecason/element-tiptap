@@ -13,23 +13,27 @@
 import {
   Doc,
   Text,
-  Paragraph,
 } from 'tiptap';
 
 import {
-  Heading,
-
   Bold,
   Underline,
   Italic,
   Strike,
 
-  ListItem,
   BulletList,
   OrderedList,
 
   History,
 } from 'tiptap-extensions';
+
+import {
+  Paragraph,
+  Heading,
+  ListItem,
+
+  TextAlign,
+} from '@/extensions';
 
 import ElTiptap from '../components/ElTiptap';
 
@@ -46,6 +50,8 @@ export default {
         new Doc(),
         new Text(),
         new Paragraph(),
+
+        new TextAlign(),
 
         new Heading({ level: 5 }),
 

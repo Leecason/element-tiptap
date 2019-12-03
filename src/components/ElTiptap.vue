@@ -83,7 +83,50 @@ export default {
 
     ul,
     ol {
-      padding-left: 24px;
+      counter-reset: none;
+      list-style-type: none;
+      margin-left: 24px;
+    }
+
+    li > p {
+      &::before {
+        content: counter(el-tiptap-counter) '.';
+        display: inline-block;
+        font-size: 1em;
+        line-height: 1em;
+        position: relative;
+        text-align: right;
+        top: 0;
+        left: -5px;
+        margin-left: -24px;
+        width: 20px;
+      }
+    }
+
+    ul li > p {
+      &::before {
+        content: '\2022';
+      }
+    }
+
+    ol {
+      counter-reset: el-tiptap-counter;
+
+      li > p::before {
+        counter-increment: el-tiptap-counter;
+      }
+    }
+
+    *[data-text-align=right] {
+      text-align: right!important;
+    }
+
+    *[data-text-align=center] {
+      text-align: center!important;
+    }
+
+    *[data-text-align=justify] {
+      text-align: justify!important;
     }
   }
 }
