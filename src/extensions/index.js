@@ -6,3 +6,4 @@ export { default as ListItem } from './list_item';
 
 // extensions
 export { default as TextAlign } from './text_align';
+export { default as Indent } from './indent';

@@ -15,15 +15,15 @@ export default class TextAlign extends Extension {
 
   commands () {
     return {
-      align_left: this.setTextAlign({ alignment: 'null' }),
-      align_center: this.setTextAlign({ alignment: 'center' }),
-      align_right: this.setTextAlign({ alignment: 'right' }),
-      align_justify: this.setTextAlign({ alignment: 'justify' }),
+      align_left: () => this.setTextAlign({ alignment: 'null' }),
+      align_center: () => this.setTextAlign({ alignment: 'center' }),
+      align_right: () => this.setTextAlign({ alignment: 'right' }),
+      align_justify: () => this.setTextAlign({ alignment: 'justify' }),
     };
   }
 
   setTextAlign ({ alignment }) {
-    return () => (state, dispatch) => {
+    return (state, dispatch) => {
       let { tr } = state;
       const { selection, doc } = tr;
 

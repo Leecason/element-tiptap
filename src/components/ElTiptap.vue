@@ -157,6 +157,14 @@ export default {
     *[data-text-align=justify] {
       text-align: justify!important;
     }
+
+    @for $i from 1 through 7 /* max-indent */ {
+      $indent-margin-base: 30px;
+
+      *[data-indent="#{$i}"] {
+        margin-left: $indent-margin-base * $i!important;
+      }
+    }
   }
 }
 </style>

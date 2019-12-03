@@ -5,6 +5,7 @@ import { ALIGN_PATTERN } from './text_align';
 export const ParagraphNodeSpec = {
   attrs: {
     textAlign: { default: null },
+    indent: { default: null },
   },
   content: 'inline*',
   group: 'block',
@@ -23,20 +24,28 @@ function getAttrs (dom) {
   let align = dom.getAttribute('align') || textAlign || '';
   align = ALIGN_PATTERN.test(align) ? align : null;
 
+  const indent = parseInt(dom.getAttribute('data-indent'), 10) || 0;
+
   return {
     textAlign: align,
+    indent,
   };
 }
 
 function toDOM (node) {
   const {
     textAlign,
+    indent,
   } = node.attrs;
 
   const attrs = {};
 
   if (textAlign && textAlign !== 'left') {
     attrs['data-text-align'] = textAlign;
+  }
+
+  if (indent) {
+    attrs['data-indent'] = indent;
   }
 
   return ['p', attrs, 0];

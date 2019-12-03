@@ -39,6 +39,7 @@ import {
   ListItem,
 
   TextAlign,
+  Indent,
 } from '@/extensions';
 
 import ElTiptap from '../components/ElTiptap';
@@ -54,6 +55,7 @@ export default {
     return {
       extensions: [
         new TextAlign(),
+        new Indent(),
 
         new Doc(),
         new Text(),

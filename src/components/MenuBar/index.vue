@@ -92,6 +92,18 @@
       />
 
       <command-button
+        :command="editorContext.commands.indent"
+        tooltip="Indent"
+        icon="indent"
+      />
+
+      <command-button
+        :command="editorContext.commands.outdent"
+        tooltip="Outdent"
+        icon="outdent"
+      />
+
+      <command-button
         :command="editorContext.commands.horizontal_rule"
         tooltip="Horizontal line"
         icon="minus"
@@ -162,6 +174,7 @@ export default {
     background-color: #F5F7FA;
     border-bottom: 1px solid #EBEEF5;
     display: flex;
+    flex-wrap: wrap;
     padding: 5px;
   }
 }
