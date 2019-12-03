@@ -21,6 +21,8 @@ import {
   Italic,
   Strike,
 
+  CodeBlock,
+
   BulletList,
   OrderedList,
 
@@ -65,6 +67,7 @@ export default {
         new Strike(),
 
         new Blockquote(),
+        new CodeBlock(),
 
         new ListItem(),
         new BulletList(),

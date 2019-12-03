@@ -126,6 +126,21 @@ export default {
       padding-left: 1em;
     }
 
+    pre {
+      background-color: #303133;
+      color: #d9ecff;
+      font-size: 16px;
+      overflow-x: auto;
+      padding: 14px 20px;
+      border-radius: 5px;
+
+      code {
+        display: block;
+        font-family: 'Menlo,Monaco,Consolas,Courier,monospace';
+        line-height: 1.5;
+      }
+    }
+
     hr {
       margin-top: 20px;
       margin-bottom: 20px;

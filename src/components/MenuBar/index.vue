@@ -32,14 +32,21 @@
       <command-button
         :is-active="editorContext.isActive.strike()"
         :command="editorContext.commands.strike"
-        tooltip="Strike"
+        tooltip="Strike through"
         icon="strikethrough"
+      />
+
+      <command-button
+        :is-active="editorContext.isActive.code_block()"
+        :command="editorContext.commands.code_block"
+        tooltip="Code block"
+        icon="code"
       />
 
       <command-button
         :is-active="editorContext.isActive.blockquote()"
         :command="editorContext.commands.blockquote"
-        tooltip="Blockquote"
+        tooltip="Block quote"
         icon="quote-right"
       />
 
