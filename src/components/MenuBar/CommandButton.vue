@@ -65,6 +65,7 @@ export default {
     justify-content: center;
     height: 40px;
     margin: 2px;
+    outline: 0;
     width: 40px;
 
     &:hover {

@@ -37,6 +37,13 @@
       />
 
       <command-button
+        :is-active="editorContext.isActive.link()"
+        :command="openApplyLinkControl"
+        tooltip="Apply link"
+        icon="link"
+      />
+
+      <command-button
         :is-active="editorContext.isActive.code_block()"
         :command="editorContext.commands.code_block"
         tooltip="Code block"
@@ -163,6 +170,19 @@ export default {
   methods: {
     isTextAlignActive (align) {
       return isTextAlignActive(this.editor.state, align);
+    },
+
+    openApplyLinkControl () {
+      this.$prompt('', 'Apply link', {
+        confirmButtonText: 'Apply',
+        cancelButtonText: 'Close',
+        inputPlaceholder: 'Href',
+        roundButton: true,
+      }).then(({ value: href }) => {
+        this.editor.commands.link({ href });
+      }).catch(() => {
+        this.editor.focus();
+      });
     },
   },
 };

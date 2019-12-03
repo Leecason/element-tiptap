@@ -9,6 +9,7 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
+  MessageBox,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -25,6 +26,8 @@ Vue.use(Tooltip);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
+
+Vue.prototype.$prompt = MessageBox.prompt;
 
 new Vue({
   router,

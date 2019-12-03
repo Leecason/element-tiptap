@@ -20,6 +20,7 @@ import {
   Underline,
   Italic,
   Strike,
+  Link,
 
   CodeBlock,
 
@@ -68,6 +69,7 @@ export default {
         new Underline(),
         new Italic(),
         new Strike(),
+        new Link(),
 
         new Blockquote(),
         new CodeBlock(),
