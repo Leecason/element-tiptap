@@ -84,6 +84,10 @@
         icon="align-justify"
       />
 
+      <line-height-dropdown
+        :editorContext="editorContext"
+      />
+
       <command-button
         :is-active="editorContext.isActive.bullet_list()"
         :command="editorContext.commands.bullet_list"
@@ -143,6 +147,7 @@ import { Editor, EditorMenuBar } from 'tiptap';
 import { isTextAlignActive } from '@/extensions/text_align';
 
 import HeadingDropdown from './HeadingDropdown.vue';
+import LineHeightDropdown from './LineHeightDropdown.vue';
 import CommandButton from './CommandButton.vue';
 
 export default {
@@ -151,6 +156,7 @@ export default {
   components: {
     EditorMenuBar,
     HeadingDropdown,
+    LineHeightDropdown,
     CommandButton,
   },
 
@@ -196,6 +202,17 @@ export default {
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
+  }
+}
+
+.el-dropdown-menu__item {
+  line-height: 1.5;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  &--active {
+    background-color: #ecf5ff;
+    color: #409EFF;
   }
 }
 </style>

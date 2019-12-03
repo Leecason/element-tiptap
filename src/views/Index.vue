@@ -42,6 +42,7 @@ import {
 
   TextAlign,
   Indent,
+  LineHeight,
 } from '@/extensions';
 
 import ElTiptap from '../components/ElTiptap';
@@ -58,6 +59,7 @@ export default {
       extensions: [
         new TextAlign(),
         new Indent(),
+        new LineHeight(),
 
         new Doc(),
         new Text(),

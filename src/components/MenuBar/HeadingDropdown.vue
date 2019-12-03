@@ -5,7 +5,7 @@
     @command="i => editorContext.commands.heading({ level: i })"
   >
     <command-button
-      :is-active="isHeadingActive"
+      :is-active="isHeadingActive(undefined)"
       tooltip="Heading"
       icon="heading"
     />
@@ -15,7 +15,7 @@
         :key="i"
         :command="i"
         :class="{
-          'el-dropdown-menu__item--active': editorContext.isActive.heading({ level: i }),
+          'el-dropdown-menu__item--active': isHeadingActive(i),
         }"
       >
         <component :is="'h' +i">
@@ -27,8 +27,7 @@
 </template>
 
 <script>
-import { findParentNodeOfType } from 'prosemirror-utils';
-
+import { isHeadingActive } from '@/extensions/heading';
 import CommandButton from './CommandButton.vue';
 
 export default {
@@ -51,32 +50,12 @@ export default {
     level () {
       return this.editor.extensions.options.heading.level;
     },
-
-    isHeadingActive () {
-      const result = this.findHeading();
-      return !!result;
-    },
   },
 
   methods: {
-    findHeading () {
-      const { state } = this.editor;
-      const { heading } = state.schema.nodes;
-      return findParentNodeOfType(heading)(state.selection);
+    isHeadingActive (level) {
+      return isHeadingActive(this.editor.state, level);
     },
   },
 };
 </script>
-
-<style lang="scss">
-.el-dropdown-menu__item {
-  line-height: 1.5;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  &--active {
-    background-color: #ecf5ff;
-    color: #409EFF;
-  }
-}
-</style>

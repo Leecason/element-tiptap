@@ -4,6 +4,10 @@ import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './para
 
 const BlockquoteNodeSpec = {
   ...ParagraphNodeSpec,
+  attrs: {
+    textAlign: { default: null },
+    indent: { default: null },
+  },
   content: 'block*',
   defining: true,
   parseDOM: [{

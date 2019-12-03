@@ -68,7 +68,7 @@ export default {
     outline: 0;
 
     p {
-      line-height: 1.5;
+      line-height: 1;
       margin-top: 16px;
       margin-bottom: 16px;
     }
@@ -93,7 +93,6 @@ export default {
       &::before {
         content: counter(el-tiptap-counter) '.';
         display: inline-block;
-        line-height: 1.5;
         position: relative;
         text-align: right;
         top: 0;
@@ -121,7 +120,6 @@ export default {
       border-left: 5px solid #edf2fc;
       border-radius: 2px;
       color: #606266;
-      line-height: 1.5;
       margin: 20px 0;
       padding-left: 1em;
     }
@@ -137,7 +135,6 @@ export default {
       code {
         display: block;
         font-family: 'Menlo,Monaco,Consolas,Courier,monospace';
-        line-height: 1.5;
       }
     }
 
@@ -169,7 +166,6 @@ export default {
 
   &__placeholder {
     font-size: 16px;
-    line-height: 1.5;
     pointer-events: none;
 
     &:first-child::before {

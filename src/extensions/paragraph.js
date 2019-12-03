@@ -1,11 +1,16 @@
 import { Paragraph as TiptapParagraph } from 'tiptap';
 
 import { ALIGN_PATTERN } from './text_align';
+import {
+  LINE_HEIGHT_VALUE_MAP,
+  transformLineHeightToCSS,
+} from './line_height';
 
 export const ParagraphNodeSpec = {
   attrs: {
     textAlign: { default: null },
     indent: { default: null },
+    lineHeight: { default: '100%' },
   },
   content: 'inline*',
   group: 'block',
@@ -17,8 +22,9 @@ export const ParagraphNodeSpec = {
 };
 
 function getAttrs (dom) {
-  const {
+  let {
     textAlign,
+    lineHeight,
   } = dom.style;
 
   let align = dom.getAttribute('align') || textAlign || '';
@@ -26,9 +32,12 @@ function getAttrs (dom) {
 
   const indent = parseInt(dom.getAttribute('data-indent'), 10) || 0;
 
+  lineHeight = lineHeight ? LINE_HEIGHT_VALUE_MAP[lineHeight] : null;
+
   return {
     textAlign: align,
     indent,
+    lineHeight,
   };
 }
 
@@ -36,8 +45,10 @@ function toDOM (node) {
   const {
     textAlign,
     indent,
+    lineHeight,
   } = node.attrs;
 
+  let style = '';
   const attrs = {};
 
   if (textAlign && textAlign !== 'left') {
@@ -47,6 +58,13 @@ function toDOM (node) {
   if (indent) {
     attrs['data-indent'] = indent;
   }
+
+  if (lineHeight) {
+    const cssLineHeight = transformLineHeightToCSS(lineHeight);
+    style += `line-height: ${cssLineHeight};`;
+  }
+
+  style && (attrs.style = style);
 
   return ['p', attrs, 0];
 }

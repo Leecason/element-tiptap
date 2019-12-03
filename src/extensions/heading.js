@@ -1,4 +1,5 @@
 import { Heading as TiptapHeading } from 'tiptap-extensions';
+import { findParentNodeOfType } from 'prosemirror-utils';
 
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 
@@ -36,4 +37,24 @@ export default class Heading extends TiptapHeading {
       toDOM,
     };
   }
+}
+
+function findHeading (state) {
+  const { heading } = state.schema.nodes;
+  return findParentNodeOfType(heading)(state.selection);
+}
+
+export function isHeadingActive (state, level) {
+  const result = findHeading(state);
+
+  if (level == null) {
+    return !!result;
+  }
+
+  return !!(
+    result &&
+    result.node &&
+    result.node.attrs &&
+    result.node.attrs.level === level
+  );
 }
