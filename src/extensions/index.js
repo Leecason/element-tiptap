@@ -1,6 +1,7 @@
 // nodes
 export { default as Paragraph } from './paragraph';
 export { default as Heading } from './heading';
+export { default as Blockquote } from './blockquote';
 export { default as ListItem } from './list_item';
 
 // extensions

@@ -30,6 +30,7 @@ import {
 import {
   Paragraph,
   Heading,
+  Blockquote,
   ListItem,
 
   TextAlign,
@@ -47,11 +48,11 @@ export default {
   data () {
     return {
       extensions: [
+        new TextAlign(),
+
         new Doc(),
         new Text(),
         new Paragraph(),
-
-        new TextAlign(),
 
         new Heading({ level: 5 }),
 
@@ -59,6 +60,8 @@ export default {
         new Underline(),
         new Italic(),
         new Strike(),
+
+        new Blockquote(),
 
         new ListItem(),
         new BulletList(),

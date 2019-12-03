@@ -117,6 +117,15 @@ export default {
       }
     }
 
+    blockquote {
+      border-left: 5px solid #edf2fc;
+      border-radius: 2px;
+      color: #606266;
+      line-height: 1.5;
+      margin: 20px 0;
+      padding-left: 1em;
+    }
+
     *[data-text-align=right] {
       text-align: right!important;
     }

@@ -37,6 +37,13 @@
       />
 
       <command-button
+        :is-active="editorContext.isActive.blockquote()"
+        :command="editorContext.commands.blockquote"
+        tooltip="Blockquote"
+        icon="quote-right"
+      />
+
+      <command-button
         :command="editorContext.commands.align_left"
         tooltip="Align left"
         icon="align-left"
