@@ -166,5 +166,19 @@ export default {
       }
     }
   }
+
+  &__placeholder {
+    font-size: 16px;
+    line-height: 1.5;
+    pointer-events: none;
+
+    &:first-child::before {
+      color: #c0c4cc;
+      content: attr(data-empty-text);
+      float: left;
+      height: 0;
+      pointer-events: none;
+    }
+  }
 }
 </style>

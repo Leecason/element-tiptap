@@ -30,6 +30,7 @@ import {
   TrailingNode,
 
   History,
+  Placeholder,
 } from 'tiptap-extensions';
 
 import {
@@ -79,6 +80,9 @@ export default {
         new TrailingNode(),
 
         new History(),
+        new Placeholder({
+          emptyNodeClass: 'el-tiptap-editor__placeholder',
+        }),
       ],
     };
   },
