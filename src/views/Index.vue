@@ -24,6 +24,10 @@ import {
   Italic,
   Strike,
 
+  ListItem,
+  BulletList,
+  OrderedList,
+
   History,
 } from 'tiptap-extensions';
 
@@ -43,12 +47,16 @@ export default {
         new Text(),
         new Paragraph(),
 
+        new Heading({ level: 5 }),
+
         new Bold(),
         new Underline(),
         new Italic(),
         new Strike(),
 
-        new Heading({ level: 5 }),
+        new ListItem(),
+        new BulletList(),
+        new OrderedList(),
 
         new History(),
       ],

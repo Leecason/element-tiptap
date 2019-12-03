@@ -6,7 +6,7 @@
   >
     <command-button
       :is-active="isHeadingActive"
-      tooltip="heading"
+      tooltip="Heading"
       icon="heading"
     />
     <el-dropdown-menu slot="dropdown">

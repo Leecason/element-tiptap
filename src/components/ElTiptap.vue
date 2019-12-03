@@ -80,6 +80,11 @@ export default {
       margin-top: 24px;
       margin-bottom: 24px;
     }
+
+    ul,
+    ol {
+      padding-left: 24px;
+    }
   }
 }
 </style>

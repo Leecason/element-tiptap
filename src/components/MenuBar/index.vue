@@ -11,40 +11,54 @@
       <command-button
         :is-active="editorContext.isActive.bold()"
         :command="editorContext.commands.bold"
-        tooltip="bold"
+        tooltip="Bold"
         icon="bold"
       />
 
       <command-button
         :is-active="editorContext.isActive.underline()"
         :command="editorContext.commands.underline"
-        tooltip="underline"
+        tooltip="Underline"
         icon="underline"
       />
 
       <command-button
         :is-active="editorContext.isActive.italic()"
         :command="editorContext.commands.italic"
-        tooltip="italic"
+        tooltip="Italic"
         icon="italic"
       />
 
       <command-button
         :is-active="editorContext.isActive.strike()"
         :command="editorContext.commands.strike"
-        tooltip="strike"
+        tooltip="Strike"
         icon="strikethrough"
       />
 
       <command-button
+        :is-active="editorContext.isActive.bullet_list()"
+        :command="editorContext.commands.bullet_list"
+        tooltip="Bullet list"
+        icon="list-ul"
+      />
+
+      <command-button
+        :is-active="editorContext.isActive.ordered_list()"
+        :command="editorContext.commands.ordered_list"
+        tooltip="Ordered list"
+        icon="list-ol"
+      />
+
+      <command-button
         :command="editorContext.commands.undo"
-        tooltip="undo"
+        tooltip="Undo"
         icon="undo"
       />
 
       <command-button
         :command="editorContext.commands.redo"
-        tooltip="redo"
+        tooltip="Redo"
         icon="redo"
       />
     </div>
