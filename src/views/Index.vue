@@ -17,6 +17,8 @@ import {
 } from 'tiptap';
 
 import {
+  Heading,
+
   Bold,
   Underline,
   Italic,
@@ -45,6 +47,8 @@ export default {
         new Underline(),
         new Italic(),
         new Strike(),
+
+        new Heading({ level: 5 }),
 
         new History(),
       ],

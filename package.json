@@ -29,6 +29,7 @@
   "homepage": "https://github.com/Leecason/el-tiptapr#readme",
   "dependencies": {
     "core-js": "^3.4.3",
+    "prosemirror-utils": "^0.9.6",
     "tiptap": "^1.26.4",
     "tiptap-extensions": "^1.28.4",
     "vue": "^2.6.10",

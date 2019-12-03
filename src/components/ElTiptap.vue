@@ -3,7 +3,7 @@
     v-if="editor"
     class="el-tiptap-editor"
   >
-    <toolbar
+    <menu-bar
       :editor="editor"
     />
 
@@ -17,13 +17,13 @@
 <script>
 import { Editor, EditorContent } from 'tiptap';
 
-import Toolbar from './Toolbar.vue';
+import MenuBar from './MenuBar/index.vue';
 
 export default {
   name: 'ElTiptap',
 
   components: {
-    Toolbar,
+    MenuBar,
     EditorContent,
   },
 
@@ -70,6 +70,15 @@ export default {
     p {
       margin-top: 16px;
       margin-bottom: 16px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin-top: 24px;
+      margin-bottom: 24px;
     }
   }
 }

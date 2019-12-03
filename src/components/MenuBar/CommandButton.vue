@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { noop } from 'utils/shared';
+
 export default {
   name: 'CommandButton',
 
@@ -34,7 +36,10 @@ export default {
       required: true,
     },
 
-    command: Function,
+    command: {
+      type: Function,
+      default: noop,
+    },
   },
 
   computed: {

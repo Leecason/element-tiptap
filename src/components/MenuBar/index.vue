@@ -1,45 +1,49 @@
 <template>
   <editor-menu-bar
-    v-slot="{ commands, isActive }"
+    v-slot="editorContext"
     :editor="editor"
   >
     <div class="el-tiptap-editor__menu-bar">
+      <heading-dropdown
+        :editorContext="editorContext"
+      />
+
       <command-button
-        :isActive="isActive.bold()"
-        :command="commands.bold"
+        :is-active="editorContext.isActive.bold()"
+        :command="editorContext.commands.bold"
         tooltip="bold"
         icon="bold"
       />
 
       <command-button
-        :isActive="isActive.underline()"
-        :command="commands.underline"
+        :is-active="editorContext.isActive.underline()"
+        :command="editorContext.commands.underline"
         tooltip="underline"
         icon="underline"
       />
 
       <command-button
-        :isActive="isActive.italic()"
-        :command="commands.italic"
+        :is-active="editorContext.isActive.italic()"
+        :command="editorContext.commands.italic"
         tooltip="italic"
         icon="italic"
       />
 
       <command-button
-        :isActive="isActive.strike()"
-        :command="commands.strike"
+        :is-active="editorContext.isActive.strike()"
+        :command="editorContext.commands.strike"
         tooltip="strike"
         icon="strikethrough"
       />
 
       <command-button
-        :command="commands.undo"
+        :command="editorContext.commands.undo"
         tooltip="undo"
         icon="undo"
       />
 
       <command-button
-        :command="commands.redo"
+        :command="editorContext.commands.redo"
         tooltip="redo"
         icon="redo"
       />
@@ -49,6 +53,7 @@
 
 <script>
 import { Editor, EditorMenuBar } from 'tiptap';
+import HeadingDropdown from './HeadingDropdown.vue';
 import CommandButton from './CommandButton.vue';
 
 export default {
@@ -56,6 +61,7 @@ export default {
 
   components: {
     EditorMenuBar,
+    HeadingDropdown,
     CommandButton,
   },
 
@@ -64,6 +70,12 @@ export default {
       type: Editor,
       required: true,
     },
+  },
+
+  provide () {
+    return {
+      editor: this.editor,
+    };
   },
 };
 </script>

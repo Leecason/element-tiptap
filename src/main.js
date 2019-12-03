@@ -6,6 +6,9 @@ import {
   Main,
 
   Tooltip,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -19,6 +22,9 @@ Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
 Vue.use(Tooltip);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
 
 new Vue({
   router,
