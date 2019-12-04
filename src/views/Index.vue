@@ -1,6 +1,17 @@
 <template>
   <el-container>
-    <el-header>ElTiptap</el-header>
+    <el-header>
+      <h1>ElTiptap</h1>
+
+      <a
+        href="https://github.com/Leecason/el-tiptap"
+        target="_blank"
+        class="github-link"
+      >
+        <i class="fab fa-github" />
+      </a>
+    </el-header>
+
     <el-main>
       <div class="el-tiptap-editor__wrapper">
         <el-tiptap
@@ -172,21 +183,43 @@ export default {
 </script>
 
 <style lang="scss">
+.el-container {
+  background: linear-gradient(to right, #ecf5ff, #EBEEF5);
+}
+
 .el-header {
   align-items: center;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto!important;
+  padding-top: 20px;
+
+  .github-link {
+    color: #303133;
+    font-size: 30px;
+    transition: color .3s ease-in-out;
+    margin-top: 10px;
+
+    &:hover {
+      color: #409EFF;
+    }
+  }
 }
 
 .el-main {
-  background-color: #fff;
   display: flex;
   justify-content: center;
 }
 
 .el-tiptap-editor {
   &__wrapper {
-    margin-top: 50px;
-    width: 75vw;
+    width: 60vw;
+  }
+
+  &__content {
+    height: 70vh;
+    overflow: auto;
   }
 }
 </style>
