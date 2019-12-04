@@ -27,7 +27,7 @@ function getAttrs (dom) {
     lineHeight,
   } = dom.style;
 
-  let align = dom.getAttribute('align') || textAlign || '';
+  let align = dom.getAttribute('data-text-align') || textAlign || '';
   align = ALIGN_PATTERN.test(align) ? align : null;
 
   const indent = parseInt(dom.getAttribute('data-indent'), 10) || 0;

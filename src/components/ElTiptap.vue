@@ -32,6 +32,11 @@ export default {
       type: Array,
       default: () => [],
     },
+
+    content: {
+      type: String,
+      default: '',
+    },
   },
 
   data () {
@@ -44,6 +49,7 @@ export default {
     this.editor = new Editor({
       useBuiltInExtensions: false,
       extensions: this.extensions,
+      content: this.content,
     });
   },
 };
@@ -105,6 +111,7 @@ export default {
     ul li > p {
       &::before {
         content: '\2022';
+        text-align: center;
       }
     }
 
@@ -114,6 +121,10 @@ export default {
       li > p::before {
         counter-increment: el-tiptap-counter;
       }
+    }
+
+    a {
+      color: #409EFF;
     }
 
     blockquote {
