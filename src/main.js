@@ -10,12 +10,13 @@ import {
   DropdownMenu,
   DropdownItem,
   MessageBox,
+  Dialog,
+  Upload,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import App from './App.vue';
 import router from './router';
-import './style/index.scss';
 
 Vue.config.productionTip = false;
 
@@ -26,6 +27,8 @@ Vue.use(Tooltip);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
+Vue.use(Dialog);
+Vue.use(Upload);
 
 Vue.prototype.$prompt = MessageBox.prompt;
 

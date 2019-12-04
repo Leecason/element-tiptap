@@ -43,6 +43,10 @@
         icon="link"
       />
 
+      <image-upload-command-button
+        :editorContext="editorContext"
+      />
+
       <command-button
         :is-active="editorContext.isActive.code_block()"
         :command="editorContext.commands.code_block"
@@ -148,6 +152,7 @@ import { isTextAlignActive } from '@/extensions/text_align';
 
 import HeadingDropdown from './HeadingDropdown.vue';
 import LineHeightDropdown from './LineHeightDropdown.vue';
+import ImageUploadCommandButton from './ImageUploadCommandButton.vue';
 import CommandButton from './CommandButton.vue';
 
 export default {
@@ -157,6 +162,7 @@ export default {
     EditorMenuBar,
     HeadingDropdown,
     LineHeightDropdown,
+    ImageUploadCommandButton,
     CommandButton,
   },
 

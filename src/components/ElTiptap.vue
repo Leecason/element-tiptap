@@ -138,6 +138,28 @@ export default {
       }
     }
 
+    .image-view {
+      display: inline-block;
+      line-height: 0;
+      margin: 0 .2rem;
+      max-width: 100%;
+      position: relative;
+      user-select: none;
+      vertical-align: baseline;
+
+      &--focused {
+        &::before {
+          border: 2px solid #b3d8ff;;
+          bottom: 0;
+          content: '';
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+
     hr {
       margin-top: 20px;
       margin-bottom: 20px;

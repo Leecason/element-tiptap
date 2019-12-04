@@ -39,6 +39,7 @@ import {
   Heading,
   Blockquote,
   ListItem,
+  Image,
 
   TextAlign,
   Indent,
@@ -72,6 +73,7 @@ export default {
         new Italic(),
         new Strike(),
         new Link(),
+        new Image(),
 
         new Blockquote(),
         new CodeBlock(),

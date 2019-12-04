@@ -9,3 +9,14 @@ export function clamp (val, min, max) {
   }
   return val;
 }
+
+export function readFileDataUrl (file) {
+  const reader = new FileReader();
+
+  return new Promise((resolve, reject) => {
+    reader.onload = readerEvent => resolve(readerEvent.target.result);
+    reader.onerror = reject;
+
+    reader.readAsDataURL(file);
+  });
+}
