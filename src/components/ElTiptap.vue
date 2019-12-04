@@ -16,6 +16,9 @@
 
 <script>
 import { Editor, EditorContent } from 'tiptap';
+import {
+  Placeholder,
+} from 'tiptap-extensions';
 
 import MenuBar from './MenuBar/index.vue';
 
@@ -37,6 +40,11 @@ export default {
       type: String,
       default: '',
     },
+
+    placeholder: {
+      type: String,
+      default: '',
+    },
   },
 
   data () {
@@ -46,9 +54,21 @@ export default {
   },
 
   mounted () {
+    const extensions = this.extensions;
+
+    if (this.placeholder) {
+      extensions.push(
+        new Placeholder({
+          emptyEditorClass: 'el-tiptap-editor--empty',
+          emptyNodeClass: 'el-tiptap-editor__placeholder',
+          emptyNodeText: this.placeholder,
+        })
+      );
+    }
+
     this.editor = new Editor({
       useBuiltInExtensions: false,
-      extensions: this.extensions,
+      extensions,
       content: this.content,
     });
   },
@@ -238,7 +258,7 @@ export default {
     font-size: 16px;
     pointer-events: none;
 
-    &:first-child::before {
+    &.el-tiptap-editor--empty:first-child::before {
       color: #c0c4cc;
       content: attr(data-empty-text);
       float: left;

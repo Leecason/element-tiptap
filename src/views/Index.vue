@@ -17,6 +17,7 @@
         <el-tiptap
           :extensions="extensions"
           :content="content"
+          placeholder="Write something ..."
         />
       </div>
     </el-main>
@@ -45,7 +46,6 @@ import {
   TrailingNode,
 
   History,
-  Placeholder,
 } from 'tiptap-extensions';
 
 import {
@@ -104,9 +104,6 @@ export default {
         new TrailingNode(),
 
         new History(),
-        new Placeholder({
-          emptyNodeClass: 'el-tiptap-editor__placeholder',
-        }),
       ],
 
       content: `
