@@ -16,9 +16,8 @@
 
 <script>
 import { Editor, EditorContent } from 'tiptap';
-import {
-  Placeholder,
-} from 'tiptap-extensions';
+
+import EXTENSION_MAP from '@/extensions';
 
 import MenuBar from './MenuBar/index.vue';
 
@@ -54,23 +53,53 @@ export default {
   },
 
   mounted () {
-    const extensions = this.extensions;
-
-    if (this.placeholder) {
-      extensions.push(
-        new Placeholder({
-          emptyEditorClass: 'el-tiptap-editor--empty',
-          emptyNodeClass: 'el-tiptap-editor__placeholder',
-          emptyNodeText: this.placeholder,
-        })
-      );
-    }
+    const extensions = this.generateExtensions();
 
     this.editor = new Editor({
       useBuiltInExtensions: false,
       extensions,
       content: this.content,
     });
+  },
+
+  methods: {
+    generateExtensions () {
+      const builtInExtensions = ['Doc', 'Text', 'Paragraph'];
+
+      const extensions = builtInExtensions
+        .concat(this.extensions)
+        .reduce((acc, extension) => {
+          const extensionDefinition = Array.isArray(extension) ? extension : [extension];
+
+          const [extensionName, options] = extensionDefinition;
+          const extensionClass = EXTENSION_MAP.get(extensionName);
+
+          if (!extensionClass) {
+            throw new Error(`Incorrect extension '${extensionName}'`);
+          }
+          // eslint-disable-next-line new-cap
+          const abstractExtension = new extensionClass(options);
+
+          return [
+            ...acc,
+            abstractExtension,
+          ];
+        }, []);
+
+      if (this.placeholder) {
+        const placeholderExtensionClass = EXTENSION_MAP.get('Placeholder');
+        extensions.push(
+          // eslint-disable-next-line new-cap
+          new placeholderExtensionClass({
+            emptyEditorClass: 'el-tiptap-editor--empty',
+            emptyNodeClass: 'el-tiptap-editor__placeholder',
+            emptyNodeText: this.placeholder,
+          })
+        );
+      }
+
+      return extensions;
+    },
   },
 };
 </script>

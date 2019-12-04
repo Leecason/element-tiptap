@@ -25,43 +25,6 @@
 </template>
 
 <script>
-import {
-  Doc,
-  Text,
-} from 'tiptap';
-
-import {
-  Bold,
-  Underline,
-  Italic,
-  Strike,
-  Link,
-
-  CodeBlock,
-
-  BulletList,
-  OrderedList,
-
-  HorizontalRule,
-  TrailingNode,
-
-  History,
-} from 'tiptap-extensions';
-
-import {
-  Paragraph,
-  Heading,
-  Blockquote,
-  ListItem,
-  Image,
-  TodoItem,
-  TodoList,
-
-  TextAlign,
-  Indent,
-  LineHeight,
-} from '@/extensions';
-
 import ElTiptap from '../components/ElTiptap';
 
 export default {
@@ -74,36 +37,32 @@ export default {
   data () {
     return {
       extensions: [
-        new TextAlign(),
-        new Indent(),
-        new LineHeight(),
+        'TextAlign',
+        'Indent',
+        'LineHeight',
 
-        new Doc(),
-        new Text(),
-        new Paragraph(),
+        ['Heading', { level: 5 }],
 
-        new Heading({ level: 5 }),
+        'Bold',
+        'Underline',
+        'Italic',
+        'Strike',
+        'Link',
+        'Image',
 
-        new Bold(),
-        new Underline(),
-        new Italic(),
-        new Strike(),
-        new Link(),
-        new Image(),
+        'Blockquote',
+        'CodeBlock',
 
-        new Blockquote(),
-        new CodeBlock(),
+        'ListItem',
+        'BulletList',
+        'OrderedList',
+        'TodoItem',
+        'TodoList',
 
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-        new TodoItem(),
-        new TodoList(),
+        'HorizontalRule',
+        'TrailingNode',
 
-        new HorizontalRule(),
-        new TrailingNode(),
-
-        new History(),
+        'History',
       ],
 
       content: `

@@ -1,13 +1,63 @@
+import { Doc, Text } from 'tiptap';
+
+import {
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Link,
+
+  CodeBlock,
+
+  BulletList,
+  OrderedList,
+
+  HorizontalRule,
+  TrailingNode,
+
+  History,
+  Placeholder,
+} from 'tiptap-extensions';
+
 // nodes
-export { default as Paragraph } from './paragraph';
-export { default as Heading } from './heading';
-export { default as Blockquote } from './blockquote';
-export { default as ListItem } from './list_item';
-export { default as Image } from './image';
-export { default as TodoItem } from './todo_item';
-export { default as TodoList } from './todo_list';
+import Paragraph from './paragraph';
+import Heading from './heading';
+import Blockquote from './blockquote';
+import ListItem from './list_item';
+import Image from './image';
+import TodoItem from './todo_item';
+import TodoList from './todo_list';
 
 // extensions
-export { default as TextAlign } from './text_align';
-export { default as Indent } from './indent';
-export { default as LineHeight } from './line_height';
+import TextAlign from './text_align';
+import Indent from './indent';
+import LineHeight from './line_height';
+
+const EXTENSION_MAP = new Map([
+  ['Doc', Doc],
+  ['Text', Text],
+  ['Paragraph', Paragraph],
+  ['Bold', Bold],
+  ['Underline', Underline],
+  ['Italic', Italic],
+  ['Strike', Strike],
+  ['Heading', Heading],
+  ['Link', Link],
+  ['Blockquote', Blockquote],
+  ['CodeBlock', CodeBlock],
+  ['ListItem', ListItem],
+  ['BulletList', BulletList],
+  ['OrderedList', OrderedList],
+  ['Image', Image],
+  ['TodoItem', TodoItem],
+  ['TodoList', TodoList],
+  ['HorizontalRule', HorizontalRule],
+  ['TrailingNode', TrailingNode],
+  ['History', History],
+  ['Placeholder', Placeholder],
+  ['TextAlign', TextAlign],
+  ['Indent', Indent],
+  ['LineHeight', LineHeight],
+]);
+
+export default EXTENSION_MAP;
