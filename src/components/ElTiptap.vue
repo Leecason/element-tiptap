@@ -59,7 +59,12 @@ export default {
       useBuiltInExtensions: false,
       extensions,
       content: this.content,
+      onUpdate: this.onUpdate.bind(this)
     });
+  },
+
+  beforeDestroy () {
+    if (this.editor) this.editor.destroy();
   },
 
   methods: {
@@ -99,6 +104,10 @@ export default {
       }
 
       return extensions;
+    },
+
+    onUpdate (options) {
+      this.$emit('onUpdate', options);
     },
   },
 };
