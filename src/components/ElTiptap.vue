@@ -5,7 +5,17 @@
   >
     <menu-bar
       :editor="editor"
-    />
+    >
+      <template
+        v-if="$scopedSlots.menubar"
+        v-slot="slotProps"
+      >
+        <slot
+          name="menubar"
+          v-bind="slotProps"
+        />
+      </template>
+    </menu-bar>
 
     <editor-content
       :editor="editor"
