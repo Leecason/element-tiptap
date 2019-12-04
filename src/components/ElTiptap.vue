@@ -160,6 +160,43 @@ export default {
       }
     }
 
+    ul[data-type=todo_list] {
+      margin-left: 5px;
+
+      .todo-item {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0;
+
+        .todo-checkbox {
+          color: #dcdfe6;
+          cursor: pointer;
+          display: inline-flex;
+          font-size: 18px;
+          margin-top: 14px;
+        }
+
+        .todo-content {
+          padding-left: 10px;
+
+          > p {
+            font-size: 16px;
+          }
+        }
+
+        &--done {
+          > .todo-checkbox {
+            color: #409EFF;
+          }
+
+          > .todo-content > p {
+            color: #409EFF;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+
     hr {
       margin-top: 20px;
       margin-bottom: 20px;

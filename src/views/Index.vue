@@ -40,6 +40,8 @@ import {
   Blockquote,
   ListItem,
   Image,
+  TodoItem,
+  TodoList,
 
   TextAlign,
   Indent,
@@ -81,6 +83,8 @@ export default {
         new ListItem(),
         new BulletList(),
         new OrderedList(),
+        new TodoItem(),
+        new TodoList(),
 
         new HorizontalRule(),
         new TrailingNode(),

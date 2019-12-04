@@ -107,6 +107,13 @@
       />
 
       <command-button
+        :is-active="editorContext.isActive.todo_list()"
+        :command="editorContext.commands.todo_list"
+        tooltip="Todo list"
+        icon="check-square"
+      />
+
+      <command-button
         :command="editorContext.commands.indent"
         tooltip="Indent"
         icon="indent"
