@@ -36,11 +36,8 @@
         icon="strikethrough"
       />
 
-      <command-button
-        :is-active="editorContext.isActive.link()"
-        :command="openApplyLinkControl"
-        tooltip="Apply link"
-        icon="link"
+      <add-link-command-button
+        :editorContext="editorContext"
       />
 
       <image-upload-command-button
@@ -158,6 +155,7 @@ import { Editor, EditorMenuBar } from 'tiptap';
 import { isTextAlignActive } from '@/extensions/text_align';
 
 import HeadingDropdown from './HeadingDropdown.vue';
+import AddLinkCommandButton from './AddLinkCommandButton.vue';
 import LineHeightDropdown from './LineHeightDropdown.vue';
 import ImageUploadCommandButton from './ImageUploadCommandButton.vue';
 import CommandButton from './CommandButton.vue';
@@ -168,6 +166,7 @@ export default {
   components: {
     EditorMenuBar,
     HeadingDropdown,
+    AddLinkCommandButton,
     LineHeightDropdown,
     ImageUploadCommandButton,
     CommandButton,
@@ -189,19 +188,6 @@ export default {
   methods: {
     isTextAlignActive (align) {
       return isTextAlignActive(this.editor.state, align);
-    },
-
-    openApplyLinkControl () {
-      this.$prompt('', 'Apply link', {
-        confirmButtonText: 'Apply',
-        cancelButtonText: 'Close',
-        inputPlaceholder: 'Href',
-        roundButton: true,
-      }).then(({ value: href }) => {
-        this.editor.commands.link({ href });
-      }).catch(() => {
-        this.editor.focus();
-      });
     },
   },
 };

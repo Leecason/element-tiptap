@@ -7,6 +7,7 @@
   >
     <div
       :class="classes"
+      @mousedown.prevent
       @click="command"
     >
       <i :class="`fa fa-${icon}`" />
