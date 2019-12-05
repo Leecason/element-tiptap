@@ -1,7 +1,10 @@
 <template>
   <el-container>
     <el-header>
-      <h1>ElTiptap</h1>
+      <img
+        src="@/assets/logo.png"
+        class="logo"
+      >
 
       <a
         href="https://github.com/Leecason/el-tiptap"
@@ -145,7 +148,7 @@ export default {
 
 <style lang="scss">
 .el-container {
-  background: linear-gradient(to right, #ecf5ff, #EBEEF5);
+  background: linear-gradient(135deg, rgb(0, 103, 245), rgb(13, 197, 231) 75%);
 }
 
 .el-header {
@@ -156,10 +159,14 @@ export default {
   height: auto!important;
   padding-top: 20px;
 
+  .logo {
+    height: 60px;
+  }
+
   .github-link {
-    color: #303133;
+    color: #fff;
     transition: color .3s ease-in-out;
-    margin-top: 10px;
+    margin-top: 20px;
 
     &:hover {
       color: #409EFF;

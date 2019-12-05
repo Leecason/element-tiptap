@@ -231,6 +231,8 @@ export default {
   &__menu-bar {
     background-color: #F5F7FA;
     border-bottom: 1px solid #EBEEF5;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     padding: 5px;

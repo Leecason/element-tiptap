@@ -126,6 +126,7 @@ export default {
 <style lang="scss">
 .el-tiptap-editor {
   border: 1px solid #EBEEF5;
+  border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   display: flex;
@@ -133,6 +134,8 @@ export default {
 
   &__content {
     background-color: #fff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     flex-grow: 1;
     padding: 5px;
   }
