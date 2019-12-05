@@ -10,13 +10,65 @@
       @mousedown.prevent
       @click="command"
     >
-      <i :class="`fa fa-${icon}`" />
+      <font-awesome-icon :icon="icon" />
     </div>
   </el-tooltip>
 </template>
 
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faHeading,
+  faBold,
+  faUnderline,
+  faItalic,
+  faStrikethrough,
+  faLink,
+  faImage,
+  faCode,
+  faQuoteRight,
+  faAlignLeft,
+  faAlignCenter,
+  faAlignRight,
+  faAlignJustify,
+  faTextHeight,
+  faListUl,
+  faListOl,
+  faCheckSquare,
+  faIndent,
+  faOutdent,
+  faMinus,
+  faParagraph,
+  faUndo,
+  faRedo,
+} from '@fortawesome/free-solid-svg-icons';
 import { noop } from 'utils/shared';
+
+library.add(
+  faHeading,
+  faBold,
+  faUnderline,
+  faItalic,
+  faStrikethrough,
+  faLink,
+  faImage,
+  faCode,
+  faQuoteRight,
+  faAlignLeft,
+  faAlignCenter,
+  faAlignRight,
+  faAlignJustify,
+  faTextHeight,
+  faListUl,
+  faListOl,
+  faCheckSquare,
+  faIndent,
+  faOutdent,
+  faMinus,
+  faParagraph,
+  faUndo,
+  faRedo,
+);
 
 export default {
   name: 'CommandButton',

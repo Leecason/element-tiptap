@@ -8,7 +8,7 @@
         target="_blank"
         class="github-link"
       >
-        <i class="fab fa-github" />
+        <font-awesome-icon :icon="['fab', 'github']" size="2x" />
       </a>
     </el-header>
 
@@ -25,7 +25,12 @@
 </template>
 
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 import ElTiptap from '../components/ElTiptap';
+
+library.add(faGithub);
 
 export default {
   name: 'index',
@@ -153,7 +158,6 @@ export default {
 
   .github-link {
     color: #303133;
-    font-size: 30px;
     transition: color .3s ease-in-out;
     margin-top: 10px;
 
