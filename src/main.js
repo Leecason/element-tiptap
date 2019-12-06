@@ -5,6 +5,8 @@ import {
   Header,
   Main,
 
+  Button,
+
   Tooltip,
   Dropdown,
   DropdownMenu,
@@ -24,6 +26,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
+Vue.use(Button);
 Vue.use(Tooltip);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);

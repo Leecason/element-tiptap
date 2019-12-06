@@ -137,6 +137,7 @@ export default {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     flex-grow: 1;
+    overflow: auto;
     padding: 5px;
   }
 
