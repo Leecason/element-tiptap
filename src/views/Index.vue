@@ -17,7 +17,31 @@
       </div>
 
       <div class="header__right">
-        <el-button type="primary" plain>Basic</el-button>
+        <router-link
+          :to="{ name: 'Basic' }"
+          v-slot="{ navigate, isExactActive }"
+          class="action"
+        >
+          <el-button
+            :type="isExactActive ? 'primary' : ''"
+            @click="navigate"
+          >
+            Basic
+          </el-button>
+        </router-link>
+
+        <router-link
+          :to="{ name: 'Output' }"
+          v-slot="{ navigate, isActive, isExactActive }"
+          class="action"
+        >
+          <el-button
+            :type="isActive ? 'primary' : ''"
+            @click="navigate"
+          >
+            Output
+          </el-button>
+        </router-link>
       </div>
     </el-header>
 
@@ -61,6 +85,16 @@ export default {
       height: 60px;
       margin-bottom: 20px;
     }
+
+    .github-link {
+      color: #fff;
+      transition: color .3s ease-in-out;
+      margin-top: 20px;
+
+      &:hover {
+        color: #409EFF;
+      }
+    }
   }
 
   &__right {
@@ -69,15 +103,9 @@ export default {
     display: flex;
     justify-content: flex-end;
     margin-top: 50px;
-  }
 
-  .github-link {
-    color: #fff;
-    transition: color .3s ease-in-out;
-    margin-top: 20px;
-
-    &:hover {
-      color: #409EFF;
+    .action {
+      margin: 10px;
     }
   }
 }

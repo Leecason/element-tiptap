@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Index from '../views/Index.vue';
 import Basic from '../views/Basic.vue';
+import Output from '../views/Output.vue';
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
         name: 'Basic',
         path: '/',
         component: Basic,
+      },
+      {
+        name: 'Output',
+        path: '/output',
+        component: Output,
       },
     ],
   },

@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .el-tiptap-editor {
   &__wrapper {
     display: flex;
