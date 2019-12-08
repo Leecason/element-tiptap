@@ -31,6 +31,19 @@
         </router-link>
 
         <router-link
+          :to="{ name: 'MenuBubble' }"
+          v-slot="{ navigate, isActive, isExactActive }"
+          class="action"
+        >
+          <el-button
+            :type="isActive ? 'primary' : ''"
+            @click="navigate"
+          >
+            Menu Bubble
+          </el-button>
+        </router-link>
+
+        <router-link
           :to="{ name: 'Output' }"
           v-slot="{ navigate, isActive, isExactActive }"
           class="action"

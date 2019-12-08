@@ -3,13 +3,13 @@ import VueRouter from 'vue-router';
 import Index from '../views/Index.vue';
 import Basic from '../views/Basic.vue';
 import Output from '../views/Output.vue';
+import MenuBubble from '../views/MenuBubble.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'index',
     component: Index,
     children: [
       {
@@ -21,6 +21,11 @@ const routes = [
         name: 'Output',
         path: '/output',
         component: Output,
+      },
+      {
+        name: 'MenuBubble',
+        path: '/menu_bubble',
+        component: MenuBubble,
       },
     ],
   },

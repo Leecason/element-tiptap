@@ -4,6 +4,7 @@
     class="el-tiptap-editor"
   >
     <menu-bubble
+      v-if="bubbleMenuVisible"
       :editor="editor"
     >
       <template
@@ -78,6 +79,15 @@ export default {
     };
   },
 
+  computed: {
+    bubbleMenuVisible () {
+      const extensionManager = this.editor.extensions;
+      return extensionManager.extensions.some(extension => {
+        return extension.options && extension.options.bubble;
+      });
+    },
+  },
+
   mounted () {
     const extensions = this.generateExtensions();
 
@@ -102,7 +112,7 @@ export default {
         .reduce((acc, extension) => {
           const extensionDefinition = Array.isArray(extension) ? extension : [extension];
 
-          const [extensionName, options] = extensionDefinition;
+          const [extensionName, options = {}] = extensionDefinition;
           const extensionClass = EXTENSION_MAP.get(extensionName);
 
           if (!extensionClass) {
@@ -147,7 +157,9 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   display: flex;
   flex-direction: column;
+  max-height: 100%;
   position: relative;
+  width: 100%;
 
   &__content {
     background-color: #fff;

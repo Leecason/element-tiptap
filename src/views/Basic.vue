@@ -19,21 +19,21 @@ export default {
   data () {
     return {
       extensions: [
-        ['TextAlign', { bubble: true }],
-        ['Indent', { bubble: true }],
-        ['LineHeight', { bubble: true }],
+        'TextAlign',
+        'Indent',
+        'LineHeight',
 
         ['Heading', { level: 5 }],
 
-        ['Bold', { bubble: true }],
-        ['Underline', { bubble: true }],
-        ['Italic', { bubble: true }],
-        ['Strike', { bubble: true }],
-        ['Link', { bubble: true }],
+        'Bold',
+        'Underline',
+        'Italic',
+        'Strike',
+        'Link',
         'Image',
 
-        ['Blockquote', { bubble: true }],
-        ['CodeBlock', { bubble: true }],
+        'Blockquote',
+        'CodeBlock',
 
         'ListItem',
         'BulletList',
@@ -123,8 +123,6 @@ export default {
 <style lang="scss" scoped>
 .el-tiptap-editor {
   &__wrapper {
-    display: flex;
-    max-height: 100%;
     width: 60vw;
   }
 }
