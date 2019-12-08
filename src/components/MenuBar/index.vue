@@ -178,11 +178,11 @@
 import { Editor, EditorMenuBar } from 'tiptap';
 import { isTextAlignActive } from '@/extensions/text_align';
 
-import HeadingDropdown from './HeadingDropdown.vue';
-import AddLinkCommandButton from './AddLinkCommandButton.vue';
-import LineHeightDropdown from './LineHeightDropdown.vue';
-import ImageUploadCommandButton from './ImageUploadCommandButton.vue';
-import CommandButton from './CommandButton.vue';
+import HeadingDropdown from '../MenuCommands/HeadingDropdown.vue';
+import AddLinkCommandButton from '../MenuCommands/AddLinkCommandButton.vue';
+import LineHeightDropdown from '../MenuCommands/LineHeightDropdown.vue';
+import ImageUploadCommandButton from '../MenuCommands/ImageUploadCommandButton.vue';
+import CommandButton from '../MenuCommands/CommandButton.vue';
 
 export default {
   name: 'Menubar',
