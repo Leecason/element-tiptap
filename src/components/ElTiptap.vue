@@ -3,6 +3,20 @@
     v-if="editor"
     class="el-tiptap-editor"
   >
+    <menu-bubble
+      :editor="editor"
+    >
+      <template
+        v-if="$scopedSlots.menububble"
+        v-slot="slotProps"
+      >
+        <slot
+          name="menububble"
+          v-bind="slotProps"
+        />
+      </template>
+    </menu-bubble>
+
     <menu-bar
       :editor="editor"
     >
@@ -30,12 +44,14 @@ import { Editor, EditorContent } from 'tiptap';
 import EXTENSION_MAP from '@/extensions';
 
 import MenuBar from './MenuBar/index.vue';
+import MenuBubble from './MenuBubble/index.vue';
 
 export default {
   name: 'ElTiptap',
 
   components: {
     MenuBar,
+    MenuBubble,
     EditorContent,
   },
 
@@ -131,6 +147,7 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   display: flex;
   flex-direction: column;
+  position: relative;
 
   &__content {
     background-color: #fff;

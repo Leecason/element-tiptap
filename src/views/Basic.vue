@@ -19,21 +19,21 @@ export default {
   data () {
     return {
       extensions: [
-        'TextAlign',
-        'Indent',
-        'LineHeight',
+        ['TextAlign', { bubble: true }],
+        ['Indent', { bubble: true }],
+        ['LineHeight', { bubble: true }],
 
         ['Heading', { level: 5 }],
 
-        'Bold',
-        'Underline',
-        'Italic',
-        'Strike',
-        'Link',
+        ['Bold', { bubble: true }],
+        ['Underline', { bubble: true }],
+        ['Italic', { bubble: true }],
+        ['Strike', { bubble: true }],
+        ['Link', { bubble: true }],
         'Image',
 
-        'Blockquote',
-        'CodeBlock',
+        ['Blockquote', { bubble: true }],
+        ['CodeBlock', { bubble: true }],
 
         'ListItem',
         'BulletList',

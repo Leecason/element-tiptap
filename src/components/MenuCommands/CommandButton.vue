@@ -123,6 +123,7 @@ export default {
 
     &:hover {
       background-color: #ecf5ff;
+      border-color: transparent;
       color: #409EFF;
     }
 
