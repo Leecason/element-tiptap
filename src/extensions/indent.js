@@ -1,6 +1,6 @@
 import { Extension } from 'tiptap';
 import { TextSelection, AllSelection } from 'prosemirror-state';
-
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import { clamp } from '../utils/shared';
 import { isListNode } from '../utils/list';
 
@@ -28,6 +28,27 @@ export default class Indent extends Extension {
       Tab: this.createIndentCommand(1),
       'Shift-Tab': this.createIndentCommand(-1),
     };
+  }
+
+  menuBtnView ({ commands }) {
+    return [
+      {
+        component: CommandButton,
+        componentProps: {
+          command: commands.indent,
+          icon: 'indent',
+          tooltip: 'Indent',
+        },
+      },
+      {
+        component: CommandButton,
+        componentProps: {
+          command: commands.outdent,
+          icon: 'outdent',
+          tooltip: 'Outdent',
+        },
+      },
+    ];
   }
 
   createIndentCommand (delta) {

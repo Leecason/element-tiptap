@@ -1,5 +1,6 @@
 import { Extension } from 'tiptap';
 import { TextSelection, AllSelection } from 'prosemirror-state';
+import LineHeightDropdown from '@/components/MenuCommands/LineHeightDropdown.vue';
 
 const ALLOWED_NODE_TYPES = [
   'paragraph',
@@ -42,6 +43,15 @@ export default class LineHeight extends Extension {
 
   commands () {
     return ({ lineHeight }) => this.createLineHeightCommand(lineHeight);
+  }
+
+  menuBtnView (editorContext) {
+    return {
+      component: LineHeightDropdown,
+      componentProps: {
+        editorContext,
+      },
+    };
   }
 
   createLineHeightCommand (lineHeight) {

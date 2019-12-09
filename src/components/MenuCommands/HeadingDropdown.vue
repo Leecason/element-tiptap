@@ -37,8 +37,6 @@ export default {
     CommandButton,
   },
 
-  inject: ['editor'],
-
   props: {
     editorContext: {
       type: Object,
@@ -47,6 +45,10 @@ export default {
   },
 
   computed: {
+    editor () {
+      return this.editorContext.editor;
+    },
+
     level () {
       return this.editor.extensions.options.heading.level;
     },

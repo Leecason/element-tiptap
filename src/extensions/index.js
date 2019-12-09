@@ -1,21 +1,8 @@
 import { Doc, Text } from 'tiptap';
 
 import {
-  Bold,
-  Underline,
-  Italic,
-  Strike,
-  Link,
-
-  CodeBlock,
-
-  BulletList,
-  OrderedList,
-
-  HorizontalRule,
   TrailingNode,
 
-  History,
   Placeholder,
 } from 'tiptap-extensions';
 
@@ -23,12 +10,24 @@ import {
 import Paragraph from './paragraph';
 import Heading from './heading';
 import Blockquote from './blockquote';
+import CodeBlock from './code_block';
 import ListItem from './list_item';
+import BulletList from './bullet_list';
+import OrderedList from './ordered_list';
 import Image from './image';
 import TodoItem from './todo_item';
 import TodoList from './todo_list';
 
+// marks
+import Bold from './bold';
+import Underline from './underline';
+import Italic from './italic';
+import Strike from './strike';
+import Link from './link';
+
 // extensions
+import HorizontalRule from './horizontal_rule';
+import History from './history';
 import TextAlign from './text_align';
 import Indent from './indent';
 import LineHeight from './line_height';

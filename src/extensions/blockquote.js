@@ -1,5 +1,5 @@
 import { Blockquote as TiptapBlockquote } from 'tiptap-extensions';
-
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 
 const BlockquoteNodeSpec = {
@@ -30,5 +30,17 @@ function toDOM (node) {
 export default class Blockquote extends TiptapBlockquote {
   get schema () {
     return BlockquoteNodeSpec;
+  }
+
+  menuBtnView ({ isActive, commands }) {
+    return {
+      component: CommandButton,
+      componentProps: {
+        command: commands.blockquote,
+        isActive: isActive.blockquote(),
+        icon: 'quote-right',
+        tooltip: 'Block quote',
+      },
+    };
   }
 }

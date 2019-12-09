@@ -35,8 +35,6 @@ export default {
     CommandButton,
   },
 
-  inject: ['editor'],
-
   props: {
     editorContext: {
       type: Object,
@@ -45,6 +43,10 @@ export default {
   },
 
   computed: {
+    editor () {
+      return this.editorContext.editor;
+    },
+
     lineHeights () {
       return this.editor.extensions.options.line_height.lineHeights;
     },

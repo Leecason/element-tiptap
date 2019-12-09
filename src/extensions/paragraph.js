@@ -1,5 +1,5 @@
 import { Paragraph as TiptapParagraph } from 'tiptap';
-
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import { ALIGN_PATTERN } from './text_align';
 import {
   LINE_HEIGHT_VALUE_MAP,
@@ -72,6 +72,18 @@ function toDOM (node) {
 export default class Paragraph extends TiptapParagraph {
   get schema () {
     return ParagraphNodeSpec;
+  }
+
+  menuBtnView ({ isActive, commands }) {
+    return {
+      component: CommandButton,
+      componentProps: {
+        isActive: isActive.paragraph(),
+        command: commands.paragraph,
+        icon: 'paragraph',
+        tooltip: 'Paragraph',
+      },
+    };
   }
 }
 

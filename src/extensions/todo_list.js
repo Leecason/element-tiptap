@@ -1,5 +1,5 @@
 import { TodoList as TiptapTodoList } from 'tiptap-extensions';
-
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 export default class TodoList extends TiptapTodoList {
   get schema () {
     return {
@@ -22,6 +22,18 @@ export default class TodoList extends TiptapTodoList {
         attrs['data-type'] = this.name;
 
         return ['ul', attrs, 0];
+      },
+    };
+  }
+
+  menuBtnView ({ isActive, commands }) {
+    return {
+      component: CommandButton,
+      componentProps: {
+        isActive: isActive.todo_list(),
+        command: commands.todo_list,
+        icon: 'check-square',
+        tooltip: 'Todo List',
       },
     };
   }

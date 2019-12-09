@@ -1,4 +1,5 @@
 import { Extension } from 'tiptap';
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const ALLOWED_NODE_TYPES = [
   'paragraph',
@@ -75,6 +76,46 @@ export default class TextAlign extends Extension {
 
       return false;
     };
+  }
+
+  menuBtnView ({ commands, editor }) {
+    return [
+      {
+        component: CommandButton,
+        componentProps: {
+          command: commands.align_left,
+          icon: 'align-left',
+          tooltip: 'Align left',
+        },
+      },
+      {
+        component: CommandButton,
+        componentProps: {
+          isActive: isTextAlignActive(editor.state, 'center'),
+          command: commands.align_center,
+          icon: 'align-center',
+          tooltip: 'Align center',
+        },
+      },
+      {
+        component: CommandButton,
+        componentProps: {
+          isActive: isTextAlignActive(editor.state, 'right'),
+          command: commands.align_right,
+          icon: 'align-right',
+          tooltip: 'Align right',
+        },
+      },
+      {
+        component: CommandButton,
+        componentProps: {
+          isActive: isTextAlignActive(editor.state, 'justify'),
+          command: commands.align_justify,
+          icon: 'align-justify',
+          tooltip: 'Align justify',
+        },
+      },
+    ];
   }
 }
 
