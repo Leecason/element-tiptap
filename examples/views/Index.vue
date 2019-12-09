@@ -3,7 +3,7 @@
     <el-header class="header">
       <div class="header__left">
         <img
-          src="@/assets/logo.png"
+          src="~examples/assets/logo.png"
           class="logo"
         >
 

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ElTiptap from '../components/ElTiptap';
+import { ElTiptap } from 'el-tiptap';
 
 export default {
   components: {

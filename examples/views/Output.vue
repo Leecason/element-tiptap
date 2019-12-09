@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import ElTiptap from '../components/ElTiptap';
+import { ElTiptap } from 'el-tiptap';
 
 const PLACEHOLDER = 'Write something to view output.';
 
