@@ -1,4 +1,5 @@
 import ElTiptap from './components/ElTiptap.vue';
+export * from './extensions/index';
 
 export { ElTiptap };
 

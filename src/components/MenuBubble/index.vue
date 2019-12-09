@@ -14,107 +14,11 @@
         `"
         class="el-tiptap-editor__menu-bubble"
       >
-        <command-button
-          v-if="extensionAvailable('bold')"
-          :is-active="editorContext.isActive.bold()"
-          :command="editorContext.commands.bold"
-          tooltip="Bold"
-          icon="bold"
-        />
-
-        <command-button
-          v-if="extensionAvailable('underline')"
-          :is-active="editorContext.isActive.underline()"
-          :command="editorContext.commands.underline"
-          tooltip="Underline"
-          icon="underline"
-        />
-
-        <command-button
-          v-if="extensionAvailable('italic')"
-          :is-active="editorContext.isActive.italic()"
-          :command="editorContext.commands.italic"
-          tooltip="Italic"
-          icon="italic"
-        />
-
-        <command-button
-          v-if="extensionAvailable('strike')"
-          :is-active="editorContext.isActive.strike()"
-          :command="editorContext.commands.strike"
-          tooltip="Strike through"
-          icon="strikethrough"
-        />
-
-        <add-link-command-button
-          v-if="extensionAvailable('link')"
-          :editorContext="editorContext"
-        />
-
-        <command-button
-          v-if="extensionAvailable('code_block')"
-          :is-active="editorContext.isActive.code_block()"
-          :command="editorContext.commands.code_block"
-          tooltip="Code block"
-          icon="code"
-        />
-
-        <command-button
-          v-if="extensionAvailable('blockquote')"
-          :is-active="editorContext.isActive.blockquote()"
-          :command="editorContext.commands.blockquote"
-          tooltip="Block quote"
-          icon="quote-right"
-        />
-
-        <command-button
-          v-if="extensionAvailable('text_align')"
-          :command="editorContext.commands.align_left"
-          tooltip="Align left"
-          icon="align-left"
-        />
-
-        <command-button
-          v-if="extensionAvailable('text_align')"
-          :is-active="isTextAlignActive('center')"
-          :command="editorContext.commands.align_center"
-          tooltip="Align center"
-          icon="align-center"
-        />
-
-        <command-button
-          v-if="extensionAvailable('text_align')"
-          :is-active="isTextAlignActive('right')"
-          :command="editorContext.commands.align_right"
-          tooltip="Align right"
-          icon="align-right"
-        />
-
-        <command-button
-          v-if="extensionAvailable('text_align')"
-          :is-active="isTextAlignActive('justify')"
-          :command="editorContext.commands.align_justify"
-          tooltip="Align justify"
-          icon="align-justify"
-        />
-
-        <line-height-dropdown
-          v-if="extensionAvailable('line_height')"
-          :editorContext="editorContext"
-        />
-
-        <command-button
-          v-if="extensionAvailable('indent')"
-          :command="editorContext.commands.indent"
-          tooltip="Indent"
-          icon="indent"
-        />
-
-        <command-button
-          v-if="extensionAvailable('indent')"
-          :command="editorContext.commands.outdent"
-          tooltip="Outdent"
-          icon="outdent"
+        <component
+          v-for="(spec, i) in generateCommandButtonComponentSpecs(editorContext)"
+          :key="'command-button' + i"
+          :is="spec.component"
+          v-bind="spec.componentProps"
         />
       </div>
     </slot>
@@ -123,20 +27,12 @@
 
 <script>
 import { Editor, EditorMenuBubble } from 'tiptap';
-import { isTextAlignActive } from '@/extensions/text_align';
-
-import AddLinkCommandButton from '../MenuCommands/AddLinkCommandButton.vue';
-import LineHeightDropdown from '../MenuCommands/LineHeightDropdown.vue';
-import CommandButton from '../MenuCommands/CommandButton.vue';
 
 export default {
   name: 'MenuBubble',
 
   components: {
     EditorMenuBubble,
-    CommandButton,
-    AddLinkCommandButton,
-    LineHeightDropdown,
   },
 
   props: {
@@ -146,24 +42,29 @@ export default {
     },
   },
 
-  provide () {
-    return {
-      editor: this.editor,
-    };
-  },
-
   methods: {
-    isTextAlignActive (align) {
-      return isTextAlignActive(this.editor.state, align);
-    },
-
-    extensionAvailable (name) {
+    generateCommandButtonComponentSpecs (editorContext) {
       const extensionManager = this.editor.extensions;
-      const found = extensionManager.extensions.find(extension => {
-        return extension.name === name && extension.options.bubble;
-      });
+      return extensionManager.extensions.reduce((acc, extension) => {
+        if (!extension.options.bubble) return acc;
+        if (typeof extension.menuBtnView !== 'function') return acc;
 
-      return !!found;
+        const menuBtnComponentSpec = extension.menuBtnView({
+          ...editorContext,
+          editor: this.editor,
+        });
+        if (Array.isArray(menuBtnComponentSpec)) {
+          return [
+            ...acc,
+            ...menuBtnComponentSpec,
+          ];
+        }
+
+        return [
+          ...acc,
+          menuBtnComponentSpec,
+        ];
+      }, []);
     },
   },
 };

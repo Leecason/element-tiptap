@@ -42,7 +42,7 @@
 <script>
 import { Editor, EditorContent } from 'tiptap';
 
-import EXTENSION_MAP from '@/extensions';
+import { Placeholder } from '@/extensions';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
@@ -96,7 +96,7 @@ export default {
     bubbleMenuVisible () {
       const extensionManager = this.editor.extensions;
       return extensionManager.extensions.some(extension => {
-        return extension.options && extension.options.bubble;
+        return extension.options.bubble;
       });
     },
   },
@@ -133,33 +133,11 @@ export default {
 
   methods: {
     generateExtensions () {
-      const builtInExtensions = ['Doc', 'Text', 'Paragraph'];
-
-      const extensions = builtInExtensions
-        .concat(this.extensions)
-        .reduce((acc, extension) => {
-          const extensionDefinition = Array.isArray(extension) ? extension : [extension];
-
-          const [extensionName, options = {}] = extensionDefinition;
-          const extensionClass = EXTENSION_MAP.get(extensionName);
-
-          if (!extensionClass) {
-            throw new Error(`Incorrect extension '${extensionName}'`);
-          }
-          // eslint-disable-next-line new-cap
-          const abstractExtension = new extensionClass(options);
-
-          return [
-            ...acc,
-            abstractExtension,
-          ];
-        }, []);
+      const extensions = this.extensions;
 
       if (this.placeholder) {
-        const placeholderExtensionClass = EXTENSION_MAP.get('Placeholder');
         extensions.push(
-          // eslint-disable-next-line new-cap
-          new placeholderExtensionClass({
+          new Placeholder({
             emptyEditorClass: 'el-tiptap-editor--empty',
             emptyNodeClass: 'el-tiptap-editor__placeholder',
             emptyNodeText: this.placeholder,

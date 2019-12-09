@@ -23,7 +23,27 @@
 </template>
 
 <script>
-import { ElTiptap } from 'el-tiptap';
+import {
+  ElTiptap,
+
+  Doc,
+  Text,
+  Paragraph,
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Blockquote,
+  CodeBlock,
+  ListItem,
+  BulletList,
+  OrderedList,
+  TextAlign,
+  Indent,
+  LineHeight,
+  TrailingNode,
+  History,
+} from 'el-tiptap';
 
 const PLACEHOLDER = 'Write something to view output.';
 
@@ -35,21 +55,23 @@ export default {
   data () {
     return {
       extensions: [
-        'TextAlign',
-        'Indent',
-        'LineHeight',
-        ['Heading', { level: 4 }],
-        'Bold',
-        'Underline',
-        'Italic',
-        'Strike',
-        'Blockquote',
-        'CodeBlock',
-        'ListItem',
-        'BulletList',
-        'OrderedList',
-        'TrailingNode',
-        'History',
+        new Doc(),
+        new Text(),
+        new Paragraph(),
+        new Bold(),
+        new Underline(),
+        new Italic(),
+        new Strike(),
+        new Blockquote(),
+        new CodeBlock(),
+        new TextAlign(),
+        new LineHeight(),
+        new ListItem(),
+        new BulletList(),
+        new OrderedList(),
+        new Indent(),
+        new TrailingNode(),
+        new History(),
       ],
 
       output: {
@@ -62,7 +84,7 @@ export default {
   },
 
   methods: {
-    onUpdate (options) {
+    onUpdate (output, options) {
       const { getJSON, getHTML } = options;
 
       this.output.json = getJSON();

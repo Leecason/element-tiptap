@@ -1,62 +1,32 @@
-import { Doc, Text } from 'tiptap';
+export { Doc, Text } from 'tiptap';
 
-import {
+export {
   TrailingNode,
-
   Placeholder,
 } from 'tiptap-extensions';
 
 // nodes
-import Paragraph from './paragraph';
-import Heading from './heading';
-import Blockquote from './blockquote';
-import CodeBlock from './code_block';
-import ListItem from './list_item';
-import BulletList from './bullet_list';
-import OrderedList from './ordered_list';
-import Image from './image';
-import TodoItem from './todo_item';
-import TodoList from './todo_list';
+export { default as Paragraph } from './paragraph';
+export { default as Heading } from './heading';
+export { default as Blockquote } from './blockquote';
+export { default as CodeBlock } from './code_block';
+export { default as ListItem } from './list_item';
+export { default as BulletList } from './bullet_list';
+export { default as OrderedList } from './ordered_list';
+export { default as Image } from './image';
+export { default as TodoItem } from './todo_item';
+export { default as TodoList } from './todo_list';
 
 // marks
-import Bold from './bold';
-import Underline from './underline';
-import Italic from './italic';
-import Strike from './strike';
-import Link from './link';
+export { default as Bold } from './bold';
+export { default as Underline } from './underline';
+export { default as Italic } from './italic';
+export { default as Strike } from './strike';
+export { default as Link } from './link';
 
 // extensions
-import HorizontalRule from './horizontal_rule';
-import History from './history';
-import TextAlign from './text_align';
-import Indent from './indent';
-import LineHeight from './line_height';
-
-const EXTENSION_MAP = new Map([
-  ['Doc', Doc],
-  ['Text', Text],
-  ['Paragraph', Paragraph],
-  ['Bold', Bold],
-  ['Underline', Underline],
-  ['Italic', Italic],
-  ['Strike', Strike],
-  ['Heading', Heading],
-  ['Link', Link],
-  ['Blockquote', Blockquote],
-  ['CodeBlock', CodeBlock],
-  ['ListItem', ListItem],
-  ['BulletList', BulletList],
-  ['OrderedList', OrderedList],
-  ['Image', Image],
-  ['TodoItem', TodoItem],
-  ['TodoList', TodoList],
-  ['HorizontalRule', HorizontalRule],
-  ['TrailingNode', TrailingNode],
-  ['History', History],
-  ['Placeholder', Placeholder],
-  ['TextAlign', TextAlign],
-  ['Indent', Indent],
-  ['LineHeight', LineHeight],
-]);
-
-export default EXTENSION_MAP;
+export { default as HorizontalRule } from './horizontal_rule';
+export { default as History } from './history';
+export { default as TextAlign } from './text_align';
+export { default as Indent } from './indent';
+export { default as LineHeight } from './line_height';

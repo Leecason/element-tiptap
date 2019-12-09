@@ -9,7 +9,33 @@
 </template>
 
 <script>
-import { ElTiptap } from 'el-tiptap';
+import {
+  ElTiptap,
+
+  Doc,
+  Text,
+  Paragraph,
+  Heading,
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Link,
+  Image,
+  Blockquote,
+  CodeBlock,
+  ListItem,
+  BulletList,
+  OrderedList,
+  TodoItem,
+  TodoList,
+  TextAlign,
+  Indent,
+  LineHeight,
+  HorizontalRule,
+  TrailingNode,
+  History,
+} from 'el-tiptap';
 
 export default {
   components: {
@@ -19,32 +45,29 @@ export default {
   data () {
     return {
       extensions: [
-        ['TextAlign', { bubble: true }],
-        ['Indent', { bubble: true }],
-        ['LineHeight', { bubble: true }],
-
-        ['Heading', { level: 5 }],
-
-        ['Bold', { bubble: true }],
-        ['Underline', { bubble: true }],
-        ['Italic', { bubble: true }],
-        ['Strike', { bubble: true }],
-        ['Link', { bubble: true }],
-        'Image',
-
-        ['Blockquote', { bubble: true }],
-        ['CodeBlock', { bubble: true }],
-
-        'ListItem',
-        'BulletList',
-        'OrderedList',
-        'TodoItem',
-        'TodoList',
-
-        'HorizontalRule',
-        'TrailingNode',
-
-        'History',
+        new Doc(),
+        new Text(),
+        new Paragraph(),
+        new Heading({ level: 5 }),
+        new Bold({ bubble: true }),
+        new Underline({ bubble: true }),
+        new Italic({ bubble: true }),
+        new Strike({ bubble: true }),
+        new Link({ bubble: true }),
+        new Image(),
+        new Blockquote({ bubble: true }),
+        new CodeBlock({ bubble: true }),
+        new TextAlign({ bubble: true }),
+        new LineHeight({ bubble: true }),
+        new ListItem(),
+        new BulletList(),
+        new OrderedList(),
+        new TodoItem(),
+        new TodoList(),
+        new Indent({ bubble: true }),
+        new HorizontalRule(),
+        new TrailingNode(),
+        new History(),
       ],
 
       content: `

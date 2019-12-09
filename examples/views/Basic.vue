@@ -9,7 +9,33 @@
 </template>
 
 <script>
-import { ElTiptap } from 'el-tiptap';
+import {
+  ElTiptap,
+
+  Doc,
+  Text,
+  Paragraph,
+  Heading,
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Link,
+  Image,
+  Blockquote,
+  CodeBlock,
+  ListItem,
+  BulletList,
+  OrderedList,
+  TodoItem,
+  TodoList,
+  TextAlign,
+  Indent,
+  LineHeight,
+  HorizontalRule,
+  TrailingNode,
+  History,
+} from 'el-tiptap';
 
 export default {
   components: {
@@ -19,32 +45,29 @@ export default {
   data () {
     return {
       extensions: [
-        'TextAlign',
-        'Indent',
-        'LineHeight',
-
-        ['Heading', { level: 5 }],
-
-        'Bold',
-        'Underline',
-        'Italic',
-        'Strike',
-        'Link',
-        'Image',
-
-        'Blockquote',
-        'CodeBlock',
-
-        'ListItem',
-        'BulletList',
-        'OrderedList',
-        'TodoItem',
-        'TodoList',
-
-        'HorizontalRule',
-        'TrailingNode',
-
-        'History',
+        new Doc(),
+        new Text(),
+        new Paragraph(),
+        new Heading({ level: 5 }),
+        new Bold(),
+        new Underline(),
+        new Italic(),
+        new Strike(),
+        new Link(),
+        new Image(),
+        new Blockquote(),
+        new CodeBlock(),
+        new TextAlign(),
+        new LineHeight(),
+        new ListItem(),
+        new BulletList(),
+        new OrderedList(),
+        new TodoItem(),
+        new TodoList(),
+        new Indent(),
+        new HorizontalRule(),
+        new TrailingNode(),
+        new History(),
       ],
 
       content: `
