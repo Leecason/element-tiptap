@@ -71,6 +71,14 @@ export default {
       type: String,
       default: '',
     },
+
+    output: {
+      type: String,
+      default: 'html',
+      validator (output) {
+        return ['html', 'json'].includes(output);
+      },
+    },
   },
 
   data () {
@@ -143,7 +151,14 @@ export default {
     },
 
     onUpdate (options) {
-      this.$emit('onUpdate', options);
+      let output;
+      if (this.output === 'html') {
+        output = options.getHTML();
+      } else {
+        output = JSON.stringify(options.getJSON());
+      }
+
+      this.$emit('onUpdate', output, options);
     },
   },
 };
