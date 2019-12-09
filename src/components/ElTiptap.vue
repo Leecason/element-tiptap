@@ -56,6 +56,11 @@ export default {
     EditorContent,
   },
 
+  model: {
+    prop: 'content',
+    event: 'onUpdate',
+  },
+
   props: {
     extensions: {
       type: Array,
@@ -96,6 +101,17 @@ export default {
     },
   },
 
+  watch: {
+    content (val) {
+      if (this.emitAfterOnUpdate) {
+        this.emitAfterOnUpdate = false;
+        return;
+      }
+
+      if (this.editor) this.editor.setContent(val);
+    },
+  },
+
   mounted () {
     const extensions = this.generateExtensions();
 
@@ -104,6 +120,10 @@ export default {
       extensions,
       content: this.content,
       onUpdate: this.onUpdate.bind(this)
+    });
+
+    this.$emit('init', {
+      editor: this.editor,
     });
   },
 
@@ -151,6 +171,8 @@ export default {
     },
 
     onUpdate (options) {
+      this.emitAfterOnUpdate = true;
+
       let output;
       if (this.output === 'html') {
         output = options.getHTML();
