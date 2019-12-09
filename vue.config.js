@@ -9,4 +9,7 @@ module.exports = {
       .set('examples', path.resolve(__dirname, 'examples'))
       .set('el-tiptap', path.resolve(__dirname, 'src/main'));
   },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/el-tiptap/'
+    : '/'
 };

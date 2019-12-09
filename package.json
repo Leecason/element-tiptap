@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open examples/main.js",
-    "build:package": "vue-cli-service build --target lib --name el-tiptap src/components/ElTiptap.vue",
+    "build:package": "vue-cli-service build --target lib --name el-tiptap --dest lib src/components/ElTiptap.vue",
+    "build:example": "vue-cli-service build --dest dist examples/main.js",
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
