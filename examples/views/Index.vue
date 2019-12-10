@@ -6,54 +6,46 @@
           src="~examples/assets/logo.png"
           class="logo"
         >
-
-        <a
-          href="https://github.com/Leecason/el-tiptap"
-          target="_blank"
-          class="github-link"
-        >
-          <font-awesome-icon :icon="['fab', 'github']" size="2x" />
-        </a>
       </div>
 
       <div class="header__right">
         <router-link
           :to="{ name: 'Basic' }"
           v-slot="{ navigate, isExactActive }"
-          class="action"
         >
-          <el-button
-            :type="isExactActive ? 'primary' : ''"
+          <span
+            :class="{ 'router-link--active': isExactActive }"
+            class="router-link"
             @click="navigate"
           >
             Basic
-          </el-button>
+          </span>
         </router-link>
 
         <router-link
           :to="{ name: 'MenuBubble' }"
-          v-slot="{ navigate, isActive, isExactActive }"
-          class="action"
+          v-slot="{ navigate, isActive }"
         >
-          <el-button
-            :type="isActive ? 'primary' : ''"
+          <span
+            :class="{ 'router-link--active': isActive }"
+            class="router-link"
             @click="navigate"
           >
             Menu Bubble
-          </el-button>
+          </span>
         </router-link>
 
         <router-link
           :to="{ name: 'Output' }"
-          v-slot="{ navigate, isActive, isExactActive }"
-          class="action"
+          v-slot="{ navigate, isActive }"
         >
-          <el-button
-            :type="isActive ? 'primary' : ''"
+          <span
+            :class="{ 'router-link--active': isActive }"
+            class="router-link"
             @click="navigate"
           >
             Output
-          </el-button>
+          </span>
         </router-link>
       </div>
     </el-header>
@@ -61,6 +53,18 @@
     <el-main>
       <router-view />
     </el-main>
+
+    <div class="badge">
+      <a
+        href="https://github.com/Leecason/el-tiptap"
+        target="_blank"
+        class="badge__inner"
+      >
+        <span>
+          <font-awesome-icon :icon="['fab', 'github']" size="2x" />
+        </span>
+      </a>
+    </div>
   </el-container>
 </template>
 
@@ -76,10 +80,6 @@ export default {
 </script>
 
 <style lang="scss">
-.el-container {
-
-}
-
 .header {
   background: linear-gradient(135deg, rgb(0, 103, 245), rgb(13, 197, 231) 75%);
   display: flex;
@@ -98,16 +98,6 @@ export default {
       height: 60px;
       margin-bottom: 20px;
     }
-
-    .github-link {
-      color: #fff;
-      transition: color .3s ease-in-out;
-      margin-top: 20px;
-
-      &:hover {
-        color: #409EFF;
-      }
-    }
   }
 
   &__right {
@@ -117,8 +107,16 @@ export default {
     justify-content: flex-end;
     margin-top: 50px;
 
-    .action {
-      margin: 10px;
+    .router-link {
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+      margin: 15px;
+      text-transform: uppercase;
+
+      &--active {
+        color: #303133;
+      }
     }
   }
 }
@@ -128,5 +126,30 @@ export default {
   display: flex;
   justify-content: center;
   padding: 50px;
+}
+
+.badge {
+  font-size: 14px;
+  height: 150px;
+  line-height: 1.3;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 150px;
+  z-index: 100;
+
+  &__inner {
+    background: #409eff;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    left: -35%;
+    padding: .5em 0;
+    position: relative;
+    transform: rotate(45deg);
+    top: 20%;
+    width: 200%;
+  }
 }
 </style>
