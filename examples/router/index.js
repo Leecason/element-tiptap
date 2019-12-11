@@ -2,8 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Index from '../views/Index.vue';
 import Basic from '../views/Basic.vue';
-import Output from '../views/Output.vue';
 import MenuBubble from '../views/MenuBubble.vue';
+import Event from '../views/Event.vue';
+import Output from '../views/Output.vue';
 
 Vue.use(VueRouter);
 
@@ -18,14 +19,19 @@ const routes = [
         component: Basic,
       },
       {
-        name: 'Output',
-        path: '/output',
-        component: Output,
-      },
-      {
         name: 'MenuBubble',
         path: '/menu_bubble',
         component: MenuBubble,
+      },
+      {
+        name: 'Event',
+        path: '/event',
+        component: Event,
+      },
+      {
+        name: 'Output',
+        path: '/output',
+        component: Output,
       },
     ],
   },

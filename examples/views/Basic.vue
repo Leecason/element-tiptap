@@ -83,7 +83,7 @@ export default {
         </p>
         <p style="line-height: 100%;"></p>
         <p style="line-height: 100%;">
-          Text can decorated with <strong>Bold</strong>, <u>Underline</u>, <em>Italic</em>, <s>Strikethrough</s> or <strong><u><em><s>both</s></em></u></strong>.</p>
+          Text can be decorated with <strong>Bold</strong>, <u>Underline</u>, <em>Italic</em>, <s>Strikethrough</s> or <strong><u><em><s>both</s></em></u></strong>.</p>
           <p data-text-align="right" style="line-height: 100%;">
             Align text to right.
           </p>

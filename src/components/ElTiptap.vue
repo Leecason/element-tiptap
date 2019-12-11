@@ -165,7 +165,7 @@ export default {
     },
 
     emitEvent (event) {
-      this.$emit(event, {
+      this.$emit(`on${capitalize(event)}`, {
         editor: this.editor,
       });
     },
