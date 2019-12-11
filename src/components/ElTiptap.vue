@@ -45,9 +45,19 @@
 import { Editor, EditorContent } from 'tiptap';
 
 import { Placeholder } from '@/extensions';
+import { capitalize } from '@/utils/shared';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
+
+const COMMON_EMIT_EVENTS = [
+  'init',
+  'transaction',
+  'focus',
+  'blur',
+  'paste',
+  'drop',
+];
 
 export default {
   name: 'ElTiptap',
@@ -117,15 +127,19 @@ export default {
   mounted () {
     const extensions = this.generateExtensions();
 
+    const eventOptions = COMMON_EMIT_EVENTS.reduce((eventOptions, event) => {
+      return {
+        ...eventOptions,
+        [`on${capitalize(event)}`]: () => this.emitEvent.bind(this)(event),
+      };
+    }, {});
+
     this.editor = new Editor({
       useBuiltInExtensions: false,
       extensions,
       content: this.content,
-      onUpdate: this.onUpdate.bind(this)
-    });
-
-    this.$emit('init', {
-      editor: this.editor,
+      ...eventOptions,
+      onUpdate: this.onUpdate.bind(this),
     });
   },
 
@@ -148,6 +162,12 @@ export default {
       }
 
       return extensions;
+    },
+
+    emitEvent (event) {
+      this.$emit(event, {
+        editor: this.editor,
+      });
     },
 
     onUpdate (options) {
