@@ -36,6 +36,8 @@
       :editor="editor"
       class="el-tiptap-editor__content"
     />
+
+    <slot name="footer" :editor="editor" />
   </div>
 </template>
 
