@@ -1,8 +1,11 @@
 {
   "name": "el-tiptap",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "scripts": {
     "serve": "vue-cli-service serve --open examples/main.js",
@@ -30,12 +33,12 @@
   },
   "homepage": "https://github.com/Leecason/el-tiptapr#readme",
   "dependencies": {
-    "core-js": "^3.4.3",
     "tiptap": "^1.26.5",
     "tiptap-extensions": "^1.28.5",
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "core-js": "^3.4.3",
     "vue-router": "^3.1.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
