@@ -12,7 +12,8 @@
     "build:package": "vue-cli-service build --target lib --name el-tiptap --dest lib src/main.js",
     "build:example": "vue-cli-service build --dest dist examples/main.js",
     "lint": "vue-cli-service lint",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "test": "yarn lint"
   },
   "repository": {
     "type": "git",
