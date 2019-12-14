@@ -3,17 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "scripts": {
     "serve": "vue-cli-service serve --open examples/main.js",
-    "build:package": "vue-cli-service build --target lib --name el-tiptap --dest lib src/main.js",
+    "build:lib": "vue-cli-service build --target lib --name el-tiptap --dest lib lib/src/index.js",
     "build:example": "vue-cli-service build --dest dist examples/main.js",
     "lint": "vue-cli-service lint",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "test": "yarn lint"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",

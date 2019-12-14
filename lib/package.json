@@ -1,0 +1,19 @@
+{
+  "name": "el-tiptap",
+  "version": "0.0.0",
+  "description": "A WYSIWYG editor based on Tiptap and Element.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leecason/el-tiptap.git"
+  },
+  "keywords": [
+    "editor"
+  ],
+  "author": "leecason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Leecason/el-tiptap/issues"
+  },
+  "homepage": "https://github.com/Leecason/el-tiptap#readme"
+}
