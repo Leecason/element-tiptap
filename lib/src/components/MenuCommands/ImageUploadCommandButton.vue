@@ -52,15 +52,15 @@ export default {
   },
 
   methods: {
-    uploadImage (uploadOptions) {
+    async uploadImage (uploadOptions) {
       const { file } = uploadOptions;
 
-      readFileDataUrl(file)
-        .then((url) => {
-          this.editorContext.commands.image({ src: url });
+      const httpRequest = this.editorContext.editor.extensions.options.image.httpRequest;
+      const url = await (httpRequest ? httpRequest(file) : readFileDataUrl(file));
 
-          this.imageUploadDialogVisible = false;
-        });
+      this.editorContext.commands.image({ src: url });
+
+      this.imageUploadDialogVisible = false;
     },
   },
 };
