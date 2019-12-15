@@ -16,6 +16,7 @@
 </template>
 
 <script>
+/* eslint-disable no-console */
 import {
   Doc,
   Text,
