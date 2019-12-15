@@ -10,8 +10,6 @@
 
 <script>
 import {
-  ElTiptap,
-
   Doc,
   Text,
   Paragraph,
@@ -38,10 +36,6 @@ import {
 } from 'el-tiptap';
 
 export default {
-  components: {
-    ElTiptap,
-  },
-
   data () {
     return {
       extensions: [

@@ -24,8 +24,6 @@
 
 <script>
 import {
-  ElTiptap,
-
   Doc,
   Text,
   Paragraph,
@@ -48,10 +46,6 @@ import {
 const PLACEHOLDER = 'Write something to view output.';
 
 export default {
-  components: {
-    ElTiptap,
-  },
-
   data () {
     return {
       extensions: [
