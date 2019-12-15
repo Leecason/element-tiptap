@@ -42,7 +42,7 @@ import {
   faUndo,
   faRedo,
 } from '@fortawesome/free-solid-svg-icons';
-import { noop } from 'utils/shared';
+import { noop } from '@/utils/shared';
 
 library.add(
   faHeading,

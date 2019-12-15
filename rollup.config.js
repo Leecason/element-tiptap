@@ -70,7 +70,9 @@ function getConfig ({
       }),
       alias({
         resolve: ['.js', '.vue'],
-        '@': srcDir,
+        entries: {
+          '@': srcDir,
+        },
       }),
       node({
         extensions: ['.js', '.vue'],
