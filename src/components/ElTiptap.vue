@@ -51,7 +51,6 @@ import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
 
 const COMMON_EMIT_EVENTS = [
-  'init',
   'transaction',
   'focus',
   'blur',
@@ -140,6 +139,10 @@ export default {
       content: this.content,
       ...eventOptions,
       onUpdate: this.onUpdate.bind(this),
+    });
+
+    this.$emit('onInit', {
+      editor: this.editor,
     });
   },
 
