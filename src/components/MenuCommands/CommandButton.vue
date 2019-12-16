@@ -38,7 +38,6 @@ import {
   faIndent,
   faOutdent,
   faMinus,
-  faParagraph,
   faUndo,
   faRedo,
 } from '@fortawesome/free-solid-svg-icons';
@@ -65,7 +64,6 @@ library.add(
   faIndent,
   faOutdent,
   faMinus,
-  faParagraph,
   faUndo,
   faRedo,
 );
