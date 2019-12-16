@@ -1,6 +1,10 @@
 {
   "name": "el-tiptap",
+<<<<<<< HEAD
   "version": "0.0.0",
+=======
+  "version": "0.0.0-development",
+>>>>>>> 5f57129... migrate: 🚚 src folder
   "license": "MIT",
   "private": true,
   "description": "A WYSIWYG editor based on Tiptap and Element.",
@@ -9,11 +13,12 @@
     "build:lib": "rollup -c --environment BUILD:production",
     "build:example": "vue-cli-service build --dest dist examples/main.js",
     "lint": "vue-cli-service lint",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Leecason/el-tiptap.git"
+    "url": "https://github.com/Leecason/el-tiptap.git"
   },
   "keywords": [
     "editor",

@@ -10,26 +10,26 @@ import cssnano from 'cssnano';
 import replace from 'rollup-plugin-replace';
 
 const isProduction = process.env.BUILD === 'production';
-const srcDir = path.resolve(__dirname, 'lib/src');
-const distDir = path.resolve(__dirname, 'lib/dist');
+const srcDir = path.resolve(__dirname, 'src');
+const libDir = path.resolve(__dirname, 'lib');
 
 export default () => [
   getConfig({
-    file: path.resolve(distDir, 'el-tiptap.js'),
+    file: path.resolve(libDir, 'el-tiptap.js'),
     format: 'umd',
     env: 'development',
   }),
   getConfig({
-    file: path.resolve(distDir, 'el-tiptap.min.js'),
+    file: path.resolve(libDir, 'el-tiptap.min.js'),
     format: 'umd',
     env: 'production',
   }),
   getConfig({
-    file: path.resolve(distDir, 'el-tiptap.common.js'),
+    file: path.resolve(libDir, 'el-tiptap.common.js'),
     format: 'cjs',
   }),
   getConfig({
-    file: path.resolve(distDir, 'el-tiptap.esm.js'),
+    file: path.resolve(libDir, 'el-tiptap.esm.js'),
     format: 'es',
   }),
 ];
@@ -40,7 +40,7 @@ function getConfig ({
   env,
 }) {
   return {
-    input: 'lib/index.js',
+    input: 'src/index.js',
     output: {
       file,
       name: 'ElTiptap',

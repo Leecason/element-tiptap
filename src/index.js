@@ -9,7 +9,7 @@ import {
 } from 'element-ui';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import ElTiptap from './src/components/ElTiptap.vue';
+import ElTiptap from './components/ElTiptap.vue';
 
 const ElTiptapPlugin = {
   installed: false,
@@ -29,5 +29,7 @@ const ElTiptapPlugin = {
     this.installed = true;
   },
 };
-export * from './src/extensions/index';
+
+export * from './extensions/index';
+
 export { ElTiptapPlugin };

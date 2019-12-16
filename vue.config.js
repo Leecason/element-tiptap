@@ -4,9 +4,9 @@ module.exports = {
   runtimeCompiler: true,
   chainWebpack: config => {
     config.resolve.alias
-      .set('@', path.resolve(__dirname, 'lib/src'))
+      .set('@', path.resolve(__dirname, 'src'))
       .set('examples', path.resolve(__dirname, 'examples'))
-      .set('el-tiptap', path.resolve(__dirname, 'lib/index'));
+      .set('el-tiptap', path.resolve(__dirname, 'src/index'));
   },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/el-tiptap/'
