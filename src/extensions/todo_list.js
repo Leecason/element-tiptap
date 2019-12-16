@@ -1,5 +1,5 @@
 import { TodoList as TiptapTodoList } from 'tiptap-extensions';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 export default class TodoList extends TiptapTodoList {
   get schema () {
     return {

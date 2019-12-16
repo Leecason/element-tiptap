@@ -1,6 +1,6 @@
 import { Heading as TiptapHeading } from 'tiptap-extensions';
 import { findParentNodeOfType } from 'prosemirror-utils';
-import HeadingDropdown from '@/components/MenuCommands/HeadingDropdown.vue';
+import HeadingDropdown from '../components/MenuCommands/HeadingDropdown.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 
 function getAttrs (dom) {

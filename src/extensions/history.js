@@ -1,5 +1,5 @@
 import { History as TiptapHistory } from 'tiptap-extensions';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 
 export default class History extends TiptapHistory {
   menuBtnView ({ commands }) {

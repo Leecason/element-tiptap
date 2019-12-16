@@ -1,6 +1,6 @@
 import { Extension } from 'tiptap';
 import { TextSelection, AllSelection } from 'prosemirror-state';
-import LineHeightDropdown from '@/components/MenuCommands/LineHeightDropdown.vue';
+import LineHeightDropdown from '../components/MenuCommands/LineHeightDropdown.vue';
 
 const ALLOWED_NODE_TYPES = [
   'paragraph',

@@ -1,5 +1,5 @@
 import { Underline as TiptapUnderline } from 'tiptap-extensions';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 
 export default class Underline extends TiptapUnderline {
   menuBtnView ({ isActive, commands }) {

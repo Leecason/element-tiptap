@@ -1,6 +1,6 @@
 import { Extension } from 'tiptap';
 import { TextSelection, AllSelection } from 'prosemirror-state';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { clamp } from '../utils/shared';
 import { isListNode } from '../utils/list';
 

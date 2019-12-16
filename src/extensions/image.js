@@ -1,6 +1,6 @@
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { NodeSelection } from 'prosemirror-state';
-import ImageUploadCommandButton from '@/components/MenuCommands/ImageUploadCommandButton.vue';
+import ImageUploadCommandButton from '../components/MenuCommands/ImageUploadCommandButton.vue';
 
 export default class Image extends TiptapImage {
   get schema () {

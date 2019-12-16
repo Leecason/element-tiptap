@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { readFileDataUrl } from '@/utils/shared';
+import { readFileDataUrl } from '../../utils/shared';
 
 import CommandButton from './CommandButton';
 

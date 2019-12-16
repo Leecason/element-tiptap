@@ -1,5 +1,5 @@
 import { Extension } from 'tiptap';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 
 const ALLOWED_NODE_TYPES = [
   'paragraph',

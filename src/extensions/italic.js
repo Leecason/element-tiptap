@@ -1,5 +1,5 @@
 import { Italic as TiptapItalic } from 'tiptap-extensions';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 
 export default class Bold extends TiptapItalic {
   menuBtnView ({ isActive, commands }) {

@@ -1,5 +1,5 @@
 import { Blockquote as TiptapBlockquote } from 'tiptap-extensions';
-import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 
 const BlockquoteNodeSpec = {
