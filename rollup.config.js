@@ -1,7 +1,6 @@
 import path from 'path';
 import vue from 'rollup-plugin-vue';
 import babel from 'rollup-plugin-babel';
-import alias from 'rollup-plugin-alias';
 import { terser } from 'rollup-plugin-terser';
 import cjs from 'rollup-plugin-commonjs';
 import node from 'rollup-plugin-node-resolve';
@@ -10,7 +9,6 @@ import cssnano from 'cssnano';
 import replace from 'rollup-plugin-replace';
 
 const isProduction = process.env.BUILD === 'production';
-const srcDir = path.resolve(__dirname, 'src');
 const libDir = path.resolve(__dirname, 'lib');
 
 export default () => [
@@ -68,12 +66,6 @@ function getConfig ({
     plugins: [
       env && replace({
         'process.env.NODE_ENV': JSON.stringify(env),
-      }),
-      alias({
-        resolve: ['.js', '.vue'],
-        entries: {
-          '@': srcDir,
-        },
       }),
       node({
         extensions: ['.js', '.vue'],
