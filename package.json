@@ -34,16 +34,12 @@
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",
     "tiptap": "^1.26.5",
-    "tiptap-extensions": "^1.28.5"
+    "tiptap-extensions": "^1.28.5",
+    "vue-awesome": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-brands-svg-icons": "^5.11.2",
-    "@fortawesome/free-regular-svg-icons": "^5.11.2",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/vue-fontawesome": "^0.1.8",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-plugin-router": "^4.1.0",

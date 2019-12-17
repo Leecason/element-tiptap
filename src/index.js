@@ -7,7 +7,7 @@ import {
   Dialog,
   Upload,
 } from 'element-ui';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import Icon from 'vue-awesome/components/Icon';
 
 import ElTiptap from './components/ElTiptap.vue';
 
@@ -15,7 +15,8 @@ const ElTiptapPlugin = {
   installed: false,
 
   install (Vue) {
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
+    Vue.component('v-icon', Icon);
+
     Vue.use(Tooltip);
     Vue.use(Dropdown);
     Vue.use(DropdownMenu);

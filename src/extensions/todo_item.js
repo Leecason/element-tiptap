@@ -1,9 +1,6 @@
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
-import { faSquare } from '@fortawesome/free-regular-svg-icons';
-
-library.add(faCheckSquare, faSquare);
+import 'vue-awesome/icons/check-square';
+import 'vue-awesome/icons/regular/square';
 
 export default class TodoItem extends TiptapTodoItem {
   get view () {
@@ -21,7 +18,7 @@ export default class TodoItem extends TiptapTodoItem {
             class="todo-checkbox"
             @click.stop="toggle"
           >
-            <font-awesome-icon :icon="done ? ['fas', 'check-square'] : ['far', 'square']" />
+            <v-icon :name="done ? 'check-square' : 'regular/square'" />
           </span>
 
           <div

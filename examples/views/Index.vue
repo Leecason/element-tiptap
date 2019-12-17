@@ -74,7 +74,7 @@
         class="badge__inner"
       >
         <span>
-          <font-awesome-icon :icon="['fab', 'github']" size="2x" />
+          <v-icon name="brands/github" scale="2" />
         </span>
       </a>
     </div>
@@ -82,10 +82,7 @@
 </template>
 
 <script>
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-
-library.add(faGithub);
+import 'vue-awesome/icons/brands/github';
 
 export default {
   name: 'index',

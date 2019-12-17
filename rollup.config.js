@@ -52,6 +52,7 @@ function getConfig ({
         'prosemirror-state': 'prosemirror-state',
         'prosemirror-model': 'prosemirror-model',
         'element-ui': 'element-ui',
+        'vue-awesome': 'vue-awesome',
       },
     },
     external: [
@@ -62,7 +63,7 @@ function getConfig ({
       'prosemirror-state',
       'prosemirror-model',
       'element-ui',
-      '@fortawesome/vue-fontawesome',
+      'vue-awesome',
     ],
     plugins: [
       env && replace({

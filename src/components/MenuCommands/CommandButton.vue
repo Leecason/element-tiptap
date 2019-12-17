@@ -10,63 +10,36 @@
       @mousedown.prevent
       @click="command"
     >
-      <font-awesome-icon :icon="icon" />
+      <v-icon :name="icon"/>
     </div>
   </el-tooltip>
 </template>
 
 <script>
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faHeading,
-  faBold,
-  faUnderline,
-  faItalic,
-  faStrikethrough,
-  faLink,
-  faImage,
-  faCode,
-  faQuoteRight,
-  faAlignLeft,
-  faAlignCenter,
-  faAlignRight,
-  faAlignJustify,
-  faTextHeight,
-  faListUl,
-  faListOl,
-  faCheckSquare,
-  faIndent,
-  faOutdent,
-  faMinus,
-  faUndo,
-  faRedo,
-} from '@fortawesome/free-solid-svg-icons';
-import { noop } from '../../utils/shared';
+import 'vue-awesome/icons/heading';
+import 'vue-awesome/icons/bold';
+import 'vue-awesome/icons/underline';
+import 'vue-awesome/icons/italic';
+import 'vue-awesome/icons/strikethrough';
+import 'vue-awesome/icons/link';
+import 'vue-awesome/icons/image';
+import 'vue-awesome/icons/code';
+import 'vue-awesome/icons/quote-right';
+import 'vue-awesome/icons/align-left';
+import 'vue-awesome/icons/align-center';
+import 'vue-awesome/icons/align-right';
+import 'vue-awesome/icons/align-justify';
+import 'vue-awesome/icons/text-height';
+import 'vue-awesome/icons/list-ul';
+import 'vue-awesome/icons/list-ol';
+import 'vue-awesome/icons/check-square';
+import 'vue-awesome/icons/indent';
+import 'vue-awesome/icons/outdent';
+import 'vue-awesome/icons/minus';
+import 'vue-awesome/icons/undo';
+import 'vue-awesome/icons/redo';
 
-library.add(
-  faHeading,
-  faBold,
-  faUnderline,
-  faItalic,
-  faStrikethrough,
-  faLink,
-  faImage,
-  faCode,
-  faQuoteRight,
-  faAlignLeft,
-  faAlignCenter,
-  faAlignRight,
-  faAlignJustify,
-  faTextHeight,
-  faListUl,
-  faListOl,
-  faCheckSquare,
-  faIndent,
-  faOutdent,
-  faMinus,
-  faUndo,
-  faRedo,
-);
+import { noop } from '../../utils/shared';
 
 export default {
   name: 'CommandButton',
