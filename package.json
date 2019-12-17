@@ -69,7 +69,9 @@
     "vue-template-compiler": "^2.6.10"
   },
   "peerDependencies": {
-    "vue": "^2.6.0"
+    "vue": "^2.6.0",
+    "element-ui": "^2.13.0",
+    "vue-awesome": "^4.0.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
