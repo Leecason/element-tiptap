@@ -2,7 +2,6 @@
   "name": "el-tiptap",
   "version": "0.0.0-development",
   "license": "MIT",
-  "private": true,
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "scripts": {
     "serve": "vue-cli-service serve --open examples/main.js",
