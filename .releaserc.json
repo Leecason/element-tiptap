@@ -1,0 +1,31 @@
+{
+  "branch": "next",
+  "tagFormat": "@${version}",
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "preset": "angular",
+      "releaseRules": [
+        {"type": "docs", "scope":"README", "release": "patch"},
+        {"type": "refactor", "release": "patch"},
+        {"type": "style", "release": "patch"},
+        {"type": "chore", "release": false},
+        {"type": "example", "release": false}
+      ]
+    }],
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/changelog", {
+      "changelogFile": "CHANGELOG.md"
+    }],
+    ["@semantic-release/github", {
+      "assets": [
+        { "path": "lib/el-tiptap.js", "label": "UMD module" },
+        { "path": "lib/el-tiptap.min.js", "label": "UMD optimize module" },
+        { "path": "lib/el-tiptap.common.js", "label": "CommonJs module" },
+        { "path": "lib/el-tiptap.esm.js", "label": "ECMAScript 6 module" }
+      ]
+    }],
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
+}
+
