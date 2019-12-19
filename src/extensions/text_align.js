@@ -1,5 +1,6 @@
 import { Extension } from 'tiptap';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { isTextAlignActive } from '../utils/text_align';
 
 const ALLOWED_NODE_TYPES = [
   'paragraph',
@@ -117,22 +118,4 @@ export default class TextAlign extends Extension {
       },
     ];
   }
-}
-
-export function isTextAlignActive (state, align) {
-  const { selection, doc } = state;
-  const { from, to } = selection;
-
-  let keepLooking = true;
-  let active = false;
-
-  doc.nodesBetween(from, to, (node, _pos) => {
-    if (keepLooking && node.attrs.textAlign === align) {
-      keepLooking = false;
-      active = true;
-    }
-    return keepLooking;
-  });
-
-  return active;
 }
