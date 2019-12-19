@@ -15,13 +15,28 @@ export default class TextAlign extends Extension {
     return 'text_align';
   }
 
-  commands () {
+  get defaultOptions () {
     return {
-      align_left: () => this.setTextAlign({ alignment: 'null' }),
-      align_center: () => this.setTextAlign({ alignment: 'center' }),
-      align_right: () => this.setTextAlign({ alignment: 'right' }),
-      align_justify: () => this.setTextAlign({ alignment: 'justify' }),
+      alignments: [
+        'left',
+        'center',
+        'right',
+        'justify',
+      ],
     };
+  }
+
+  commands () {
+    return this.options.alignments.reduce((commands, alignment) => {
+      if (!ALIGN_PATTERN.test(alignment)) return commands;
+
+      alignment = alignment === 'left' ? null : alignment;
+
+      return {
+        ...commands,
+        [`align_${alignment}`]: () => this.setTextAlign({ alignment }),
+      };
+    }, {});
   }
 
   setTextAlign ({ alignment }) {
@@ -80,42 +95,22 @@ export default class TextAlign extends Extension {
   }
 
   menuBtnView ({ commands, editor }) {
-    return [
-      {
+    return this.options.alignments.reduce((views, alignment) => {
+      if (!ALIGN_PATTERN.test(alignment)) return views;
+
+      const isActive = alignment === 'left'
+        ? false
+        : isTextAlignActive(editor.state, alignment);
+
+      return views.concat({
         component: CommandButton,
         componentProps: {
-          command: commands.align_left,
-          icon: 'align-left',
-          tooltip: 'Align left',
+          isActive,
+          command: commands[`align_${alignment}`],
+          icon: `align-${alignment}`,
+          tooltip: `Align ${alignment}`,
         },
-      },
-      {
-        component: CommandButton,
-        componentProps: {
-          isActive: isTextAlignActive(editor.state, 'center'),
-          command: commands.align_center,
-          icon: 'align-center',
-          tooltip: 'Align center',
-        },
-      },
-      {
-        component: CommandButton,
-        componentProps: {
-          isActive: isTextAlignActive(editor.state, 'right'),
-          command: commands.align_right,
-          icon: 'align-right',
-          tooltip: 'Align right',
-        },
-      },
-      {
-        component: CommandButton,
-        componentProps: {
-          isActive: isTextAlignActive(editor.state, 'justify'),
-          command: commands.align_justify,
-          icon: 'align-justify',
-          tooltip: 'Align justify',
-        },
-      },
-    ];
+      });
+    }, []);
   }
 }
