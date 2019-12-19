@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { isHeadingActive } from '../../extensions/heading';
+import { isHeadingActive } from '../../utils/heading';
 import CommandButton from './CommandButton.vue';
 
 export default {
