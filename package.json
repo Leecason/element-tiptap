@@ -1,6 +1,6 @@
 {
   "name": "element-tiptap",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "scripts": {
