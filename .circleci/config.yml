@@ -4,7 +4,7 @@ jobs:
   build:
     branches:
       only:
-        - next
+        - master
     docker:
       - image: 'circleci/node:12'
     steps:
