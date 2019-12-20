@@ -6,7 +6,7 @@ import {
   Main,
 } from 'element-ui';
 
-import { ElTiptapPlugin } from 'el-tiptap';
+import { ElementTiptapPlugin } from 'element-tiptap';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 import router from './router';
@@ -15,7 +15,7 @@ Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
 
-Vue.use(ElTiptapPlugin);
+Vue.use(ElementTiptapPlugin);
 
 Vue.config.productionTip = false;
 

@@ -6,10 +6,10 @@ module.exports = {
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src'))
       .set('examples', path.resolve(__dirname, 'examples'))
-      .set('el-tiptap', path.resolve(__dirname, 'src/index'));
+      .set('element-tiptap', path.resolve(__dirname, 'src/index'));
   },
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/el-tiptap/'
+    ? '/element-tiptap/'
     : '/',
   transpileDependencies: [
     /\bvue-awesome\b/

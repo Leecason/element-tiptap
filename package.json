@@ -1,5 +1,5 @@
 {
-  "name": "el-tiptap",
+  "name": "element-tiptap",
   "version": "0.0.0-development",
   "license": "MIT",
   "description": "A WYSIWYG editor based on Tiptap and Element.",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Leecason/el-tiptap.git"
+    "url": "https://github.com/Leecason/element-tiptap.git"
   },
   "keywords": [
     "editor",
@@ -26,9 +26,9 @@
   ],
   "author": "leecason",
   "bugs": {
-    "url": "https://github.com/Leecason/el-tiptap/issues"
+    "url": "https://github.com/Leecason/element-tiptap/issues"
   },
-  "homepage": "https://github.com/Leecason/el-tiptapr#readme",
+  "homepage": "https://github.com/Leecason/element-tiptapr#readme",
   "dependencies": {
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",

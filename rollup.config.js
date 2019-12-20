@@ -13,21 +13,21 @@ const libDir = path.resolve(__dirname, 'lib');
 
 export default () => [
   getConfig({
-    file: path.resolve(libDir, 'el-tiptap.js'),
+    file: path.resolve(libDir, 'element-tiptap.js'),
     format: 'umd',
     env: 'development',
   }),
   getConfig({
-    file: path.resolve(libDir, 'el-tiptap.min.js'),
+    file: path.resolve(libDir, 'element-tiptap.min.js'),
     format: 'umd',
     env: 'production',
   }),
   getConfig({
-    file: path.resolve(libDir, 'el-tiptap.common.js'),
+    file: path.resolve(libDir, 'element-tiptap.common.js'),
     format: 'cjs',
   }),
   getConfig({
-    file: path.resolve(libDir, 'el-tiptap.esm.js'),
+    file: path.resolve(libDir, 'element-tiptap.esm.js'),
     format: 'es',
   }),
 ];

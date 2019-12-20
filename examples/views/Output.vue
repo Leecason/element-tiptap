@@ -41,7 +41,7 @@ import {
   LineHeight,
   TrailingNode,
   History,
-} from 'el-tiptap';
+} from 'element-tiptap';
 
 const PLACEHOLDER = 'Write something to view output.';
 

@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Leecason/el-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
+<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
 
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
@@ -21,25 +21,25 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [
 ## Installation
 
 ```
-yarn add el-tiptap
+yarn add element-tiptap
 # Or
-npm install --save el-tiptap
+npm install --save element-tiptap
 ```
 
 ## Usage
 
-Install `el-tiptap` plugin.
+Install `element-tiptap` plugin.
 
 ```js
 import Vue from 'vue';
-import { ElTiptapPlugin } from 'el-tiptap';
+import { ElementTiptapPlugin } from 'element-tiptap';
 // import Element styles
 import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.use(ElTiptapPlugin);
+Vue.use(ElementTiptapPlugin);
 ```
 
-Now you globally register `'el-tiptap'` component.
+Now you globally register `'element-tiptap'` component.
 
 ### Import extensions in component
 
@@ -67,7 +67,7 @@ import {
   ListItem,
   BulletList,
   OrderedList,
-} from 'el-tiptap';
+} from 'element-tiptap';
 
 export default {
   data () {
@@ -133,7 +133,7 @@ You can customize the extension menu button view,
 
 ```js
 // create your extension file
-import { Bold  } from 'el-tiptap';
+import { Bold  } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {

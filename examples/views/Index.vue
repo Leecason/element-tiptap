@@ -69,7 +69,7 @@
 
     <div class="badge">
       <a
-        href="https://github.com/Leecason/el-tiptap"
+        href="https://github.com/Leecason/element-tiptap"
         target="_blank"
         class="badge__inner"
       >

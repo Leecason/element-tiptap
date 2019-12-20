@@ -33,7 +33,7 @@ import {
   HorizontalRule,
   TrailingNode,
   History,
-} from 'el-tiptap';
+} from 'element-tiptap';
 
 export default {
   data () {

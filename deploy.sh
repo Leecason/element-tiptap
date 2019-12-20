@@ -10,6 +10,6 @@ git init
 git add -A
 git commit -m 'deploy: 🎉'
 
-git push -f git@github.com:Leecason/el-tiptap.git master:gh-pages
+git push -f git@github.com:Leecason/element-tiptap.git master:gh-pages
 
 cd -

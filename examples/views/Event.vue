@@ -36,7 +36,7 @@ import {
   TextAlign,
   Indent,
   History,
-} from 'el-tiptap';
+} from 'element-tiptap';
 
 export default {
   data () {

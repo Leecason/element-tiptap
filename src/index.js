@@ -9,9 +9,9 @@ import {
 } from 'element-ui';
 import Icon from 'vue-awesome/components/Icon';
 
-import ElTiptap from './components/ElTiptap.vue';
+import ElementTiptap from './components/ElementTiptap.vue';
 
-const ElTiptapPlugin = {
+const ElementTiptapPlugin = {
   installed: false,
 
   install (Vue) {
@@ -25,7 +25,7 @@ const ElTiptapPlugin = {
     Vue.use(Upload);
     Vue.prototype.$prompt = MessageBox.prompt;
 
-    Vue.component('el-tiptap', ElTiptap);
+    Vue.component('el-tiptap', ElementTiptap);
 
     this.installed = true;
   },
@@ -33,4 +33,4 @@ const ElTiptapPlugin = {
 
 export * from './extensions/index';
 
-export { ElTiptapPlugin };
+export { ElementTiptapPlugin };

@@ -18,10 +18,10 @@
     }],
     ["@semantic-release/github", {
       "assets": [
-        { "path": "lib/el-tiptap.js", "label": "UMD module" },
-        { "path": "lib/el-tiptap.min.js", "label": "UMD optimize module" },
-        { "path": "lib/el-tiptap.common.js", "label": "CommonJs module" },
-        { "path": "lib/el-tiptap.esm.js", "label": "ECMAScript 6 module" }
+        { "path": "lib/element-tiptap.js", "label": "UMD module" },
+        { "path": "lib/element-tiptap.min.js", "label": "UMD optimize module" },
+        { "path": "lib/element-tiptap.common.js", "label": "CommonJs module" },
+        { "path": "lib/element-tiptap.esm.js", "label": "ECMAScript 6 module" }
       ]
     }],
     "@semantic-release/npm",
