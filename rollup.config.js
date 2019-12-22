@@ -95,6 +95,15 @@ function getConfig ({
             },
           ],
         ],
+        plugins: [
+          [
+            'component',
+            {
+              libraryName: 'element-ui',
+              styleLibraryName: 'theme-chalk'
+            }
+          ]
+        ]
       }),
       env !== 'development' && isProduction && terser(),
     ],
