@@ -1,6 +1,7 @@
 {
   "name": "element-tiptap",
   "version": "1.0.0",
+  "main": "src/index.js",
   "license": "MIT",
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "scripts": {
@@ -83,5 +84,9 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "files": [
+    "lib/*",
+    "src/*"
+  ]
 }
