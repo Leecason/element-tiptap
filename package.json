@@ -1,7 +1,6 @@
 {
   "name": "element-tiptap",
   "version": "1.0.0",
-  "main": "src/index.js",
   "license": "MIT",
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "scripts": {
@@ -89,5 +88,9 @@
   "files": [
     "lib/*",
     "src/*"
-  ]
+  ],
+  "main": "lib/element-tiptap.common.js",
+  "module": "lib/element-tiptap.esm.js",
+  "unpkg": "lib/element-tiptap.js",
+  "jsdelivr": "lib/element-tiptap.js"
 }
