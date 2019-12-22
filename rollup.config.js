@@ -7,6 +7,8 @@ import node from 'rollup-plugin-node-resolve';
 import cssnext from 'postcss-cssnext';
 import cssnano from 'cssnano';
 import replace from 'rollup-plugin-replace';
+import postcss from 'rollup-plugin-postcss';
+import postcssPresetEnv from 'postcss-preset-env';
 
 const isProduction = process.env.BUILD === 'production';
 const libDir = path.resolve(__dirname, 'lib');
@@ -71,6 +73,13 @@ function getConfig ({
         extensions: ['.js', '.vue'],
       }),
       cjs(),
+      postcss({
+        extract: false,
+        minimize: true,
+        plugins: [
+          postcssPresetEnv()
+        ]
+      }),
       vue({
         defaultLang: {
           style: 'scss',

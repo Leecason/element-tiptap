@@ -7,7 +7,6 @@ import {
 } from 'element-ui';
 
 import { ElementTiptapPlugin } from 'element-tiptap';
-import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 import router from './router';
 

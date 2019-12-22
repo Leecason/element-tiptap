@@ -57,6 +57,7 @@
     "lint-staged": "^9.4.3",
     "node-sass": "^4.12.0",
     "postcss-cssnext": "^3.1.0",
+    "postcss-preset-env": "^6.7.0",
     "rollup": "^1.27.13",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -72,8 +73,8 @@
     "vue-template-compiler": "^2.6.10"
   },
   "peerDependencies": {
-    "vue": "^2.6.0",
     "element-ui": "^2.13.0",
+    "vue": "^2.6.0",
     "vue-awesome": "^4.0.2"
   },
   "gitHooks": {
