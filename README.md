@@ -1,5 +1,6 @@
 <p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
 
+[![npm version](https://badge.fury.io/js/element-tiptap.svg)](https://badge.fury.io/js/element-tiptap)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
@@ -33,8 +34,6 @@ Install `element-tiptap` plugin.
 ```js
 import Vue from 'vue';
 import { ElementTiptapPlugin } from 'element-tiptap';
-// import Element styles
-import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementTiptapPlugin);
 ```
