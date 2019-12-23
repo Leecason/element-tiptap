@@ -5,8 +5,9 @@
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
 
-## ScreenShot
+## Demo
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
+[Live Demo](https://leecason.github.io/element-tiptap)
 
 ## Features
 
