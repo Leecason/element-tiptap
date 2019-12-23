@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Leecason/element-tiptap/compare/@1.0.0...@1.0.1) (2019-12-22)
+
+
+### Bug Fixes
+
+*  🔧 package.json config ([bcfe269](https://github.com/Leecason/element-tiptap/commit/bcfe26973fc9c795006af2fe2419bd6c32ad348c))
+
 # 1.0.0 (2019-12-20)
 
 
