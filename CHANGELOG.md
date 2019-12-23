@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/Leecason/element-tiptap/compare/@1.0.1...@1.1.0) (2019-12-23)
+
+
+### Features
+
+* 🎨 inject style in js file ([0fe9cf6](https://github.com/Leecason/element-tiptap/commit/0fe9cf62f12105afe889e202b17dabb8c8bc547a))
+* 🎨 on command import element components ([fea07f6](https://github.com/Leecason/element-tiptap/commit/fea07f620de3cf9a0ae98507e2dd31637e89846c))
+* 🔧 package type ([4afe657](https://github.com/Leecason/element-tiptap/commit/4afe657f3a3a2513a19a17364c9b77e9ce214fe6))
+
 ## [1.0.1](https://github.com/Leecason/element-tiptap/compare/@1.0.0...@1.0.1) (2019-12-22)
 
 
