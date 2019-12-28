@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/Leecason/element-tiptap/compare/@1.1.0...@1.2.0) (2019-12-28)
+
+
+### Bug Fixes
+
+* 🐛 ensure heading extension attr level is number type ([a1d51aa](https://github.com/Leecason/element-tiptap/commit/a1d51aa8799fa1c9c037ec72132bbc7657939cf6))
+* 💄 editor content text-align, default to left ([0631364](https://github.com/Leecason/element-tiptap/commit/0631364ace1913c7c2ed0b3d0217ef1b97792e82))
+* 🔧 remove unnecessary peerDependencies ([f183a7b](https://github.com/Leecason/element-tiptap/commit/f183a7b6cd57a829731508acde94105d56edf13a))
+
+
+### Features
+
+* ✨ support hard_break extension ([d3daa6a](https://github.com/Leecason/element-tiptap/commit/d3daa6ad37105cdb75c6b7848922881a88a68f31))
+
 # [1.1.0](https://github.com/Leecason/element-tiptap/compare/@1.0.1...@1.1.0) (2019-12-23)
 
 
