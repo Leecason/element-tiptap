@@ -5,7 +5,7 @@ import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './para
 function getAttrs (dom) {
   const attrs = getParagraphNodeAttrs(dom);
   const level = dom.nodeName.match(/[H|h](\d)/)[1];
-  attrs.level = level;
+  attrs.level = Number(level);
   return attrs;
 }
 
