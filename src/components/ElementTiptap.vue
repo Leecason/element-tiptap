@@ -208,6 +208,7 @@ export default {
     flex-grow: 1;
     overflow: auto;
     padding: 5px;
+    text-align: left;
   }
 
   .ProseMirror {
