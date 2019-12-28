@@ -123,6 +123,7 @@ All available extensions:
 - `Indent`
 - `LineHeight`
 - `HorizontalRule`
+- `HardBreak`
 - `TrailingNode`
 - `History`
 
