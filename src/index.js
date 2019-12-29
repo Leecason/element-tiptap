@@ -6,6 +6,7 @@ import {
   MessageBox,
   Dialog,
   Upload,
+  Popover,
 } from 'element-ui';
 import Icon from 'vue-awesome/components/Icon';
 
@@ -23,6 +24,7 @@ const ElementTiptapPlugin = {
     Vue.use(DropdownItem);
     Vue.use(Dialog);
     Vue.use(Upload);
+    Vue.use(Popover);
     Vue.prototype.$prompt = MessageBox.prompt;
 
     Vue.component('el-tiptap', ElementTiptap);

@@ -36,6 +36,7 @@ import 'vue-awesome/icons/check-square';
 import 'vue-awesome/icons/indent';
 import 'vue-awesome/icons/outdent';
 import 'vue-awesome/icons/minus';
+import 'vue-awesome/icons/table';
 import 'vue-awesome/icons/undo';
 import 'vue-awesome/icons/redo';
 
