@@ -374,6 +374,29 @@ export default {
         margin-left: $indent-margin-base * $i!important;
       }
     }
+
+    table {
+      border-collapse: collapse;
+      table-layout: fixed;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      border: 2px solid #EBEEF5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 500;
+      text-align: left;
+    }
   }
 
   &__placeholder {
