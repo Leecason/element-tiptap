@@ -1,8 +1,8 @@
 <template>
   <el-popover
+    ref="popoverRef"
     placement="right"
-    trigger="manual"
-    v-model="popoverVisible"
+    trigger="hover"
     @after-leave="resetTableGridSize"
   >
     <div class="table-grid-size-editor">
@@ -21,7 +21,7 @@
             }"
             class="table-grid-size-editor__cell"
             @mouseover="selectTableGridSize(row, col)"
-            @mousedown.prevent="onMouseDown(row, col)"
+            @mousedown="onMouseDown(row, col)"
           >
             <div class="table-grid-size-editor__cell__inner" />
           </div>
@@ -83,7 +83,7 @@ export default {
     onMouseDown (row, col) {
       this.$emit('createTable', row, col);
 
-      this.popoverVisible = false;
+      this.$refs.popoverRef.doClose();
     },
 
     resetTableGridSize () {
@@ -116,7 +116,7 @@ export default {
     padding: 5px;
 
     &__inner {
-      border: 1px solid #DCDFE6;
+      border: 1px solid #dcdfe6;
       border-radius: 2px;
       height: 16px;
       padding: 4px;
