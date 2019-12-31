@@ -5,8 +5,9 @@
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
 
-## ScreenShot
+## Demo
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
+[Live Demo](https://leecason.github.io/element-tiptap)
 
 ## Features
 
@@ -133,7 +134,7 @@ You can customize the extension menu button view,
 
 ```js
 // create your extension file
-import { Bold  } from 'element-tiptap';
+import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
@@ -290,6 +291,16 @@ Customize the bubble menu like menubar.
 
 ### footer
 Footer of the editor, after the editor content.
+
+## Changelog
+[Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
+
+## Roadmap
+- Table
+- Text Color
+- Text Background Color
+- Font Size
+- Font Type
 
 ## Licence
 MIT

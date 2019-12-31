@@ -1,3 +1,33 @@
+# [1.2.0](https://github.com/Leecason/element-tiptap/compare/@1.1.0...@1.2.0) (2019-12-28)
+
+
+### Bug Fixes
+
+* 🐛 ensure heading extension attr level is number type ([a1d51aa](https://github.com/Leecason/element-tiptap/commit/a1d51aa8799fa1c9c037ec72132bbc7657939cf6))
+* 💄 editor content text-align, default to left ([0631364](https://github.com/Leecason/element-tiptap/commit/0631364ace1913c7c2ed0b3d0217ef1b97792e82))
+* 🔧 remove unnecessary peerDependencies ([f183a7b](https://github.com/Leecason/element-tiptap/commit/f183a7b6cd57a829731508acde94105d56edf13a))
+
+
+### Features
+
+* ✨ support hard_break extension ([d3daa6a](https://github.com/Leecason/element-tiptap/commit/d3daa6ad37105cdb75c6b7848922881a88a68f31))
+
+# [1.1.0](https://github.com/Leecason/element-tiptap/compare/@1.0.1...@1.1.0) (2019-12-23)
+
+
+### Features
+
+* 🎨 inject style in js file ([0fe9cf6](https://github.com/Leecason/element-tiptap/commit/0fe9cf62f12105afe889e202b17dabb8c8bc547a))
+* 🎨 on command import element components ([fea07f6](https://github.com/Leecason/element-tiptap/commit/fea07f620de3cf9a0ae98507e2dd31637e89846c))
+* 🔧 package type ([4afe657](https://github.com/Leecason/element-tiptap/commit/4afe657f3a3a2513a19a17364c9b77e9ce214fe6))
+
+## [1.0.1](https://github.com/Leecason/element-tiptap/compare/@1.0.0...@1.0.1) (2019-12-22)
+
+
+### Bug Fixes
+
+*  🔧 package.json config ([bcfe269](https://github.com/Leecason/element-tiptap/commit/bcfe26973fc9c795006af2fe2419bd6c32ad348c))
+
 # 1.0.0 (2019-12-20)
 
 
