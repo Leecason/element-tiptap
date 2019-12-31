@@ -209,6 +209,11 @@ export default {
     overflow: auto;
     padding: 5px;
     text-align: left;
+
+    .resize-cursor {
+      cursor: ew-resize;
+      cursor: col-resize;
+    }
   }
 
   .ProseMirror {
@@ -375,6 +380,11 @@ export default {
       }
     }
 
+    .tableWrapper {
+      margin: 1em 0;
+      overflow-x: auto;
+    }
+
     table {
       border-collapse: collapse;
       table-layout: fixed;
@@ -391,11 +401,34 @@ export default {
       padding: 3px 5px;
       position: relative;
       vertical-align: top;
+
+      &.selectedCell::after {
+        background-color: #ecf5ff;
+        bottom: 0;
+        content: "";
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+      }
     }
 
     th {
       font-weight: 500;
       text-align: left;
+    }
+
+    .column-resize-handle {
+      background-color: #b3d8ff;
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      right: -2px;
+      top: 0;
+      width: 4px;
+      z-index: 20;
     }
   }
 
