@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/Leecason/element-tiptap/compare/@1.2.0...@1.3.0) (2019-12-31)
+
+
+### Bug Fixes
+
+* 🎨 selectedCell background-color ([6f98473](https://github.com/Leecason/element-tiptap/commit/6f984735fca9ca9a514843dcaa8b653b60b5db34))
+
+
+### Features
+
+* ✨ add table menu button and select table grid size popover ([7419071](https://github.com/Leecason/element-tiptap/commit/74190719835d0100ab042c12500d16076aaa988e))
+* ✨ create table with custom row and col ([5b60281](https://github.com/Leecason/element-tiptap/commit/5b602814d7c110e8c5fb5de5a6fe6a86571d2126))
+* ✨ enable insert row and column in table ([abfb489](https://github.com/Leecason/element-tiptap/commit/abfb489ebf7528d2ba04ad37823a08890e9250d0))
+* 💄 table colunm_resize_handle and selected_cell style ([5beb81d](https://github.com/Leecason/element-tiptap/commit/5beb81dc0892657136a9feb7f4779f81f0939198))
+
 # [1.2.0](https://github.com/Leecason/element-tiptap/compare/@1.1.0...@1.2.0) (2019-12-28)
 
 
