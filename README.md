@@ -13,7 +13,6 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [
 
 - use [Element's](https://github.com/ElemeFE/element) components
 - markdown support
-- renderless
 - events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - add your own extensions
 - customize all extension menu button view
@@ -127,6 +126,10 @@ All available extensions:
 - `HardBreak`
 - `TrailingNode`
 - `History`
+- `Table`
+- `TableHeader`
+- `TableCell`
+- `TableRow`
 
 You can customize the extension menu button view,
 
@@ -296,7 +299,7 @@ Footer of the editor, after the editor content.
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## Roadmap
-- Table
+- Embeds
 - Text Color
 - Text Background Color
 - Font Size
