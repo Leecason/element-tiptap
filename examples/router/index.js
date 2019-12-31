@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Index from '../views/Index.vue';
-import Basic from '../views/Basic.vue';
-import MenuBubble from '../views/MenuBubble.vue';
-import Event from '../views/Event.vue';
-import Output from '../views/Output.vue';
+
+const Index = () => import('../views/Index.vue');
+const Basic = () => import('../views/Basic.vue');
+const MenuBubble = () => import('../views/MenuBubble.vue');
+const Table = () => import('../views/Table.vue');
+const Event = () => import('../views/Event.vue');
+const Output = () => import('../views/Output.vue');
 
 Vue.use(VueRouter);
 
@@ -22,6 +24,11 @@ const routes = [
         name: 'MenuBubble',
         path: '/menu_bubble',
         component: MenuBubble,
+      },
+      {
+        name: 'Table',
+        path: '/table',
+        component: Table,
       },
       {
         name: 'Event',
