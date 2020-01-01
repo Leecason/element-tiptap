@@ -74,6 +74,26 @@
       <div class="table-popover__menu__item__separator" />
 
       <div
+        :class="{ 'table-popover__menu__item--disabled': !enableMergeCells }"
+        class="table-popover__menu__item"
+        @mousedown="closePopover"
+        @click="editorContext.commands.mergeCells"
+      >
+        <span>Merge Cells</span>
+      </div>
+
+      <div
+        :class="{ 'table-popover__menu__item--disabled': !enableSplitCell }"
+        class="table-popover__menu__item"
+        @mousedown="closePopover"
+        @click="editorContext.commands.splitCell"
+      >
+        <span>Split Cell</span>
+      </div>
+
+      <div class="table-popover__menu__item__separator" />
+
+      <div
         :class="{ 'table-popover__menu__item--disabled': !isTableActive }"
         class="table-popover__menu__item"
         @mousedown="closePopover"
@@ -93,7 +113,7 @@
 </template>
 
 <script>
-import { isTableActive } from '@/utils/table';
+import { isTableActive, enableMergeCells, enableSplitCell } from '@/utils/table';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
 
@@ -119,8 +139,20 @@ export default {
   },
 
   computed: {
+    editor () {
+      return this.editorContext.editor;
+    },
+
     isTableActive () {
-      return isTableActive(this.editorContext.editor.state);
+      return isTableActive(this.editor.state);
+    },
+
+    enableMergeCells () {
+      return enableMergeCells(this.editor.state);
+    },
+
+    enableSplitCell () {
+      return enableSplitCell(this.editor.state);
     },
   },
 
