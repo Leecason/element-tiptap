@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/Leecason/element-tiptap/compare/@1.3.0...@1.4.0) (2020-01-01)
+
+
+### Features
+
+* ✨ add iframe extension to insert embeds ([290ac2c](https://github.com/Leecason/element-tiptap/commit/290ac2cac59e30c42a2627564550e758f5fbfce2))
+* ✨ merge cells and split cell in table ([c27d694](https://github.com/Leecason/element-tiptap/commit/c27d6942007d5b861e32153c0e2de7b2518a334b))
+
 # [1.3.0](https://github.com/Leecason/element-tiptap/compare/@1.2.0...@1.3.0) (2019-12-31)
 
 
