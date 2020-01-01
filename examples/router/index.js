@@ -5,6 +5,7 @@ const Index = () => import('../views/Index.vue');
 const Basic = () => import('../views/Basic.vue');
 const MenuBubble = () => import('../views/MenuBubble.vue');
 const Table = () => import('../views/Table.vue');
+const Embed = () => import('../views/Embed.vue');
 const Event = () => import('../views/Event.vue');
 const Output = () => import('../views/Output.vue');
 
@@ -29,6 +30,11 @@ const routes = [
         name: 'Table',
         path: '/table',
         component: Table,
+      },
+      {
+        name: 'Embed',
+        path: '/embed',
+        component: Embed,
       },
       {
         name: 'Event',

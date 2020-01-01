@@ -49,6 +49,19 @@
         </router-link>
 
         <router-link
+          :to="{ name: 'Embed' }"
+          v-slot="{ navigate, isActive }"
+        >
+          <span
+            :class="{ 'router-link--active': isActive }"
+            class="router-link"
+            @click="navigate"
+          >
+            Embed
+          </span>
+        </router-link>
+
+        <router-link
           :to="{ name: 'Event' }"
           v-slot="{ navigate, isActive }"
         >
