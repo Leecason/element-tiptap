@@ -422,6 +422,22 @@ export default {
       width: 4px;
       z-index: 20;
     }
+
+    .iframe {
+      height: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      width: 100%;
+
+      &__embed {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
   }
 
   &__placeholder {

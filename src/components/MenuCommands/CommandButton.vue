@@ -23,6 +23,7 @@ import 'vue-awesome/icons/italic';
 import 'vue-awesome/icons/strikethrough';
 import 'vue-awesome/icons/link';
 import 'vue-awesome/icons/image';
+import 'vue-awesome/icons/video';
 import 'vue-awesome/icons/code';
 import 'vue-awesome/icons/quote-right';
 import 'vue-awesome/icons/align-left';
