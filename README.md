@@ -1,6 +1,7 @@
 <p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
 
 [![npm version](https://badge.fury.io/js/element-tiptap.svg)](https://badge.fury.io/js/element-tiptap)
+[![CircleCI](https://circleci.com/gh/Leecason/element-tiptap.svg?style=svg)](https://circleci.com/gh/Leecason/element-tiptap)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
@@ -112,6 +113,7 @@ All available extensions:
 - `Underline`
 - `Link`
 - `Image`
+- `Iframe`
 - `CodeBlock`
 - `Blockquote`
 - `ListItem`
@@ -299,7 +301,6 @@ Footer of the editor, after the editor content.
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## Roadmap
-- Embeds
 - Text Color
 - Text Background Color
 - Font Size
