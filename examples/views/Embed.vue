@@ -42,7 +42,7 @@ export default {
         <p>
           Insert video with <b>iframe</b> extension.
         </p>
-        <iframe src="https://www.youtube.com/embed/NFPR2gxNtLU" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/tADnCEpbPI8" frameborder="0" allowfullscreen></iframe>
       `,
     };
   },
