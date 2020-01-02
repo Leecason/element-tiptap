@@ -307,4 +307,4 @@ Footer of the editor, after the editor content.
 - Font Type
 
 ## Licence
-MIT
+[MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
