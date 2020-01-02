@@ -148,10 +148,15 @@ export default {
       cursor: pointer;
       font-weight: 700;
       margin: 15px;
-      text-transform: uppercase;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
 
       &--active {
-        color: #303133;
+        border-bottom: 1px solid #fff;
+        text-transform: uppercase;
       }
     }
   }
