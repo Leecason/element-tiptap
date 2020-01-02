@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
+<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.svg?raw=true" alt="ElTiptap logo"></a></p>
 
 [![npm version](https://badge.fury.io/js/element-tiptap.svg)](https://badge.fury.io/js/element-tiptap)
 [![CircleCI](https://circleci.com/gh/Leecason/element-tiptap.svg?style=svg)](https://circleci.com/gh/Leecason/element-tiptap)

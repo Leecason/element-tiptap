@@ -3,7 +3,7 @@
     <el-header class="header">
       <div class="header__left">
         <img
-          src="~examples/assets/logo.png"
+          src="~examples/assets/logo.svg"
           class="logo"
         >
       </div>
@@ -131,7 +131,7 @@ export default {
     margin-top: 50px;
 
     .logo {
-      height: 60px;
+      height: 80px;
       margin-bottom: 20px;
     }
   }
