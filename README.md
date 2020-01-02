@@ -6,11 +6,11 @@
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
 
-## Demo
+## 🎄 Demo
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
 [Live Demo](https://leecason.github.io/element-tiptap)
 
-## Features
+## ✨ Features
 
 - use [Element's](https://github.com/ElemeFE/element) components
 - markdown support
@@ -20,7 +20,7 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [
 - menu buttons can render in menubar and bubble menu
 - all it's up to you.
 
-## Installation
+## 📦 Installation
 
 ```
 yarn add element-tiptap
@@ -28,7 +28,7 @@ yarn add element-tiptap
 npm install --save element-tiptap
 ```
 
-## Usage
+## 🚀 Usage
 
 Install `element-tiptap` plugin.
 
@@ -96,7 +96,7 @@ export default {
 </script>
 ```
 
-## Props
+## 📔 Props
 
 ### extensions
 
@@ -218,7 +218,7 @@ Output can be defined to `'html'`(default) or `'json'`.
 />
 ```
 
-## Events
+## 👽 Events
 
 ### Init
 
@@ -251,7 +251,7 @@ export default {
 
 The same as `init`
 
-## Slots
+## ⚗️ Slots
 
 ### menubar
 
@@ -297,14 +297,14 @@ Customize the bubble menu like menubar.
 ### footer
 Footer of the editor, after the editor content.
 
-## Changelog
+## 📝 Changelog
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
-## Roadmap
+## 💪 Roadmap
 - Text Color
 - Text Background Color
 - Font Size
 - Font Type
 
-## Licence
+## 📄 Licence
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
