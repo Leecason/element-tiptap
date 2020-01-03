@@ -151,7 +151,7 @@ export default {
       transition: all .3s ease-in-out;
 
       &:hover {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
       }
 
       &--active {
