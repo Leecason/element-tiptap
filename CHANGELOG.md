@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Leecason/element-tiptap/compare/@1.4.0...@1.4.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* 🐛 align left cant work bug ([859224b](https://github.com/Leecason/element-tiptap/commit/859224b260e99dfbd4aa98fe44cafd5502cf40f5))
+
 # [1.4.0](https://github.com/Leecason/element-tiptap/compare/@1.3.0...@1.4.0) (2020-01-01)
 
 
