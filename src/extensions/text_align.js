@@ -30,11 +30,11 @@ export default class TextAlign extends Extension {
     return this.options.alignments.reduce((commands, alignment) => {
       if (!ALIGN_PATTERN.test(alignment)) return commands;
 
-      alignment = alignment === 'left' ? null : alignment;
-
       return {
         ...commands,
-        [`align_${alignment}`]: () => this.setTextAlign({ alignment }),
+        [`align_${alignment}`]: () => this.setTextAlign({
+          alignment: alignment === 'left' ? null : alignment,
+        }),
       };
     }, {});
   }
@@ -55,7 +55,7 @@ export default class TextAlign extends Extension {
 
       doc.nodesBetween(from, to, (node, pos) => {
         const nodeType = node.type;
-        const align = node.attrs.align || null;
+        const align = node.attrs.textAlign || null;
         if (align !== alignment && ALLOWED_NODE_TYPES.includes(nodeType.name)) {
           jobs.push({
             node,
