@@ -1,8 +1,16 @@
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { NodeSelection } from 'prosemirror-state';
-import ImageUploadCommandButton from '../components/MenuCommands/ImageUploadCommandButton.vue';
+import ImageCommandButton from '../components/MenuCommands/ImageCommandButton.vue';
 
+const IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 export default class Image extends TiptapImage {
+  get defaultOptions () {
+    return {
+      urlPattern: IMAGE_URL_REGEX,
+      uploadRequest: null,
+    };
+  }
+
   get schema () {
     return {
       inline: true,
@@ -82,7 +90,7 @@ export default class Image extends TiptapImage {
 
   menuBtnView (editorContext) {
     return {
-      component: ImageUploadCommandButton,
+      component: ImageCommandButton,
       componentProps: {
         editorContext,
       },

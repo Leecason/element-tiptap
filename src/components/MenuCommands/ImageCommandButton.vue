@@ -1,10 +1,32 @@
 <template>
   <div>
-    <command-button
-      tooltip="Image"
-      icon="image"
-      @click.native="imageUploadDialogVisible = true"
-    />
+    <el-popover
+      placement="bottom"
+      trigger="click"
+      class="image-popover"
+    >
+      <div class="image-popover__menu">
+        <div
+          class="image-popover__menu__item"
+          @click="openUrlPrompt"
+        >
+          <span>Insert Image By Url</span>
+        </div>
+
+        <div
+          class="image-popover__menu__item"
+          @click="imageUploadDialogVisible = true"
+        >
+          <span>Upload Image</span>
+        </div>
+      </div>
+
+      <command-button
+        slot="reference"
+        tooltip="Image"
+        icon="image"
+      />
+    </el-popover>
 
     <el-dialog title="Upload image" :visible.sync="imageUploadDialogVisible">
       <el-upload
@@ -32,7 +54,7 @@ import { readFileDataUrl } from '../../utils/shared';
 import CommandButton from './CommandButton';
 
 export default {
-  name: 'ImageUploadCommandButton',
+  name: 'ImageCommandButton',
 
   components: {
     CommandButton,
@@ -51,12 +73,33 @@ export default {
     };
   },
 
+  computed: {
+    imageNodeOptions () {
+      return this.editorContext.editor.extensions.options.image;
+    },
+  },
+
   methods: {
+    openUrlPrompt () {
+      this.$prompt('', 'Insert image', {
+        confirmButtonText: 'Insert',
+        cancelButtonText: 'Cancel',
+        inputPlaceholder: 'Url of image',
+        inputPattern: this.imageNodeOptions.urlPattern,
+        inputErrorMessage: 'Please enter the correct url',
+        roundButton: true,
+      }).then(({ value: url }) => {
+        this.editorContext.commands.image({ src: url });
+      }).catch(() => {
+
+      });
+    },
+
     async uploadImage (uploadOptions) {
       const { file } = uploadOptions;
 
-      const httpRequest = this.editorContext.editor.extensions.options.image.httpRequest;
-      const url = await (httpRequest ? httpRequest(file) : readFileDataUrl(file));
+      const uploadRequest = this.imageNodeOptions.uploadRequest;
+      const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));
 
       this.editorContext.commands.image({ src: url });
 
@@ -67,6 +110,19 @@ export default {
 </script>
 
 <style lang="scss">
+.image-popover {
+  &__menu {
+    &__item {
+      cursor: pointer;
+      padding: 8px 0;
+
+      &:hover {
+        color: #409eff;
+      }
+    }
+  }
+}
+
 .el-upload {
   display: flex;
   width: 100%;

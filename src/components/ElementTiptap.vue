@@ -316,6 +316,10 @@ export default {
           top: 0;
         }
       }
+
+      img {
+        max-width: 100%;
+      }
     }
 
     ul[data-type=todo_list] {
