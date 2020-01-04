@@ -306,5 +306,5 @@ Footer of the editor, after the editor content.
 - Font Size
 - Font Type
 
-## 📄 Licence
+## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
