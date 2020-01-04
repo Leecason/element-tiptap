@@ -4,7 +4,6 @@
     placement="bottom"
     trigger="click"
     class="table-popover"
-    v-model="popoverVisible"
   >
     <div class="table-popover__menu">
       <div class="table-popover__menu__item">
@@ -130,12 +129,6 @@ export default {
       type: Object,
       required: true,
     },
-  },
-
-  data () {
-    return {
-      popoverVisible: false,
-    };
   },
 
   computed: {
