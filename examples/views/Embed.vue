@@ -17,6 +17,7 @@ import {
   Underline,
   Italic,
   Strike,
+  Blockquote,
   Iframe,
   TrailingNode,
   History,
@@ -33,6 +34,7 @@ export default {
         new Underline(),
         new Italic(),
         new Strike(),
+        new Blockquote(),
         new Iframe(),
         new TrailingNode(),
         new History(),
@@ -42,6 +44,9 @@ export default {
         <p>
           Insert video with <b>iframe</b> extension.
         </p>
+        <blockquote>
+          <p>Videos are all <b>16:9</b> by default</p>
+        </blockquote>
         <iframe src="https://www.youtube.com/embed/tADnCEpbPI8" frameborder="0" allowfullscreen></iframe>
       `,
     };
