@@ -68,6 +68,7 @@ export default {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     display: flex;
+    flex-shrink: 0;
     flex-wrap: wrap;
     padding: 5px;
   }
