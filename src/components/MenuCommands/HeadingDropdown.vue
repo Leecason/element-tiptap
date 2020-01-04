@@ -2,7 +2,10 @@
   <el-dropdown
     placement="bottom"
     trigger="hover"
-    @command="i => editorContext.commands.heading({ level: i })"
+    @command="i => i > 0
+      ? editorContext.commands.heading({ level: i })
+      : editorContext.commands.paragraph
+    "
   >
     <command-button
       :is-active="isHeadingActive(undefined)"
@@ -10,6 +13,14 @@
       icon="heading"
     />
     <el-dropdown-menu slot="dropdown">
+      <el-dropdown-item
+        :command="0"
+        :class="{
+          'el-dropdown-menu__item--active': editorContext.isActive.paragraph(),
+        }"
+      >
+        <span>Paragraph</span>
+      </el-dropdown-item>
       <el-dropdown-item
         v-for="i in level"
         :key="i"
