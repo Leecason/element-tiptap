@@ -36,3 +36,4 @@ export { default as History } from './history';
 export { default as TextAlign } from './text_align';
 export { default as Indent } from './indent';
 export { default as LineHeight } from './line_height';
+export { default as FormatClear } from './format_clear';

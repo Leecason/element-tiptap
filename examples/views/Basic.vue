@@ -33,6 +33,7 @@ import {
   HardBreak,
   HorizontalRule,
   TrailingNode,
+  FormatClear,
   History,
 } from 'element-tiptap';
 
@@ -63,6 +64,7 @@ export default {
         new HardBreak(),
         new HorizontalRule(),
         new TrailingNode(),
+        new FormatClear(),
         new History(),
       ],
 
