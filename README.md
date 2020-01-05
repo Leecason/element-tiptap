@@ -1,8 +1,13 @@
 <p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
 
-[![npm version](https://badge.fury.io/js/element-tiptap.svg)](https://badge.fury.io/js/element-tiptap)
-[![CircleCI](https://circleci.com/gh/Leecason/element-tiptap.svg?style=svg)](https://circleci.com/gh/Leecason/element-tiptap)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+<p align="center">
+  <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Leecason/element-tiptap">
+  <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap">
+  <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
+</p>
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
 
@@ -22,9 +27,13 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [
 
 ## 📦 Installation
 
-```
+```shell
 yarn add element-tiptap
-# Or
+```
+
+Or
+
+```shell
 npm install --save element-tiptap
 ```
 
@@ -132,6 +141,7 @@ All available extensions:
 - `TableHeader`
 - `TableCell`
 - `TableRow`
+- `FormatClear`
 
 You can customize the extension menu button view,
 
