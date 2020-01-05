@@ -31,8 +31,8 @@
   "dependencies": {
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",
-    "tiptap": "^1.26.5",
-    "tiptap-extensions": "^1.28.5",
+    "tiptap": "^1.26.6",
+    "tiptap-extensions": "^1.28.6",
     "vue-awesome": "^4.0.2"
   },
   "devDependencies": {
