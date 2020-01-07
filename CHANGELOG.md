@@ -1,3 +1,18 @@
+# [1.5.0](https://github.com/Leecason/element-tiptap/compare/@1.4.1...@1.5.0) (2020-01-07)
+
+
+### Bug Fixes
+
+* 💄 safari menubar style bug ([d7803cd](https://github.com/Leecason/element-tiptap/commit/d7803cd2154979af0bffb7c5abed5ac26d0cc96a))
+
+
+### Features
+
+* ✨ add FormatClear extension ([5f9530e](https://github.com/Leecason/element-tiptap/commit/5f9530e19d577b693d05e7df28a151338d52e6ea))
+* ✨ add paragraph dropdown-item in heading dropdown ([3996f60](https://github.com/Leecason/element-tiptap/commit/3996f60b7dcbbecceaeedb97ab30c2fed66c6e9e))
+* ✨ add TextColor extension to change text color ([5bf2981](https://github.com/Leecason/element-tiptap/commit/5bf2981748d5d9f3e9696bd7bd6d1484a9062ff3))
+* ✨ enable insert image by url ([70f7aae](https://github.com/Leecason/element-tiptap/commit/70f7aae0b1b9834be02136790ffaf1c1a3e24862))
+
 ## [1.4.1](https://github.com/Leecason/element-tiptap/compare/@1.4.0...@1.4.1) (2020-01-03)
 
 
