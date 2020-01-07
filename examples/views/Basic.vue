@@ -28,6 +28,7 @@ import {
   TodoItem,
   TodoList,
   TextAlign,
+  TextColor,
   Indent,
   LineHeight,
   HardBreak,
@@ -45,6 +46,7 @@ export default {
         new Text(),
         new Paragraph(),
         new Heading({ level: 5 }),
+        new TextColor(),
         new Bold(),
         new Underline(),
         new Italic(),
@@ -81,7 +83,7 @@ export default {
         </p>
         <p></p>
         <p>
-          Text can be decorated with <strong>Bold</strong>, <u>Underline</u>, <em>Italic</em>, <s>Strikethrough</s> or <strong><u><em><s>both</s></em></u></strong>.</p>
+          Text can be decorated with <strong>Bold</strong>, <u>Underline</u>, <em>Italic</em>, <s>Strikethrough</s> or <strong><u><em><s>both</s></em></u></strong>. <strong><span style="color: #f44336">Text </span><span style="color: #673ab7">color </span><span style="color: #2196f3">is </span><span style="color: #4caf50">also </span><span style="color: #ffc107">supported. </span></strong></p>
           <p data-text-align="right">
             Align text to right.
           </p>
@@ -95,10 +97,10 @@ export default {
         </ul>
         <p></p>
         <p>
-          Images:
+          Image:
         </p>
         <p data-text-align="center">
-          <img src="https://66.media.tumblr.com/dcd3d24b79d78a3ee0f9192246e727f1/tumblr_o00xgqMhPM1qak053o1_400.gif" width="200" height="200">
+          <img src="http://lifestyle.etnet.com.hk/column/images/stories/195/2014/03/0314why.jpg" height="200">
         </p>
         <ul data-type="todo_list">
           <li data-type="todo_item" data-done="false">

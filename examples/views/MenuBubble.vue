@@ -28,11 +28,13 @@ import {
   TodoItem,
   TodoList,
   TextAlign,
+  TextColor,
   Indent,
   HardBreak,
   LineHeight,
   HorizontalRule,
   TrailingNode,
+  FormatClear,
   History,
 } from 'element-tiptap';
 
@@ -44,6 +46,7 @@ export default {
         new Text(),
         new Paragraph(),
         new Heading({ level: 5 }),
+        new TextColor({ bubble: true }),
         new Bold({ bubble: true }),
         new Underline({ bubble: true }),
         new Italic({ bubble: true }),
@@ -63,6 +66,7 @@ export default {
         new HardBreak(),
         new HorizontalRule(),
         new TrailingNode(),
+        new FormatClear(),
         new History(),
       ],
 

@@ -14,6 +14,7 @@ import {
   Text,
   Paragraph,
   Heading,
+  TextColor,
   Bold,
   Underline,
   Italic,
@@ -24,6 +25,7 @@ import {
   TableHeader,
   TableCell,
   TableRow,
+  FormatClear,
   History,
 } from 'element-tiptap';
 
@@ -35,6 +37,7 @@ export default {
         new Text(),
         new Paragraph(),
         new Heading({ level: 3 }),
+        new TextColor(),
         new Bold(),
         new Underline(),
         new Italic(),
@@ -47,6 +50,7 @@ export default {
         new TableHeader(),
         new TableCell(),
         new TableRow(),
+        new FormatClear(),
         new History(),
       ],
 
@@ -55,7 +59,7 @@ export default {
           Tables
         </h2>
         <p>
-          Tables come with some useful commands like adding, removing or merging rows and columns. Navigate with <code>tab</code> or arrow keys. Resizing is also supported.
+          Tables come with some useful commands like adding, removing or merging rows and columns. Navigate with <code>tab</code> or arrow keys. Resizing and <span style="color: #4caf50">TextColor</span> are also supported.
         </p>
         <table>
           <tr>
