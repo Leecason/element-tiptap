@@ -29,6 +29,7 @@ export { default as Underline } from './underline';
 export { default as Italic } from './italic';
 export { default as Strike } from './strike';
 export { default as Link } from './link';
+export { default as TextColor } from './text_color';
 
 // extensions
 export { default as HorizontalRule } from './horizontal_rule';
