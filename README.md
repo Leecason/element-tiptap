@@ -142,6 +142,7 @@ All available extensions:
 - `TableCell`
 - `TableRow`
 - `FormatClear`
+- `TextColor`
 
 You can customize the extension menu button view,
 
@@ -311,8 +312,7 @@ Footer of the editor, after the editor content.
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## 💪 Roadmap
-- Text Color
-- Text Background Color
+- TypeScript
 - Font Size
 - Font Type
 
