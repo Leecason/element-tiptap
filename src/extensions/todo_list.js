@@ -32,8 +32,8 @@ export default class TodoList extends TiptapTodoList {
       componentProps: {
         isActive: isActive.todo_list(),
         command: commands.todo_list,
-        icon: 'check-square',
-        tooltip: 'Todo List',
+        icon: 'tasks',
+        tooltip: 'Todo list',
       },
     };
   }

@@ -34,7 +34,7 @@ import 'vue-awesome/icons/align-justify';
 import 'vue-awesome/icons/text-height';
 import 'vue-awesome/icons/list-ul';
 import 'vue-awesome/icons/list-ol';
-import 'vue-awesome/icons/check-square';
+import 'vue-awesome/icons/tasks';
 import 'vue-awesome/icons/indent';
 import 'vue-awesome/icons/outdent';
 import 'vue-awesome/icons/minus';
