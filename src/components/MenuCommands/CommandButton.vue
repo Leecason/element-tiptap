@@ -1,7 +1,7 @@
 <template>
   <el-tooltip
     :content="tooltip"
-    :visible-arrow="false"
+    :open-delay="350"
     effect="dark"
     placement="top"
   >
