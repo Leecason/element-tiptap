@@ -95,6 +95,11 @@ export default {
         return ['html', 'json'].includes(output);
       },
     },
+
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data () {
@@ -121,6 +126,12 @@ export default {
 
       if (this.editor) this.editor.setContent(val);
     },
+
+    readonly () {
+      this.editor.setOptions({
+        editable: !this.readonly,
+      });
+    },
   },
 
   mounted () {
@@ -134,6 +145,7 @@ export default {
     }, {});
 
     this.editor = new Editor({
+      editable: !this.readonly,
       useBuiltInExtensions: false,
       extensions,
       content: this.content,
