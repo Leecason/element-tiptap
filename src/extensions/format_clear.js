@@ -1,5 +1,6 @@
 import { Extension } from 'tiptap';
 import { setTextAlign } from '../utils/text_align';
+import { setTextLineHeight } from '../utils/line_height';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 
 const FORMAT_MARK_NAMES = [
@@ -60,6 +61,7 @@ export default class FormatClear extends Extension {
     });
 
     tr = setTextAlign(tr, null);
+    tr = setTextLineHeight(tr, null);
 
     return tr;
   }

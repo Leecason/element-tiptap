@@ -7,7 +7,7 @@ export const ParagraphNodeSpec = {
   attrs: {
     textAlign: { default: null },
     indent: { default: null },
-    lineHeight: { default: '100%' },
+    lineHeight: { default: null },
   },
   content: 'inline*',
   group: 'block',

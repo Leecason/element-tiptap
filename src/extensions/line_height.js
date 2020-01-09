@@ -1,12 +1,6 @@
 import { Extension } from 'tiptap';
-import { TextSelection, AllSelection } from 'prosemirror-state';
+import { setTextLineHeight } from '../utils/line_height';
 import LineHeightDropdown from '../components/MenuCommands/LineHeightDropdown.vue';
-
-const ALLOWED_NODE_TYPES = [
-  'paragraph',
-  'heading',
-  'list_item',
-];
 
 const LINE_HEIGHT_100 = '100%';
 const LINE_HEIGHT_125 = '125%';
@@ -58,7 +52,7 @@ export default class LineHeight extends Extension {
       let { tr } = state;
       tr = tr.setSelection(selection);
 
-      tr = this.setTextLineHeight(tr, lineHeight);
+      tr = setTextLineHeight(tr, lineHeight);
 
       if (tr.docChanged) {
         dispatch && dispatch(tr);
@@ -67,58 +61,5 @@ export default class LineHeight extends Extension {
 
       return false;
     };
-  }
-
-  setTextLineHeight (tr, lineHeight) {
-    const { selection, doc } = tr;
-
-    if (!selection || !doc) return tr;
-
-    if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
-      return tr;
-    }
-
-    const { from, to } = selection;
-
-    const jobs = [];
-    const lineHeightValue = lineHeight || null;
-
-    doc.nodesBetween(from, to, (node, pos) => {
-      const nodeType = node.type;
-      if (ALLOWED_NODE_TYPES.includes(nodeType.name)) {
-        const lineHeight = node.attrs.lineHeight || null;
-        if (lineHeight !== lineHeightValue) {
-          jobs.push({
-            node,
-            pos,
-            nodeType,
-          });
-        }
-        return nodeType.name === 'list_item';
-      }
-      return true;
-    });
-
-    if (!jobs.length) return tr;
-
-    jobs.forEach(job => {
-      const { node, pos, nodeType } = job;
-      let { attrs } = node;
-
-      if (lineHeightValue) {
-        attrs = {
-          ...attrs,
-          lineHeight: lineHeightValue,
-        };
-      } else {
-        attrs = {
-          ...attrs,
-          lineHeight: null,
-        };
-      }
-      tr = tr.setNodeMarkup(pos, nodeType, attrs, node.marks);
-    });
-
-    return tr;
   }
 }
