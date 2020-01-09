@@ -4,7 +4,7 @@
     trigger="hover"
     @command="i => i > 0
       ? editorContext.commands.heading({ level: i })
-      : editorContext.commands.paragraph
+      : editorContext.commands.paragraph()
     "
   >
     <command-button
