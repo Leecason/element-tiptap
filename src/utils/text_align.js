@@ -20,6 +20,7 @@ const ALLOWED_NODE_TYPES = [
   'paragraph',
   'heading',
   'list_item',
+  'todo_item',
 ];
 
 export function setTextAlign (tr, alignment) {
@@ -36,13 +37,17 @@ export function setTextAlign (tr, alignment) {
 
   doc.nodesBetween(from, to, (node, pos) => {
     const nodeType = node.type;
-    const align = node.attrs.textAlign || null;
-    if (align !== alignment && ALLOWED_NODE_TYPES.includes(nodeType.name)) {
-      jobs.push({
-        node,
-        pos,
-        nodeType,
-      });
+    if (ALLOWED_NODE_TYPES.includes(nodeType.name)) {
+      const align = node.attrs.textAlign || null;
+      if (align !== alignment) {
+        jobs.push({
+          node,
+          pos,
+          nodeType,
+        });
+
+        return nodeType.name !== 'list_item' && nodeType.name !== 'todo_item';
+      }
     }
     return true;
   });

@@ -1,7 +1,6 @@
 import { Paragraph as TiptapParagraph } from 'tiptap';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_VALUE_MAP } from './line_height';
-import { transformLineHeightToCSS } from '../utils/line_height';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
 
 export const ParagraphNodeSpec = {
   attrs: {
@@ -29,7 +28,7 @@ function getAttrs (dom) {
 
   const indent = parseInt(dom.getAttribute('data-indent'), 10) || 0;
 
-  lineHeight = lineHeight ? LINE_HEIGHT_VALUE_MAP[lineHeight] : null;
+  lineHeight = (lineHeight && lineHeight !== transformLineHeightToCSS(LINE_HEIGHT_100)) ? lineHeight : null;
 
   return {
     textAlign: align,

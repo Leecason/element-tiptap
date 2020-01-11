@@ -1,9 +1,17 @@
 import { TextSelection, AllSelection } from 'prosemirror-state';
 
-const ALLOWED_NODE_TYPES = [
+export const LINE_HEIGHT_100 = '1.7';
+
+const DEFAULT_LINE_HEIGHT = '100%';
+
+export const ALLOWED_NODE_TYPES = [
   'paragraph',
   'heading',
+  'list_item',
+  'todo_item',
 ];
+
+const NUMBER_VALUE_PATTERN = /^\d+(.\d+)?$/;
 
 export function isLineHeightActive (state, lineHeight) {
   const { selection, doc } = state;
@@ -14,22 +22,22 @@ export function isLineHeightActive (state, lineHeight) {
 
   doc.nodesBetween(from, to, (node, _pos) => {
     const nodeType = node.type;
-    const lineHeightValue = node.attrs.lineHeight || '100%';
-    if (
-      keepLooking &&
-      (nodeType.name === 'paragraph' || nodeType.name === 'heading') &&
-      lineHeightValue === lineHeight
-    ) {
-      keepLooking = false;
-      active = true;
+    const lineHeightValue = node.attrs.lineHeight || DEFAULT_LINE_HEIGHT;
+
+    if (ALLOWED_NODE_TYPES.includes(nodeType.name)) {
+      if (keepLooking && lineHeight === lineHeightValue) {
+        keepLooking = false;
+        active = true;
+
+        return false;
+      }
+      return nodeType.name !== 'list_item' && nodeType.name !== 'todo_item';
     }
     return keepLooking;
   });
 
   return active;
 }
-
-const NUMBER_VALUE_PATTERN = /^\d+(.\d+)?$/;
 
 export function transformLineHeightToCSS (value) {
   if (!value) return '';
@@ -41,7 +49,7 @@ export function transformLineHeightToCSS (value) {
     strValue = String(Math.round(numValue * 100)) + '%';
   }
 
-  return strValue;
+  return parseFloat(value) * LINE_HEIGHT_100 + '%'; ;
 }
 
 export function setTextLineHeight (tr, lineHeight) {
@@ -56,7 +64,7 @@ export function setTextLineHeight (tr, lineHeight) {
   const { from, to } = selection;
 
   const jobs = [];
-  const lineHeightValue = lineHeight || null;
+  const lineHeightValue = (lineHeight && lineHeight !== DEFAULT_LINE_HEIGHT) ? lineHeight : null;
 
   doc.nodesBetween(from, to, (node, pos) => {
     const nodeType = node.type;
@@ -69,7 +77,7 @@ export function setTextLineHeight (tr, lineHeight) {
           nodeType,
         });
       }
-      return nodeType.name === 'list_item';
+      return nodeType.name !== 'list_item' && nodeType.name !== 'todo_item';
     }
     return true;
   });
