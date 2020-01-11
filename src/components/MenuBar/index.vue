@@ -59,29 +59,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.el-tiptap-editor {
-  &__menu-bar {
-    background-color: #F5F7FA;
-    border-bottom: 1px solid #EBEEF5;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    display: flex;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-    padding: 5px;
-  }
-}
-
-.el-dropdown-menu__item {
-  line-height: 1.5;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  &--active {
-    background-color: #ecf5ff;
-    color: #409EFF;
-  }
-}
-</style>

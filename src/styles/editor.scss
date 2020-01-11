@@ -1,6 +1,8 @@
 @import './variables.scss';
 
 .el-tiptap-editor {
+  $root: &;
+
   border: 1px solid $lighter-border-color;
   border-radius: 8px;
   box-sizing: border-box;
@@ -10,6 +12,36 @@
   max-height: 100%;
   position: relative;
   width: 100%;
+
+  &__menu-bar {
+    background-color: $light-background-color;
+    border-bottom: 1px solid $lighter-border-color;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+
+  &__menu-bubble {
+    border: 1px solid $lighter-border-color;
+    border-radius: 8px;
+    display: flex;
+    background-color: transparentize($black-color, .3);
+    padding: 5px;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: opacity .3s, visibility .3s;
+    visibility: hidden;
+    z-index: 50;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 
   &__content {
     background-color: $white-color;

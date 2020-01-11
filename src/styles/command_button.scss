@@ -1,6 +1,8 @@
 @import './variables.scss';
 
 .el-tiptap-editor {
+  $editor: &;
+
   &__command-button {
     border: 1px solid transparent;
     align-items: center;
@@ -23,6 +25,24 @@
       background-color: $extra-light-primary-color;
       border-color: $light-primary-color;
       color: $primary-color;
+    }
+  }
+
+  &__menu-bubble {
+    #{$editor}__command-button {
+      color: $white-color;
+
+      &:hover {
+        background-color: $extra-light-primary-color;
+        border-color: transparent;
+        color: $primary-color;
+      }
+
+      &--active {
+        background-color: $extra-light-primary-color;
+        border-color: $light-primary-color;
+        color: $primary-color;
+      }
     }
   }
 }
