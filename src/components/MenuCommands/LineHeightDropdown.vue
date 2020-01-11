@@ -59,16 +59,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.el-dropdown-menu__item {
-  line-height: 1.5;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  &--active {
-    background-color: #ecf5ff;
-    color: #409EFF;
-  }
-}
-</style>

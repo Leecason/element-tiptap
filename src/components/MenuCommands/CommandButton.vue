@@ -80,32 +80,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.el-tiptap-editor {
-  &__command-button {
-    border: 1px solid transparent;
-    align-items: center;
-    border-radius: 50%;
-    color: #606266;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    height: 40px;
-    margin: 2px;
-    outline: 0;
-    width: 40px;
-
-    &:hover {
-      background-color: #ecf5ff;
-      color: #409EFF;
-    }
-
-    &--active {
-      background-color: #ecf5ff;
-      border-color: #b3d8ff;
-      color: #409EFF;
-    }
-  }
-}
-</style>

@@ -203,4 +203,5 @@ export default {
 
 <style lang="scss">
 @import '../styles/editor.scss';
+@import '../styles/command_button.scss';
 </style>

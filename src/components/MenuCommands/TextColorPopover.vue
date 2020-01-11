@@ -62,29 +62,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.predefined-colors__container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 240px;
-
-  .color {
-    border-radius: 50%;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
-    color: #ffffff;
-    height: 40px;
-    width: 40px;
-
-    &__wrapper {
-      align-items: center;
-      cursor: pointer;
-      display: flex;
-      flex: 0 0 25%;
-      justify-content: center;
-      padding: 10px;
-    }
-  }
-}
-</style>

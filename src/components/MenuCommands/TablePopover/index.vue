@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import { isTableActive, enableMergeCells, enableSplitCell } from '@/utils/table';
+import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
 
@@ -166,32 +166,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.table-popover__menu {
-  &__item {
-    cursor: pointer;
-    padding: 8px 0;
-
-    &:hover {
-      color: #409eff;
-    }
-
-    &--disabled {
-      cursor: default;
-      opacity: .2;
-
-      &:hover {
-        color: inherit;
-      }
-    }
-
-    &__separator {
-      border-top: 1px solid #dcdfe6;
-      height: 0;
-      margin: 5px 0;
-      width: 100%;
-    }
-  }
-}
-</style>
