@@ -27,6 +27,8 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [
 
 ## 📦 Installation
 
+### NPM
+
 ```shell
 yarn add element-tiptap
 ```
@@ -37,9 +39,7 @@ Or
 npm install --save element-tiptap
 ```
 
-## 🚀 Usage
-
-Install `element-tiptap` plugin.
+Then install `element-tiptap` plugin.
 
 ```js
 import Vue from 'vue';
@@ -50,7 +50,21 @@ Vue.use(ElementTiptapPlugin);
 
 Now you globally register `'element-tiptap'` component.
 
-### Import extensions in component
+### CDN
+
+```js
+<script src="https://unpkg.com/element-tiptap"></script>
+```
+
+Or
+
+```js
+<script src="https://cdn.jsdelivr.net/npm/element-tiptap"></script>
+```
+
+If `Vue` can be found in `window` the plugin should be installed automatically. And `element-tiptap` component will be globally registered.
+
+## 🚀 Usage
 
 ```vue
 <template>
