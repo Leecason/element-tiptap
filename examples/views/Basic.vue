@@ -81,7 +81,6 @@ export default {
             components.&nbsp;
           </strong>
         </p>
-        <p></p>
         <p>
           Text can be decorated with <strong>Bold</strong>, <u>Underline</u>, <em>Italic</em>, <s>Strikethrough</s> or <strong><u><em><s>both</s></em></u></strong>. <strong><span style="color: #f44336">Text </span><span style="color: #673ab7">color </span><span style="color: #2196f3">is </span><span style="color: #4caf50">also </span><span style="color: #ffc107">supported. </span></strong></p>
           <p data-text-align="right">
@@ -95,7 +94,6 @@ export default {
             <p>With regular items</p>
           </li>
         </ul>
-        <p></p>
         <p>
           Image:
         </p>
@@ -120,9 +118,7 @@ export default {
             </div>
           </li>
         </ul>
-        <p></p>
         <pre><code>Hello World!</code></pre>
-        <p></p>
         <p>
           You can also use keyboard shortcuts for
           <strong>Undo</strong>
@@ -130,13 +126,11 @@ export default {
           <strong>Redo</strong> your changes.
           (<strong>cmd+z</strong> and <strong>cmd+shift+z</strong>).
         </p>
-        <p></p>
         <blockquote>
           <p>
             This editor is awesome. 👍👍🏻👍🏼👍🏽👍🏾👍🏿
           </p>
         </blockquote>
-        <p></p>
       `,
     };
   },
