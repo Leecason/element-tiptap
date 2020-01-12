@@ -7,7 +7,7 @@
   >
     <div class="predefined-colors__container">
       <div
-        v-for="color in colors"
+        v-for="color in predefinedColors"
         :key="color"
         class="color__wrapper"
       >
@@ -16,15 +16,15 @@
             'background-color': color,
           }"
           class="color"
-          @click="setTextColor(color)"
+          @click="selectColor(color)"
         />
       </div>
     </div>
 
     <command-button
       slot="reference"
-      tooltip="Text Color"
-      icon="font"
+      :tooltip="tooltip"
+      :icon="icon"
     />
   </el-popover>
 </template>
@@ -34,28 +34,32 @@ import 'vue-awesome/icons/check';
 import CommandButton from './CommandButton.vue';
 
 export default {
-  name: 'TextColorPopover',
+  name: 'ColorPopover',
 
   components: {
     CommandButton,
   },
 
   props: {
-    editorContext: {
-      type: Object,
+    predefinedColors: {
+      type: Array,
+      default: () => [],
+    },
+
+    tooltip: {
+      type: String,
+      required: true,
+    },
+
+    icon: {
+      type: String,
       required: true,
     },
   },
 
-  computed: {
-    colors () {
-      return this.editorContext.editor.extensions.options.text_color.colors;
-    },
-  },
-
   methods: {
-    setTextColor (color) {
-      this.editorContext.commands.text_color(color);
+    selectColor (color) {
+      this.$emit('select', color);
 
       this.$refs.popoverRef.doClose();
     },

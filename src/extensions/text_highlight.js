@@ -3,9 +3,9 @@ import { PREDEFINED_COLORS } from '../utils/color';
 import applyMark from '../utils/apply_mark';
 import ColorPopover from '../components/MenuCommands/ColorPopover.vue';
 
-export default class TextColor extends Mark {
+export default class TextHighlight extends Mark {
   get name () {
-    return 'text_color';
+    return 'text_highlight';
   }
 
   get defaultOptions () {
@@ -17,23 +17,23 @@ export default class TextColor extends Mark {
   get schema () {
     return {
       attrs: {
-        color: '',
+        highlightColor: '',
       },
       inline: true,
       group: 'inline',
       parseDOM: [{
-        style: 'color',
+        style: 'span[style*=background-color]',
         getAttrs: color => {
           return {
-            color: this.options.colors.includes(color) ? color : '',
+            highlightColor: this.options.colors.includes(color) ? color : '',
           };
         },
       }],
       toDOM (node) {
-        const { color } = node.attrs;
+        const { highlightColor } = node.attrs;
         let style = '';
-        if (color) {
-          style += `color: ${color};`;
+        if (highlightColor) {
+          style += `background-color: ${highlightColor};`;
         }
         return ['span', { style }, 0];
       },
@@ -45,8 +45,8 @@ export default class TextColor extends Mark {
       if (color !== undefined) {
         const { schema } = state;
         let { tr } = state;
-        const markType = schema.marks.text_color;
-        const attrs = color ? { color } : null;
+        const markType = schema.marks.text_highlight;
+        const attrs = color ? { highlightColor: color } : null;
         tr = applyMark(
           state.tr.setSelection(state.selection),
           markType,
@@ -65,11 +65,11 @@ export default class TextColor extends Mark {
       component: ColorPopover,
       componentProps: {
         predefinedColors: this.options.colors,
-        tooltip: 'Text color',
-        icon: 'font',
+        tooltip: 'Text highlight',
+        icon: 'highlighter',
       },
       componentEvents: {
-        select: (color) => editorContext.commands.text_color(color),
+        select: (color) => editorContext.commands.text_highlight(color),
       },
     };
   }

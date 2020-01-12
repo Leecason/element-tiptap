@@ -10,6 +10,7 @@ const FORMAT_MARK_NAMES = [
   'strike',
   'link',
   'text_color',
+  'text_highlight',
 ];
 
 export default class FormatClear extends Extension {

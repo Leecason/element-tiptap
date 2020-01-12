@@ -18,6 +18,7 @@
 <script>
 import 'vue-awesome/icons/heading';
 import 'vue-awesome/icons/font';
+import 'vue-awesome/icons/highlighter';
 import 'vue-awesome/icons/bold';
 import 'vue-awesome/icons/underline';
 import 'vue-awesome/icons/italic';

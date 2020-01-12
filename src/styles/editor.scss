@@ -94,11 +94,12 @@
       &:first-child::before {
         content: counter(el-tiptap-counter) '.';
         display: inline-block;
+        left: -5px;
+        line-height: 1;
+        margin-left: -24px;
         position: relative;
         text-align: right;
         top: 0;
-        left: -5px;
-        margin-left: -24px;
         width: 24px;
       }
     }
@@ -200,7 +201,7 @@
           display: inline-block;
           font-size: 18px;
           line-height: inherit;
-          margin-top: 3px;
+          margin-top: 2px;
         }
 
         .todo-content {

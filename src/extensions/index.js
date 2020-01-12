@@ -30,6 +30,7 @@ export { default as Italic } from './italic';
 export { default as Strike } from './strike';
 export { default as Link } from './link';
 export { default as TextColor } from './text_color';
+export { default as TextHighlight } from './text_highlight';
 
 // extensions
 export { default as HorizontalRule } from './horizontal_rule';
