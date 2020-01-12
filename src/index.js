@@ -36,3 +36,16 @@ const ElementTiptapPlugin = {
 export * from './extensions/index';
 
 export { ElementTiptapPlugin };
+
+;(function autoInstall () {
+  let globalScope;
+
+  if (typeof window !== 'undefined') {
+    globalScope = window;
+  } else if (typeof global !== 'undefined') {
+    globalScope = global;
+  }
+  if (globalScope && globalScope.Vue) {
+    globalScope.Vue.use(ElementTiptapPlugin);
+  }
+})();
