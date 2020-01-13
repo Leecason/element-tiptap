@@ -5,19 +5,30 @@
     trigger="click"
     class="text-color-popover"
   >
-    <div class="predefined-colors__container">
-      <div
-        v-for="color in predefinedColors"
-        :key="color"
-        class="color__wrapper"
-      >
+    <div class="colors-container">
+      <div class="predefined-colors__container">
         <div
-          :style="{
-            'background-color': color,
-          }"
-          class="color"
-          @click="selectColor(color)"
-        />
+          v-for="color in predefinedColors"
+          :key="color"
+          class="color__wrapper"
+        >
+          <div
+            :style="{
+              'background-color': color,
+            }"
+            class="color"
+            @click="selectColor(color)"
+          />
+        </div>
+      </div>
+
+      <div class="colors-container__footer">
+        <el-button
+          type="text"
+          @click="selectColor(null)"
+        >
+          Clear
+        </el-button>
       </div>
     </div>
 
