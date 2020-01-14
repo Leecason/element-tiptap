@@ -157,6 +157,7 @@ All available extensions:
 - `TableRow`
 - `FormatClear`
 - `TextColor`
+- `TextHighlight`
 
 You can customize the extension menu button view,
 
