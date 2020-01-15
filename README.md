@@ -9,7 +9,7 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
 
-A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [Element's](https://github.com/ElemeFE/element) components.
+A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2.0.
 
 ## 🎄 Demo
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
@@ -17,7 +17,7 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and uses [
 
 ## ✨ Features
 
-- use [Element's](https://github.com/ElemeFE/element) components
+- use [element-ui](https://github.com/ElemeFE/element) components
 - markdown support
 - events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - add your own extensions
@@ -327,6 +327,7 @@ Footer of the editor, after the editor content.
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## 💪 Roadmap
+- i18n
 - TypeScript
 - Font Size
 - Font Type
