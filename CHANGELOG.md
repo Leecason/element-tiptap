@@ -1,3 +1,26 @@
+# [1.6.0](https://github.com/Leecason/element-tiptap/compare/@1.5.0...@1.6.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **heading:** paragraph command in heading_dropdown not work ([46d161c](https://github.com/Leecason/element-tiptap/commit/46d161c75e9017556d25bb4751fa684c396ed10d))
+* **line-height:** clear_format shuold reset line_height ([2158ad6](https://github.com/Leecason/element-tiptap/commit/2158ad6019ef8f6441533e81511d691c9efbb2e5))
+
+
+### Features
+
+* add TextHighlight extension ([715790e](https://github.com/Leecason/element-tiptap/commit/715790e67e8b1d9637253e070d827be37a5c9bb8))
+* autoInstall function for CDN usage ([b044ce6](https://github.com/Leecason/element-tiptap/commit/b044ce6ee265517fcb8d30f054d18de47c573706))
+* enable cleart color in colorPopover ([62675d8](https://github.com/Leecason/element-tiptap/commit/62675d89743a67156992f732f5ab5699d85c9bda))
+* **editor:** add el-tiptap readonly prop ([9949163](https://github.com/Leecason/element-tiptap/commit/994916363931b49b9bded69e9dae2f3eb7268425))
+* **style:** add command button style file ([1f66c25](https://github.com/Leecason/element-tiptap/commit/1f66c2539b682b8e63ac9bc0d3865ee94aadc409))
+* **style:** extract editor menu style ([d21c89d](https://github.com/Leecason/element-tiptap/commit/d21c89d9f2d718ecb8e8618b7d95665a65cee95f))
+* refactor lineHeight extension, change default line_heights options, todo_list support textAlign and lineHeight ([dbac82c](https://github.com/Leecason/element-tiptap/commit/dbac82c149c8fff9e73ce659f5c4d3ad703e16a8))
+* **style:** add editor style file ([f2d38c8](https://github.com/Leecason/element-tiptap/commit/f2d38c83e8c7f16b06b72f8a0e6807458a643f52))
+* **style:** add editor style file ([20b2229](https://github.com/Leecason/element-tiptap/commit/20b2229a076e0c92dc3743d5e5607a97134d906f))
+* **tooltip:** add arrow and open-delay ([ac7c65c](https://github.com/Leecason/element-tiptap/commit/ac7c65c202c7ab853bc045e52fbb597f50f2752d))
+* **tooltip:** update tooltip text ([91d2c80](https://github.com/Leecason/element-tiptap/commit/91d2c8058f4e7557c6b83242a85572b13c6d47a2))
+
 # [1.5.0](https://github.com/Leecason/element-tiptap/compare/@1.4.1...@1.5.0) (2020-01-07)
 
 
