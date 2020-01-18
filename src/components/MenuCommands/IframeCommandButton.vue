@@ -1,13 +1,14 @@
 <template>
   <command-button
     :command="openInsertVideoControl"
-    tooltip="Insert Video"
+    :tooltip="$i18n('editor.extensions.Iframe.tooltip')"
     icon="video"
   />
 </template>
 
 <script>
 import CommandButton from './CommandButton.vue';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'IframeCommandButton',
@@ -15,6 +16,8 @@ export default {
   components: {
     CommandButton,
   },
+
+  mixins: [i18nMixin],
 
   props: {
     editorContext: {

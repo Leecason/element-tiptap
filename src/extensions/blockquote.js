@@ -1,6 +1,7 @@
 import { Blockquote as TiptapBlockquote } from 'tiptap-extensions';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
+import { t } from '../i18n/index';
 
 const BlockquoteNodeSpec = {
   ...ParagraphNodeSpec,
@@ -39,7 +40,7 @@ export default class Blockquote extends TiptapBlockquote {
         command: commands.blockquote,
         isActive: isActive.blockquote(),
         icon: 'quote-right',
-        tooltip: 'Block quote',
+        tooltip: t('editor.extensions.Blockquote.tooltip'),
       },
     };
   }

@@ -1,6 +1,7 @@
 import { Extension } from 'tiptap';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { setTextAlign, isTextAlignActive } from '../utils/text_align';
+import { t } from '../i18n/index';
 
 export const ALIGN_PATTERN = /(left|right|center|justify)/;
 
@@ -58,7 +59,7 @@ export default class TextAlign extends Extension {
           isActive,
           command: commands[`align_${alignment}`],
           icon: `align-${alignment}`,
-          tooltip: `Align ${alignment}`,
+          tooltip: t(`editor.extensions.TextAlign.tooltip.align_${alignment}`),
         },
       });
     }, []);

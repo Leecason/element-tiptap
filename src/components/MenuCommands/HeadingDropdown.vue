@@ -8,8 +8,8 @@
     "
   >
     <command-button
-      :is-active="isHeadingActive(undefined)"
-      tooltip="Heading"
+      :is-active="isHeadingActive()"
+      :tooltip="$i18n('editor.extensions.Heading.tooltip')"
       icon="heading"
     />
     <el-dropdown-menu slot="dropdown">
@@ -40,6 +40,7 @@
 <script>
 import { isHeadingActive } from '../../utils/heading';
 import CommandButton from './CommandButton.vue';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'HeadingDropdown',
@@ -47,6 +48,8 @@ export default {
   components: {
     CommandButton,
   },
+
+  mixins: [i18nMixin],
 
   props: {
     editorContext: {

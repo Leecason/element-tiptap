@@ -105,7 +105,7 @@
     <command-button
       slot="reference"
       :is-active="isTableActive"
-      tooltip="Table"
+      :tooltip="$i18n('editor.extensions.Table.tooltip')"
       icon="table"
     />
   </el-popover>
@@ -115,6 +115,7 @@
 import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
+import i18nMixin from '../../../mixins/i18nMixin';
 
 export default {
   name: 'TablePopover',
@@ -123,6 +124,8 @@ export default {
     CommandButton,
     CreateTablePopover,
   },
+
+  mixins: [i18nMixin],
 
   props: {
     editorContext: {

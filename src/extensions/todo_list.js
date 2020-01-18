@@ -1,5 +1,7 @@
 import { TodoList as TiptapTodoList } from 'tiptap-extensions';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { t } from '../i18n/index';
+
 export default class TodoList extends TiptapTodoList {
   get schema () {
     return {
@@ -33,7 +35,7 @@ export default class TodoList extends TiptapTodoList {
         isActive: isActive.todo_list(),
         command: commands.todo_list,
         icon: 'tasks',
-        tooltip: 'Todo list',
+        tooltip: t('editor.extensions.TodoList.tooltip'),
       },
     };
   }

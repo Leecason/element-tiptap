@@ -2,6 +2,7 @@ import { Extension } from 'tiptap';
 import { setTextAlign } from '../utils/text_align';
 import { setTextLineHeight } from '../utils/line_height';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { t } from '../i18n/index';
 
 const FORMAT_MARK_NAMES = [
   'bold',
@@ -73,7 +74,7 @@ export default class FormatClear extends Extension {
       componentProps: {
         command: commands.format_clear,
         icon: 'remove-format',
-        tooltip: 'Clear format',
+        tooltip: t('editor.extensions.FormatClear.tooltip'),
       },
     };
   }

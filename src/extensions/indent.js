@@ -3,7 +3,7 @@ import { TextSelection, AllSelection } from 'prosemirror-state';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { clamp } from '../utils/shared';
 import { isListNode } from '../utils/list';
-
+import { t } from '../i18n/index';
 export default class Indent extends Extension {
   get name () {
     return 'indent';
@@ -37,7 +37,7 @@ export default class Indent extends Extension {
         componentProps: {
           command: commands.indent,
           icon: 'indent',
-          tooltip: 'Indent',
+          tooltip: t('editor.extensions.Indent.tooltip.indent'),
         },
       },
       {
@@ -45,7 +45,7 @@ export default class Indent extends Extension {
         componentProps: {
           command: commands.outdent,
           icon: 'outdent',
-          tooltip: 'Outdent',
+          tooltip: t('editor.extensions.Indent.tooltip.outdent'),
         },
       },
     ];

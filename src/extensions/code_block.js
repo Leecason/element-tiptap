@@ -1,5 +1,6 @@
 import { CodeBlock as TiptapCodeBlock } from 'tiptap-extensions';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { t } from '../i18n/index';
 
 export default class CodeBlock extends TiptapCodeBlock {
   menuBtnView ({ isActive, commands }) {
@@ -9,7 +10,7 @@ export default class CodeBlock extends TiptapCodeBlock {
         command: commands.code_block,
         isActive: isActive.code_block(),
         icon: 'code',
-        tooltip: 'Code block',
+        tooltip: t('editor.extensions.CodeBlock.tooltip'),
       },
     };
   }

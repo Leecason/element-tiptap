@@ -5,7 +5,7 @@
     @command="lineHeight => editorContext.commands.line_height({ lineHeight })"
   >
     <command-button
-      tooltip="Line height"
+      :tooltip="$i18n('editor.extensions.LineHeight.tooltip')"
       icon="text-height"
     />
     <el-dropdown-menu slot="dropdown">
@@ -25,8 +25,8 @@
 
 <script>
 import { isLineHeightActive } from '../../utils/line_height';
-
 import CommandButton from './CommandButton.vue';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'LineHeightDropdown',
@@ -34,6 +34,8 @@ export default {
   components: {
     CommandButton,
   },
+
+  mixins: [i18nMixin],
 
   props: {
     editorContext: {

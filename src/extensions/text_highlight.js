@@ -2,6 +2,7 @@ import { Mark } from 'tiptap';
 import { PREDEFINED_COLORS } from '../utils/color';
 import applyMark from '../utils/apply_mark';
 import ColorPopover from '../components/MenuCommands/ColorPopover.vue';
+import { t } from '../i18n/index';
 
 export default class TextHighlight extends Mark {
   get name () {
@@ -65,7 +66,7 @@ export default class TextHighlight extends Mark {
       component: ColorPopover,
       componentProps: {
         predefinedColors: this.options.colors,
-        tooltip: 'Text highlight',
+        tooltip: t('editor.extensions.TextHighlight.tooltip'),
         icon: 'highlighter',
       },
       componentEvents: {

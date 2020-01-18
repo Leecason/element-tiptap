@@ -23,7 +23,7 @@
 
       <command-button
         slot="reference"
-        tooltip="Image"
+        :tooltip="$i18n('editor.extensions.Image.tooltip')"
         icon="image"
       />
     </el-popover>
@@ -50,8 +50,8 @@
 
 <script>
 import { readFileDataUrl } from '../../utils/shared';
-
 import CommandButton from './CommandButton';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'ImageCommandButton',
@@ -59,6 +59,8 @@ export default {
   components: {
     CommandButton,
   },
+
+  mixins: [i18nMixin],
 
   props: {
     editorContext: {

@@ -2,13 +2,14 @@
   <command-button
     :is-active="editorContext.isActive.link()"
     :command="openApplyLinkControl"
-    tooltip="Apply link"
+    :tooltip="$i18n('editor.extensions.Link.tooltip')"
     icon="link"
   />
 </template>
 
 <script>
 import CommandButton from './CommandButton.vue';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'AddLinkCommandButton',
@@ -16,6 +17,8 @@ export default {
   components: {
     CommandButton,
   },
+
+  mixins: [i18nMixin],
 
   props: {
     editorContext: {

@@ -1,5 +1,6 @@
 import { History as TiptapHistory } from 'tiptap-extensions';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { t } from '../i18n/index';
 
 export default class History extends TiptapHistory {
   menuBtnView ({ commands }) {
@@ -9,7 +10,7 @@ export default class History extends TiptapHistory {
         componentProps: {
           command: commands.undo,
           icon: 'undo',
-          tooltip: 'Undo',
+          tooltip: t('editor.extensions.History.tooltip.undo'),
         },
       },
       {
@@ -17,7 +18,7 @@ export default class History extends TiptapHistory {
         componentProps: {
           command: commands.redo,
           icon: 'redo',
-          tooltip: 'Redo',
+          tooltip: t('editor.extensions.History.tooltip.redo'),
         },
       },
     ];

@@ -1,5 +1,6 @@
 import { Underline as TiptapUnderline } from 'tiptap-extensions';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { t } from '../i18n/index';
 
 export default class Underline extends TiptapUnderline {
   menuBtnView ({ isActive, commands }) {
@@ -9,7 +10,7 @@ export default class Underline extends TiptapUnderline {
         command: commands.underline,
         isActive: isActive.underline(),
         icon: 'underline',
-        tooltip: 'Underline',
+        tooltip: t('editor.extensions.Underline.tooltip'),
       },
     };
   }
