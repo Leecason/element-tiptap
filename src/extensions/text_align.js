@@ -59,7 +59,7 @@ export default class TextAlign extends Extension {
           isActive,
           command: commands[`align_${alignment}`],
           icon: `align-${alignment}`,
-          tooltip: t(`editor.extensions.TextAlign.tooltip.align_${alignment}`),
+          tooltip: t(`editor.extensions.TextAlign.buttons.align_${alignment}.tooltip`),
         },
       });
     }, []);

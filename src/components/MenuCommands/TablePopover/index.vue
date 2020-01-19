@@ -20,7 +20,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addColumnBefore"
       >
-        <span>Add Column Before</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.add_column_before') }}</span>
       </div>
 
       <div
@@ -29,7 +29,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addColumnAfter"
       >
-        <span>Add Column After</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.add_column_after') }}</span>
       </div>
 
       <div
@@ -38,7 +38,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteColumn"
       >
-        <span>Delete Column</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.delete_column') }}</span>
       </div>
 
       <div class="table-popover__menu__item__separator" />
@@ -49,7 +49,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addRowBefore"
       >
-        <span>Add Row Before</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.add_row_before') }}</span>
       </div>
 
       <div
@@ -58,7 +58,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addRowAfter"
       >
-        <span>Add Row After</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.add_row_after') }}</span>
       </div>
 
       <div
@@ -67,7 +67,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteRow"
       >
-        <span>Delete Row</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.delete_row') }}</span>
       </div>
 
       <div class="table-popover__menu__item__separator" />
@@ -78,7 +78,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.mergeCells"
       >
-        <span>Merge Cells</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.merge_cells') }}</span>
       </div>
 
       <div
@@ -87,7 +87,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.splitCell"
       >
-        <span>Split Cell</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.split_cell') }}</span>
       </div>
 
       <div class="table-popover__menu__item__separator" />
@@ -98,7 +98,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteTable"
       >
-        <span>Delete Table</span>
+        <span>{{ $i18n('editor.extensions.Table.buttons.delete_table') }}</span>
       </div>
     </div>
 

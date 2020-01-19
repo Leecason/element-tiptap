@@ -68,6 +68,7 @@ export default class TextHighlight extends Mark {
         predefinedColors: this.options.colors,
         tooltip: t('editor.extensions.TextHighlight.tooltip'),
         icon: 'highlighter',
+        resetButtonText: t('editor.extensions.TextHighlight.reset'),
       },
       componentEvents: {
         select: (color) => editorContext.commands.text_highlight(color),

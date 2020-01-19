@@ -28,10 +28,10 @@ export default {
 
   methods: {
     openInsertVideoControl () {
-      this.$prompt('', 'Insert Video', {
-        confirmButtonText: 'Insert',
-        cancelButtonText: 'Cancel',
-        inputPlaceholder: 'Href',
+      this.$prompt('', this.$i18n('editor.extensions.Iframe.control.title'), {
+        confirmButtonText: this.$i18n('editor.extensions.Iframe.control.confirm'),
+        cancelButtonText: this.$i18n('editor.extensions.Iframe.control.cancel'),
+        inputPlaceholder: this.$i18n('editor.extensions.Iframe.control.placeholder'),
         roundButton: true,
       }).then(({ value: href }) => {
         this.editorContext.commands.iframe({ src: href });

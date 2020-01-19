@@ -29,10 +29,10 @@ export default {
 
   methods: {
     openApplyLinkControl () {
-      this.$prompt('', 'Apply link', {
-        confirmButtonText: 'Apply',
-        cancelButtonText: 'Close',
-        inputPlaceholder: 'Href',
+      this.$prompt('', this.$i18n('editor.extensions.Link.control.title'), {
+        confirmButtonText: this.$i18n('editor.extensions.Link.control.confirm'),
+        cancelButtonText: this.$i18n('editor.extensions.Link.control.cancel'),
+        inputPlaceholder: this.$i18n('editor.extensions.Link.control.placeholder'),
         roundButton: true,
       }).then(({ value: href }) => {
         this.editorContext.commands.link({ href });

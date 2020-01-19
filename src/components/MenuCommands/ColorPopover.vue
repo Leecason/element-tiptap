@@ -22,12 +22,15 @@
         </div>
       </div>
 
-      <div class="colors-container__footer">
+      <div
+        v-if="resetButtonText"
+        class="colors-container__footer"
+      >
         <el-button
           type="text"
           @click="selectColor(null)"
         >
-          Clear
+          {{ resetButtonText }}
         </el-button>
       </div>
     </div>
@@ -66,6 +69,11 @@ export default {
       type: String,
       required: true,
     },
+
+    resetButtonText: {
+      type: String,
+      default: '',
+    }
   },
 
   methods: {

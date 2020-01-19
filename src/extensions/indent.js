@@ -37,7 +37,7 @@ export default class Indent extends Extension {
         componentProps: {
           command: commands.indent,
           icon: 'indent',
-          tooltip: t('editor.extensions.Indent.tooltip.indent'),
+          tooltip: t('editor.extensions.Indent.buttons.indent.tooltip'),
         },
       },
       {
@@ -45,7 +45,7 @@ export default class Indent extends Extension {
         componentProps: {
           command: commands.outdent,
           icon: 'outdent',
-          tooltip: t('editor.extensions.Indent.tooltip.outdent'),
+          tooltip: t('editor.extensions.Indent.buttons.outdent.tooltip'),
         },
       },
     ];

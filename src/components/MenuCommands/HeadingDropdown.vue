@@ -19,7 +19,7 @@
           'el-dropdown-menu__item--active': editorContext.isActive.paragraph(),
         }"
       >
-        <span>Paragraph</span>
+        <span>{{ $i18n('editor.extensions.Heading.buttons.paragraph') }}</span>
       </el-dropdown-item>
       <el-dropdown-item
         v-for="i in level"
@@ -30,7 +30,7 @@
         }"
       >
         <component :is="'h' +i">
-          Heading {{ i }}
+          {{ $i18n('editor.extensions.Heading.buttons.heading') }} {{ i }}
         </component>
       </el-dropdown-item>
     </el-dropdown-menu>

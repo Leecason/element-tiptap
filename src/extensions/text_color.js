@@ -67,6 +67,7 @@ export default class TextColor extends Mark {
         predefinedColors: this.options.colors,
         tooltip: t('editor.extensions.TextColor.tooltip'),
         icon: 'font',
+        resetButtonText: t('editor.extensions.TextColor.reset'),
       },
       componentEvents: {
         select: (color) => editorContext.commands.text_color(color),
