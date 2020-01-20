@@ -5,7 +5,7 @@
     @command="lineHeight => editorContext.commands.line_height({ lineHeight })"
   >
     <command-button
-      tooltip="Line height"
+      tooltip="lineHeight"
       icon="text-height"
     />
     <el-dropdown-menu slot="dropdown">

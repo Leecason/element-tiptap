@@ -46,6 +46,9 @@ import Vue from 'vue';
 import { ElementTiptapPlugin } from 'element-tiptap';
 
 Vue.use(ElementTiptapPlugin);
+
+// use i18n
+Vue.use(ElementTiptapPlugin, { locale: 'en' });
 ```
 
 Now you globally register `'element-tiptap'` component.

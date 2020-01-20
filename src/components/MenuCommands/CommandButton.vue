@@ -1,6 +1,6 @@
 <template>
   <el-tooltip
-    :content="tooltip"
+    :content="i18nTooltip"
     :open-delay="350"
     effect="dark"
     placement="top"
@@ -45,10 +45,11 @@ import 'vue-awesome/icons/undo';
 import 'vue-awesome/icons/redo';
 
 import { noop } from '../../utils/shared';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'CommandButton',
-
+  mixins: [i18nMixin],
   props: {
     icon: {
       type: String,
@@ -72,6 +73,9 @@ export default {
   },
 
   computed: {
+    i18nTooltip () {
+      return this.i18n(`controls.${this.tooltip}`);
+    },
     classes () {
       return {
         'el-tiptap-editor__command-button': true,

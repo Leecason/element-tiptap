@@ -9,7 +9,7 @@ export default class CodeBlock extends TiptapCodeBlock {
         command: commands.code_block,
         isActive: isActive.code_block(),
         icon: 'code',
-        tooltip: 'Code block',
+        tooltip: 'codeBlock',
       },
     };
   }

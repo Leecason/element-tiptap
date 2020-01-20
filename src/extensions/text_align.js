@@ -58,7 +58,7 @@ export default class TextAlign extends Extension {
           isActive,
           command: commands[`align_${alignment}`],
           icon: `align-${alignment}`,
-          tooltip: `Align ${alignment}`,
+          tooltip: `${alignment}Align`,
         },
       });
     }, []);

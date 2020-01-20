@@ -9,7 +9,7 @@
   >
     <command-button
       :is-active="isHeadingActive(undefined)"
-      tooltip="Heading"
+      tooltip="heading"
       icon="heading"
     />
     <el-dropdown-menu slot="dropdown">
@@ -19,7 +19,7 @@
           'el-dropdown-menu__item--active': editorContext.isActive.paragraph(),
         }"
       >
-        <span>Paragraph</span>
+        <span>{{ i18n('controls.paragraph') }}</span>
       </el-dropdown-item>
       <el-dropdown-item
         v-for="i in level"
@@ -30,7 +30,7 @@
         }"
       >
         <component :is="'h' +i">
-          Heading {{ i }}
+          {{ i18n('controls.heading') }} {{ i }}
         </component>
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -40,9 +40,12 @@
 <script>
 import { isHeadingActive } from '../../utils/heading';
 import CommandButton from './CommandButton.vue';
+import i18nMixin from '../../mixins/i18nMixin';
 
 export default {
   name: 'HeadingDropdown',
+
+  mixins: [i18nMixin],
 
   components: {
     CommandButton,

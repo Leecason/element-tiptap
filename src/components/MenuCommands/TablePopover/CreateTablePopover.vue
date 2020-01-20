@@ -38,18 +38,22 @@
       class="table-popover__menu-item"
       @mouseover="popoverVisible = true"
     >
-      <span>Insert Table</span>
+      <span>{{ i18n('table.insertTable') }}</span>
     </div>
   </el-popover>
 </template>
 
 <script>
+import i18nMixin from '../../../mixins/i18nMixin';
+
 const INIT_GRID_SIZE = 5;
 const MAX_GRID_SIZE = 10;
 const DEFAULT_SELECTED_GRID_SIZE = 2;
 
 export default {
   name: 'createTablePopover',
+
+  mixins: [i18nMixin],
 
   data () {
     return {

@@ -9,7 +9,7 @@ export default class OrderedList extends TiptapOrderedList {
         isActive: isActive.ordered_list(),
         command: commands.ordered_list,
         icon: 'list-ol',
-        tooltip: 'Ordered list',
+        tooltip: 'orderedList',
       },
     };
   }

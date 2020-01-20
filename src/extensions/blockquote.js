@@ -39,7 +39,7 @@ export default class Blockquote extends TiptapBlockquote {
         command: commands.blockquote,
         isActive: isActive.blockquote(),
         icon: 'quote-right',
-        tooltip: 'Block quote',
+        tooltip: 'blockquote',
       },
     };
   }

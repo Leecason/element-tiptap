@@ -9,7 +9,7 @@ export default class Strike extends TiptapStrike {
         command: commands.strike,
         isActive: isActive.strike(),
         icon: 'strikethrough',
-        tooltip: 'Strike through',
+        tooltip: 'strikeThrough',
       },
     };
   }

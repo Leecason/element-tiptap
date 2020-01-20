@@ -7,6 +7,7 @@ export default class Table extends TiptapTable {
       component: TablePopover,
       componentProps: {
         editorContext,
+        tooltip: 'table',
       },
     };
   }

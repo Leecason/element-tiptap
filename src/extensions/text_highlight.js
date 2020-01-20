@@ -65,7 +65,7 @@ export default class TextHighlight extends Mark {
       component: ColorPopover,
       componentProps: {
         predefinedColors: this.options.colors,
-        tooltip: 'Text highlight',
+        tooltip: 'textHighlight',
         icon: 'highlighter',
       },
       componentEvents: {

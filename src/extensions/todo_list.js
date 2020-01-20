@@ -33,7 +33,7 @@ export default class TodoList extends TiptapTodoList {
         isActive: isActive.todo_list(),
         command: commands.todo_list,
         icon: 'tasks',
-        tooltip: 'Todo list',
+        tooltip: 'todoList',
       },
     };
   }

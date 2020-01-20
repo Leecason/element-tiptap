@@ -3,7 +3,7 @@ import {
   // layout
   Container,
   Header,
-  Main,
+  Main
 } from 'element-ui';
 
 import { ElementTiptapPlugin } from 'element-tiptap';
@@ -14,11 +14,11 @@ Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
 
-Vue.use(ElementTiptapPlugin);
+Vue.use(ElementTiptapPlugin, { locale: 'en' });
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app');

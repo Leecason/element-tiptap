@@ -73,7 +73,7 @@ export default class FormatClear extends Extension {
       componentProps: {
         command: commands.format_clear,
         icon: 'remove-format',
-        tooltip: 'Clear format',
+        tooltip: 'formatClear',
       },
     };
   }

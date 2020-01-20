@@ -9,7 +9,7 @@ export default class Bold extends TiptapBold {
         command: commands.bold,
         isActive: isActive.bold(),
         icon: 'bold',
-        tooltip: 'Bold',
+        tooltip: 'bold',
       },
     };
   }

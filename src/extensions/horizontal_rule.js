@@ -8,7 +8,7 @@ export default class HorizontalRule extends TiptapHorizontalRule {
       componentProps: {
         command: commands.horizontal_rule,
         icon: 'minus',
-        tooltip: 'Horizontal line',
+        tooltip: 'horizontalLine',
       },
     };
   }

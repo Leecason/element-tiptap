@@ -9,7 +9,7 @@ export default class Underline extends TiptapUnderline {
         command: commands.underline,
         isActive: isActive.underline(),
         icon: 'underline',
-        tooltip: 'Underline',
+        tooltip: 'underline',
       },
     };
   }

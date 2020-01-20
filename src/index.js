@@ -15,10 +15,11 @@ import ElementTiptap from './components/ElementTiptap.vue';
 
 const ElementTiptapPlugin = {
   installed: false,
+  currentLang: 'zh',
 
-  install (Vue) {
+  install (Vue, opts = {}) {
     Vue.component('v-icon', Icon);
-
+    this.currentLang = opts.locale || 'zh';
     Vue.use(Button);
     Vue.use(Tooltip);
     Vue.use(Dropdown);

@@ -9,7 +9,7 @@ export default class History extends TiptapHistory {
         componentProps: {
           command: commands.undo,
           icon: 'undo',
-          tooltip: 'Undo',
+          tooltip: 'undo',
         },
       },
       {
@@ -17,7 +17,7 @@ export default class History extends TiptapHistory {
         componentProps: {
           command: commands.redo,
           icon: 'redo',
-          tooltip: 'Redo',
+          tooltip: 'redo',
         },
       },
     ];

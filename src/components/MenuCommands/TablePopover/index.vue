@@ -20,7 +20,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addColumnBefore"
       >
-        <span>Add Column Before</span>
+        <span>{{ i18n('table.addColumnBefore') }}</span>
       </div>
 
       <div
@@ -29,7 +29,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addColumnAfter"
       >
-        <span>Add Column After</span>
+        <span>{{ i18n('table.addColumnAfter') }}</span>
       </div>
 
       <div
@@ -38,7 +38,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteColumn"
       >
-        <span>Delete Column</span>
+        <span>{{ i18n('table.deleteColumn') }}</span>
       </div>
 
       <div class="table-popover__menu__item__separator" />
@@ -49,7 +49,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addRowBefore"
       >
-        <span>Add Row Before</span>
+        <span>{{ i18n('table.addRowBefore') }}</span>
       </div>
 
       <div
@@ -58,7 +58,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addRowAfter"
       >
-        <span>Add Row After</span>
+        <span>{{ i18n('table.addRowAfter') }}</span>
       </div>
 
       <div
@@ -67,7 +67,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteRow"
       >
-        <span>Delete Row</span>
+        <span>{{ i18n('table.deleteRow') }}</span>
       </div>
 
       <div class="table-popover__menu__item__separator" />
@@ -78,7 +78,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.mergeCells"
       >
-        <span>Merge Cells</span>
+        <span>{{ i18n('table.mergeCells') }}</span>
       </div>
 
       <div
@@ -87,7 +87,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.splitCell"
       >
-        <span>Split Cell</span>
+        <span>{{ i18n('table.splitCell') }}</span>
       </div>
 
       <div class="table-popover__menu__item__separator" />
@@ -98,14 +98,14 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteTable"
       >
-        <span>Delete Table</span>
+        <span>{{ i18n('table.deleteTable') }}</span>
       </div>
     </div>
 
     <command-button
       slot="reference"
       :is-active="isTableActive"
-      tooltip="Table"
+      tooltip="table"
       icon="table"
     />
   </el-popover>
@@ -115,9 +115,12 @@
 import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
+import i18nMixin from '../../../mixins/i18nMixin';
 
 export default {
   name: 'TablePopover',
+
+  mixins: [i18nMixin],
 
   components: {
     CommandButton,

@@ -9,7 +9,7 @@ export default class BulletList extends TiptapBulletList {
         isActive: isActive.bullet_list(),
         command: commands.bullet_list,
         icon: 'list-ul',
-        tooltip: 'Bullet list',
+        tooltip: 'bulletList',
       },
     };
   }

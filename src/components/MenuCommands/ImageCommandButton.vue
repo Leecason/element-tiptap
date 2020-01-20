@@ -10,25 +10,25 @@
           class="image-popover__menu__item"
           @click="openUrlPrompt"
         >
-          <span>Insert Image By Url</span>
+          <span>{{ i18n('image.insertByUrl') }}</span>
         </div>
 
         <div
           class="image-popover__menu__item"
           @click="imageUploadDialogVisible = true"
         >
-          <span>Upload Image</span>
+          <span>{{ i18n('image.insertByUpload') }}</span>
         </div>
       </div>
 
       <command-button
         slot="reference"
-        tooltip="Image"
+        tooltip="image"
         icon="image"
       />
     </el-popover>
 
-    <el-dialog title="Upload image" :visible.sync="imageUploadDialogVisible">
+    <el-dialog :title="i18n('dialog.image.uploadTitle')" :visible.sync="imageUploadDialogVisible">
       <el-upload
         :http-request="uploadImage"
         :show-file-list="false"
@@ -41,7 +41,7 @@
           <i class="fa fa-upload" />
         </div>
         <div class="el-upload__text">
-          Choose an image file or drag it here
+          {{ i18n('dialog.image.placeholder') }}
         </div>
       </el-upload>
     </el-dialog>
@@ -53,8 +53,12 @@ import { readFileDataUrl } from '../../utils/shared';
 
 import CommandButton from './CommandButton';
 
+import i18nMixin from '../../mixins/i18nMixin';
+
 export default {
   name: 'ImageCommandButton',
+
+  mixins: [i18nMixin],
 
   components: {
     CommandButton,
@@ -81,12 +85,12 @@ export default {
 
   methods: {
     openUrlPrompt () {
-      this.$prompt('', 'Insert image', {
-        confirmButtonText: 'Insert',
-        cancelButtonText: 'Cancel',
-        inputPlaceholder: 'Url of image',
+      this.$prompt('', this.i18n('dialog.image.title'), {
+        confirmButtonText: this.i18n('dialog.image.confirmButtonText'),
+        cancelButtonText: this.i18n('dialog.image.cancelButtonText'),
+        inputPlaceholder: this.i18n('dialog.image.inputPlaceholder'),
         inputPattern: this.imageNodeOptions.urlPattern,
-        inputErrorMessage: 'Please enter the correct url',
+        inputErrorMessage: this.i18n('dialog.image.inputErrorMessage'),
         roundButton: true,
       }).then(({ value: url }) => {
         this.editorContext.commands.image({ src: url });
