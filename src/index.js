@@ -10,13 +10,13 @@ import {
   Popover,
 } from 'element-ui';
 import Icon from 'vue-awesome/components/Icon';
-
+import { useLang } from './i18n/index';
 import ElementTiptap from './components/ElementTiptap.vue';
 
 const ElementTiptapPlugin = {
   installed: false,
 
-  install (Vue) {
+  install (Vue, options = {}) {
     Vue.component('v-icon', Icon);
 
     Vue.use(Button);
@@ -28,6 +28,9 @@ const ElementTiptapPlugin = {
     Vue.use(Upload);
     Vue.use(Popover);
     Vue.prototype.$prompt = MessageBox.prompt;
+
+    const { lang } = options;
+    if (lang) useLang(lang);
 
     Vue.component('el-tiptap', ElementTiptap);
 
