@@ -2,7 +2,6 @@
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap">
   <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
@@ -18,12 +17,13 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [eleme
 ## ✨ Features
 
 - use [element-ui](https://github.com/ElemeFE/element) components
+- many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
 - markdown support
+- i18n support(`en`, `zh`). welcome to contribute more languages
 - events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- add your own extensions
+- fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror).
 - customize all extension menu button view
 - menu buttons can render in menubar and bubble menu
-- all it's up to you.
 
 ## 📦 Installation
 
@@ -48,7 +48,7 @@ import { ElementTiptapPlugin } from 'element-tiptap';
 Vue.use(ElementTiptapPlugin);
 ```
 
-Now you globally register `'element-tiptap'` component.
+Now you globally register `'el-tiptap'` component.
 
 ### CDN
 
@@ -62,7 +62,21 @@ Or
 <script src="https://cdn.jsdelivr.net/npm/element-tiptap"></script>
 ```
 
-If `Vue` can be found in `window` the plugin should be installed automatically. And `element-tiptap` component will be globally registered.
+If `Vue` can be found in `window` the plugin should be installed automatically. And `el-tiptap` component will be globally registered.
+
+## 🌐 I18n
+
+You can declare when you install the plugin.
+
+```js
+Vue.use(ElementTiptapPlugin, {
+  lang: 'zh',
+});
+```
+
+Available languages: `en`(default), `zh`.
+
+Welcome contribution.
 
 ## 🚀 Usage
 
@@ -159,7 +173,7 @@ All available extensions:
 - `TextColor`
 - `TextHighlight`
 
-You can customize the extension menu button view,
+You can customize the extension menu button view
 
 1) create your custom extension.
 
@@ -171,7 +185,7 @@ export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
     // editorContext contains a collection of properties that are useful to you
     // see https://github.com/scrumpy/tiptap#editormenubar
-    // ElTiptap plus editor instance to editorContext.
+    // ElementTiptap plus editor instance to editorContext.
     return {
       component: CustomButton, // your component
       componentProps: {
@@ -185,7 +199,7 @@ export default class CustomBold extends Bold {
 2) use custom extension in component
 ```vue
 <template>
-  <el-tiptap :extensions="extensions />
+  <el-tiptap :extensions="extensions" />
 </template>
 
 <script>
@@ -327,10 +341,7 @@ Footer of the editor, after the editor content.
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## 💪 Roadmap
-- i18n
 - TypeScript
-- Font Size
-- Font Type
 
 ## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
