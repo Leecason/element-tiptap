@@ -1,8 +1,10 @@
 import en from './en';
+import zh from './zh';
 
 const defaultLang = 'en';
 const dictionary = {
   en,
+  zh,
 };
 
 let currentLang = dictionary[defaultLang];
