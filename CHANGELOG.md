@@ -1,3 +1,13 @@
+# [1.7.0](https://github.com/Leecason/element-tiptap/compare/@1.6.0...@1.7.0) (2020-01-21)
+
+
+### Features
+
+* **i18n:** 🌐 enable config lang when install plugin ([d5e1def](https://github.com/Leecason/element-tiptap/commit/d5e1defabecef315d8753540be497ab1316b8a26))
+* **i18n:** 🌐 support 'zh' lang ([09ab9df](https://github.com/Leecason/element-tiptap/commit/09ab9df2f43413718ca09dc3474b59b194d146ec))
+* **i18n:** 🌐 translate extension button tooltip ([22d458c](https://github.com/Leecason/element-tiptap/commit/22d458ca2d6155f26318255efbdeee270639463f))
+* **i18n:** 🌐 translate extension control text ([279247f](https://github.com/Leecason/element-tiptap/commit/279247f479c84d5f70d641c4339135bda9430682))
+
 # [1.6.0](https://github.com/Leecason/element-tiptap/compare/@1.5.0...@1.6.0) (2020-01-16)
 
 
