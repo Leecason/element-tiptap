@@ -8,42 +8,42 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
 
-A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2.0.
+一个 Vue2.0 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
 
-## 📔 Translation
+## 📔 翻译
 
-English | [简体中文](./README-ZH.md)
+[English](./README.md) | 简体中文
 
-## 🎄 Demo
+## 🎄 示例
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
-[Live Demo](https://leecason.github.io/element-tiptap)
+[在线示例](https://leecason.github.io/element-tiptap)
 
-## ✨ Features
+## ✨ 特色
 
-- use [element-ui](https://github.com/ElemeFE/element) components
-- many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
-- markdown support
-- i18n support(`en`, `zh`). welcome to contribute more languages
-- events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror).
-- customize all extension menu button view
-- menu buttons can render in menubar and bubble menu
+- 使用 [element-ui](https://github.com/ElemeFE/element) 组件
+- 许多可以被直接使用的 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
+- 支持 markdown 语法
+- 支持 i18n(`en`, `zh`). 欢迎贡献更多的语言
+- 可能会用到的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
+- 高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
+- 自定义菜单按钮的视图
+- 菜单按钮可以被渲染在菜单栏和气泡菜单中
 
-## 📦 Installation
+## 📦 安装
 
-### NPM
+### 通过 NPM
 
 ```shell
 yarn add element-tiptap
 ```
 
-Or
+或者
 
 ```shell
 npm install --save element-tiptap
 ```
 
-Then install `element-tiptap` plugin.
+然后安装 `element-tiptap` 插件。
 
 ```js
 import Vue from 'vue';
@@ -52,25 +52,25 @@ import { ElementTiptapPlugin } from 'element-tiptap';
 Vue.use(ElementTiptapPlugin);
 ```
 
-Now you globally register `'el-tiptap'` component.
+现在你已经在全局注册了 `el-tiptap` 组件。
 
-### CDN
+### 通过 CDN
 
 ```js
 <script src="https://unpkg.com/element-tiptap"></script>
 ```
 
-Or
+或者
 
 ```js
 <script src="https://cdn.jsdelivr.net/npm/element-tiptap"></script>
 ```
 
-If `Vue` can be found in `window` the plugin should be installed automatically. And `el-tiptap` component will be globally registered.
+如果能在 `window` 上找到 `Vue`，这个插件将会被自动安装，并且 `el-tiptap` 组件将会被全局注册。
 
-## 🌐 I18n
+## 🌐 国际化
 
-You can declare when you install the plugin.
+你可以在安装插件的时候声明
 
 ```js
 Vue.use(ElementTiptapPlugin, {
@@ -78,11 +78,11 @@ Vue.use(ElementTiptapPlugin, {
 });
 ```
 
-Available languages: `en`(default), `zh`.
+可用的语言: `en`(默认), `zh`.
 
-Welcome contribution.
+欢迎贡献更多的语言.
 
-## 🚀 Usage
+## 🚀 用法
 
 ```vue
 <template>
@@ -96,7 +96,7 @@ Welcome contribution.
 
 <script>
 import {
-  // necessary extensions
+  // 需要的 extensions
   Doc,
   Text,
   Paragraph,
@@ -112,14 +112,14 @@ import {
 
 export default {
   data () {
-    // editor extensions
-    // they will be added to menubar and bubble menu by the order you declare.
+    // 编辑器的 extensions
+    // 它们将会按照你声明的顺序被添加到菜单栏和气泡菜单中
     extensions: [
       new Doc(),
       new Text(),
       new Paragraph(),
       new Heading({ level: 5 }),
-      new Bold({ bubble: true }), // render command-button in bubble menu.
+      new Bold({ bubble: true }), // 在气泡菜单中渲染菜单按钮
       new Underline(),
       new Italic(),
       new Strike(),
@@ -127,7 +127,7 @@ export default {
       new BulletList(),
       new OrderedList(),
     ],
-    // editor's content
+    // 编辑器的内容
     content: `
       <h1>Heading</h1>
       <p>This Editor is awesome!</p>
@@ -139,11 +139,11 @@ export default {
 
 ## 📔 Props
 
-### extensions
+### 扩展 extensions
 
-You can use the necessary extensions. The corresponding command-buttons will be added by declaring the order of the extension.
+你可以只使用需要的 extension，对应的菜单按钮将会按照你声明的顺序被添加。
 
-All available extensions:
+所有可用的 extensions:
 - `Doc`
 - `Text`
 - `Paragraph`
@@ -177,21 +177,21 @@ All available extensions:
 - `TextColor`
 - `TextHighlight`
 
-You can customize the extension menu button view
+你可以自定义菜单按钮的渲染视图
 
-1) create your custom extension.
+1) 创建你自己的 extension.
 
 ```js
-// create your extension file
+// 你的 extension 文件
 import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
-    // editorContext contains a collection of properties that are useful to you
-    // see https://github.com/scrumpy/tiptap#editormenubar
-    // ElementTiptap plus editor instance to editorContext.
+    // editorContext 包含了一些对你有用的属性
+    // 见 https://github.com/scrumpy/tiptap#editormenubar
+    // ElementTiptap 将 editor 的实例也添加到了其中.
     return {
-      component: CustomButton, // your component
+      component: CustomButton, // 你的组件
       componentProps: {
         ...
       },
@@ -200,14 +200,14 @@ export default class CustomBold extends Bold {
 }
 ```
 
-2) use custom extension in component
+2) 在组件中使用自定义 extension
 ```vue
 <template>
   <el-tiptap :extensions="extensions" />
 </template>
 
 <script>
-import CustomBold from '...'; // import your extension
+import CustomBold from '...'; // 引入你的 extension
 
 export default {
   ...
@@ -223,9 +223,9 @@ export default {
 </script>
 ```
 
-### placeholder
+### 占位符 placeholder
 
-When editor is empty, placeholder will display.
+当编辑器没有内容的时候，将会显示 placeholder。
 
 ```vue
 <el-tiptap
@@ -233,9 +233,9 @@ When editor is empty, placeholder will display.
 />
 ```
 
-### content
+### 内容 content
 
-Editor's content
+编辑器的内容
 
 ```vue
 <el-tiptap
@@ -244,7 +244,7 @@ Editor's content
 />
 ```
 
-or Use `'v-model'`
+或者使用 `'v-model'`
 
 ```vue
 <el-tiptap
@@ -252,9 +252,9 @@ or Use `'v-model'`
 />
 ```
 
-### output
+### 输出 output
 
-Output can be defined to `'html'`(default) or `'json'`.
+可被定义为 `'html'`(默认) 或者 `'json'`.
 
 ```vue
 <el-tiptap
@@ -262,7 +262,7 @@ Output can be defined to `'html'`(default) or `'json'`.
 />
 ```
 
-## 👽 Events
+## 👽 事件 Events
 
 ### Init
 
@@ -277,9 +277,9 @@ Output can be defined to `'html'`(default) or `'json'`.
 export default {
   ...
   methods: {
-    // argument (object)
+    // 参数 (object)
     // {
-    //   editor: Editor, // tiptap editor instance
+    //   editor: Editor, // 编辑器 editor 的实例
     // }
     methods: {
       onInit ({ editor }) {
@@ -293,13 +293,13 @@ export default {
 
 ### Transaction, Focus, Blur, Paste, Drop
 
-The same as `init`
+用法与 `init` 相同
 
-## ⚗️ Slots
+## ⚗️ 插槽
 
-### menubar
+### 菜单栏 menubar
 
-You can customize the menubar.
+你可以自定义菜单栏。
 
 ```vue
 <el-tiptap
@@ -307,7 +307,7 @@ You can customize the menubar.
   :extensions="extensions"
 >
   <template #menubar="{ commands, isActive }">
-    <!--You can render custom menu buttons.-->
+    <!--渲染自定义菜单按钮-->
     <custom-button
       :class="{ 'is-active': isActive.bold() }"
       @click="commands.bold"
@@ -318,9 +318,9 @@ You can customize the menubar.
 </el-tiptap>
 ```
 
-### menububble
+### 气泡菜单 menububble
 
-Customize the bubble menu like menubar.
+与自定义菜单栏相同的方式来自定义气泡菜单。
 
 ```vue
 <el-tiptap
@@ -338,14 +338,15 @@ Customize the bubble menu like menubar.
 </el-tiptap>
 ```
 
-### footer
-Footer of the editor, after the editor content.
+### 底部 footer
 
-## 📝 Changelog
-[Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
+编辑器的底部，在编辑器内容的后面
 
-## 💪 Roadmap
+## 📝 更新日志
+[更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
+
+## 💪 路线图
 - TypeScript
 
-## 📄 License
+## 📄 许可证
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
