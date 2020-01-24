@@ -1,5 +1,6 @@
 import en from './en';
 import zh from './zh';
+import { warn } from '../utils/console';
 
 const defaultLang = 'en';
 const dictionary = {
@@ -13,7 +14,7 @@ export function useLang (l) {
   if (dictionary[l]) {
     currentLang = dictionary[l];
   } else {
-    console.warn(`[Element-Tiptap Tip] Can't find the current language "${l}", Using language "${defaultLang}" by default. Welcome contribution to https://github.com/Leecason/element-tiptap`);
+    warn(`Can't find the current language "${l}", Using language "${defaultLang}" by default. Welcome contribution to https://github.com/Leecason/element-tiptap`);
     currentLang = dictionary[defaultLang];
   }
 }
