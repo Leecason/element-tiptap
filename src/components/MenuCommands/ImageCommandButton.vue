@@ -3,18 +3,18 @@
     <el-popover
       placement="bottom"
       trigger="click"
-      class="image-popover"
+      popper-class="el-tiptap-popper"
     >
-      <div class="image-popover__menu">
+      <div class="el-tiptap-popper__menu">
         <div
-          class="image-popover__menu__item"
+          class="el-tiptap-popper__menu__item"
           @click="openUrlPrompt"
         >
           <span>{{ $i18n('editor.extensions.Image.buttons.insert_by_url') }}</span>
         </div>
 
         <div
-          class="image-popover__menu__item"
+          class="el-tiptap-popper__menu__item"
           @click="imageUploadDialogVisible = true"
         >
           <span>{{ $i18n('editor.extensions.Image.buttons.upload_image') }}</span>

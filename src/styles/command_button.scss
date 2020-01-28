@@ -58,8 +58,9 @@
   }
 }
 
-// image
-.image-popover {
+.el-tiptap-popper {
+  min-width: 0;
+
   &__menu {
     &__item {
       cursor: pointer;
@@ -67,6 +68,22 @@
 
       &:hover {
         color: $primary-color;
+      }
+
+      &--disabled {
+        cursor: default;
+        opacity: .2;
+
+        &:hover {
+          color: inherit;
+        }
+      }
+
+      &__separator {
+        border-top: 1px solid $border-color;
+        height: 0;
+        margin: 5px 0;
+        width: 100%;
       }
     }
   }
@@ -129,36 +146,6 @@
     justify-content: flex-end;
     padding-left: 10px;
     padding-right: 10px;
-  }
-}
-
-// table
-.table-popover {
-  &__menu {
-    &__item {
-      cursor: pointer;
-      padding: 8px 0;
-
-      &:hover {
-        color: $primary-color;
-      }
-
-      &--disabled {
-        cursor: default;
-        opacity: .2;
-
-        &:hover {
-          color: inherit;
-        }
-      }
-
-      &__separator {
-        border-top: 1px solid $border-color;
-        height: 0;
-        margin: 5px 0;
-        width: 100%;
-      }
-    }
   }
 }
 

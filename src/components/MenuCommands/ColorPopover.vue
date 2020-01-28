@@ -3,7 +3,7 @@
     ref="popoverRef"
     placement="bottom"
     trigger="click"
-    class="text-color-popover"
+    popper-class="el-tiptap-popper"
   >
     <div class="colors-container">
       <div class="predefined-colors__container">

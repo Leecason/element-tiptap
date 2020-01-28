@@ -3,6 +3,7 @@
     ref="popoverRef"
     placement="right"
     trigger="hover"
+    popper-class="el-tiptap-popper"
     @after-leave="resetTableGridSize"
   >
     <div class="table-grid-size-editor">
