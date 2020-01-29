@@ -89,9 +89,14 @@
   }
 }
 
-.el-upload {
+.el-tiptap-upload {
+  $root: &;
+
   display: flex;
-  width: 100%;
+
+  .el-upload {
+    flex-grow: 1;
+  }
 
   .el-upload-dragger {
     align-items: center;
@@ -100,15 +105,15 @@
     flex-grow: 1;
     justify-content: center;
     height: 300px;
-    width: auto;
+    width: 100%;
 
-    .image-upload__icon {
+    #{$root}__icon {
       font-size: 50px;
       margin-bottom: 10px;
     }
 
     &:hover {
-      .image-upload__icon {
+      #{$root}__icon {
         color: $primary-color;
       }
     }

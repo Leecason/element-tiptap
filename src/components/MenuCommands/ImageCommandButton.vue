@@ -35,15 +35,15 @@
       <el-upload
         :http-request="uploadImage"
         :show-file-list="false"
-        class="image-upload"
+        class="el-tiptap-upload"
         action="#"
         drag
         accept="image/*"
       >
-        <div class="image-upload__icon">
+        <div class="el-tiptap-upload__icon">
           <i class="fa fa-upload" />
         </div>
-        <div class="el-upload__text">
+        <div class="el-tiptap-upload__text">
           {{ $i18n('editor.extensions.Image.control.upload_image.button') }}
         </div>
       </el-upload>
