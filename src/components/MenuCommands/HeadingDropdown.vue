@@ -12,12 +12,16 @@
       :tooltip="$i18n('editor.extensions.Heading.tooltip')"
       icon="heading"
     />
-    <el-dropdown-menu slot="dropdown">
+    <el-dropdown-menu
+      slot="dropdown"
+      class="el-tiptap-dropdown-menu"
+    >
       <el-dropdown-item
         :command="0"
         :class="{
-          'el-dropdown-menu__item--active': editorContext.isActive.paragraph(),
+          'el-tiptap-dropdown-menu__item--active': editorContext.isActive.paragraph(),
         }"
+        class="el-tiptap-dropdown-menu__item"
       >
         <span>{{ $i18n('editor.extensions.Heading.buttons.paragraph') }}</span>
       </el-dropdown-item>
@@ -26,8 +30,9 @@
         :key="i"
         :command="i"
         :class="{
-          'el-dropdown-menu__item--active': isHeadingActive(i),
+          'el-tiptap-dropdown-menu__item--active': isHeadingActive(i),
         }"
+        class="el-tiptap-dropdown-menu__item"
       >
         <component :is="'h' +i">
           {{ $i18n('editor.extensions.Heading.buttons.heading') }} {{ i }}

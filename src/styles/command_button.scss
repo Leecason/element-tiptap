@@ -47,14 +47,16 @@
   }
 }
 
-.el-dropdown-menu__item {
-  line-height: 1.5;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.el-tiptap-dropdown-menu {
+  &__item {
+    line-height: 1.5;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
-  &--active {
-    background-color: $extra-light-primary-color;
-    color: $primary-color;
+    &--active {
+      background-color: $extra-light-primary-color;
+      color: $primary-color;
+    }
   }
 }
 
