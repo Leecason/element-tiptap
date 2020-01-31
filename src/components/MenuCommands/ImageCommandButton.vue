@@ -10,26 +10,26 @@
           class="el-tiptap-popper__menu__item"
           @click="openUrlPrompt"
         >
-          <span>{{ $i18n('editor.extensions.Image.buttons.insert_by_url') }}</span>
+          <span>{{ t('editor.extensions.Image.buttons.insert_by_url') }}</span>
         </div>
 
         <div
           class="el-tiptap-popper__menu__item"
           @click="imageUploadDialogVisible = true"
         >
-          <span>{{ $i18n('editor.extensions.Image.buttons.upload_image') }}</span>
+          <span>{{ t('editor.extensions.Image.buttons.upload_image') }}</span>
         </div>
       </div>
 
       <command-button
         slot="reference"
-        :tooltip="$i18n('editor.extensions.Image.tooltip')"
+        :tooltip="t('editor.extensions.Image.tooltip')"
         icon="image"
       />
     </el-popover>
 
     <el-dialog
-      :title="$i18n('editor.extensions.Image.control.upload_image.title')"
+      :title="t('editor.extensions.Image.control.upload_image.title')"
       :visible.sync="imageUploadDialogVisible"
     >
       <el-upload
@@ -44,7 +44,7 @@
           <i class="fa fa-upload" />
         </div>
         <div class="el-tiptap-upload__text">
-          {{ $i18n('editor.extensions.Image.control.upload_image.button') }}
+          {{ t('editor.extensions.Image.control.upload_image.button') }}
         </div>
       </el-upload>
     </el-dialog>
@@ -86,12 +86,12 @@ export default {
 
   methods: {
     openUrlPrompt () {
-      this.$prompt('', this.$i18n('editor.extensions.Image.control.insert_by_url.title'), {
-        confirmButtonText: this.$i18n('editor.extensions.Image.control.insert_by_url.confirm'),
-        cancelButtonText: this.$i18n('editor.extensions.Image.control.insert_by_url.cancel'),
-        inputPlaceholder: this.$i18n('editor.extensions.Image.control.insert_by_url.placeholder'),
+      this.$prompt('', this.t('editor.extensions.Image.control.insert_by_url.title'), {
+        confirmButtonText: this.t('editor.extensions.Image.control.insert_by_url.confirm'),
+        cancelButtonText: this.t('editor.extensions.Image.control.insert_by_url.cancel'),
+        inputPlaceholder: this.t('editor.extensions.Image.control.insert_by_url.placeholder'),
         inputPattern: this.imageNodeOptions.urlPattern,
-        inputErrorMessage: this.$i18n('editor.extensions.Image.control.insert_by_url.invalid_url'),
+        inputErrorMessage: this.t('editor.extensions.Image.control.insert_by_url.invalid_url'),
         roundButton: true,
       }).then(({ value: url }) => {
         this.editorContext.commands.image({ src: url });

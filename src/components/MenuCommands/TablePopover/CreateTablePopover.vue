@@ -39,7 +39,7 @@
       class="table-popover__menu-item"
       @mouseover="popoverVisible = true"
     >
-      <span>{{ $i18n('editor.extensions.Table.buttons.insert_table') }}</span>
+      <span>{{ t('editor.extensions.Table.buttons.insert_table') }}</span>
     </div>
   </el-popover>
 </template>

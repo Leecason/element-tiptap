@@ -2,7 +2,7 @@
   <command-button
     :is-active="editorContext.isActive.link()"
     :command="openApplyLinkControl"
-    :tooltip="$i18n('editor.extensions.Link.tooltip')"
+    :tooltip="t('editor.extensions.Link.tooltip')"
     icon="link"
   />
 </template>
@@ -29,10 +29,10 @@ export default {
 
   methods: {
     openApplyLinkControl () {
-      this.$prompt('', this.$i18n('editor.extensions.Link.control.title'), {
-        confirmButtonText: this.$i18n('editor.extensions.Link.control.confirm'),
-        cancelButtonText: this.$i18n('editor.extensions.Link.control.cancel'),
-        inputPlaceholder: this.$i18n('editor.extensions.Link.control.placeholder'),
+      this.$prompt('', this.t('editor.extensions.Link.control.title'), {
+        confirmButtonText: this.t('editor.extensions.Link.control.confirm'),
+        cancelButtonText: this.t('editor.extensions.Link.control.cancel'),
+        inputPlaceholder: this.t('editor.extensions.Link.control.placeholder'),
         roundButton: true,
       }).then(({ value: href }) => {
         this.editorContext.commands.link({ href });

@@ -20,7 +20,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addColumnBefore"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.add_column_before') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_column_before') }}</span>
       </div>
 
       <div
@@ -29,7 +29,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addColumnAfter"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.add_column_after') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_column_after') }}</span>
       </div>
 
       <div
@@ -38,7 +38,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteColumn"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.delete_column') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.delete_column') }}</span>
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -49,7 +49,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addRowBefore"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.add_row_before') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_row_before') }}</span>
       </div>
 
       <div
@@ -58,7 +58,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.addRowAfter"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.add_row_after') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_row_after') }}</span>
       </div>
 
       <div
@@ -67,7 +67,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteRow"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.delete_row') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.delete_row') }}</span>
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -78,7 +78,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.mergeCells"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.merge_cells') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.merge_cells') }}</span>
       </div>
 
       <div
@@ -87,7 +87,7 @@
         @mousedown="closePopover"
         @click="editorContext.commands.splitCell"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.split_cell') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.split_cell') }}</span>
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -98,14 +98,14 @@
         @mousedown="closePopover"
         @click="editorContext.commands.deleteTable"
       >
-        <span>{{ $i18n('editor.extensions.Table.buttons.delete_table') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.delete_table') }}</span>
       </div>
     </div>
 
     <command-button
       slot="reference"
       :is-active="isTableActive"
-      :tooltip="$i18n('editor.extensions.Table.tooltip')"
+      :tooltip="t('editor.extensions.Table.tooltip')"
       icon="table"
     />
   </el-popover>

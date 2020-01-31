@@ -5,7 +5,7 @@
     @command="lineHeight => editorContext.commands.line_height({ lineHeight })"
   >
     <command-button
-      :tooltip="$i18n('editor.extensions.LineHeight.tooltip')"
+      :tooltip="t('editor.extensions.LineHeight.tooltip')"
       icon="text-height"
     />
     <el-dropdown-menu slot="dropdown">

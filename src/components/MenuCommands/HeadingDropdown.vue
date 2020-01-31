@@ -9,7 +9,7 @@
   >
     <command-button
       :is-active="isHeadingActive()"
-      :tooltip="$i18n('editor.extensions.Heading.tooltip')"
+      :tooltip="t('editor.extensions.Heading.tooltip')"
       icon="heading"
     />
     <el-dropdown-menu
@@ -23,7 +23,7 @@
         }"
         class="el-tiptap-dropdown-menu__item"
       >
-        <span>{{ $i18n('editor.extensions.Heading.buttons.paragraph') }}</span>
+        <span>{{ t('editor.extensions.Heading.buttons.paragraph') }}</span>
       </el-dropdown-item>
       <el-dropdown-item
         v-for="i in level"
@@ -35,7 +35,7 @@
         class="el-tiptap-dropdown-menu__item"
       >
         <component :is="'h' +i">
-          {{ $i18n('editor.extensions.Heading.buttons.heading') }} {{ i }}
+          {{ t('editor.extensions.Heading.buttons.heading') }} {{ i }}
         </component>
       </el-dropdown-item>
     </el-dropdown-menu>

@@ -1,7 +1,7 @@
 <template>
   <command-button
     :command="openInsertVideoControl"
-    :tooltip="$i18n('editor.extensions.Iframe.tooltip')"
+    :tooltip="t('editor.extensions.Iframe.tooltip')"
     icon="video"
   />
 </template>
@@ -28,10 +28,10 @@ export default {
 
   methods: {
     openInsertVideoControl () {
-      this.$prompt('', this.$i18n('editor.extensions.Iframe.control.title'), {
-        confirmButtonText: this.$i18n('editor.extensions.Iframe.control.confirm'),
-        cancelButtonText: this.$i18n('editor.extensions.Iframe.control.cancel'),
-        inputPlaceholder: this.$i18n('editor.extensions.Iframe.control.placeholder'),
+      this.$prompt('', this.t('editor.extensions.Iframe.control.title'), {
+        confirmButtonText: this.t('editor.extensions.Iframe.control.confirm'),
+        cancelButtonText: this.t('editor.extensions.Iframe.control.cancel'),
+        inputPlaceholder: this.t('editor.extensions.Iframe.control.placeholder'),
         roundButton: true,
       }).then(({ value: href }) => {
         this.editorContext.commands.iframe({ src: href });

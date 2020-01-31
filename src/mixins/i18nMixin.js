@@ -2,7 +2,7 @@ import { t } from '../i18n/index';
 
 export default {
   methods: {
-    $i18n (...args) {
+    t (...args) {
       return t.apply(this, args);
     },
   },
