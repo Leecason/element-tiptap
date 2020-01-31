@@ -53,6 +53,11 @@
     padding-top: 5px;
     padding-bottom: 5px;
 
+    [data-item-type=heading] {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
     &--active {
       background-color: $extra-light-primary-color;
       color: $primary-color;

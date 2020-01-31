@@ -34,7 +34,10 @@
         }"
         class="el-tiptap-dropdown-menu__item"
       >
-        <component :is="'h' +i">
+        <component
+          :is="'h' +i"
+          data-item-type="heading"
+        >
           {{ t('editor.extensions.Heading.buttons.heading') }} {{ i }}
         </component>
       </el-dropdown-item>
