@@ -12,7 +12,7 @@ A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [eleme
 
 ## 📔 Translation
 
-English | [简体中文](./README-ZH.md)
+English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
