@@ -1,3 +1,11 @@
+## [1.7.1](https://github.com/Leecason/element-tiptap/compare/@1.7.0...@1.7.1) (2020-01-31)
+
+
+### Bug Fixes
+
+* **i18n:** 🐛 rename $i18n -> t to fix conflict with vue-i18n ([650bf69](https://github.com/Leecason/element-tiptap/commit/650bf69eaae753310664b6e15c28458367327fa2))
+* **style:** 💄 reset default tag style ([6a18a95](https://github.com/Leecason/element-tiptap/commit/6a18a95e6e4bb4f565fd248a47e48ded4cf67bb4))
+
 # [1.7.0](https://github.com/Leecason/element-tiptap/compare/@1.6.0...@1.7.0) (2020-01-21)
 
 
