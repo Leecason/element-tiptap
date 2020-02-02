@@ -16,7 +16,7 @@ export default {
       Heading: {
         tooltip: 'Heading',
         buttons: {
-          paragraph: 'paragraph',
+          paragraph: 'Paragraph',
           heading: 'Heading',
         }
       },
