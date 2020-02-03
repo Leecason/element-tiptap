@@ -4,6 +4,7 @@ import {
   Container,
   Header,
   Main,
+  Footer,
 } from 'element-ui';
 
 import { ElementTiptapPlugin } from 'element-tiptap';
@@ -13,6 +14,7 @@ import router from './router';
 Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
+Vue.use(Footer);
 
 Vue.use(ElementTiptapPlugin);
 

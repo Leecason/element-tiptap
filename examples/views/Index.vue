@@ -93,6 +93,10 @@
       <router-view />
     </el-main>
 
+    <el-footer>
+      <div>If you like this editor, please star ⭐ the <a href="https://github.com/Leecason/element-tiptap" aria-label="View source on GitHub" target="_blank">github</a> to support the project, thanks! 🙏🙏🙏</div>
+    </el-footer>
+
     <a
       href="https://github.com/Leecason/element-tiptap"
       class="github-corner"
@@ -174,6 +178,12 @@ export default {
   display: flex;
   justify-content: center;
   padding: 50px;
+}
+
+.el-footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .github-corner:hover {
