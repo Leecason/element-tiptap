@@ -2,7 +2,7 @@ import { Extension } from 'tiptap';
 import { TextSelection, AllSelection } from 'prosemirror-state';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { clamp } from '../utils/shared.ts';
-import { isListNode } from '../utils/list';
+import { isListNode } from '../utils/list.ts';
 import { t } from '../i18n/index';
 export default class Indent extends Extension {
   get name () {
