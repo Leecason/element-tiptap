@@ -1,4 +1,4 @@
-export const PREDEFINED_COLORS = [
+export const PREDEFINED_COLORS:Array<String> = [
   '#f44336',
   '#e91e63',
   '#9c27b0',
