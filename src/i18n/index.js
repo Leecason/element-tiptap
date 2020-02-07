@@ -1,6 +1,6 @@
 import en from './en';
 import zh from './zh';
-import { warn } from '../utils/console';
+import { warn } from '../utils/console.ts';
 
 const defaultLang = 'en';
 const dictionary = {
