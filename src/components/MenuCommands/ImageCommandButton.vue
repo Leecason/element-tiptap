@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { readFileDataUrl } from '../../utils/shared';
+import { readFileDataUrl } from '../../utils/shared.ts';
 import CommandButton from './CommandButton';
 import i18nMixin from '../../mixins/i18nMixin';
 

@@ -44,7 +44,7 @@ import 'vue-awesome/icons/remove-format';
 import 'vue-awesome/icons/undo';
 import 'vue-awesome/icons/redo';
 
-import { noop } from '../../utils/shared';
+import { noop } from '../../utils/shared.ts';
 
 export default {
   name: 'CommandButton',

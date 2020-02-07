@@ -45,7 +45,7 @@
 import { Editor, EditorContent } from 'tiptap';
 
 import { Placeholder } from '../extensions';
-import { capitalize } from '../utils/shared';
+import { capitalize } from '../utils/shared.ts';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
