@@ -1,12 +1,16 @@
-export function isTextAlignActive (state, align) {
+import { EditorState, Transaction } from 'prosemirror-state';
+import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
+import { Alignment } from '../constants';
+
+export function isTextAlignActive (state: EditorState, alignment: Alignment) :boolean {
   const { selection, doc } = state;
   const { from, to } = selection;
 
   let keepLooking = true;
   let active = false;
 
-  doc.nodesBetween(from, to, (node, _pos) => {
-    if (keepLooking && node.attrs.textAlign === align) {
+  doc.nodesBetween(from, to, (node) => {
+    if (keepLooking && node.attrs.textAlign === alignment) {
       keepLooking = false;
       active = true;
     }
@@ -23,7 +27,13 @@ const ALLOWED_NODE_TYPES = [
   'todo_item',
 ];
 
-export function setTextAlign (tr, alignment) {
+interface SetTextAlignTask {
+  node: ProsemirrorNode,
+  nodeType: NodeType,
+  pos: number,
+}
+
+export function setTextAlign (tr: Transaction, alignment: Alignment) :Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) {
@@ -32,7 +42,7 @@ export function setTextAlign (tr, alignment) {
 
   const { from, to } = selection;
 
-  const jobs = [];
+  const tasks: Array<SetTextAlignTask> = [];
   alignment = alignment || null;
 
   doc.nodesBetween(from, to, (node, pos) => {
@@ -40,7 +50,7 @@ export function setTextAlign (tr, alignment) {
     if (ALLOWED_NODE_TYPES.includes(nodeType.name)) {
       const align = node.attrs.textAlign || null;
       if (align !== alignment) {
-        jobs.push({
+        tasks.push({
           node,
           pos,
           nodeType,
@@ -52,9 +62,9 @@ export function setTextAlign (tr, alignment) {
     return true;
   });
 
-  if (!jobs.length) return tr;
+  if (!tasks.length) return tr;
 
-  jobs.forEach(job => {
+  tasks.forEach(job => {
     const { node, pos, nodeType } = job;
     let { attrs } = node;
     attrs = {

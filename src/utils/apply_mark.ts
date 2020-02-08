@@ -3,11 +3,11 @@ import {
   SelectionRange,
 } from 'prosemirror-state';
 import {
-  Node as PMNode,
+  Node as ProsemirrorNode,
   MarkType,
 } from 'prosemirror-model';
 
-function markApplies (doc: PMNode, ranges: Array<SelectionRange>, type: MarkType) :boolean {
+function markApplies (doc: ProsemirrorNode, ranges: Array<SelectionRange>, type: MarkType) :boolean {
   for (let i = 0; i < ranges.length; i++) {
     const { $from, $to } = ranges[i];
     let can = $from.depth === 0 ? doc.type.allowsMarkType(type) : false;

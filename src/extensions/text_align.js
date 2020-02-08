@@ -1,6 +1,6 @@
 import { Extension } from 'tiptap';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
-import { setTextAlign, isTextAlignActive } from '../utils/text_align';
+import { setTextAlign, isTextAlignActive } from '../utils/text_align.ts';
 import { t } from '../i18n/index';
 
 export const ALIGN_PATTERN = /(left|right|center|justify)/;
