@@ -2,7 +2,7 @@ import 'vue-awesome/icons/check-square';
 import 'vue-awesome/icons/regular/square';
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height.ts';
 
 function getAttrs (dom) {
   let {

@@ -1,5 +1,5 @@
 import { Extension } from 'tiptap';
-import { setTextLineHeight } from '../utils/line_height';
+import { setTextLineHeight } from '../utils/line_height.ts';
 import LineHeightDropdown from '../components/MenuCommands/LineHeightDropdown.vue';
 
 export default class LineHeight extends Extension {

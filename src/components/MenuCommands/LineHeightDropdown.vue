@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { isLineHeightActive } from '../../utils/line_height';
+import { isLineHeightActive } from '../../utils/line_height.ts';
 import CommandButton from './CommandButton.vue';
 import i18nMixin from '../../mixins/i18nMixin';
 

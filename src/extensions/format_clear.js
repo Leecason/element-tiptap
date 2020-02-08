@@ -1,6 +1,6 @@
 import { Extension } from 'tiptap';
 import { setTextAlign } from '../utils/text_align.ts';
-import { setTextLineHeight } from '../utils/line_height';
+import { setTextLineHeight } from '../utils/line_height.ts';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { t } from '../i18n/index';
 

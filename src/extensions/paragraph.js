@@ -1,6 +1,6 @@
 import { Paragraph as TiptapParagraph } from 'tiptap';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height.ts';
 
 export const ParagraphNodeSpec = {
   attrs: {

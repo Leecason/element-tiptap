@@ -1,6 +1,7 @@
-import { TextSelection, AllSelection } from 'prosemirror-state';
+import { TextSelection, AllSelection, EditorState, Transaction } from 'prosemirror-state';
+import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
 
-export const LINE_HEIGHT_100 = '1.7';
+export const LINE_HEIGHT_100 = 1.7;
 
 const DEFAULT_LINE_HEIGHT = '100%';
 
@@ -13,14 +14,14 @@ export const ALLOWED_NODE_TYPES = [
 
 const NUMBER_VALUE_PATTERN = /^\d+(.\d+)?$/;
 
-export function isLineHeightActive (state, lineHeight) {
+export function isLineHeightActive (state: EditorState, lineHeight: string) :boolean {
   const { selection, doc } = state;
   const { from, to } = selection;
 
   let keepLooking = true;
   let active = false;
 
-  doc.nodesBetween(from, to, (node, _pos) => {
+  doc.nodesBetween(from, to, (node) => {
     const nodeType = node.type;
     const lineHeightValue = node.attrs.lineHeight || DEFAULT_LINE_HEIGHT;
 
@@ -39,7 +40,7 @@ export function isLineHeightActive (state, lineHeight) {
   return active;
 }
 
-export function transformLineHeightToCSS (value) {
+export function transformLineHeightToCSS (value: string) :string {
   if (!value) return '';
 
   let strValue = String(value);
@@ -52,7 +53,13 @@ export function transformLineHeightToCSS (value) {
   return parseFloat(value) * LINE_HEIGHT_100 + '%'; ;
 }
 
-export function setTextLineHeight (tr, lineHeight) {
+interface SetLineHeightTask {
+  node: ProsemirrorNode,
+  nodeType: NodeType,
+  pos: number,
+}
+
+export function setTextLineHeight (tr: Transaction, lineHeight: string) :Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) return tr;
@@ -63,7 +70,7 @@ export function setTextLineHeight (tr, lineHeight) {
 
   const { from, to } = selection;
 
-  const jobs = [];
+  const tasks: Array<SetLineHeightTask> = [];
   const lineHeightValue = (lineHeight && lineHeight !== DEFAULT_LINE_HEIGHT) ? lineHeight : null;
 
   doc.nodesBetween(from, to, (node, pos) => {
@@ -71,7 +78,7 @@ export function setTextLineHeight (tr, lineHeight) {
     if (ALLOWED_NODE_TYPES.includes(nodeType.name)) {
       const lineHeight = node.attrs.lineHeight || null;
       if (lineHeight !== lineHeightValue) {
-        jobs.push({
+        tasks.push({
           node,
           pos,
           nodeType,
@@ -82,10 +89,10 @@ export function setTextLineHeight (tr, lineHeight) {
     return true;
   });
 
-  if (!jobs.length) return tr;
+  if (!tasks.length) return tr;
 
-  jobs.forEach(job => {
-    const { node, pos, nodeType } = job;
+  tasks.forEach(task => {
+    const { node, pos, nodeType } = task;
     let { attrs } = node;
 
     attrs = {

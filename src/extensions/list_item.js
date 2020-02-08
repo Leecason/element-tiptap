@@ -1,6 +1,6 @@
 import { ListItem as TiptapListItem } from 'tiptap-extensions';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height.ts';
 
 const ListItemNodeSpec = {
   attrs: {
