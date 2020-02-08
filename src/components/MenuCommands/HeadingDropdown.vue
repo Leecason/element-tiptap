@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { isHeadingActive } from '../../utils/heading';
+import { isHeadingActive } from '../../utils/heading.ts';
 import CommandButton from './CommandButton.vue';
 import i18nMixin from '../../mixins/i18nMixin';
 
