@@ -1,13 +1,7 @@
-import {
-  Transaction,
-  SelectionRange,
-} from 'prosemirror-state';
-import {
-  Node as ProsemirrorNode,
-  MarkType,
-} from 'prosemirror-model';
+import { Transaction, SelectionRange } from 'prosemirror-state';
+import { Node as ProsemirrorNode, MarkType } from 'prosemirror-model';
 
-function markApplies (doc: ProsemirrorNode, ranges: Array<SelectionRange>, type: MarkType) :boolean {
+function markApplies (doc: ProsemirrorNode, ranges: Array<SelectionRange>, type: MarkType): boolean {
   for (let i = 0; i < ranges.length; i++) {
     const { $from, $to } = ranges[i];
     let can = $from.depth === 0 ? doc.type.allowsMarkType(type) : false;
@@ -23,7 +17,7 @@ function markApplies (doc: ProsemirrorNode, ranges: Array<SelectionRange>, type:
 }
 
 // https://github.com/ProseMirror/prosemirror-commands/blob/master/src/commands.js
-export default function applyMark (tr: Transaction, markType: MarkType, attrs: object) :Transaction {
+export default function applyMark (tr: Transaction, markType: MarkType, attrs: object): Transaction {
   if (!tr.selection || !tr.doc || !markType) return tr;
 
   // @ts-ignore

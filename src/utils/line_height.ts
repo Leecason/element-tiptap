@@ -14,7 +14,7 @@ export const ALLOWED_NODE_TYPES = [
 
 const NUMBER_VALUE_PATTERN = /^\d+(.\d+)?$/;
 
-export function isLineHeightActive (state: EditorState, lineHeight: string) :boolean {
+export function isLineHeightActive (state: EditorState, lineHeight: string): boolean {
   const { selection, doc } = state;
   const { from, to } = selection;
 
@@ -40,7 +40,7 @@ export function isLineHeightActive (state: EditorState, lineHeight: string) :boo
   return active;
 }
 
-export function transformLineHeightToCSS (value: string) :string {
+export function transformLineHeightToCSS (value: string): string {
   if (!value) return '';
 
   let strValue = String(value);
@@ -59,7 +59,7 @@ interface SetLineHeightTask {
   pos: number,
 }
 
-export function setTextLineHeight (tr: Transaction, lineHeight: string) :Transaction {
+export function setTextLineHeight (tr: Transaction, lineHeight: string): Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) return tr;

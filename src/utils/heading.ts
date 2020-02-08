@@ -6,7 +6,7 @@ function findHeading (state: EditorState) {
   return findParentNodeOfType(heading)(state.selection);
 }
 
-export function isHeadingActive (state: EditorState, level: number) :boolean {
+export function isHeadingActive (state: EditorState, level: number): boolean {
   const result = findHeading(state);
 
   if (level == null) {

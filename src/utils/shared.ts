@@ -1,6 +1,6 @@
-export function noop () :void {}
+export function noop (): void {}
 
-export function clamp (val: number, min: number, max: number) :number {
+export function clamp (val: number, min: number, max: number): number {
   if (val < min) {
     return min;
   }
@@ -10,7 +10,7 @@ export function clamp (val: number, min: number, max: number) :number {
   return val;
 }
 
-export function readFileDataUrl (file: File) :Promise<any> {
+export function readFileDataUrl (file: File): Promise<any> {
   const reader:FileReader = new FileReader();
 
   return new Promise((resolve, reject) => {
@@ -26,10 +26,10 @@ export function readFileDataUrl (file: File) :Promise<any> {
 /**
  * Create a cached version of a pure function.
  */
-export function cached (fn: Function) :Function {
+export function cached (fn: Function): Function {
   const cache = Object.create(null);
 
-  return function cachedFn (str: string) :string {
+  return function cachedFn (str: string): string {
     const hit = cache[str];
     return hit || (cache[str] = fn(str));
   };
@@ -38,6 +38,6 @@ export function cached (fn: Function) :Function {
 /**
  * Capitalize a string.
  */
-export const capitalize = cached((str: string) :string => {
+export const capitalize = cached((str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 });
