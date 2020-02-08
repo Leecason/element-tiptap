@@ -1,8 +1,9 @@
 import { Mark } from 'tiptap';
 import { PREDEFINED_COLORS } from '../utils/color.ts';
-import applyMark from '../utils/apply_mark';
+import applyMark from '../utils/apply_mark.ts';
 import ColorPopover from '../components/MenuCommands/ColorPopover.vue';
 import { t } from '../i18n/index';
+
 export default class TextColor extends Mark {
   get name () {
     return 'text_color';
