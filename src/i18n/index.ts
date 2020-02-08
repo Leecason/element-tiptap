@@ -1,6 +1,6 @@
 import en from './en';
 import zh from './zh';
-import { warn } from '../utils/console.ts';
+import { warn } from '../utils/console';
 
 const defaultLang = 'en';
 const dictionary = {
@@ -8,9 +8,14 @@ const dictionary = {
   zh,
 };
 
-let currentLang = dictionary[defaultLang];
+let currentLang: object = dictionary[defaultLang];
 
-export function useLang (l) {
+enum lang {
+  en = 'en',
+  zh = 'zh',
+}
+
+export function useLang (l: lang): void {
   if (dictionary[l]) {
     currentLang = dictionary[l];
   } else {
@@ -19,8 +24,9 @@ export function useLang (l) {
   }
 }
 
-export function t (path) {
+export function t (path: string): string | object {
   const target = path.split('.').reduce((prev, curr) => {
+    // @ts-ignore
     return prev[curr];
   }, currentLang);
 

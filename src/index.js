@@ -10,7 +10,7 @@ import {
   Popover,
 } from 'element-ui';
 import Icon from 'vue-awesome/components/Icon';
-import { useLang } from './i18n/index';
+import { useLang } from './i18n/index.ts';
 import ElementTiptap from './components/ElementTiptap.vue';
 
 const ElementTiptapPlugin = {

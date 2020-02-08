@@ -1,4 +1,4 @@
-import { t } from '../i18n/index';
+import { t } from '../i18n/index.ts';
 
 export default {
   methods: {
