@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';
+import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table.ts';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
 import i18nMixin from '../../../mixins/i18nMixin';
