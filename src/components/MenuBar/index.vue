@@ -17,46 +17,44 @@
   </editor-menu-bar>
 </template>
 
-<script>
-import { Editor, EditorMenuBar } from 'tiptap';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Editor, EditorMenuBar, MenuData as TiptapMenuData } from 'tiptap';
+import { MenuData } from '../../types/element-tiptap';
 
-export default {
-  name: 'Menubar',
-
+@Component({
   components: {
     EditorMenuBar,
   },
+})
+export default class Menubar extends Vue {
+  @Prop({
+    type: Editor,
+    required: true,
+  })
+  editor!: Editor;
 
-  props: {
-    editor: {
-      type: Editor,
-      required: true,
-    },
-  },
+  generateCommandButtonComponentSpecs <T = (MenuData | MenuData[])[]> (editorContext: TiptapMenuData): Array<T> {
+    const extensionManager = this.editor.extensions;
+    return extensionManager.extensions.reduce <T[]>((acc, extension) => {
+      if (typeof extension.menuBtnView !== 'function') return acc;
 
-  methods: {
-    generateCommandButtonComponentSpecs (editorContext) {
-      const extensionManager = this.editor.extensions;
-      return extensionManager.extensions.reduce((acc, extension) => {
-        if (typeof extension.menuBtnView !== 'function') return acc;
-
-        const menuBtnComponentSpec = extension.menuBtnView({
-          ...editorContext,
-          editor: this.editor,
-        });
-        if (Array.isArray(menuBtnComponentSpec)) {
-          return [
-            ...acc,
-            ...menuBtnComponentSpec,
-          ];
-        }
-
+      const menuBtnComponentSpec = extension.menuBtnView({
+        ...editorContext,
+        editor: this.editor,
+      });
+      if (Array.isArray(menuBtnComponentSpec)) {
         return [
           ...acc,
-          menuBtnComponentSpec,
+          ...menuBtnComponentSpec,
         ];
-      }, []);
-    },
-  },
-};
+      }
+
+      return [
+        ...acc,
+        menuBtnComponentSpec,
+      ];
+    }, []);
+  }
+}
 </script>
