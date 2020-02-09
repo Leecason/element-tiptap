@@ -34,6 +34,7 @@
     "@semantic-release/git": "^7.0.18",
     "@types/prosemirror-model": "^1.7.2",
     "@types/prosemirror-state": "^1.2.3",
+    "@types/prosemirror-view": "^1.11.2",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-plugin-router": "^4.1.0",
