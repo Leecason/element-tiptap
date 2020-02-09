@@ -6,7 +6,7 @@
     placement="top"
   >
     <div
-      :class="classes"
+      :class="commandButtonClass"
       @mousedown.prevent
       @click="command"
     >
@@ -15,7 +15,7 @@
   </el-tooltip>
 </template>
 
-<script>
+<script lang="ts">
 import 'vue-awesome/icons/heading';
 import 'vue-awesome/icons/font';
 import 'vue-awesome/icons/highlighter';
@@ -44,40 +44,41 @@ import 'vue-awesome/icons/remove-format';
 import 'vue-awesome/icons/undo';
 import 'vue-awesome/icons/redo';
 
-import { noop } from '../../utils/shared.ts';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default {
-  name: 'CommandButton',
+import { noop } from '../../utils/shared';
 
-  props: {
-    icon: {
-      type: String,
-      required: true,
-    },
+@Component
+export default class CommandButton extends Vue {
+  @Prop({
+    type: String,
+    required: true,
+  })
+  icon!: string;
 
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
+  @Prop({
+    type: Boolean,
+    default: false,
+  })
+  isActive!: boolean;
 
-    tooltip: {
-      type: String,
-      required: true,
-    },
+  @Prop({
+    type: String,
+    required: true,
+  })
+  tooltip!: string;
 
-    command: {
-      type: Function,
-      default: noop,
-    },
-  },
+  @Prop({
+    type: Function,
+    default: noop,
+  })
+  command!: Function;
 
-  computed: {
-    classes () {
-      return {
-        'el-tiptap-editor__command-button': true,
-        'el-tiptap-editor__command-button--active': this.isActive,
-      };
-    }
-  },
-};
+  get commandButtonClass (): object {
+    return {
+      'el-tiptap-editor__command-button': true,
+      'el-tiptap-editor__command-button--active': this.isActive,
+    };
+  }
+}
 </script>
