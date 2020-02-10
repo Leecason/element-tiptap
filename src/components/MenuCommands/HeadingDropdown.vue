@@ -45,41 +45,36 @@
   </el-dropdown>
 </template>
 
-<script>
-import { isHeadingActive } from '../../utils/heading.ts';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mixins } from 'vue-class-component';
+import { MenuData } from '../../types/element-tiptap';
 import CommandButton from './CommandButton.vue';
 import i18nMixin from '../../mixins/i18nMixin';
+import { isHeadingActive } from '../../utils/heading';
 
-export default {
-  name: 'HeadingDropdown',
-
+@Component({
   components: {
     CommandButton,
   },
+})
+export default class HeadingDropdown extends mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  private get editor () {
+    return this.editorContext.editor;
+  }
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  private get level () {
+    return this.editor.extensions.options.heading.level;
+  }
 
-  computed: {
-    editor () {
-      return this.editorContext.editor;
-    },
-
-    level () {
-      return this.editor.extensions.options.heading.level;
-    },
-  },
-
-  methods: {
-    isHeadingActive (level) {
-      return isHeadingActive(this.editor.state, level);
-    },
-  },
+  private isHeadingActive (level: number): boolean {
+    return isHeadingActive(this.editor.state, level);
+  }
 };
 </script>

@@ -113,7 +113,7 @@ declare module 'tiptap' {
     extensions: Extension[];
     nodes: Node[];
     marks: Mark[];
-    options: {[extensionName: string]: ProxyConstructor }[];
+    options: {[extensionName: string]: any };
     plugins: Plugin[];
     keymaps ({ schema }: { schema: Schema }): any[];
     inputRules ({ schema, excludedExtensions }: { schema: Schema, excludedExtensions: Extension[] }): any[];
