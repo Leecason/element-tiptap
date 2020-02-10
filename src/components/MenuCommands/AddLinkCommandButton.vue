@@ -9,7 +9,7 @@
 
 <script>
 import CommandButton from './CommandButton.vue';
-import i18nMixin from '../../mixins/i18nMixin';
+import i18nMixin from '../../mixins/i18nMixin.ts';
 
 export default {
   name: 'AddLinkCommandButton',

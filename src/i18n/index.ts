@@ -24,7 +24,8 @@ export function useLang (l: lang): void {
   }
 }
 
-export function t (path: string): string | object {
+// @ts-ignore
+export function t (path: string, args?): string | object {
   const target = path.split('.').reduce((prev, curr) => {
     // @ts-ignore
     return prev[curr];

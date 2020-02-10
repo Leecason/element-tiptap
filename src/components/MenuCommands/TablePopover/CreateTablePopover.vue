@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import i18nMixin from '../../../mixins/i18nMixin';
+import i18nMixin from '../../../mixins/i18nMixin.ts';
 
 const INIT_GRID_SIZE = 5;
 const MAX_GRID_SIZE = 10;

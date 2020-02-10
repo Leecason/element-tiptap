@@ -115,7 +115,7 @@
 import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table.ts';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
-import i18nMixin from '../../../mixins/i18nMixin';
+import i18nMixin from '../../../mixins/i18nMixin.ts';
 
 export default {
   name: 'TablePopover',

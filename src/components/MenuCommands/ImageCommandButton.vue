@@ -54,7 +54,7 @@
 <script>
 import { readFileDataUrl } from '../../utils/shared.ts';
 import CommandButton from './CommandButton';
-import i18nMixin from '../../mixins/i18nMixin';
+import i18nMixin from '../../mixins/i18nMixin.ts';
 
 export default {
   name: 'ImageCommandButton',
