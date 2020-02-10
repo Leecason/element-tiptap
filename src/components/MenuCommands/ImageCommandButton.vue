@@ -54,8 +54,9 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { mixins } from 'vue-class-component';
+import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from '../../types/element-tiptap';
-import CommandButton from './CommandButton';
+import CommandButton from './CommandButton.vue';
 import { readFileDataUrl } from '../../utils/shared';
 import i18nMixin from '../../mixins/i18nMixin';
 
@@ -71,7 +72,7 @@ export default class ImageCommandButton extends mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  imageUploadDialogVisible: false = false;
+  imageUploadDialogVisible: boolean = false;
 
   private get imageNodeOptions () {
     return this.editorContext.editor.extensions.options.image;
@@ -92,8 +93,8 @@ export default class ImageCommandButton extends mixins(i18nMixin) {
     });
   }
 
-  async uploadImage (uploadOptions) {
-    const { file } = uploadOptions;
+  async uploadImage (requestOptions: HttpRequestOptions) {
+    const { file } = requestOptions;
 
     const uploadRequest = this.imageNodeOptions.uploadRequest;
     const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));

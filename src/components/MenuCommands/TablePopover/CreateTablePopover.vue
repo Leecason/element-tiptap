@@ -47,7 +47,7 @@
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 import { mixins } from 'vue-class-component';
-import { MenuData } from '../../types/element-tiptap';
+import { MenuData } from '../../../types/element-tiptap';
 import i18nMixin from '../../../mixins/i18nMixin';
 
 const INIT_GRID_SIZE = 5;
@@ -71,7 +71,7 @@ export default class CreateTablePopover extends mixins(i18nMixin) {
     col: DEFAULT_SELECTED_GRID_SIZE,
   };
 
-  selectTableGridSize (row, col) {
+  selectTableGridSize (row: number, col: number): void {
     if (row === this.tableGridSize.row) {
       this.tableGridSize.row = Math.min(row + 1, MAX_GRID_SIZE);
     }
@@ -86,6 +86,7 @@ export default class CreateTablePopover extends mixins(i18nMixin) {
 
   @Emit('createTable')
   onMouseDown (row: number, col: number): GridSize {
+    // @ts-ignore
     this.$refs.popoverRef.doClose();
 
     return { row, col };
