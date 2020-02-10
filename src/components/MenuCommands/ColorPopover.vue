@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import 'vue-awesome/icons/check';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 import CommandButton from './CommandButton.vue';
 
 @Component({
@@ -58,30 +58,32 @@ export default class ColorPopover extends Vue {
     type: Array,
     default: () => [],
   })
-  predefinedColors!: string[];
+  readonly predefinedColors!: string[];
 
   @Prop({
     type: String,
     required: true,
   })
-  tooltip!: string;
+  readonly tooltip!: string;
 
   @Prop({
     type: String,
     required: true,
   })
-  icon!: string;
+  readonly icon!: string;
 
   @Prop({
     type: String,
     default: '',
   })
-  resetButtonText!: string;
+  readonly resetButtonText!: string;
 
-  selectColor (color: string): void {
-    this.$emit('select', color);
+  @Emit('select')
+  selectColor (color: string): string {
     // @ts-ignore
     this.$refs.popoverRef.doClose();
+
+    return color;
   }
 };
 </script>

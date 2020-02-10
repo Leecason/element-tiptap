@@ -54,27 +54,27 @@ export default class CommandButton extends Vue {
     type: String,
     required: true,
   })
-  icon!: string;
+  readonly icon!: string;
 
   @Prop({
     type: Boolean,
     default: false,
   })
-  isActive!: boolean;
+  readonly isActive!: boolean;
 
   @Prop({
     type: String,
     required: true,
   })
-  tooltip!: string;
+  readonly tooltip!: string;
 
   @Prop({
     type: Function,
     default: noop,
   })
-  command!: Function;
+  readonly command!: Function;
 
-  get commandButtonClass (): object {
+  private get commandButtonClass (): object {
     return {
       'el-tiptap-editor__command-button': true,
       'el-tiptap-editor__command-button--active': this.isActive,

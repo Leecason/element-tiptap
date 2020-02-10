@@ -40,9 +40,9 @@ export default class MenuBubble extends Vue {
     type: Editor,
     required: true,
   })
-  editor!: Editor;
+  readonly editor!: Editor;
 
-  generateCommandButtonComponentSpecs <T = (MenuData | MenuData)[]> (editorContext: TiptapMenuData): Array<T> {
+  private generateCommandButtonComponentSpecs <T = (MenuData | MenuData)[]> (editorContext: TiptapMenuData): Array<T> {
     const extensionManager = this.editor.extensions;
     return extensionManager.extensions.reduce <T[]>((acc, extension) => {
       if (!extension.options.bubble) return acc;
