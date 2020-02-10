@@ -111,61 +111,57 @@
   </el-popover>
 </template>
 
-<script>
-import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table.ts';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mixins } from 'vue-class-component';
+import { MenuData } from '../../types/element-tiptap';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
-import i18nMixin from '../../../mixins/i18nMixin.ts';
+import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';
+import i18nMixin from '../../../mixins/i18nMixin';
 
-export default {
-  name: 'TablePopover',
-
+@Component({
   components: {
     CommandButton,
     CreateTablePopover,
   },
+})
+export default class TablePopover extends mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  private get editor () {
+    return this.editorContext.editor;
+  }
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  private get isTableActive () {
+    return isTableActive(this.editor.state);
+  }
 
-  computed: {
-    editor () {
-      return this.editorContext.editor;
-    },
+  private get enableMergeCells () {
+    return enableMergeCells(this.editor.state);
+  }
 
-    isTableActive () {
-      return isTableActive(this.editor.state);
-    },
+  private get enableSplitCell () {
+    return enableSplitCell(this.editor.state);
+  }
 
-    enableMergeCells () {
-      return enableMergeCells(this.editor.state);
-    },
+  closePopover (): void {
+    // @ts-ignore
+    this.$refs.popoverRef.doClose();
+  }
 
-    enableSplitCell () {
-      return enableSplitCell(this.editor.state);
-    },
-  },
+  createTable ({ row, col }: { row: number, col: number }): void {
+    this.editorContext.commands.createTable({
+      rowsCount: row,
+      colsCount: col,
+      withHeaderRow: true,
+    });
 
-  methods: {
-    closePopover () {
-      this.$refs.popoverRef.doClose();
-    },
-
-    createTable (row, col) {
-      this.editorContext.commands.createTable({
-        rowsCount: row,
-        colsCount: col,
-        withHeaderRow: true,
-      });
-
-      this.closePopover();
-    },
-  },
+    this.closePopover();
+  }
 };
 </script>
