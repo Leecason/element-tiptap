@@ -23,41 +23,36 @@
   </el-dropdown>
 </template>
 
-<script>
-import { isLineHeightActive } from '../../utils/line_height.ts';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mixins } from 'vue-class-component';
+import { MenuData } from '../../types/element-tiptap';
 import CommandButton from './CommandButton.vue';
-import i18nMixin from '../../mixins/i18nMixin.ts';
+import { isLineHeightActive } from '../../utils/line_height';
+import i18nMixin from '../../mixins/i18nMixin';
 
-export default {
-  name: 'LineHeightDropdown',
-
+@Component({
   components: {
     CommandButton,
   },
+})
+export default class LineHeightDropdown extends mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  private get editor () {
+    return this.editorContext.editor;
+  }
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  private get lineHeights () {
+    return this.editor.extensions.options.line_height.lineHeights;
+  }
 
-  computed: {
-    editor () {
-      return this.editorContext.editor;
-    },
-
-    lineHeights () {
-      return this.editor.extensions.options.line_height.lineHeights;
-    },
-  },
-
-  methods: {
-    isLineHeightActive (lineHeight) {
-      return isLineHeightActive(this.editor.state, lineHeight);
-    },
-  },
+  private isLineHeightActive (lineHeight: string): boolean {
+    return isLineHeightActive(this.editor.state, lineHeight);
+  }
 };
 </script>
