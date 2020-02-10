@@ -1,10 +1,10 @@
 import { Link as TiptapLink } from 'tiptap-extensions';
-import AddLinkCommandButton from '../components/MenuCommands/AddLinkCommandButton.vue';
+import LinkCommandButton from '../components/MenuCommands/LinkCommandButton.vue';
 
-export default class Bold extends TiptapLink {
+export default class Link extends TiptapLink {
   menuBtnView (editorContext) {
     return {
-      component: AddLinkCommandButton,
+      component: LinkCommandButton,
       componentProps: {
         editorContext,
       },
