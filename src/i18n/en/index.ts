@@ -105,7 +105,7 @@ export default {
         buttons: {
           insert_table: 'Insert Table',
           add_column_before: 'Add Column Before',
-          add_column_afer: 'Add Column After',
+          add_column_after: 'Add Column After',
           delete_column: 'Delete Column',
           add_row_before: 'Add Row Before',
           add_row_after: 'Add Row After',
