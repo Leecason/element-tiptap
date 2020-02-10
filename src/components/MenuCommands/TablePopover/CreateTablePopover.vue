@@ -45,8 +45,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
-import { mixins } from 'vue-class-component';
+import { Component, Prop, Emit, Mixins } from 'vue-property-decorator';
 import { MenuData } from '../../../types/element-tiptap';
 import i18nMixin from '../../../mixins/i18nMixin';
 
@@ -60,7 +59,7 @@ interface GridSize {
 }
 
 @Component
-export default class CreateTablePopover extends mixins(i18nMixin) {
+export default class CreateTablePopover extends Mixins(i18nMixin) {
   popoverVisible = false;
   tableGridSize: GridSize = {
     row: INIT_GRID_SIZE,

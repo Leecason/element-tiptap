@@ -46,8 +46,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { mixins } from 'vue-class-component';
+import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MenuData } from '../../types/element-tiptap';
 import CommandButton from './CommandButton.vue';
 import i18nMixin from '../../mixins/i18nMixin';
@@ -58,7 +57,7 @@ import { isHeadingActive } from '../../utils/heading';
     CommandButton,
   },
 })
-export default class HeadingDropdown extends mixins(i18nMixin) {
+export default class HeadingDropdown extends Mixins(i18nMixin) {
   @Prop({
     type: Object,
     required: true,

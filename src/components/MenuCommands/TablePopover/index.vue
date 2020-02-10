@@ -112,8 +112,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { mixins } from 'vue-class-component';
+import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MenuData } from '../../../types/element-tiptap';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
@@ -126,7 +125,7 @@ import i18nMixin from '../../../mixins/i18nMixin';
     CreateTablePopover,
   },
 })
-export default class TablePopover extends mixins(i18nMixin) {
+export default class TablePopover extends Mixins(i18nMixin) {
   @Prop({
     type: Object,
     required: true,
