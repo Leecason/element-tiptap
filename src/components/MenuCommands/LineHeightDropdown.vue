@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import { MenuData } from '../../types/element-tiptap';
+import { MenuData } from '../../types';
 import CommandButton from './CommandButton.vue';
 import { isLineHeightActive } from '../../utils/line_height';
 import i18nMixin from '../../mixins/i18nMixin';

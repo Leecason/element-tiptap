@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Editor, EditorMenuBar, MenuData as TiptapMenuData } from 'tiptap';
-import { MenuData } from '../../types/element-tiptap';
+import { MenuData } from '../../types';
 
 @Component({
   components: {

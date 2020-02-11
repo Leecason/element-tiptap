@@ -54,7 +54,7 @@
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { HttpRequestOptions } from 'element-ui/types/upload';
-import { MenuData } from '../../types/element-tiptap';
+import { MenuData } from '../../types';
 import CommandButton from './CommandButton.vue';
 import { readFileDataUrl } from '../../utils/shared';
 import i18nMixin from '../../mixins/i18nMixin';
