@@ -34,7 +34,7 @@ export { default as TextHighlight } from './text_highlight';
 
 // extensions
 export { default as HorizontalRule } from './horizontal_rule';
-export { default as History } from './history';
+export { default as History } from './history.ts';
 export { default as TextAlign } from './text_align';
 export { default as Indent } from './indent';
 export { default as LineHeight } from './line_height';
