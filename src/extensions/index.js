@@ -25,7 +25,7 @@ export { default as Iframe } from './iframe';
 
 // marks
 export { default as Bold } from './bold.ts';
-export { default as Underline } from './underline';
+export { default as Underline } from './underline.ts';
 export { default as Italic } from './italic';
 export { default as Strike } from './strike';
 export { default as Link } from './link';
