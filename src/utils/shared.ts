@@ -11,12 +11,11 @@ export function clamp (val: number, min: number, max: number): number {
 }
 
 export function readFileDataUrl (file: File): Promise<any> {
-  const reader:FileReader = new FileReader();
+  const reader = new FileReader();
 
   return new Promise((resolve, reject) => {
-    reader.onload = readerEvent => resolve(
-      readerEvent.target ? readerEvent.target.result : ''
-    );
+    // @ts-ignore
+    reader.onload = readerEvent => resolve(readerEvent.target.result);
     reader.onerror = reject;
 
     reader.readAsDataURL(file);
