@@ -13,3 +13,5 @@ export interface MenuBtnComponentOptions {
   componentProps?: { [key: string]: any }
   componentEvents?: { [key: string]: any }
 }
+
+export type MenuBtnView = MenuBtnComponentOptions | MenuBtnComponentOptions[]
