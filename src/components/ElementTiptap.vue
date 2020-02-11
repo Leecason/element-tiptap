@@ -41,11 +41,12 @@
   </div>
 </template>
 
-<script>
-import { Editor, EditorContent } from 'tiptap';
+<script lang="ts">
+import { Component, Prop, Watch, Model, Vue } from 'vue-property-decorator';
+import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 
 import { Placeholder } from '../extensions';
-import { capitalize } from '../utils/shared.ts';
+import { capitalize } from '../utils/shared';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
@@ -58,88 +59,84 @@ const COMMON_EMIT_EVENTS = [
   'drop',
 ];
 
-export default {
-  name: 'ElTiptap',
-
+@Component({
   components: {
     MenuBar,
     MenuBubble,
     EditorContent,
   },
+})
+export default class ElTiptap extends Vue {
+  @Prop({
+    type: Array,
+    default: () => [],
+  })
+  readonly extensions!: any[];
 
-  model: {
-    prop: 'content',
-    event: 'onUpdate',
-  },
+  @Model('onUpdate', {
+    type: String,
+    default: '',
+  })
+  readonly content!: string;
 
-  props: {
-    extensions: {
-      type: Array,
-      default: () => [],
+  @Prop({
+    type: String,
+    default: '',
+  })
+  readonly placeholder!: string;
+
+  @Prop({
+    type: String,
+    default: 'html',
+    validator (output): boolean {
+      return ['html', 'json'].includes(output);
     },
+  })
+  readonly output!: string;
 
-    content: {
-      type: String,
-      default: '',
-    },
+  @Prop({
+    type: Boolean,
+    default: false,
+  })
+  readonly readonly!: boolean;
 
-    placeholder: {
-      type: String,
-      default: '',
-    },
+  editor: Editor | null = null;
+  emitAfterOnUpdate: boolean = false;
 
-    output: {
-      type: String,
-      default: 'html',
-      validator (output) {
-        return ['html', 'json'].includes(output);
-      },
-    },
+  private get bubbleMenuVisible (): boolean {
+    if (!this.editor) return false;
 
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
-  },
+    const extensionManager = this.editor.extensions;
+    return extensionManager.extensions.some(extension => {
+      return extension.options.bubble;
+    });
+  }
 
-  data () {
-    return {
-      editor: null,
-    };
-  },
+  @Watch('content')
+  onContentChange (val: string): void {
+    if (this.emitAfterOnUpdate) {
+      this.emitAfterOnUpdate = false;
+      return;
+    }
 
-  computed: {
-    bubbleMenuVisible () {
-      const extensionManager = this.editor.extensions;
-      return extensionManager.extensions.some(extension => {
-        return extension.options.bubble;
-      });
-    },
-  },
+    if (this.editor) this.editor.setContent(val);
+  }
 
-  watch: {
-    content (val) {
-      if (this.emitAfterOnUpdate) {
-        this.emitAfterOnUpdate = false;
-        return;
-      }
-
-      if (this.editor) this.editor.setContent(val);
-    },
-
-    readonly () {
+  @Watch('readonly')
+  onReadonlyChange (): void {
+    if (this.editor) {
       this.editor.setOptions({
         editable: !this.readonly,
       });
-    },
-  },
+    }
+  }
 
-  mounted () {
+  private mounted () {
     const extensions = this.generateExtensions();
 
-    const eventOptions = COMMON_EMIT_EVENTS.reduce((eventOptions, event) => {
+    const eventOptions = COMMON_EMIT_EVENTS.reduce((prev, event) => {
       return {
-        ...eventOptions,
+        ...prev,
         [`on${capitalize(event)}`]: () => this.emitEvent.bind(this)(event),
       };
     }, {});
@@ -156,48 +153,46 @@ export default {
     this.$emit('onInit', {
       editor: this.editor,
     });
-  },
+  }
 
-  beforeDestroy () {
+  private beforeDestroy () {
     if (this.editor) this.editor.destroy();
-  },
+  }
 
-  methods: {
-    generateExtensions () {
-      const extensions = this.extensions;
+  private generateExtensions (): Array<Extension> {
+    const extensions = this.extensions;
 
-      if (this.placeholder) {
-        extensions.push(
-          new Placeholder({
-            emptyEditorClass: 'el-tiptap-editor--empty',
-            emptyNodeClass: 'el-tiptap-editor__placeholder',
-            emptyNodeText: this.placeholder,
-          })
-        );
-      }
+    if (this.placeholder) {
+      extensions.push(
+        new Placeholder({
+          emptyEditorClass: 'el-tiptap-editor--empty',
+          emptyNodeClass: 'el-tiptap-editor__placeholder',
+          emptyNodeText: this.placeholder,
+        })
+      );
+    }
 
-      return extensions;
-    },
+    return extensions;
+  }
 
-    emitEvent (event) {
-      this.$emit(`on${capitalize(event)}`, {
-        editor: this.editor,
-      });
-    },
+  emitEvent (event: string) {
+    this.$emit(`on${capitalize(event)}`, {
+      editor: this.editor,
+    });
+  }
 
-    onUpdate (options) {
-      this.emitAfterOnUpdate = true;
+  onUpdate (options: EditorUpdateEvent) {
+    this.emitAfterOnUpdate = true;
 
-      let output;
-      if (this.output === 'html') {
-        output = options.getHTML();
-      } else {
-        output = JSON.stringify(options.getJSON());
-      }
+    let output;
+    if (this.output === 'html') {
+      output = options.getHTML();
+    } else {
+      output = JSON.stringify(options.getJSON());
+    }
 
-      this.$emit('onUpdate', output, options);
-    },
-  },
+    this.$emit('onUpdate', output, options);
+  }
 };
 </script>
 
