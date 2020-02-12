@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts">
+import Icon from 'vue-awesome/components/Icon.vue';
 import 'vue-awesome/icons/heading';
 import 'vue-awesome/icons/font';
 import 'vue-awesome/icons/highlighter';
@@ -48,7 +49,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import { noop } from '../../utils/shared';
 
-@Component
+@Component({
+  components: {
+    'v-icon': Icon,
+  },
+})
 export default class CommandButton extends Vue {
   @Prop({
     type: String,

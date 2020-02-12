@@ -8,7 +8,6 @@ import {
   Upload,
   Popover,
 } from 'element-ui';
-import Icon from 'vue-awesome/components/Icon';
 import { useLang } from './i18n/index.ts';
 import ElementTiptap from './components/ElementTiptap.vue';
 
@@ -16,8 +15,6 @@ const ElementTiptapPlugin = {
   installed: false,
 
   install (Vue, options = {}) {
-    Vue.component('v-icon', Icon);
-
     Vue.use(Button);
     Vue.use(Tooltip);
     Vue.use(Dropdown);

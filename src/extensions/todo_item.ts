@@ -1,4 +1,5 @@
 // @ts-nocheck
+import Icon from 'vue-awesome/components/Icon.vue';
 import 'vue-awesome/icons/check-square';
 import 'vue-awesome/icons/regular/square';
 import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
@@ -78,6 +79,10 @@ export default class TodoItem extends TiptapTodoItem {
 
   get view () {
     return {
+      components: {
+        'v-icon': Icon,
+      },
+
       template: `
         <li
           :data-type="node.type.name"
