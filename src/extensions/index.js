@@ -14,7 +14,7 @@ export { default as Paragraph } from './paragraph.ts';
 export { default as Heading } from './heading.ts';
 export { default as Blockquote } from './blockquote.ts';
 export { default as CodeBlock } from './code_block.ts';
-export { default as ListItem } from './list_item';
+export { default as ListItem } from './list_item.ts';
 export { default as BulletList } from './bullet_list.ts';
 export { default as OrderedList } from './ordered_list.ts';
 export { default as Image } from './image.ts';

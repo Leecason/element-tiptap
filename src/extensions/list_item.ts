@@ -1,8 +1,9 @@
+import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { ListItem as TiptapListItem } from 'tiptap-extensions';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height.ts';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
 
-const ListItemNodeSpec = {
+const ListItemNodeSpec: NodeSpec = {
   attrs: {
     textAlign: { default: null },
     lineHeight: { default: null },
@@ -17,6 +18,7 @@ const ListItemNodeSpec = {
   toDOM,
 };
 
+// @ts-ignore
 function getAttrs (dom) {
   let {
     textAlign,
@@ -34,14 +36,14 @@ function getAttrs (dom) {
   };
 }
 
-function toDOM (node) {
+function toDOM (node: ProsemirrorNode): DOMOutputSpec {
   const {
     textAlign,
     lineHeight,
   } = node.attrs;
 
   let style = '';
-  const attrs = {};
+  const attrs: { [key: string]: any } = {};
 
   if (textAlign && textAlign !== 'left') {
     attrs['data-text-align'] = textAlign;
