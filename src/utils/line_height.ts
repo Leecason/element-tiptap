@@ -1,5 +1,6 @@
 import { TextSelection, AllSelection, EditorState, Transaction } from 'prosemirror-state';
 import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
+import { CommandFunction } from 'tiptap-commands';
 
 export const LINE_HEIGHT_100 = 1.7;
 
@@ -104,4 +105,21 @@ export function setTextLineHeight (tr: Transaction, lineHeight: string): Transac
   });
 
   return tr;
+}
+
+export function createLineHeightCommand (lineHeight: string): CommandFunction {
+  return (state, dispatch) => {
+    const { selection } = state;
+    let { tr } = state;
+    tr = tr.setSelection(selection);
+
+    tr = setTextLineHeight(tr, lineHeight);
+
+    if (tr.docChanged) {
+      dispatch && dispatch(tr);
+      return true;
+    }
+
+    return false;
+  };
 }
