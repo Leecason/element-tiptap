@@ -1,9 +1,11 @@
 import 'vue-awesome/icons/check-square';
 import 'vue-awesome/icons/regular/square';
+import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height.ts';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
 
+// @ts-ignore
 function getAttrs (dom) {
   let {
     textAlign,
@@ -22,7 +24,7 @@ function getAttrs (dom) {
   };
 }
 
-function toDOM (node) {
+function toDOM (node: ProsemirrorNode): DOMOutputSpec {
   const {
     done,
     textAlign,
@@ -30,7 +32,7 @@ function toDOM (node) {
   } = node.attrs;
 
   let style = '';
-  const attrs = {};
+  const attrs: { [key: string]: any } = {};
 
   attrs['data-type'] = 'todo_item';
   attrs['data-done'] = done.toString();

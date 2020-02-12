@@ -18,7 +18,7 @@ export { default as ListItem } from './list_item.ts';
 export { default as BulletList } from './bullet_list.ts';
 export { default as OrderedList } from './ordered_list.ts';
 export { default as Image } from './image.ts';
-export { default as TodoItem } from './todo_item';
+export { default as TodoItem } from './todo_item.ts';
 export { default as TodoList } from './todo_list';
 export { default as Table } from './table.ts';
 export { default as Iframe } from './iframe.ts';
