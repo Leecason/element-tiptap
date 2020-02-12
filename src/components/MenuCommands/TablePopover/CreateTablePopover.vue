@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Mixins } from 'vue-property-decorator';
-import { MenuData } from '../../../types';
+import { MenuData } from 'tiptap';
 import i18nMixin from '../../../mixins/i18nMixin';
 
 const INIT_GRID_SIZE = 5;

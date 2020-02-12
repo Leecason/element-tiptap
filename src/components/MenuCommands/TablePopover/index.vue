@@ -113,7 +113,7 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import { MenuData } from '../../../types';
+import { MenuData } from 'tiptap';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
 import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';

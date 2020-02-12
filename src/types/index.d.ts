@@ -1,11 +1,10 @@
 import { VueConstructor } from 'vue';
-import {
-  MenuData as TiptapMenuData,
-  Editor as TiptapEditor,
-} from 'tiptap';
+import { MenuData, Editor } from 'tiptap';
 
-export interface MenuData extends TiptapMenuData {
-  editor: TiptapEditor;
+declare module 'tiptap' {
+  interface MenuData {
+    editor: Editor;
+  }
 }
 
 export interface MenuBtnComponentOptions {
@@ -14,4 +13,8 @@ export interface MenuBtnComponentOptions {
   componentEvents?: { [key: string]: any }
 }
 
-export type MenuBtnView = MenuBtnComponentOptions | MenuBtnComponentOptions[]
+export type MenuBtnViewType = MenuBtnComponentOptions | MenuBtnComponentOptions[]
+
+export interface MenuBtnView {
+  menuBtnView? (menuData: MenuData): MenuBtnViewType;
+}

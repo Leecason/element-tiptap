@@ -19,8 +19,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Editor, EditorMenuBar, MenuData as TiptapMenuData } from 'tiptap';
-import { MenuData } from '../../types';
+import { Editor, EditorMenuBar, MenuData } from 'tiptap';
+import { MenuBtnViewType } from '../../types';
 
 @Component({
   components: {
@@ -34,9 +34,9 @@ export default class Menubar extends Vue {
   })
   readonly editor!: Editor;
 
-  private generateCommandButtonComponentSpecs <T = (MenuData | MenuData[])[]> (editorContext: TiptapMenuData): Array<T> {
+  private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
     const extensionManager = this.editor.extensions;
-    return extensionManager.extensions.reduce <T[]>((acc, extension) => {
+    return extensionManager.extensions.reduce <MenuBtnViewType[]>((acc, extension) => {
       if (typeof extension.menuBtnView !== 'function') return acc;
 
       const menuBtnComponentSpec = extension.menuBtnView({
