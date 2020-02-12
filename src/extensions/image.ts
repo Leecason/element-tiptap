@@ -1,9 +1,13 @@
+// @ts-nocheck
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { NodeSelection } from 'prosemirror-state';
+import { MenuData } from 'tiptap';
+import { MenuBtnView } from '../types';
 import ImageCommandButton from '../components/MenuCommands/ImageCommandButton.vue';
 
 const IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
-export default class Image extends TiptapImage {
+
+export default class Image extends TiptapImage implements MenuBtnView {
   get defaultOptions () {
     return {
       urlPattern: IMAGE_URL_REGEX,
@@ -47,7 +51,7 @@ export default class Image extends TiptapImage {
             height: parseInt(height, 10),
           };
         },
-      } ],
+      }],
       toDOM: node => ['img', node.attrs],
     };
   }
@@ -77,10 +81,10 @@ export default class Image extends TiptapImage {
       methods: {
         // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
         handleImageViewClick () {
-          let tr = this.view.state.tr;
+          const tr = this.view.state.tr;
           const pos = this.getPos();
-          let pos1 = this.view.state.doc.resolve(pos);
-          let selection = new NodeSelection(pos1);
+          const pos1 = this.view.state.doc.resolve(pos);
+          const selection = new NodeSelection(pos1);
           tr.setSelection(selection);
           this.view.dispatch(tr);
         },
@@ -88,7 +92,7 @@ export default class Image extends TiptapImage {
     };
   }
 
-  menuBtnView (editorContext) {
+  menuBtnView (editorContext: MenuData) {
     return {
       component: ImageCommandButton,
       componentProps: {

@@ -12,6 +12,7 @@ declare module 'tiptap-extensions' {
   class Heading extends Node {
     constructor (options?: { levels?: number[] });
   }
+  class Image extends Node {}
   class Blockquote extends Node {}
   class CodeBlock extends Node {}
   class ListItem extends Node {}
