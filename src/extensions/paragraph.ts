@@ -19,7 +19,7 @@ export const ParagraphNodeSpec: NodeSpec = {
 };
 
 // @ts-ignore
-function getAttrs (dom) {
+function getAttrs (dom): { [key: string]: any } {
   let {
     textAlign,
     lineHeight,
