@@ -1,5 +1,4 @@
 import {
-  Tooltip,
   Dropdown,
   DropdownMenu,
   DropdownItem,
@@ -14,7 +13,6 @@ const ElementTiptapPlugin = {
   installed: false,
 
   install (Vue, options = {}) {
-    Vue.use(Tooltip);
     Vue.use(Dropdown);
     Vue.use(DropdownMenu);
     Vue.use(DropdownItem);
