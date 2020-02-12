@@ -1,3 +1,4 @@
+// @ts-nocheck
 import 'vue-awesome/icons/check-square';
 import 'vue-awesome/icons/regular/square';
 import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
