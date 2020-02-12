@@ -17,7 +17,7 @@ function markApplies (doc: ProsemirrorNode, ranges: Array<SelectionRange>, type:
 }
 
 // https://github.com/ProseMirror/prosemirror-commands/blob/master/src/commands.js
-export default function applyMark (tr: Transaction, markType: MarkType, attrs: object): Transaction {
+export default function applyMark (tr: Transaction, markType: MarkType, attrs: object | null): Transaction {
   if (!tr.selection || !tr.doc || !markType) return tr;
 
   // @ts-ignore
