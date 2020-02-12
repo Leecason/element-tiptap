@@ -40,7 +40,7 @@ export function isLineHeightActive (state: EditorState, lineHeight: string): boo
   return active;
 }
 
-export function transformLineHeightToCSS (value: string): string {
+export function transformLineHeightToCSS (value: string | number): string {
   if (!value) return '';
 
   let strValue = String(value);
@@ -50,7 +50,7 @@ export function transformLineHeightToCSS (value: string): string {
     strValue = String(Math.round(numValue * 100)) + '%';
   }
 
-  return parseFloat(value) * LINE_HEIGHT_100 + '%'; ;
+  return parseFloat(strValue) * LINE_HEIGHT_100 + '%'; ;
 }
 
 interface SetLineHeightTask {
