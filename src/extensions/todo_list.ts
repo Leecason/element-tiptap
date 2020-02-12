@@ -1,8 +1,11 @@
+// @ts-nocheck
 import { TodoList as TiptapTodoList } from 'tiptap-extensions';
+import { MenuData } from 'tiptap';
+import { MenuBtnView } from '../types';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { t } from '../i18n/index';
 
-export default class TodoList extends TiptapTodoList {
+export default class TodoList extends TiptapTodoList implements MenuBtnView {
   get schema () {
     return {
       group: 'block',
@@ -18,8 +21,8 @@ export default class TodoList extends TiptapTodoList {
           },
         },
       ],
-      toDOM: (node) => {
-        const attrs = {};
+      toDOM: () => {
+        const attrs: { [key: string]: any } = {};
 
         attrs['data-type'] = this.name;
 
@@ -28,7 +31,7 @@ export default class TodoList extends TiptapTodoList {
     };
   }
 
-  menuBtnView ({ isActive, commands }) {
+  menuBtnView ({ isActive, commands }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {
