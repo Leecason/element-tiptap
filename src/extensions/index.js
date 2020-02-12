@@ -30,7 +30,7 @@ export { default as Italic } from './italic.ts';
 export { default as Strike } from './strike.ts';
 export { default as Link } from './link.ts';
 export { default as TextColor } from './text_color.ts';
-export { default as TextHighlight } from './text_highlight';
+export { default as TextHighlight } from './text_highlight.ts';
 
 // extensions
 export { default as HorizontalRule } from './horizontal_rule.ts';

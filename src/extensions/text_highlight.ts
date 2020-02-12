@@ -1,10 +1,13 @@
-import { Mark } from 'tiptap';
-import { PREDEFINED_COLORS } from '../utils/color.ts';
-import applyMark from '../utils/apply_mark.ts';
+// @ts-nocheck
+import { Mark, MenuData } from 'tiptap';
+import { CommandFunction } from 'tiptap-commands';
+import { MenuBtnView } from '../types';
+import { PREDEFINED_COLORS } from '../utils/color';
+import applyMark from '../utils/apply_mark';
 import ColorPopover from '../components/MenuCommands/ColorPopover.vue';
 import { t } from '../i18n/index';
 
-export default class TextHighlight extends Mark {
+export default class TextHighlight extends Mark implements MenuBtnView {
   get name () {
     return 'text_highlight';
   }
@@ -42,7 +45,7 @@ export default class TextHighlight extends Mark {
   }
 
   commands () {
-    return (color) => (state, dispatch) => {
+    return (color: string): CommandFunction => (state, dispatch) => {
       if (color !== undefined) {
         const { schema } = state;
         let { tr } = state;
@@ -54,14 +57,15 @@ export default class TextHighlight extends Mark {
           attrs
         );
         if (tr.docChanged || tr.storedMarksSet) {
-          dispatch(tr);
+          dispatch && dispatch(tr);
           return true;
         }
       }
+      return false;
     };
   }
 
-  menuBtnView (editorContext) {
+  menuBtnView (editorContext: MenuData) {
     return {
       component: ColorPopover,
       componentProps: {
@@ -71,7 +75,7 @@ export default class TextHighlight extends Mark {
         resetButtonText: t('editor.extensions.TextHighlight.reset'),
       },
       componentEvents: {
-        select: (color) => editorContext.commands.text_highlight(color),
+        select: (color: string) => editorContext.commands.text_highlight(color),
       },
     };
   }
