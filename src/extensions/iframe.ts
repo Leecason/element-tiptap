@@ -1,11 +1,14 @@
-import { Node } from 'tiptap';
+// @ts-nocheck
+import { Node, MenuData } from 'tiptap';
+import { MenuBtnView } from '../types';
 import IframeCommandButton from '../components/MenuCommands/IframeCommandButton.vue';
 
-export default class Iframe extends Node {
+export default class Iframe extends Node implements MenuBtnView {
   get name () {
     return 'iframe';
   }
 
+  // @ts-ignore
   get schema () {
     return {
       attrs: {
@@ -17,11 +20,12 @@ export default class Iframe extends Node {
       selectable: false,
       parseDOM: [{
         tag: 'iframe',
+        // @ts-ignore
         getAttrs: dom => ({
           src: dom.getAttribute('src'),
         }),
       }],
-      toDOM: node => ['iframe', {
+      toDOM: (node) => ['iframe', {
         src: node.attrs.src,
         frameborder: 0,
         allowfullscreen: 'true',
@@ -62,7 +66,7 @@ export default class Iframe extends Node {
     };
   }
 
-  menuBtnView (editorContext) {
+  menuBtnView (editorContext: MenuData) {
     return {
       component: IframeCommandButton,
       componentProps: {
