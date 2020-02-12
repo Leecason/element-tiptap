@@ -114,6 +114,7 @@
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
+import { Popover } from 'element-ui';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
 import { isTableActive, enableMergeCells, enableSplitCell } from '../../../utils/table';
@@ -121,6 +122,7 @@ import i18nMixin from '../../../mixins/i18nMixin';
 
 @Component({
   components: {
+    [Popover.name]: Popover,
     CommandButton,
     CreateTablePopover,
   },

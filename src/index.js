@@ -1,6 +1,3 @@
-import {
-  Popover,
-} from 'element-ui';
 import { useLang } from './i18n/index.ts';
 import ElementTiptap from './components/ElementTiptap.vue';
 
@@ -8,8 +5,6 @@ const ElementTiptapPlugin = {
   installed: false,
 
   install (Vue, options = {}) {
-    Vue.use(Popover);
-
     const { lang } = options;
     if (lang) useLang(lang);
 

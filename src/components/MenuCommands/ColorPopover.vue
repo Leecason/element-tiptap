@@ -45,13 +45,14 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
-import { Button } from 'element-ui';
+import { Button, Popover } from 'element-ui';
 import CommandButton from './CommandButton.vue';
 
 @Component({
   components: {
-    CommandButton,
     [Button.name]: Button,
+    [Popover.name]: Popover,
+    CommandButton,
   },
 })
 export default class ColorPopover extends Vue {

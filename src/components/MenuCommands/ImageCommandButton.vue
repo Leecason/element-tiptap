@@ -53,7 +53,7 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import { Dialog, Upload, MessageBox } from 'element-ui';
+import { Dialog, Upload, MessageBox, Popover } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
 import CommandButton from './CommandButton.vue';
@@ -64,6 +64,7 @@ import i18nMixin from '../../mixins/i18nMixin';
   components: {
     [Dialog.name]: Dialog,
     [Upload.name]: Upload,
+    [Popover.name]: Popover,
     CommandButton,
   },
 })

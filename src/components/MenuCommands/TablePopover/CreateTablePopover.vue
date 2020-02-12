@@ -45,8 +45,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Mixins } from 'vue-property-decorator';
-import { MenuData } from 'tiptap';
+import { Component, Emit, Mixins } from 'vue-property-decorator';
+import { Popover } from 'element-ui';
 import i18nMixin from '../../../mixins/i18nMixin';
 
 const INIT_GRID_SIZE = 5;
@@ -58,13 +58,19 @@ interface GridSize {
   col: number;
 }
 
-@Component
+@Component({
+  components: {
+    [Popover.name]: Popover,
+  },
+})
 export default class CreateTablePopover extends Mixins(i18nMixin) {
   popoverVisible = false;
+
   tableGridSize: GridSize = {
     row: INIT_GRID_SIZE,
     col: INIT_GRID_SIZE,
   };
+
   selectedTableGridSize: GridSize = {
     row: DEFAULT_SELECTED_GRID_SIZE,
     col: DEFAULT_SELECTED_GRID_SIZE,
