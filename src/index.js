@@ -1,6 +1,4 @@
 import {
-  Dialog,
-  Upload,
   Popover,
 } from 'element-ui';
 import { useLang } from './i18n/index.ts';
@@ -10,8 +8,6 @@ const ElementTiptapPlugin = {
   installed: false,
 
   install (Vue, options = {}) {
-    Vue.use(Dialog);
-    Vue.use(Upload);
     Vue.use(Popover);
 
     const { lang } = options;
