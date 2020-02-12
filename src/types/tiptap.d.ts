@@ -1,5 +1,5 @@
 declare module 'tiptap' {
-  import { Schema, Node as PromiseNode, NodeSpec, NodeType, MarkSpec, MarkType, ParseOptions } from 'prosemirror-model';
+  import { Schema, Node as ProsemirrorNode, NodeSpec, NodeType, MarkSpec, MarkType, ParseOptions } from 'prosemirror-model';
   import { Plugin, EditorState, Transaction } from 'prosemirror-state';
   import { EditorView, EditorProps } from 'prosemirror-view';
   import { VueConstructor } from 'vue';
@@ -10,7 +10,7 @@ declare module 'tiptap' {
   const EditorMenuBubble: VueConstructor;
 
   interface NodeView {
-    node?: PromiseNode;
+    node?: ProsemirrorNode;
     updateAttrs?: (attrs: { [key: string]: any }) => any;
     view?: EditorView;
     options?: { [key: string]: any };
@@ -20,7 +20,6 @@ declare module 'tiptap' {
   type CommandGetter =
     ({ [key: string]: (() => Command) | Command }) |
     (() => Command) | Command | (() => Command)[];
-
 
   class Extension<Options = any> {
     constructor (options?: Options);
