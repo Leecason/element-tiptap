@@ -10,7 +10,7 @@ export {
 } from 'tiptap-extensions';
 
 // nodes
-export { default as Paragraph } from './paragraph';
+export { default as Paragraph } from './paragraph.ts';
 export { default as Heading } from './heading';
 export { default as Blockquote } from './blockquote';
 export { default as CodeBlock } from './code_block.ts';

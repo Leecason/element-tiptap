@@ -1,8 +1,9 @@
+import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Paragraph as TiptapParagraph } from 'tiptap';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height.ts';
+import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
 
-export const ParagraphNodeSpec = {
+export const ParagraphNodeSpec: NodeSpec = {
   attrs: {
     textAlign: { default: null },
     indent: { default: null },
@@ -17,6 +18,7 @@ export const ParagraphNodeSpec = {
   toDOM,
 };
 
+// @ts-ignore
 function getAttrs (dom) {
   let {
     textAlign,
@@ -37,7 +39,7 @@ function getAttrs (dom) {
   };
 }
 
-function toDOM (node) {
+function toDOM (node: ProsemirrorNode): DOMOutputSpec {
   const {
     textAlign,
     indent,
@@ -45,7 +47,7 @@ function toDOM (node) {
   } = node.attrs;
 
   let style = '';
-  const attrs = {};
+  const attrs: { [key: string]: any } = {};
 
   if (textAlign && textAlign !== 'left') {
     attrs['data-text-align'] = textAlign;
