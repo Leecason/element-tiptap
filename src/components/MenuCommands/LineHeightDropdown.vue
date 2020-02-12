@@ -8,14 +8,18 @@
       :tooltip="t('editor.extensions.LineHeight.tooltip')"
       icon="text-height"
     />
-    <el-dropdown-menu slot="dropdown">
+    <el-dropdown-menu
+      slot="dropdown"
+      class="el-tiptap-dropdown-menu"
+    >
       <el-dropdown-item
         v-for="lineHeight in lineHeights"
         :key="lineHeight"
         :command="lineHeight"
         :class="{
-          'el-dropdown-menu__item--active': isLineHeightActive(lineHeight),
+          'el-tiptap-dropdown-menu__item--active': isLineHeightActive(lineHeight),
         }"
+        class="el-tiptap-dropdown-menu__item"
       >
         <span>{{ lineHeight }}</span>
       </el-dropdown-item>
