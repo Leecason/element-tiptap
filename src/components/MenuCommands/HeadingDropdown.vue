@@ -48,12 +48,16 @@
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
+import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
 import CommandButton from './CommandButton.vue';
 import i18nMixin from '../../mixins/i18nMixin';
 import { isHeadingActive } from '../../utils/heading';
 
 @Component({
   components: {
+    [Dropdown.name]: Dropdown,
+    [DropdownMenu.name]: DropdownMenu,
+    [DropdownItem.name]: DropdownItem,
     CommandButton,
   },
 })

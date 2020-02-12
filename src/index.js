@@ -1,7 +1,4 @@
 import {
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
   Dialog,
   Upload,
   Popover,
@@ -13,9 +10,6 @@ const ElementTiptapPlugin = {
   installed: false,
 
   install (Vue, options = {}) {
-    Vue.use(Dropdown);
-    Vue.use(DropdownMenu);
-    Vue.use(DropdownItem);
     Vue.use(Dialog);
     Vue.use(Upload);
     Vue.use(Popover);
