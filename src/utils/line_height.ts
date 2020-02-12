@@ -60,7 +60,7 @@ interface SetLineHeightTask {
   pos: number,
 }
 
-export function setTextLineHeight (tr: Transaction, lineHeight: string): Transaction {
+export function setTextLineHeight (tr: Transaction, lineHeight: string | null): Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) return tr;
