@@ -6,6 +6,7 @@ declare module 'tiptap-extensions' {
   class Underline extends Mark {}
   class Italic extends Mark {}
   class Strike extends Mark {}
+  class Link extends Mark {}
 
   // node
   class Heading extends Node {
