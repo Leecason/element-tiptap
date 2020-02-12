@@ -1,8 +1,11 @@
 import { OrderedList as TiptapOrderedList } from 'tiptap-extensions';
+import { MenuData } from 'tiptap';
+import { MenuBtnView } from '../types';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { t } from '../i18n/index';
-export default class OrderedList extends TiptapOrderedList {
-  menuBtnView ({ isActive, commands }) {
+
+export default class OrderedList extends TiptapOrderedList implements MenuBtnView {
+  menuBtnView ({ isActive, commands }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

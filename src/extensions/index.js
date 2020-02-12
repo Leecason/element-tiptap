@@ -16,7 +16,7 @@ export { default as Blockquote } from './blockquote';
 export { default as CodeBlock } from './code_block.ts';
 export { default as ListItem } from './list_item';
 export { default as BulletList } from './bullet_list';
-export { default as OrderedList } from './ordered_list';
+export { default as OrderedList } from './ordered_list.ts';
 export { default as Image } from './image';
 export { default as TodoItem } from './todo_item';
 export { default as TodoList } from './todo_list';
