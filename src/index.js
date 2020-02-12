@@ -4,7 +4,6 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  MessageBox,
   Dialog,
   Upload,
   Popover,
@@ -27,7 +26,6 @@ const ElementTiptapPlugin = {
     Vue.use(Dialog);
     Vue.use(Upload);
     Vue.use(Popover);
-    Vue.prototype.$prompt = MessageBox.prompt;
 
     const { lang } = options;
     if (lang) useLang(lang);

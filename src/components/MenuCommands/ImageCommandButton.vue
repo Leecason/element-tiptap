@@ -53,6 +53,7 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { MessageBox } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
 import CommandButton from './CommandButton.vue';
@@ -72,6 +73,7 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
   readonly editorContext!: MenuData;
 
   imageUploadDialogVisible: boolean = false;
+  $prompt = MessageBox.prompt;
 
   private get imageNodeOptions () {
     return this.editorContext.editor.extensions.options.image;
@@ -85,7 +87,8 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
       inputPattern: this.imageNodeOptions.urlPattern,
       inputErrorMessage: this.t('editor.extensions.Image.control.insert_by_url.invalid_url'),
       roundButton: true,
-    }).then(({ value: url }: { value: string }): void => {
+    // @ts-ignore
+    }).then(({ value: url }) => {
       this.editorContext.commands.image({ src: url });
     }).catch(() => {
 

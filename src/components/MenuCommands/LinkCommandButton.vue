@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { MessageBox } from 'element-ui';
 import { MenuData } from 'tiptap';
 import CommandButton from './CommandButton.vue';
 import i18nMixin from '../../mixins/i18nMixin';
@@ -25,13 +26,16 @@ export default class LinkCommandButton extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
+  $prompt = MessageBox.prompt;
+
   openApplyLinkControl (): void {
     this.$prompt('', this.t('editor.extensions.Link.control.title'), {
       confirmButtonText: this.t('editor.extensions.Link.control.confirm'),
       cancelButtonText: this.t('editor.extensions.Link.control.cancel'),
       inputPlaceholder: this.t('editor.extensions.Link.control.placeholder'),
       roundButton: true,
-    }).then(({ value: href }: { value: string }): void => {
+    // @ts-ignore
+    }).then(({ value: href }) => {
       this.editorContext.commands.link({ href });
     }).catch(() => {
 
