@@ -1,11 +1,14 @@
-import { Extension } from 'tiptap';
+import { Extension, MenuData, CommandGetter } from 'tiptap';
+import { CommandFunction } from 'tiptap-commands';
+import { MenuBtnView, MenuBtnComponentOptions } from '../types';
+import { Alignment } from '../constants';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
-import { setTextAlign, isTextAlignActive } from '../utils/text_align.ts';
+import { setTextAlign, isTextAlignActive } from '../utils/text_align';
 import { t } from '../i18n/index';
 
-export const ALIGN_PATTERN = /(left|right|center|justify)/;
+export const ALIGN_PATTERN: RegExp = new RegExp(`/(${Alignment.left}|${Alignment.center}|${Alignment.right}|${Alignment.justify})/`);
 
-export default class TextAlign extends Extension {
+export default class TextAlign extends Extension implements MenuBtnView {
   get name () {
     return 'text_align';
   }
@@ -13,21 +16,21 @@ export default class TextAlign extends Extension {
   get defaultOptions () {
     return {
       alignments: [
-        'left',
-        'center',
-        'right',
-        'justify',
+        Alignment.left,
+        Alignment.center,
+        Alignment.right,
+        Alignment.justify,
       ],
     };
   }
 
   commands () {
-    return this.options.alignments.reduce((commands, alignment) => {
+    return this.options.alignments.reduce((commands: CommandGetter, alignment: Alignment) => {
       if (!ALIGN_PATTERN.test(alignment)) return commands;
 
       return {
         ...commands,
-        [`align_${alignment}`]: () => (state, dispatch) => {
+        [`align_${alignment}`]: (): CommandFunction => (state, dispatch) => {
           const { selection } = state;
           const tr = setTextAlign(
             state.tr.setSelection(selection),
@@ -45,8 +48,8 @@ export default class TextAlign extends Extension {
     }, {});
   }
 
-  menuBtnView ({ commands, editor }) {
-    return this.options.alignments.reduce((views, alignment) => {
+  menuBtnView ({ commands, editor }: MenuData) {
+    return this.options.alignments.reduce((views: Array<MenuBtnComponentOptions>, alignment: Alignment) => {
       if (!ALIGN_PATTERN.test(alignment)) return views;
 
       const isActive = alignment === 'left'

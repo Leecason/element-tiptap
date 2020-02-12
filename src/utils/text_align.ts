@@ -33,7 +33,7 @@ interface SetTextAlignTask {
   pos: number,
 }
 
-export function setTextAlign (tr: Transaction, alignment: Alignment): Transaction {
+export function setTextAlign (tr: Transaction, alignment: Alignment | null): Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) {
