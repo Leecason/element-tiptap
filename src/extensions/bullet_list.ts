@@ -1,9 +1,11 @@
 import { BulletList as TiptapBulletList } from 'tiptap-extensions';
+import { MenuData } from 'tiptap';
+import { MenuBtnView } from '../types';
 import CommandButton from '../components/MenuCommands/CommandButton.vue';
 import { t } from '../i18n/index';
 
-export default class BulletList extends TiptapBulletList {
-  menuBtnView ({ isActive, commands }) {
+export default class BulletList extends TiptapBulletList implements MenuBtnView {
+  menuBtnView ({ isActive, commands }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {
