@@ -1,3 +1,4 @@
+// @ts-nocheck
 import en from './en';
 import zh from './zh';
 import { warn } from '../utils/console';
@@ -10,12 +11,7 @@ const dictionary = {
 
 let currentLang: object = dictionary[defaultLang];
 
-enum lang {
-  en = 'en',
-  zh = 'zh',
-}
-
-export function useLang (l: lang): void {
+export function useLang (l: string): void {
   if (dictionary[l]) {
     currentLang = dictionary[l];
   } else {
@@ -25,7 +21,7 @@ export function useLang (l: lang): void {
 }
 
 // @ts-ignore
-export function t (path: string, args?): string | object {
+export function t (path: string): string | object {
   const target = path.split('.').reduce((prev, curr) => {
     // @ts-ignore
     return prev[curr];
