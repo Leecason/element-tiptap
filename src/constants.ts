@@ -1,3 +1,5 @@
+export const ELEMENT_TIPTAP_TIP = '[Element-Tiptap Tip]';
+
 export const enum Alignment {
   left = 'left',
   center = 'center',
