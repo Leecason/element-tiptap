@@ -1,6 +1,15 @@
 import { VueConstructor } from 'vue';
 import { MenuData, Editor } from 'tiptap';
 
+export interface OptionsInterface {
+  lang?: string;
+}
+
+export interface ElementTiptapPluginInterface {
+  installed: boolean;
+  install (Vue: VueConstructor, options: OptionsInterface): void
+}
+
 declare module 'tiptap' {
   interface MenuData {
     editor: Editor;

@@ -1,7 +1,8 @@
-import { useLang } from './i18n/index.ts';
+import { ElementTiptapPluginInterface } from './types';
+import { useLang } from './i18n/index';
 import ElementTiptap from './components/ElementTiptap.vue';
 
-const ElementTiptapPlugin = {
+const ElementTiptapPlugin: ElementTiptapPluginInterface = {
   installed: false,
 
   install (Vue, options = {}) {
@@ -16,14 +17,19 @@ const ElementTiptapPlugin = {
 
 export * from './extensions/index';
 
-export { ElementTiptapPlugin };
+export {
+  ElementTiptapPlugin,
+  ElementTiptap,
+};
 
 ;(function autoInstall () {
-  let globalScope;
+  let globalScope: any = null;
 
   if (typeof window !== 'undefined') {
     globalScope = window;
+    // @ts-ignore
   } else if (typeof global !== 'undefined') {
+    // @ts-ignore
     globalScope = global;
   }
   if (globalScope && globalScope.Vue) {
