@@ -6,7 +6,7 @@ module.exports = {
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src'))
       .set('examples', path.resolve(__dirname, 'examples'))
-      .set('element-tiptap', path.resolve(__dirname, 'src/index'));
+      .set('element-tiptap', path.resolve(__dirname, 'src/index.ts'));
   },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/element-tiptap/'
