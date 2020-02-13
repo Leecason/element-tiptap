@@ -6,6 +6,7 @@ export const enum Alignment {
   right = 'right',
   justify = 'justify'
 }
+export const ALIGN_PATTERN: RegExp = new RegExp(`(${Alignment.left}|${Alignment.center}|${Alignment.right}|${Alignment.justify})`);
 
 export const LINE_HEIGHT_100 = 1.7;
 export const DEFAULT_LINE_HEIGHT = '100%';

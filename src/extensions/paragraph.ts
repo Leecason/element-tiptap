@@ -1,8 +1,7 @@
 import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Paragraph as TiptapParagraph } from 'tiptap';
-import { ALIGN_PATTERN } from './text_align';
 import { transformLineHeightToCSS } from '../utils/line_height';
-import { LINE_HEIGHT_100 } from '../constants';
+import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '../constants';
 
 export const ParagraphNodeSpec: NodeSpec = {
   attrs: {
