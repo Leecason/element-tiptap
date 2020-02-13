@@ -9,7 +9,7 @@ const ElementTiptapPlugin: ElementTiptapPluginInterface = {
     const { lang } = options;
     if (lang) useLang(lang);
 
-    Vue.component('el-tiptap', ElementTiptap);
+    Vue.component(ElementTiptap.name, ElementTiptap);
 
     this.installed = true;
   },
