@@ -47,16 +47,17 @@ import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 
 import { Placeholder } from '../extensions';
 import { capitalize } from '../utils/shared';
+import { EVENTS } from '../constants';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
 
-const COMMON_EMIT_EVENTS = [
-  'transaction',
-  'focus',
-  'blur',
-  'paste',
-  'drop',
+const COMMON_EMIT_EVENTS: EVENTS[] = [
+  EVENTS.TRANSACTION,
+  EVENTS.FOCUS,
+  EVENTS.BLUR,
+  EVENTS.PASTE,
+  EVENTS.DROP,
 ];
 
 @Component({
@@ -150,7 +151,7 @@ export default class ElTiptap extends Vue {
       onUpdate: this.onUpdate.bind(this),
     });
 
-    this.$emit('onInit', {
+    this.$emit(this.genEvent(EVENTS.INIT), {
       editor: this.editor,
     });
   }
@@ -175,8 +176,8 @@ export default class ElTiptap extends Vue {
     return extensions;
   }
 
-  emitEvent (event: string) {
-    this.$emit(`on${capitalize(event)}`, {
+  emitEvent (event: EVENTS) {
+    this.$emit(this.genEvent(event), {
       editor: this.editor,
     });
   }
@@ -191,7 +192,11 @@ export default class ElTiptap extends Vue {
       output = JSON.stringify(options.getJSON());
     }
 
-    this.$emit('onUpdate', output, options);
+    this.$emit(this.genEvent(EVENTS.UPDATE), output, options);
+  }
+
+  private genEvent (event: EVENTS) {
+    return `on${capitalize(event)}`;
   }
 };
 </script>

@@ -29,3 +29,13 @@ export const PREDEFINED_COLORS: string[] = [
   '#ff9800',
   '#ff5722',
 ];
+
+export const enum EVENTS {
+  INIT = 'init',
+  TRANSACTION = 'transaction',
+  FOCUS = 'focus',
+  BLUR = 'blur',
+  PASTE = 'paste',
+  DROP = 'drop',
+  UPDATE = 'update',
+};
