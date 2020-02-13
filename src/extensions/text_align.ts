@@ -7,7 +7,6 @@ import { setTextAlign, isTextAlignActive } from '../utils/text_align';
 import { t } from '../i18n/index';
 
 export const ALIGN_PATTERN: RegExp = new RegExp(`(${Alignment.left}|${Alignment.center}|${Alignment.right}|${Alignment.justify})`);
-console.log(ALIGN_PATTERN);
 
 export default class TextAlign extends Extension implements MenuBtnView {
   get name () {
