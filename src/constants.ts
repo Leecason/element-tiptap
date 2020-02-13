@@ -7,6 +7,9 @@ export const enum Alignment {
   justify = 'justify'
 }
 
+export const LINE_HEIGHT_100 = 1.7;
+export const DEFAULT_LINE_HEIGHT = '100%';
+
 export const PREDEFINED_COLORS: string[] = [
   '#f44336',
   '#e91e63',

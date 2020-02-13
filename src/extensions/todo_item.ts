@@ -5,9 +5,9 @@ import 'vue-awesome/icons/regular/square';
 import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions';
 import { ALIGN_PATTERN } from './text_align';
-import { LINE_HEIGHT_100, transformLineHeightToCSS } from '../utils/line_height';
+import { transformLineHeightToCSS } from '../utils/line_height';
+import { LINE_HEIGHT_100 } from '../constants';
 
-// @ts-ignore
 function getAttrs (dom) {
   let {
     textAlign,
