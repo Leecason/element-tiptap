@@ -127,11 +127,15 @@ export default {
 </script>
 
 <style lang="scss">
-.header {
+.el-container {
   background: linear-gradient(135deg, rgb(0, 103, 245), rgb(13, 197, 231) 75%);
+  font-family: Muli,sans-serif;
+}
+
+.header {
   display: flex;
   justify-content: space-between;
-  height: 30vh !important;
+  height: 20vh !important;
   padding: 20px 18vw;
 
   &__left {
@@ -174,7 +178,6 @@ export default {
 }
 
 .el-main {
-  background-color: #fff;
   display: flex;
   justify-content: center;
   padding: 50px;
@@ -182,7 +185,10 @@ export default {
 
 .el-footer {
   align-items: center;
+  color: #fff;
   display: flex;
+  font-weight: 700;
+  font-size: 16px;
   justify-content: center;
 }
 
