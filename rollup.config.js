@@ -9,6 +9,7 @@ import cssnano from 'cssnano';
 import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
+import typescript from 'rollup-plugin-typescript2';
 
 const isProduction = process.env.BUILD === 'production';
 const libDir = path.resolve(__dirname, 'lib');
@@ -40,12 +41,13 @@ function getConfig ({
   env,
 }) {
   return {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: {
       file,
-      name: 'ElTiptap',
+      name: 'ElementTiptap',
       format,
       globals: {
+        vue: 'Vue',
         tiptap: 'tiptap',
         'tiptap-extensions': 'tiptap',
         'prosemirror-utils': 'prosemirror-utils',
@@ -72,9 +74,15 @@ function getConfig ({
         'process.env.NODE_ENV': JSON.stringify(env),
       }),
       node({
-        extensions: ['.js', '.vue'],
+        extensions: ['.ts', '.js', '.vue'],
       }),
-      cjs(),
+      typescript({
+        clear: true,
+        typescript: require('typescript'),
+      }),
+      cjs({
+        extensions: ['.ts', '.js'],
+      }),
       postcss({
         extract: false,
         minimize: true,
@@ -96,6 +104,7 @@ function getConfig ({
       babel({
         exclude: 'node_modules/**',
         runtimeHelpers: true,
+        extensions: ['.js', '.ts'],
         presets: [
           [
             '@babel/preset-env',
