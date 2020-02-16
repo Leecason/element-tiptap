@@ -94,7 +94,8 @@
     </el-main>
 
     <el-footer>
-      <div>If you like this editor, please star ⭐ the <a href="https://github.com/Leecason/element-tiptap" aria-label="View source on GitHub" target="_blank">github</a> to support the project, thanks! 🙏🙏🙏</div>
+      <div>If you like this editor, please star ⭐ the github to support the project, thanks! 🙏🙏🙏</div>
+      <iframe src="https://ghbtns.com/github-btn.html?user=Leecason&repo=element-tiptap&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
     </el-footer>
 
     <a
@@ -134,13 +135,13 @@ export default {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 20vh !important;
-  padding: 20px 18vw;
+  padding-bottom: 20px;
+  padding-top: 20px;
 
   &__left {
     align-items: flex-start;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
@@ -153,10 +154,10 @@ export default {
 
   &__right {
     align-items: flex-start;
-    flex-grow: 1;
     display: flex;
     justify-content: flex-end;
     margin-top: 50px;
+    margin-left: 10vw;
 
     .router-link {
       color: #fff;
