@@ -76,7 +76,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "peerDependencies": {
-    "vue": "^2.6.0"
+    "vue": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/Leecason/element-tiptap/issues"
