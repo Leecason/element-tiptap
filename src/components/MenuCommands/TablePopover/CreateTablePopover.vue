@@ -47,7 +47,7 @@
 <script lang="ts">
 import { Component, Emit, Mixins } from 'vue-property-decorator';
 import { Popover } from 'element-ui';
-import i18nMixin from '../../../mixins/i18nMixin';
+import i18nMixin from '@/mixins/i18nMixin';
 
 const INIT_GRID_SIZE = 5;
 const MAX_GRID_SIZE = 10;

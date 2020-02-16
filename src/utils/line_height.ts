@@ -1,7 +1,7 @@
 import { TextSelection, AllSelection, EditorState, Transaction } from 'prosemirror-state';
 import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
 import { CommandFunction } from 'tiptap-commands';
-import { LINE_HEIGHT_100, DEFAULT_LINE_HEIGHT } from '../constants';
+import { LINE_HEIGHT_100, DEFAULT_LINE_HEIGHT } from '@/constants';
 
 export const ALLOWED_NODE_TYPES = [
   'paragraph',

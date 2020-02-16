@@ -1,7 +1,7 @@
 import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { ListItem as TiptapListItem } from 'tiptap-extensions';
-import { transformLineHeightToCSS } from '../utils/line_height';
-import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '../constants';
+import { transformLineHeightToCSS } from '@/utils/line_height';
+import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '@/constants';
 
 const ListItemNodeSpec: NodeSpec = {
   attrs: {

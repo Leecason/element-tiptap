@@ -45,9 +45,9 @@
 import { Component, Prop, Watch, Model, Vue } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 
-import { Placeholder } from '../extensions';
-import { capitalize } from '../utils/shared';
-import { EVENTS } from '../constants';
+import { Placeholder } from '@/extensions';
+import { capitalize } from '@/utils/shared';
+import { EVENTS } from '@/constants';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';

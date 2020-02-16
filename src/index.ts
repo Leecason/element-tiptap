@@ -1,6 +1,6 @@
 import { ElementTiptapPluginInterface } from './types';
-import { useLang } from './i18n/index';
-import ElementTiptap from './components/ElementTiptap.vue';
+import { useLang } from '@/i18n/index';
+import ElementTiptap from '@/components/ElementTiptap.vue';
 
 const ElementTiptapPlugin: ElementTiptapPluginInterface = {
   installed: false,
@@ -15,7 +15,7 @@ const ElementTiptapPlugin: ElementTiptapPluginInterface = {
   },
 };
 
-export * from './extensions/index';
+export * from '@/extensions/index';
 
 export {
   ElementTiptapPlugin,

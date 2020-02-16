@@ -31,9 +31,9 @@
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
+import i18nMixin from '@/mixins/i18nMixin';
+import { isLineHeightActive } from '@/utils/line_height';
 import CommandButton from './CommandButton.vue';
-import { isLineHeightActive } from '../../utils/line_height';
-import i18nMixin from '../../mixins/i18nMixin';
 
 @Component({
   components: {

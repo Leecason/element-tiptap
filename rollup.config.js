@@ -10,9 +10,11 @@ import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import typescript from 'rollup-plugin-typescript2';
+import alias from '@rollup/plugin-alias';
 
 const isProduction = process.env.BUILD === 'production';
 const libDir = path.resolve(__dirname, 'lib');
+const srcDir = path.resolve(__dirname, 'src');
 
 export default () => [
   getConfig({
@@ -72,6 +74,11 @@ function getConfig ({
     plugins: [
       env && replace({
         'process.env.NODE_ENV': JSON.stringify(env),
+      }),
+      alias({
+        entries: {
+          '@': srcDir,
+        },
       }),
       node({
         extensions: ['.ts', '.js', '.vue'],

@@ -1,11 +1,11 @@
 // @ts-nocheck
 import { Mark, MenuData } from 'tiptap';
 import { CommandFunction } from 'tiptap-commands';
-import { MenuBtnView } from '../types';
-import { PREDEFINED_COLORS } from '../constants';
-import applyMark from '../utils/apply_mark';
+import { MenuBtnView } from '@/types';
+import applyMark from '@/utils/apply_mark';
+import { t } from '@/i18n/index';
+import { PREDEFINED_COLORS } from '@/constants';
 import ColorPopover from '../components/MenuCommands/ColorPopover.vue';
-import { t } from '../i18n/index';
 
 export default class TextHighlight extends Mark implements MenuBtnView {
   get name () {

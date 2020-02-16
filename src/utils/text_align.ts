@@ -1,6 +1,6 @@
 import { EditorState, Transaction } from 'prosemirror-state';
 import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
-import { Alignment } from '../constants';
+import { Alignment } from '@/constants';
 
 export function isTextAlignActive (state: EditorState, alignment: Alignment): boolean {
   const { selection, doc } = state;

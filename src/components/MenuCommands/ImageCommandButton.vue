@@ -56,9 +56,9 @@ import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { Dialog, Upload, MessageBox, Popover } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
+import i18nMixin from '@/mixins/i18nMixin';
+import { readFileDataUrl } from '@/utils/shared';
 import CommandButton from './CommandButton.vue';
-import { readFileDataUrl } from '../../utils/shared';
-import i18nMixin from '../../mixins/i18nMixin';
 
 @Component({
   components: {

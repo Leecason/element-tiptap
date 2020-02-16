@@ -1,10 +1,10 @@
 import { Extension, MenuData, CommandGetter } from 'tiptap';
 import { CommandFunction } from 'tiptap-commands';
-import { MenuBtnView, MenuBtnComponentOptions } from '../types';
-import { Alignment, ALIGN_PATTERN } from '../constants';
-import CommandButton from '../components/MenuCommands/CommandButton.vue';
-import { setTextAlign, isTextAlignActive } from '../utils/text_align';
-import { t } from '../i18n/index';
+import { MenuBtnView, MenuBtnComponentOptions } from '@/types';
+import { setTextAlign, isTextAlignActive } from '@/utils/text_align';
+import { t } from '@/i18n/index';
+import { Alignment, ALIGN_PATTERN } from '@/constants';
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class TextAlign extends Extension implements MenuBtnView {
   get name () {

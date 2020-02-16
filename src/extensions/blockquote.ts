@@ -1,10 +1,10 @@
 import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Blockquote as TiptapBlockquote } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
-import { MenuBtnView } from '../types';
-import CommandButton from '../components/MenuCommands/CommandButton.vue';
+import { MenuBtnView } from '@/types';
+import { t } from '@/i18n/index';
+import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
-import { t } from '../i18n/index';
 
 const BlockquoteNodeSpec: NodeSpec = {
   ...ParagraphNodeSpec,

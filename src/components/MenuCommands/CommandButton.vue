@@ -47,8 +47,7 @@ import 'vue-awesome/icons/redo';
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Tooltip } from 'element-ui';
-
-import { noop } from '../../utils/shared';
+import { noop } from '@/utils/shared';
 
 @Component({
   components: {

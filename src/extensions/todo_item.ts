@@ -4,8 +4,8 @@ import 'vue-awesome/icons/check-square';
 import 'vue-awesome/icons/regular/square';
 import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions';
-import { transformLineHeightToCSS } from '../utils/line_height';
-import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '../constants';
+import { transformLineHeightToCSS } from '@/utils/line_height';
+import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '@/constants';
 
 function getAttrs (dom) {
   let {
