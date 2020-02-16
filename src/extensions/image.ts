@@ -2,7 +2,7 @@
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { NodeSelection } from 'prosemirror-state';
 import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/types';
+import { MenuBtnView } from '@/../types';
 import ImageCommandButton from '@/components/MenuCommands/ImageCommandButton.vue';
 
 const IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;

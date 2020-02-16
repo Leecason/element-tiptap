@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Mark, MenuData } from 'tiptap';
 import { CommandFunction } from 'tiptap-commands';
-import { MenuBtnView } from '@/types';
+import { MenuBtnView } from '@/../types';
 import applyMark from '@/utils/apply_mark';
 import { t } from '@/i18n/index';
 import { PREDEFINED_COLORS } from '@/constants';

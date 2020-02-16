@@ -1,6 +1,6 @@
 import { CodeBlock as TiptapCodeBlock } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/types';
+import { MenuBtnView } from '@/../types';
 import { t } from '@/i18n/index';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 

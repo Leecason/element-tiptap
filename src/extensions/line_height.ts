@@ -1,5 +1,5 @@
 import { Extension, MenuData } from 'tiptap';
-import { MenuBtnView } from '@/types';
+import { MenuBtnView } from '@/../types';
 import { createLineHeightCommand } from '@/utils/line_height';
 import LineHeightDropdown from '@/components/MenuCommands/LineHeightDropdown.vue';
 

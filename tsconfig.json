@@ -11,14 +11,13 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
+    "typeRoots": ["./types", "./node_modules/@types"],
     "types": [
       "webpack-env"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./*"]
     },
     "lib": [
       "esnext",
@@ -28,6 +27,7 @@
     ]
   },
   "include": [
+    "types/**/*",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",

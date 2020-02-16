@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Node, MenuData } from 'tiptap';
-import { MenuBtnView } from '@/types';
+import { MenuBtnView } from '@/../types';
 import IframeCommandButton from '@/components/MenuCommands/IframeCommandButton.vue';
 
 export default class Iframe extends Node implements MenuBtnView {

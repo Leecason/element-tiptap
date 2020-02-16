@@ -1,7 +1,7 @@
 import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Heading as TiptapHeading } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/types';
+import { MenuBtnView } from '@/../types';
 import HeadingDropdown from '@/components/MenuCommands/HeadingDropdown.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 

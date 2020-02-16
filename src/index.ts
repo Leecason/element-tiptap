@@ -1,4 +1,4 @@
-import { ElementTiptapPluginInterface } from './types';
+import { ElementTiptapPluginInterface } from '../types';
 import { useLang } from '@/i18n/index';
 import ElementTiptap from '@/components/ElementTiptap.vue';
 
