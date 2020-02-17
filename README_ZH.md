@@ -8,6 +8,10 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
 
+<p align="center">
+  <b>Element Tiptap Editor</b>
+</p>
+
 一个 Vue2.0 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
 
 ## 📔 翻译
@@ -15,19 +19,21 @@
 [English](./README.md) | 简体中文
 
 ## 🎄 示例
+
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
-[在线示例](https://leecason.github.io/element-tiptap)
+
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
 ## ✨ 特色
 
-- 使用 [element-ui](https://github.com/ElemeFE/element) 组件
-- 许多可以被直接使用的 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
-- 支持 markdown 语法
-- 支持 i18n(`en`, `zh`). 欢迎贡献更多的语言
-- 可能会用到的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- 高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
-- 自定义菜单按钮的视图
-- 菜单按钮可以被渲染在菜单栏和气泡菜单中
+- 🎨使用 [element-ui](https://github.com/ElemeFE/element) 组件
+- 💅许多 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
+- 🔖支持 markdown 语法
+- 🌐支持 i18n(`en`, `zh`). 欢迎贡献更多的语言
+- 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
+- 🍀高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
+- 🌂自定义菜单按钮
+- 💭菜单按钮可以被渲染在菜单栏和气泡菜单中
 
 ## 📦 安装
 
@@ -43,16 +49,37 @@ yarn add element-tiptap
 npm install --save element-tiptap
 ```
 
-然后安装 `element-tiptap` 插件。
+#### 安装插件
 
 ```js
 import Vue from 'vue';
 import { ElementTiptapPlugin } from 'element-tiptap';
 
 Vue.use(ElementTiptapPlugin);
+// 现在你已经在全局注册了 `el-tiptap` 组件。
 ```
 
-现在你已经在全局注册了 `el-tiptap` 组件。
+或者
+
+#### 局部引入
+
+```vue
+<template>
+  <div>
+    <el-tiptap ...><el-tiptap>
+  </div>
+</template>
+
+<script>
+import { ElementTiptap } from 'element-tiptap';
+
+export default {
+  components: {
+    [ElementTiptap.name]: ElementTiptap,
+  },
+};
+</script>
+```
 
 ### 通过 CDN
 
