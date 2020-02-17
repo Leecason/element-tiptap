@@ -1,13 +1,17 @@
 import { VueConstructor } from 'vue';
 import { MenuData, Editor } from 'tiptap';
 
+export type AnyObject = {
+  [key: string]: any;
+}
+
 export interface OptionsInterface {
   lang?: string;
 }
 
 export interface ElementTiptapPluginInterface {
   installed: boolean;
-  install (Vue: VueConstructor, options: OptionsInterface): void
+  install (Vue: VueConstructor, options: OptionsInterface): void;
 }
 
 declare module 'tiptap' {
@@ -18,12 +22,12 @@ declare module 'tiptap' {
 
 export interface MenuBtnComponentOptions {
   component: VueConstructor;
-  componentProps?: { [key: string]: any }
-  componentEvents?: { [key: string]: any }
+  componentProps?: AnyObject;
+  componentEvents?: AnyObject;
 }
 
-export type MenuBtnViewType = MenuBtnComponentOptions | MenuBtnComponentOptions[]
+export type MenuBtnViewType = MenuBtnComponentOptions | MenuBtnComponentOptions[];
 
 export interface MenuBtnView {
-  menuBtnView? (menuData: MenuData): MenuBtnViewType;
+  menuBtnView (menuData: MenuData): MenuBtnViewType;
 }
