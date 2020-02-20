@@ -1,11 +1,13 @@
 import en from './en';
 import zh from './zh';
+import pl from './pl';
 import { warn } from '../utils/console';
 
 const defaultLang = 'en';
 const dictionary = {
   en,
   zh,
+  pl,
 };
 
 let currentLang = dictionary[defaultLang];
