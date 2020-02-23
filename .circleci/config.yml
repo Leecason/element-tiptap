@@ -5,6 +5,7 @@ jobs:
     branches:
       only:
         - master
+        - beta
     docker:
       - image: 'circleci/node:12'
     steps:
