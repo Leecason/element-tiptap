@@ -12,9 +12,9 @@
   <b>Element Tiptap Editor</b>
 </p>
 
-一个 Vue2.0 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
+一个 Vue2 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
 
-## 📔 翻译
+## 📔 选择语言
 
 [English](./README.md) | 简体中文
 
@@ -29,7 +29,7 @@
 - 🎨使用 [element-ui](https://github.com/ElemeFE/element) 组件
 - 💅许多 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
 - 🔖支持 markdown 语法
-- 🌐支持 i18n(`en`, `zh`). 欢迎贡献更多的语言
+- 🌐支持 i18n(`en`, `zh`, `pl`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
 - 🌂自定义菜单按钮
@@ -105,7 +105,7 @@ Vue.use(ElementTiptapPlugin, {
 });
 ```
 
-可用的语言: `en`(默认), `zh`.
+可用的语言: `en`(默认), `zh`, `pl`.
 
 欢迎贡献更多的语言.
 

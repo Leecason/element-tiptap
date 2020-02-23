@@ -14,9 +14,9 @@
   <b>Element Tiptap Editor</b>
 </p>
 
-A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2.0.
+A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2
 
-## 📔 Translation
+## 📔 Languages
 
 English | [简体中文](./README_ZH.md)
 
@@ -31,7 +31,7 @@ English | [简体中文](./README_ZH.md)
 - 🎨Use [element-ui](https://github.com/ElemeFE/element) components
 - 💅Many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
 - 🔖Markdown support
-- 🌐I18n support(`en`, `zh`). welcome to contribute more languages
+- 🌐I18n support(`en`, `zh`, `pl`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀Fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror)
 - 🌂Customize all extension menu button view
@@ -107,7 +107,7 @@ Vue.use(ElementTiptapPlugin, {
 });
 ```
 
-Available languages: `en`(default), `zh`.
+Available languages: `en`(default), `zh`, `pl`.
 
 Welcome contribution.
 
