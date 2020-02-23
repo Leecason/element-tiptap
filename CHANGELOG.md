@@ -1,3 +1,21 @@
+# [1.9.0-beta.1](https://github.com/Leecason/element-tiptap/compare/@1.8.0...@1.9.0-beta.1) (2020-02-23)
+
+
+### Bug Fixes
+
+* 🐛 ALIGN_PATTERN ([10aeaf6](https://github.com/Leecason/element-tiptap/commit/10aeaf6263408fd6c504e4c40accf5336a3b1ee5))
+* 🐛 correct isListNode parameters types ([462475b](https://github.com/Leecason/element-tiptap/commit/462475b581fa0631e2c74fef9bb384ab38a6f95d))
+* 🐛 transformLineHeightToCSS parameter types ([a49125c](https://github.com/Leecason/element-tiptap/commit/a49125c6a97a3b47035fb925461065dd2508631c))
+* 🐛 zh lang add_column_after typo ([19d9e10](https://github.com/Leecason/element-tiptap/commit/19d9e106e3d9a389d5ebce4489ff4d43667bb482))
+* 💄 line_height dropdown active item style ([0daaa38](https://github.com/Leecason/element-tiptap/commit/0daaa38e9b4c5c7e154dcc2d4de69cc15526c910))
+* 📝 ProsemirrorNode typo ([524fdaf](https://github.com/Leecason/element-tiptap/commit/524fdaf866cd7c09703959815711a69a12a92a00))
+
+
+### Features
+
+* ✨ add tiptap, tiptap-extensions, tiptap-commands types definitions ([f08165a](https://github.com/Leecason/element-tiptap/commit/f08165a2dda9b1d2fe7d485d0be2101a7619c732))
+* ✨ vue add typescript ([bf3395a](https://github.com/Leecason/element-tiptap/commit/bf3395a6273047cf1753af9bcf9fa2b8330417d9))
+
 # [1.8.0](https://github.com/Leecason/element-tiptap/compare/@1.7.2...@1.8.0) (2020-02-21)
 
 
