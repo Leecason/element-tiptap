@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b>Element Tiptap Editor</b>
+  <h3>Element Tiptap Editor</h3>
 </p>
 
 A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2
@@ -31,6 +31,7 @@ English | [简体中文](./README_ZH.md)
 - 🎨Use [element-ui](https://github.com/ElemeFE/element) components
 - 💅Many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
 - 🔖Markdown support
+- ✅TypeScript support
 - 🌐I18n support(`en`, `zh`, `pl`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀Fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror)
@@ -372,9 +373,6 @@ Footer of the editor, after the editor content.
 
 ## 📝 Changelog
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
-
-## 💪 Roadmap
-- TypeScript
 
 ## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
