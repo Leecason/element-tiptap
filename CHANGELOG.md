@@ -1,3 +1,17 @@
+# [1.8.0](https://github.com/Leecason/element-tiptap/compare/@1.7.2...@1.8.0) (2020-02-21)
+
+
+### Features
+
+* **i18n:** 🌐i18n pl support ([578c2fe](https://github.com/Leecason/element-tiptap/commit/578c2feca29a26a37253c16d293219d634f26873))
+
+## [1.7.2](https://github.com/Leecason/element-tiptap/compare/@1.7.1...@1.7.2) (2020-02-08)
+
+
+### Bug Fixes
+
+* **i18n:** 🌐 capitalize Heading paragraph button ([0dc3000](https://github.com/Leecason/element-tiptap/commit/0dc300057e1655bec475b10498ea066ab64ea466))
+
 ## [1.7.1](https://github.com/Leecason/element-tiptap/compare/@1.7.0...@1.7.1) (2020-01-31)
 
 
