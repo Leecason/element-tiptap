@@ -9,8 +9,8 @@ const enum FormatMarks {
   underline = 'underline',
   strike = 'strike',
   link = 'link',
-  text_color = 'text_color',
-  text_highlight = 'text_highlight',
+  textColor = 'text_color',
+  textHighlight = 'text_highlight',
 }
 
 const FORMAT_MARK_NAMES: FormatMarks[] = [
@@ -19,8 +19,8 @@ const FORMAT_MARK_NAMES: FormatMarks[] = [
   FormatMarks.underline,
   FormatMarks.strike,
   FormatMarks.link,
-  FormatMarks.text_color,
-  FormatMarks.text_highlight,
+  FormatMarks.textColor,
+  FormatMarks.textHighlight,
 ];
 
 interface ClearMarksTask {
