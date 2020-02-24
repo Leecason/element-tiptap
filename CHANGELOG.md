@@ -1,3 +1,15 @@
+# [1.9.0-beta.2](https://github.com/Leecason/element-tiptap/compare/@1.9.0-beta.1...@1.9.0-beta.2) (2020-02-24)
+
+
+### Bug Fixes
+
+* 🐛 register component ([8f9880a](https://github.com/Leecason/element-tiptap/commit/8f9880a43aedd88adc9dbf16005c0d2cac47342f))
+
+
+### Features
+
+* ✨ add types folder for npm package ([dbc433d](https://github.com/Leecason/element-tiptap/commit/dbc433d183f19071a94bb1fb8a3ab77204cb69be))
+
 # [1.9.0-beta.1](https://github.com/Leecason/element-tiptap/compare/@1.8.0...@1.9.0-beta.1) (2020-02-23)
 
 
