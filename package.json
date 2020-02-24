@@ -16,7 +16,8 @@
   "typings": "lib/index.d.ts",
   "files": [
     "lib/*",
-    "src/*"
+    "src/*",
+    "types/*"
   ],
   "dependencies": {
     "core-js": "^3.4.3",
