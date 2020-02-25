@@ -8,14 +8,18 @@
       :tooltip="t('editor.extensions.LineHeight.tooltip')"
       icon="text-height"
     />
-    <el-dropdown-menu slot="dropdown">
+    <el-dropdown-menu
+      slot="dropdown"
+      class="el-tiptap-dropdown-menu"
+    >
       <el-dropdown-item
         v-for="lineHeight in lineHeights"
         :key="lineHeight"
         :command="lineHeight"
         :class="{
-          'el-dropdown-menu__item--active': isLineHeightActive(lineHeight),
+          'el-tiptap-dropdown-menu__item--active': isLineHeightActive(lineHeight),
         }"
+        class="el-tiptap-dropdown-menu__item"
       >
         <span>{{ lineHeight }}</span>
       </el-dropdown-item>
@@ -23,41 +27,39 @@
   </el-dropdown>
 </template>
 
-<script>
-import { isLineHeightActive } from '../../utils/line_height';
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { MenuData } from 'tiptap';
+import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
+import i18nMixin from '@/mixins/i18nMixin';
+import { isLineHeightActive } from '@/utils/line_height';
 import CommandButton from './CommandButton.vue';
-import i18nMixin from '../../mixins/i18nMixin';
 
-export default {
-  name: 'LineHeightDropdown',
-
+@Component({
   components: {
+    [Dropdown.name]: Dropdown,
+    [DropdownMenu.name]: DropdownMenu,
+    [DropdownItem.name]: DropdownItem,
     CommandButton,
   },
+})
+export default class LineHeightDropdown extends Mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  private get editor () {
+    return this.editorContext.editor;
+  }
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  private get lineHeights () {
+    return this.editor.extensions.options.line_height.lineHeights;
+  }
 
-  computed: {
-    editor () {
-      return this.editorContext.editor;
-    },
-
-    lineHeights () {
-      return this.editor.extensions.options.line_height.lineHeights;
-    },
-  },
-
-  methods: {
-    isLineHeightActive (lineHeight) {
-      return isLineHeightActive(this.editor.state, lineHeight);
-    },
-  },
+  private isLineHeightActive (lineHeight: string): boolean {
+    return isLineHeightActive(this.editor.state, lineHeight);
+  }
 };
 </script>

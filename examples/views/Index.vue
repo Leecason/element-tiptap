@@ -94,7 +94,8 @@
     </el-main>
 
     <el-footer>
-      <div>If you like this editor, please star ⭐ the <a href="https://github.com/Leecason/element-tiptap" aria-label="View source on GitHub" target="_blank">github</a> to support the project, thanks! 🙏🙏🙏</div>
+      <div>If you like this editor, please star ⭐ the github to support the project, thanks! 🙏🙏🙏</div>
+      <iframe src="https://ghbtns.com/github-btn.html?user=Leecason&repo=element-tiptap&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
     </el-footer>
 
     <a
@@ -127,16 +128,20 @@ export default {
 </script>
 
 <style lang="scss">
-.header {
+.el-container {
   background: linear-gradient(135deg, rgb(0, 103, 245), rgb(13, 197, 231) 75%);
+  font-family: Muli,sans-serif;
+}
+
+.header {
   display: flex;
-  justify-content: space-between;
-  height: 30vh !important;
-  padding: 20px 18vw;
+  justify-content: center;
+  height: 20vh !important;
+  padding-bottom: 20px;
+  padding-top: 20px;
 
   &__left {
     align-items: flex-start;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
@@ -149,10 +154,10 @@ export default {
 
   &__right {
     align-items: flex-start;
-    flex-grow: 1;
     display: flex;
     justify-content: flex-end;
     margin-top: 50px;
+    margin-left: 10vw;
 
     .router-link {
       color: #fff;
@@ -174,7 +179,6 @@ export default {
 }
 
 .el-main {
-  background-color: #fff;
   display: flex;
   justify-content: center;
   padding: 50px;
@@ -182,7 +186,10 @@ export default {
 
 .el-footer {
   align-items: center;
+  color: #fff;
   display: flex;
+  font-weight: 700;
+  font-size: 16px;
   justify-content: center;
 }
 

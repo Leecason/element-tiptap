@@ -43,45 +43,49 @@
   </el-popover>
 </template>
 
-<script>
-import 'vue-awesome/icons/check';
+<script lang="ts">
+import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
+import { Button, Popover } from 'element-ui';
 import CommandButton from './CommandButton.vue';
 
-export default {
-  name: 'ColorPopover',
-
+@Component({
   components: {
+    [Button.name]: Button,
+    [Popover.name]: Popover,
     CommandButton,
   },
+})
+export default class ColorPopover extends Vue {
+  @Prop({
+    type: Array,
+    default: () => [],
+  })
+  readonly predefinedColors!: string[];
 
-  props: {
-    predefinedColors: {
-      type: Array,
-      default: () => [],
-    },
+  @Prop({
+    type: String,
+    required: true,
+  })
+  readonly tooltip!: string;
 
-    tooltip: {
-      type: String,
-      required: true,
-    },
+  @Prop({
+    type: String,
+    required: true,
+  })
+  readonly icon!: string;
 
-    icon: {
-      type: String,
-      required: true,
-    },
+  @Prop({
+    type: String,
+    default: '',
+  })
+  readonly resetButtonText!: string;
 
-    resetButtonText: {
-      type: String,
-      default: '',
-    }
-  },
+  @Emit('select')
+  selectColor (color: string): string {
+    // @ts-ignore
+    this.$refs.popoverRef.doClose();
 
-  methods: {
-    selectColor (color) {
-      this.$emit('select', color);
-
-      this.$refs.popoverRef.doClose();
-    },
-  },
+    return color;
+  }
 };
 </script>

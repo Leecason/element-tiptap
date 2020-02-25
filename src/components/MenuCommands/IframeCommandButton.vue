@@ -6,39 +6,39 @@
   />
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { MessageBox } from 'element-ui';
+import { MenuData } from 'tiptap';
+import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from './CommandButton.vue';
-import i18nMixin from '../../mixins/i18nMixin';
 
-export default {
-  name: 'IframeCommandButton',
-
+@Component({
   components: {
     CommandButton,
   },
+})
+export default class IframeCommandButton extends Mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  $prompt = MessageBox.prompt;
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  openInsertVideoControl (): void {
+    this.$prompt('', this.t('editor.extensions.Iframe.control.title'), {
+      confirmButtonText: this.t('editor.extensions.Iframe.control.confirm'),
+      cancelButtonText: this.t('editor.extensions.Iframe.control.cancel'),
+      inputPlaceholder: this.t('editor.extensions.Iframe.control.placeholder'),
+      roundButton: true,
+    // @ts-ignore
+    }).then(({ value: href }) => {
+      this.editorContext.commands.iframe({ src: href });
+    }).catch(() => {
 
-  methods: {
-    openInsertVideoControl () {
-      this.$prompt('', this.t('editor.extensions.Iframe.control.title'), {
-        confirmButtonText: this.t('editor.extensions.Iframe.control.confirm'),
-        cancelButtonText: this.t('editor.extensions.Iframe.control.cancel'),
-        inputPlaceholder: this.t('editor.extensions.Iframe.control.placeholder'),
-        roundButton: true,
-      }).then(({ value: href }) => {
-        this.editorContext.commands.iframe({ src: href });
-      }).catch(() => {
-
-      });
-    },
-  },
+    });
+  }
 };
 </script>

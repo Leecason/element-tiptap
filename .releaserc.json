@@ -1,5 +1,8 @@
 {
-  "branch": "master",
+  "branches": [
+    "master",
+    { "name": "beta", "prerelease": true }
+  ],
   "tagFormat": "@${version}",
   "plugins": [
     ["@semantic-release/commit-analyzer", {

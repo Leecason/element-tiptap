@@ -25,47 +25,45 @@
   </editor-menu-bubble>
 </template>
 
-<script>
-import { Editor, EditorMenuBubble } from 'tiptap';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
+import { MenuBtnViewType } from '@/../types';
 
-export default {
-  name: 'MenuBubble',
-
+@Component({
   components: {
     EditorMenuBubble,
   },
+})
+export default class MenuBubble extends Vue {
+  @Prop({
+    type: Editor,
+    required: true,
+  })
+  readonly editor!: Editor;
 
-  props: {
-    editor: {
-      type: Editor,
-      required: true,
-    },
-  },
+  private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
+    const extensionManager = this.editor.extensions;
+    return extensionManager.extensions.reduce <MenuBtnViewType[]>((acc, extension) => {
+      if (!extension.options.bubble) return acc;
+      if (typeof extension.menuBtnView !== 'function') return acc;
 
-  methods: {
-    generateCommandButtonComponentSpecs (editorContext) {
-      const extensionManager = this.editor.extensions;
-      return extensionManager.extensions.reduce((acc, extension) => {
-        if (!extension.options.bubble) return acc;
-        if (typeof extension.menuBtnView !== 'function') return acc;
-
-        const menuBtnComponentSpec = extension.menuBtnView({
-          ...editorContext,
-          editor: this.editor,
-        });
-        if (Array.isArray(menuBtnComponentSpec)) {
-          return [
-            ...acc,
-            ...menuBtnComponentSpec,
-          ];
-        }
-
+      const menuBtnComponentSpec = extension.menuBtnView({
+        ...editorContext,
+        editor: this.editor,
+      });
+      if (Array.isArray(menuBtnComponentSpec)) {
         return [
           ...acc,
-          menuBtnComponentSpec,
+          ...menuBtnComponentSpec,
         ];
-      }, []);
-    },
-  },
-};
+      }
+
+      return [
+        ...acc,
+        menuBtnComponentSpec,
+      ];
+    }, []);
+  }
+}
 </script>

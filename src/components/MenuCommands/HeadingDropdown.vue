@@ -45,41 +45,39 @@
   </el-dropdown>
 </template>
 
-<script>
-import { isHeadingActive } from '../../utils/heading';
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { MenuData } from 'tiptap';
+import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
+import i18nMixin from '@/mixins/i18nMixin';
+import { isHeadingActive } from '@/utils/heading';
 import CommandButton from './CommandButton.vue';
-import i18nMixin from '../../mixins/i18nMixin';
 
-export default {
-  name: 'HeadingDropdown',
-
+@Component({
   components: {
+    [Dropdown.name]: Dropdown,
+    [DropdownMenu.name]: DropdownMenu,
+    [DropdownItem.name]: DropdownItem,
     CommandButton,
   },
+})
+export default class HeadingDropdown extends Mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  private get editor () {
+    return this.editorContext.editor;
+  }
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  private get level () {
+    return this.editor.extensions.options.heading.level;
+  }
 
-  computed: {
-    editor () {
-      return this.editorContext.editor;
-    },
-
-    level () {
-      return this.editor.extensions.options.heading.level;
-    },
-  },
-
-  methods: {
-    isHeadingActive (level) {
-      return isHeadingActive(this.editor.state, level);
-    },
-  },
+  private isHeadingActive (level: number): boolean {
+    return isHeadingActive(this.editor.state, level);
+  }
 };
 </script>

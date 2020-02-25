@@ -10,26 +10,33 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
 
-A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2.0.
+<p align="center">
+  <h3>Element Tiptap Editor</h3>
+</p>
 
-## 📔 Translation
+A WYSIWYG editor based on [tiptap](https://github.com/scrumpy/tiptap) and [element-ui](https://github.com/ElemeFE/element) for Vue2
+
+## 📔 Languages
 
 English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
+
 ![ScreenShot](/examples/assets/screenshot.png?raw=true)
-[Live Demo](https://leecason.github.io/element-tiptap)
+
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
 ## ✨ Features
 
-- use [element-ui](https://github.com/ElemeFE/element) components
-- many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
-- markdown support
-- i18n support(`en`, `zh`). welcome to contribute more languages
-- events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror).
-- customize all extension menu button view
-- menu buttons can render in menubar and bubble menu
+- 🎨Use [element-ui](https://github.com/ElemeFE/element) components
+- 💅Many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
+- 🔖Markdown support
+- ✅TypeScript support
+- 🌐I18n support(`en`, `zh`, `pl`). welcome to contribute more languages
+- 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
+- 🍀Fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror)
+- 🌂Customize all extension menu button view
+- 💭Menu buttons can render in menubar and bubble menu
 
 ## 📦 Installation
 
@@ -45,16 +52,37 @@ Or
 npm install --save element-tiptap
 ```
 
-Then install `element-tiptap` plugin.
+#### Install plugin
 
 ```js
 import Vue from 'vue';
 import { ElementTiptapPlugin } from 'element-tiptap';
 
 Vue.use(ElementTiptapPlugin);
+// Now you register `'el-tiptap'` component globally.
 ```
 
-Now you globally register `'el-tiptap'` component.
+Or
+
+#### Partial import
+
+```vue
+<template>
+  <div>
+    <el-tiptap ...><el-tiptap>
+  </div>
+</template>
+
+<script>
+import { ElementTiptap } from 'element-tiptap';
+
+export default {
+  components: {
+    [ElementTiptap.name]: ElementTiptap,
+  },
+};
+</script>
+```
 
 ### CDN
 
@@ -80,7 +108,7 @@ Vue.use(ElementTiptapPlugin, {
 });
 ```
 
-Available languages: `en`(default), `zh`.
+Available languages: `en`(default), `zh`, `pl`.
 
 Welcome contribution.
 
@@ -345,9 +373,6 @@ Footer of the editor, after the editor content.
 
 ## 📝 Changelog
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
-
-## 💪 Roadmap
-- TypeScript
 
 ## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)

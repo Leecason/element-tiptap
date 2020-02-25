@@ -51,65 +51,62 @@
   </div>
 </template>
 
-<script>
-import { readFileDataUrl } from '../../utils/shared';
-import CommandButton from './CommandButton';
-import i18nMixin from '../../mixins/i18nMixin';
+<script lang="ts">
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Dialog, Upload, MessageBox, Popover } from 'element-ui';
+import { HttpRequestOptions } from 'element-ui/types/upload';
+import { MenuData } from 'tiptap';
+import i18nMixin from '@/mixins/i18nMixin';
+import { readFileDataUrl } from '@/utils/shared';
+import CommandButton from './CommandButton.vue';
 
-export default {
-  name: 'ImageCommandButton',
-
+@Component({
   components: {
+    [Dialog.name]: Dialog,
+    [Upload.name]: Upload,
+    [Popover.name]: Popover,
     CommandButton,
   },
+})
+export default class ImageCommandButton extends Mixins(i18nMixin) {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly editorContext!: MenuData;
 
-  mixins: [i18nMixin],
+  imageUploadDialogVisible: boolean = false;
+  $prompt = MessageBox.prompt;
 
-  props: {
-    editorContext: {
-      type: Object,
-      required: true,
-    },
-  },
+  private get imageNodeOptions () {
+    return this.editorContext.editor.extensions.options.image;
+  }
 
-  data () {
-    return {
-      imageUploadDialogVisible: false,
-    };
-  },
-
-  computed: {
-    imageNodeOptions () {
-      return this.editorContext.editor.extensions.options.image;
-    },
-  },
-
-  methods: {
-    openUrlPrompt () {
-      this.$prompt('', this.t('editor.extensions.Image.control.insert_by_url.title'), {
-        confirmButtonText: this.t('editor.extensions.Image.control.insert_by_url.confirm'),
-        cancelButtonText: this.t('editor.extensions.Image.control.insert_by_url.cancel'),
-        inputPlaceholder: this.t('editor.extensions.Image.control.insert_by_url.placeholder'),
-        inputPattern: this.imageNodeOptions.urlPattern,
-        inputErrorMessage: this.t('editor.extensions.Image.control.insert_by_url.invalid_url'),
-        roundButton: true,
-      }).then(({ value: url }) => {
-        this.editorContext.commands.image({ src: url });
-      }).catch(() => {
-
-      });
-    },
-
-    async uploadImage (uploadOptions) {
-      const { file } = uploadOptions;
-
-      const uploadRequest = this.imageNodeOptions.uploadRequest;
-      const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));
-
+  openUrlPrompt (): void {
+    this.$prompt('', this.t('editor.extensions.Image.control.insert_by_url.title'), {
+      confirmButtonText: this.t('editor.extensions.Image.control.insert_by_url.confirm'),
+      cancelButtonText: this.t('editor.extensions.Image.control.insert_by_url.cancel'),
+      inputPlaceholder: this.t('editor.extensions.Image.control.insert_by_url.placeholder'),
+      inputPattern: this.imageNodeOptions.urlPattern,
+      inputErrorMessage: this.t('editor.extensions.Image.control.insert_by_url.invalid_url'),
+      roundButton: true,
+    // @ts-ignore
+    }).then(({ value: url }) => {
       this.editorContext.commands.image({ src: url });
+    }).catch(() => {
 
-      this.imageUploadDialogVisible = false;
-    },
-  },
+    });
+  }
+
+  async uploadImage (requestOptions: HttpRequestOptions) {
+    const { file } = requestOptions;
+
+    const uploadRequest = this.imageNodeOptions.uploadRequest;
+    const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));
+
+    this.editorContext.commands.image({ src: url });
+
+    this.imageUploadDialogVisible = false;
+  }
 };
 </script>
