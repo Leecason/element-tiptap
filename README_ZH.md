@@ -8,9 +8,7 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
 
-<p align="center">
-  <b>Element Tiptap Editor</b>
-</p>
+<h3 align="center">Element Tiptap Editor</h3>
 
 一个 Vue2 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
 
@@ -29,6 +27,7 @@
 - 🎨使用 [element-ui](https://github.com/ElemeFE/element) 组件
 - 💅许多 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
 - 🔖支持 markdown 语法
+- 📘TypeScript 支持
 - 🌐支持 i18n(`en`, `zh`, `pl`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
@@ -75,7 +74,7 @@ import { ElementTiptap } from 'element-tiptap';
 
 export default {
   components: {
-    [ElementTiptap.name]: ElementTiptap,
+    'el-tiptap': ElementTiptap,
   },
 };
 </script>
