@@ -13,6 +13,15 @@
   position: relative;
   width: 100%;
 
+  #{$root}__content {
+    background-color: $white-color;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: $black-color;
+    flex-grow: 1;
+    padding: 25px;
+  }
+
   &__menu-bar {
     background-color: $light-background-color;
     border-bottom: 1px solid $lighter-border-color;
@@ -44,14 +53,8 @@
   }
 
   &__content {
-    background-color: $white-color;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    color: $black-color;
-    flex-grow: 1;
     line-height: 1.7;
     overflow: auto;
-    padding: 25px;
     text-align: left;
 
     > * {
