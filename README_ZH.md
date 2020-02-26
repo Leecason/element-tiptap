@@ -376,3 +376,12 @@ export default {
 
 ## 📄 许可证
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
+
+## 👍🏼 请我喝咖啡
+
+如果有你的支持💪，我会更迅速的开发新功能和解决你的问题
+
+<p>
+  <img alt="reward" src="/examples/assets/wechat_reward_qrcode.jpg?raw=true" width="300">
+  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+</p>

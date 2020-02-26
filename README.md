@@ -374,3 +374,12 @@ Footer of the editor, after the editor content.
 
 ## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
+
+## 👍🏼 Buy Me A Coffee
+
+I can do more feature for you, or solve your problem faster if had your support.💪
+
+<p>
+  <img alt="reward" src="/examples/assets/wechat_reward_qrcode.jpg?raw=true" width="300">
+  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+</p>
