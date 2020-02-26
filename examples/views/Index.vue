@@ -75,7 +75,7 @@
         </router-link>
 
         <router-link
-          :to="{ name: 'Output' }"
+          :to="{ name: 'Preview' }"
           v-slot="{ navigate, isActive }"
         >
           <span
@@ -83,7 +83,7 @@
             class="router-link"
             @click="navigate"
           >
-            Output
+            Preview
           </span>
         </router-link>
       </div>

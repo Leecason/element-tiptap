@@ -7,7 +7,7 @@ const MenuBubble = () => import('../views/MenuBubble.vue');
 const Table = () => import('../views/Table.vue');
 const Embed = () => import('../views/Embed.vue');
 const Event = () => import('../views/Event.vue');
-const Output = () => import('../views/Output.vue');
+const Preview = () => import('../views/Preview.vue');
 
 Vue.use(VueRouter);
 
@@ -42,9 +42,9 @@ const routes = [
         component: Event,
       },
       {
-        name: 'Output',
-        path: '/output',
-        component: Output,
+        name: 'Preview',
+        path: '/preview',
+        component: Preview,
       },
     ],
   },
