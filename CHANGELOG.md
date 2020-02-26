@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/Leecason/element-tiptap/compare/@1.9.0...@1.9.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* 🐛 editor content style ([52fd69c](https://github.com/Leecason/element-tiptap/commit/52fd69cdd6823ab75e3dfb0e2ae77bca0559ae56))
+
 # [1.9.0](https://github.com/Leecason/element-tiptap/compare/@1.8.0...@1.9.0) (2020-02-25)
 
 
