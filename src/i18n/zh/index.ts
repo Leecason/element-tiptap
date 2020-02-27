@@ -137,6 +137,12 @@ export default {
           redo: '重做',
         },
       },
+      Fullscreen: {
+        tooltip: {
+          fullscreen: '全屏',
+          exit_fullscreen: '退出全屏',
+        },
+      },
     },
   },
 };

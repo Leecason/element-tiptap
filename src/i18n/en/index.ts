@@ -137,6 +137,12 @@ export default {
           redo: 'Redo',
         },
       },
+      Fullscreen: {
+        tooltip: {
+          fullscreen: 'Full screen',
+          exit_fullscreen: 'Exit full screen',
+        },
+      },
     },
   },
 };

@@ -137,6 +137,12 @@ export default {
           redo: 'Powtórz',
         },
       },
+      Fullscreen: {
+        tooltip: {
+          fullscreen: 'Pełny ekran',
+          exit_fullscreen: 'Zamknij pełny ekran',
+        },
+      },
     },
   },
 };

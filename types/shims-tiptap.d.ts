@@ -81,30 +81,30 @@ declare module 'tiptap' {
   }
 
   interface EditorOptions {
-    editorProps?: EditorProps,
-    editable?: boolean,
-    autoFocus?: boolean,
-    extensions?: (Extension | Node | Mark)[],
-    content?: Object | string,
+    editorProps?: EditorProps;
+    editable?: boolean;
+    autoFocus?: boolean;
+    extensions?: (Extension | Node | Mark)[];
+    content?: Object | string;
     emptyDocument?: {
       type: 'doc',
       content: [{
         type: 'paragraph',
       }],
-    },
-    useBuiltInExtensions?: boolean,
-    disableInputRules?: boolean,
-    disablePasteRules?: boolean,
-    dropCursor?: {},
-    parseOptions?: ParseOptions,
-    injectCSS?: boolean,
-    onInit?: ({ view, state }: { view: EditorView, state: EditorState }) => void,
-    onTransaction?: (event: EditorUpdateEvent) => void,
-    onUpdate?: (event: EditorUpdateEvent) => void,
-    onFocus?: ({ event, state, view }: { event: FocusEvent, state: EditorState, view: EditorView }) => void,
-    onBlur?: ({ event, state, view }: { event: FocusEvent, state: EditorState, view: EditorView }) => void,
-    onPaste?: (...args: any[]) => void,
-    onDrop?: (...args: any[]) => void,
+    };
+    useBuiltInExtensions?: boolean;
+    disableInputRules?: boolean;
+    disablePasteRules?: boolean;
+    dropCursor?: {};
+    parseOptions?: ParseOptions;
+    injectCSS?: boolean;
+    onInit?: ({ view, state }: { view: EditorView, state: EditorState }) => void;
+    onTransaction?: (event: EditorUpdateEvent) => void;
+    onUpdate?: (event: EditorUpdateEvent) => void;
+    onFocus?: ({ event, state, view }: { event: FocusEvent, state: EditorState, view: EditorView }) => void;
+    onBlur?: ({ event, state, view }: { event: FocusEvent, state: EditorState, view: EditorView }) => void;
+    onPaste?: (...args: any[]) => void;
+    onDrop?: (...args: any[]) => void;
   }
 
   class ExtensionManager {

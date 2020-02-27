@@ -13,6 +13,15 @@
   position: relative;
   width: 100%;
 
+  &:fullscreen {
+    border-radius: 0;
+
+    #{$root}__menu-bar,
+    #{$root}__content {
+      border-radius: 0;
+    }
+  }
+
   #{$root}__content {
     background-color: $white-color;
     border-bottom-left-radius: 8px;
