@@ -143,6 +143,9 @@ export default {
           exit_fullscreen: '退出全屏',
         },
       },
+      Print: {
+        tooltip: '打印',
+      },
     },
   },
 };

@@ -40,3 +40,4 @@ export { default as Indent } from './indent';
 export { default as LineHeight } from './line_height';
 export { default as FormatClear } from './format_clear';
 export { default as Fullscreen } from './fullscreen';
+export { default as Print } from './print';

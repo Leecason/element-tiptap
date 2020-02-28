@@ -143,6 +143,9 @@ export default {
           exit_fullscreen: 'Zamknij pełny ekran',
         },
       },
+      Print: {
+        tooltip: 'Drukuj',
+      },
     },
   },
 };

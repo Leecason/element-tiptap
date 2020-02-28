@@ -7,8 +7,6 @@
 </template>
 
 <script lang="ts">
-import 'vue-awesome/icons/expand';
-import 'vue-awesome/icons/compress';
 import { Component, Mixins } from 'vue-property-decorator';
 import i18nMixin from '@/mixins/i18nMixin';
 import {
