@@ -51,13 +51,10 @@ function getConfig ({
       globals: {
         vue: 'Vue',
         tiptap: 'tiptap',
-        'tiptap-extensions': 'tiptap',
-        'prosemirror-utils': 'prosemirror-utils',
-        'prosemirror-state': 'prosemirror-state',
-        'prosemirror-model': 'prosemirror-model',
-        'prosemirror-tables': 'prosemirror-tables',
-        'element-ui': 'element-ui',
-        'vue-awesome': 'vue-awesome',
+        'tiptap-extensions': 'tiptapExtensions',
+        'prosemirror-utils': 'prosemirrorUtils',
+        'prosemirror-state': 'prosemirrorState',
+        'prosemirror-tables': 'prosemirrorTables',
       },
     },
     external: [
