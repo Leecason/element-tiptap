@@ -41,3 +41,4 @@ export { default as LineHeight } from './line_height';
 export { default as FormatClear } from './format_clear';
 export { default as Fullscreen } from './fullscreen';
 export { default as Print } from './print';
+export { default as Preview } from './preview';

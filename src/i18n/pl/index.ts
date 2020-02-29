@@ -146,6 +146,12 @@ export default {
       Print: {
         tooltip: 'Drukuj',
       },
+      Preview: {
+        tooltip: 'Podgląd',
+        dialog: {
+          title: 'Podgląd',
+        },
+      },
     },
   },
 };

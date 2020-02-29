@@ -146,6 +146,12 @@ export default {
       Print: {
         tooltip: '打印',
       },
+      Preview: {
+        tooltip: '预览',
+        dialog: {
+          title: '预览',
+        },
+      },
     },
   },
 };

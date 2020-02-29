@@ -39,3 +39,5 @@ export const enum EVENTS {
   DROP = 'drop',
   UPDATE = 'update',
 };
+
+export const PREVIEW_WINDOW_WIDTH: string = '80vw';
