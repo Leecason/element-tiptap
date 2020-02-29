@@ -1,3 +1,12 @@
+# [1.10.0-beta.1](https://github.com/Leecason/element-tiptap/compare/@1.9.1...@1.10.0-beta.1) (2020-02-29)
+
+
+### Features
+
+* ✨ add Fullscreen extension ([42a63e9](https://github.com/Leecason/element-tiptap/commit/42a63e91564d2afcf38a4c8fb85faf9278cd23f6))
+* ✨ add Preview extension ([50a510e](https://github.com/Leecason/element-tiptap/commit/50a510ef5dba89fc99f97f9ace5288f2acb5193f))
+* ✨ add Print extension ([9206135](https://github.com/Leecason/element-tiptap/commit/920613553e8fb73f7a85abce1e490fa8ecaf52b1))
+
 ## [1.9.1](https://github.com/Leecason/element-tiptap/compare/@1.9.0...@1.9.1) (2020-02-26)
 
 
