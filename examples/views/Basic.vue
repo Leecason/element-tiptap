@@ -37,6 +37,8 @@ import {
   TrailingNode,
   FormatClear,
   History,
+  Print,
+  Fullscreen,
 } from 'element-tiptap';
 
 export default {
@@ -70,6 +72,8 @@ export default {
         new TrailingNode(),
         new FormatClear(),
         new History(),
+        new Print(),
+        new Fullscreen(),
       ],
 
       content: `

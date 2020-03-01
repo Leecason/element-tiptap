@@ -3,14 +3,9 @@
     <div class="editor">
       <el-tiptap
         :extensions="extensions"
-        v-model="output.html"
+        :content="content"
         @onUpdate="onUpdate"
       />
-    </div>
-
-    <div class="preview section">
-      <h2 class="section__title">Preview</h2>
-      <div class="el-tiptap-editor__content" v-html="output.html"></div>
     </div>
 
     <div class="section">
@@ -44,6 +39,7 @@ import {
   Indent,
   LineHeight,
   TrailingNode,
+  Preview,
   History,
 } from 'element-tiptap';
 
@@ -68,54 +64,15 @@ export default {
         new OrderedList(),
         new Indent(),
         new TrailingNode(),
+        new Preview(),
         new History(),
       ],
 
+      content: '<h2>Test Text</h2><p>You can input to see the <strong>output</strong></p><p>And <strong>preview</strong> the content with the <strong>Preview Menu Button</strong></p>',
+
       output: {
-        json: {
-          type: 'doc',
-          content: [
-            {
-              type: 'heading',
-              attrs: {
-                textAlign: null,
-                indent: 0,
-                lineHeight: null,
-                level: 2
-              },
-              content: [
-                {
-                  type: 'text',
-                  text: 'Preview'
-                }
-              ]
-            },
-            {
-              type: 'paragraph',
-              attrs: {
-                textAlign: null,
-                indent: 0,
-                lineHeight: null
-              },
-              content: [
-                {
-                  type: 'text',
-                  marks: [
-                    {
-                      type: 'bold'
-                    }
-                  ],
-                  text: 'This is a Test Text. '
-                },
-                {
-                  type: 'text',
-                  text: 'You can input to see the output...'
-                }
-              ]
-            }
-          ]
-        },
-        html: '<h2>Test Text</h2><p>You can input to see the output...</p>',
+        json: '',
+        html: '',
       },
     };
   },
