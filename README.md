@@ -82,20 +82,6 @@ export default {
 </script>
 ```
 
-### CDN
-
-```js
-<script src="https://unpkg.com/element-tiptap"></script>
-```
-
-Or
-
-```js
-<script src="https://cdn.jsdelivr.net/npm/element-tiptap"></script>
-```
-
-If `Vue` can be found in `window` the plugin should be installed automatically. And `el-tiptap` component will be globally registered.
-
 ## 🌐 I18n
 
 You can declare when you install the plugin.
@@ -204,6 +190,9 @@ All available extensions:
 - `FormatClear`
 - `TextColor`
 - `TextHighlight`
+- `Preview`
+- `Print`
+- `Fullscreen`
 
 You can customize the extension menu button view
 

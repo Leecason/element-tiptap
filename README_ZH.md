@@ -2,8 +2,10 @@
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
+  <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/Leecason/element-tiptap/master">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
-  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/Leecason/element-tiptap">
+  <img alt="npm" src="https://img.shields.io/npm/dw/element-tiptap">
   <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
@@ -79,20 +81,6 @@ export default {
 };
 </script>
 ```
-
-### 通过 CDN
-
-```js
-<script src="https://unpkg.com/element-tiptap"></script>
-```
-
-或者
-
-```js
-<script src="https://cdn.jsdelivr.net/npm/element-tiptap"></script>
-```
-
-如果能在 `window` 上找到 `Vue`，这个插件将会被自动安装，并且 `el-tiptap` 组件将会被全局注册。
 
 ## 🌐 国际化
 
@@ -202,6 +190,9 @@ export default {
 - `FormatClear`
 - `TextColor`
 - `TextHighlight`
+- `Preview`
+- `Print`
+- `Fullscreen`
 
 你可以自定义菜单按钮的渲染视图
 
