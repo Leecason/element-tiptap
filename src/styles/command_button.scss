@@ -144,6 +144,7 @@
 
       &__wrapper {
         align-items: center;
+        box-sizing: border-box;
         cursor: pointer;
         display: flex;
         flex: 0 0 25%;
