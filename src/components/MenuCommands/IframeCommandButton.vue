@@ -25,10 +25,8 @@ export default class IframeCommandButton extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  $prompt = MessageBox.prompt;
-
   openInsertVideoControl (): void {
-    this.$prompt('', this.t('editor.extensions.Iframe.control.title'), {
+    MessageBox.prompt('', this.t('editor.extensions.Iframe.control.title'), {
       confirmButtonText: this.t('editor.extensions.Iframe.control.confirm'),
       cancelButtonText: this.t('editor.extensions.Iframe.control.cancel'),
       inputPlaceholder: this.t('editor.extensions.Iframe.control.placeholder'),

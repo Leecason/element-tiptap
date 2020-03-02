@@ -76,14 +76,13 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
   readonly editorContext!: MenuData;
 
   imageUploadDialogVisible: boolean = false;
-  $prompt = MessageBox.prompt;
 
   private get imageNodeOptions () {
     return this.editorContext.editor.extensions.options.image;
   }
 
   openUrlPrompt (): void {
-    this.$prompt('', this.t('editor.extensions.Image.control.insert_by_url.title'), {
+    MessageBox.prompt('', this.t('editor.extensions.Image.control.insert_by_url.title'), {
       confirmButtonText: this.t('editor.extensions.Image.control.insert_by_url.confirm'),
       cancelButtonText: this.t('editor.extensions.Image.control.insert_by_url.cancel'),
       inputPlaceholder: this.t('editor.extensions.Image.control.insert_by_url.placeholder'),

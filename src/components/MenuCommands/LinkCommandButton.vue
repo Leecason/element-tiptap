@@ -26,10 +26,8 @@ export default class LinkCommandButton extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  $prompt = MessageBox.prompt;
-
   openApplyLinkControl (): void {
-    this.$prompt('', this.t('editor.extensions.Link.control.title'), {
+    MessageBox.prompt('', this.t('editor.extensions.Link.control.title'), {
       confirmButtonText: this.t('editor.extensions.Link.control.confirm'),
       cancelButtonText: this.t('editor.extensions.Link.control.cancel'),
       inputPlaceholder: this.t('editor.extensions.Link.control.placeholder'),
