@@ -1,3 +1,11 @@
+## [1.10.1](https://github.com/Leecason/element-tiptap/compare/@1.10.0...@1.10.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* 🐛 set color_popover box-sizing attribute border-box ([4056a23](https://github.com/Leecason/element-tiptap/commit/4056a23550d19673e50757ece2a6d802ca1110a8))
+* 🐛 use Message.prompt instead instance property ([dfe8aff](https://github.com/Leecason/element-tiptap/commit/dfe8aff354ad2b296c8ae026a4177f4f50cdc8a4))
+
 # [1.10.0](https://github.com/Leecason/element-tiptap/compare/@1.9.1...@1.10.0) (2020-03-01)
 
 
