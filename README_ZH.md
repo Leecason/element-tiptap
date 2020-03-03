@@ -55,8 +55,14 @@ npm install --save element-tiptap
 
 ```js
 import Vue from 'vue';
+import ElementUI from 'element-ui';
 import { ElementTiptapPlugin } from 'element-tiptap';
+// 引入 ElementUI 样式
+import 'element-ui/lib/theme-chalk/index.css';
 
+// 安装 ElementUI 插件
+Vue.use(ElementUI);
+// 安装 element-tiptap 插件
 Vue.use(ElementTiptapPlugin);
 // 现在你已经在全局注册了 `el-tiptap` 组件。
 ```
@@ -74,6 +80,8 @@ Vue.use(ElementTiptapPlugin);
 
 <script>
 import { ElementTiptap } from 'element-tiptap';
+// 引入 Element 样式
+import 'element-ui/lib/theme-chalk/index.css';
 
 export default {
   components: {
