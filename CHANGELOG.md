@@ -1,3 +1,11 @@
+## [1.10.2-beta.1](https://github.com/Leecason/element-tiptap/compare/@1.10.1...@1.10.2-beta.1) (2020-03-03)
+
+
+### Bug Fixes
+
+* 🐛 types attributes in package.json ([4dd78dc](https://github.com/Leecason/element-tiptap/commit/4dd78dc391674d03645b4b681de87ccd768cc433))
+* 💄 border-box with command_button ([97d369f](https://github.com/Leecason/element-tiptap/commit/97d369fd24330053621d3ec75a85d3cc2efbaa5c))
+
 ## [1.10.1](https://github.com/Leecason/element-tiptap/compare/@1.10.0...@1.10.1) (2020-03-02)
 
 
