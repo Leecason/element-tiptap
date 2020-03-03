@@ -164,6 +164,8 @@ export default {
 
 ### 扩展 extensions
 
+Type: `Array`
+
 你可以只使用需要的 extension，对应的菜单按钮将会按照你声明的顺序被添加。
 
 所有可用的 extensions:
@@ -181,10 +183,10 @@ export default {
 - `CodeBlock`
 - `Blockquote`
 - `ListItem`
-- `BulletList`
-- `OrderedList`
+- `BulletList` (与 `ListItem` 一起使用)
+- `OrderedList` (与 `ListItem`一起使用)
 - `TodoItem`
-- `TodoList`
+- `TodoList` (与 `TodoItem` 一起使用)
 - `TextAlign`
 - `Indent`
 - `LineHeight`
@@ -192,16 +194,16 @@ export default {
 - `HardBreak`
 - `TrailingNode`
 - `History`
-- `Table`
+- `Table` (与 `TableHeader`, `TableCell`, `TableRow` 一起使用)
 - `TableHeader`
 - `TableCell`
 - `TableRow`
 - `FormatClear`
 - `TextColor`
 - `TextHighlight`
-- `Preview`
-- `Print`
-- `Fullscreen`
+- `Preview` (新)
+- `Print` (新)
+- `Fullscreen` (新)
 
 你可以自定义菜单按钮的渲染视图
 
@@ -215,7 +217,7 @@ export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
     // editorContext 包含了一些对你有用的属性
     // 见 https://github.com/scrumpy/tiptap#editormenubar
-    // ElementTiptap 将 editor 的实例也添加到了其中.
+    // ElementTiptap 将 editor 实例也添加到了其中
     return {
       component: CustomButton, // 你的组件
       componentProps: {
@@ -251,9 +253,12 @@ export default {
 
 ### 占位符 placeholder
 
+Type: `string`
+Default: `''`
+
 当编辑器没有内容的时候，将会显示 placeholder。
 
-```vue
+```html
 <el-tiptap
   placeholder="Write something …"
 />
@@ -261,9 +266,12 @@ export default {
 
 ### 内容 content
 
+Type: `string`
+Default: `''`
+
 编辑器的内容
 
-```vue
+```html
 <el-tiptap
   :content="content"
   @onUpdate="onEditorUpdate"
@@ -272,7 +280,7 @@ export default {
 
 或者使用 `'v-model'`
 
-```vue
+```html
 <el-tiptap
   v-model="content"
 />
@@ -280,13 +288,32 @@ export default {
 
 ### 输出 output
 
+Type: `string`
+Default: `'html'`
+
 可被定义为 `'html'`(默认) 或者 `'json'`.
 
-```vue
+```html
 <el-tiptap
   output="json"
 />
 ```
+
+[prosemirror 数据解构](https://prosemirror.net/docs/guide/#doc)
+[html and json output demo](https://leecason.github.io/element-tiptap/#/preview)
+
+### readonly
+
+Type: `boolean`
+Default: `false`
+
+```html
+<el-tiptap
+  :readonly="true"
+/>
+```
+
+当 `readonly` 为 `true`, 编辑器不可编辑。
 
 ## 👽 事件 Events
 
@@ -295,7 +322,7 @@ export default {
 ```vue
 <template>
   <el-tiptap
-    @init="onInit"
+    @onInit="onInit"
   />
 </template>
 
@@ -317,6 +344,8 @@ export default {
 </script>
 ```
 
+[tiptap editor properties](https://github.com/scrumpy/tiptap#editor-properties)
+
 ### Transaction, Focus, Blur, Paste, Drop
 
 用法与 `init` 相同
@@ -325,7 +354,9 @@ export default {
 
 ### 菜单栏 menubar
 
-你可以自定义菜单栏。
+你可以自定义菜单栏并且可以通过作用域插槽获取到一些属性。
+
+属性：[https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
 
 ```vue
 <el-tiptap
@@ -347,6 +378,8 @@ export default {
 ### 气泡菜单 menububble
 
 与自定义菜单栏相同的方式来自定义气泡菜单。
+
+属性: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
 
 ```vue
 <el-tiptap

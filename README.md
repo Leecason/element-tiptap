@@ -164,6 +164,8 @@ export default {
 
 ### extensions
 
+Type: `Array`
+
 You can use the necessary extensions. The corresponding command-buttons will be added by declaring the order of the extension.
 
 All available extensions:
@@ -181,10 +183,10 @@ All available extensions:
 - `CodeBlock`
 - `Blockquote`
 - `ListItem`
-- `BulletList`
-- `OrderedList`
+- `BulletList` (use with `ListItem`)
+- `OrderedList` (use with `ListItem`)
 - `TodoItem`
-- `TodoList`
+- `TodoList` (use with `TodoItem`)
 - `TextAlign`
 - `Indent`
 - `LineHeight`
@@ -192,16 +194,16 @@ All available extensions:
 - `HardBreak`
 - `TrailingNode`
 - `History`
-- `Table`
+- `Table` (use with `TableHeader`, `TableCell`, `TableRow`)
 - `TableHeader`
 - `TableCell`
 - `TableRow`
 - `FormatClear`
 - `TextColor`
 - `TextHighlight`
-- `Preview`
-- `Print`
-- `Fullscreen`
+- `Preview` (New)
+- `Print` (New)
+- `Fullscreen` (New)
 
 You can customize the extension menu button view
 
@@ -213,9 +215,9 @@ import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
-    // editorContext contains a collection of properties that are useful to you
+    // editorContext contains some properties that are useful to you
     // see https://github.com/scrumpy/tiptap#editormenubar
-    // ElementTiptap plus editor instance to editorContext.
+    // this package append editor instance to editorContext
     return {
       component: CustomButton, // your component
       componentProps: {
@@ -251,9 +253,12 @@ export default {
 
 ### placeholder
 
+Type: `string`
+Default: `''`
+
 When editor is empty, placeholder will display.
 
-```vue
+```html
 <el-tiptap
   placeholder="Write something …"
 />
@@ -261,9 +266,12 @@ When editor is empty, placeholder will display.
 
 ### content
 
+Type: `string`
+Default: `''`
+
 Editor's content
 
-```vue
+```html
 <el-tiptap
   :content="content"
   @onUpdate="onEditorUpdate"
@@ -272,7 +280,7 @@ Editor's content
 
 or Use `'v-model'`
 
-```vue
+```html
 <el-tiptap
   v-model="content"
 />
@@ -280,13 +288,32 @@ or Use `'v-model'`
 
 ### output
 
-Output can be defined to `'html'`(default) or `'json'`.
+Type: `string`
+Default: `'html'`
 
-```vue
+Output can be defined to `'html'` or `'json'`.
+
+```html
 <el-tiptap
   output="json"
 />
 ```
+
+[prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
+[html and json output demo](https://leecason.github.io/element-tiptap/#/preview)
+
+### readonly
+
+Type: `boolean`
+Default: `false`
+
+```html
+<el-tiptap
+  :readonly="true"
+/>
+```
+
+when `readonly` is `true`, editor is not editable.
 
 ## 👽 Events
 
@@ -295,7 +322,7 @@ Output can be defined to `'html'`(default) or `'json'`.
 ```vue
 <template>
   <el-tiptap
-    @init="onInit"
+    @onInit="onInit"
   />
 </template>
 
@@ -303,7 +330,7 @@ Output can be defined to `'html'`(default) or `'json'`.
 export default {
   ...
   methods: {
-    // argument (object)
+    // arguments (object)
     // {
     //   editor: Editor, // tiptap editor instance
     // }
@@ -317,6 +344,8 @@ export default {
 </script>
 ```
 
+[tiptap editor properties](https://github.com/scrumpy/tiptap#editor-properties)
+
 ### Transaction, Focus, Blur, Paste, Drop
 
 The same as `init`
@@ -325,7 +354,9 @@ The same as `init`
 
 ### menubar
 
-You can customize the menubar.
+You can customize the menubar and will receive some properties through a scoped slot.
+
+properties: [https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
 
 ```vue
 <el-tiptap
@@ -347,6 +378,8 @@ You can customize the menubar.
 ### menububble
 
 Customize the bubble menu like menubar.
+
+properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
 
 ```vue
 <el-tiptap
