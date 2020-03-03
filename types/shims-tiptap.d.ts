@@ -71,6 +71,8 @@ declare module 'tiptap' {
     commands: EditorCommandSet;
     isActive: IsActiveChecker;
     getMarkAttrs: (markName: string) => { [attributeName: string]: any };
+    editor: Editor;
+    [key: string]: any;
   }
 
   interface EditorUpdateEvent {
