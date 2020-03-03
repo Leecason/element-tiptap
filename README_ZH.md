@@ -254,6 +254,7 @@ export default {
 ### 占位符 placeholder
 
 Type: `string`
+
 Default: `''`
 
 当编辑器没有内容的时候，将会显示 placeholder。
@@ -267,6 +268,7 @@ Default: `''`
 ### 内容 content
 
 Type: `string`
+
 Default: `''`
 
 编辑器的内容
@@ -289,6 +291,7 @@ Default: `''`
 ### 输出 output
 
 Type: `string`
+
 Default: `'html'`
 
 可被定义为 `'html'`(默认) 或者 `'json'`.
@@ -305,6 +308,7 @@ Default: `'html'`
 ### readonly
 
 Type: `boolean`
+
 Default: `false`
 
 ```html

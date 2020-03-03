@@ -254,6 +254,7 @@ export default {
 ### placeholder
 
 Type: `string`
+
 Default: `''`
 
 When editor is empty, placeholder will display.
@@ -267,6 +268,7 @@ When editor is empty, placeholder will display.
 ### content
 
 Type: `string`
+
 Default: `''`
 
 Editor's content
@@ -289,6 +291,7 @@ or Use `'v-model'`
 ### output
 
 Type: `string`
+
 Default: `'html'`
 
 Output can be defined to `'html'` or `'json'`.
@@ -305,6 +308,7 @@ Output can be defined to `'html'` or `'json'`.
 ### readonly
 
 Type: `boolean`
+
 Default: `false`
 
 ```html
