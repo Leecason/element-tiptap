@@ -369,6 +369,14 @@ export default {
 ## 📄 许可证
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
+## 🚩TODO
+
+- `Emoji` 扩展
+- 改变图片尺寸
+- 主题
+- 更详细的文档
+- 升级 tiptap
+
 ## 👍🏼 请我喝咖啡
 
 如果有你的支持💪，我会更迅速的开发新功能和解决你的问题

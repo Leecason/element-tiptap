@@ -369,6 +369,14 @@ Footer of the editor, after the editor content.
 ## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
+## 🚩TODO
+
+- `Emoji` extension
+- resize image
+- theme
+- more detailed docs
+- upgrade tiptap
+
 ## 👍🏼 Buy Me A Coffee
 
 I can do more feature for you, or solve your problem faster if had your support.💪
