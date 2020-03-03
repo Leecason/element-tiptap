@@ -5,6 +5,7 @@
 
   &__command-button {
     border: 1px solid transparent;
+    box-sizing: border-box;
     align-items: center;
     border-radius: 50%;
     color: $regular-text-color;
@@ -177,6 +178,7 @@
 
     &__inner {
       border: 1px solid $border-color;
+      box-sizing: border-box;
       border-radius: 2px;
       height: 16px;
       padding: 4px;
