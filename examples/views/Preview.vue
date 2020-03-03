@@ -71,8 +71,8 @@ export default {
       content: '<h2>Test Text</h2><p>You can input to see the <strong>output</strong></p><p>And <strong>preview</strong> the content with the <strong>Preview Menu Button</strong></p>',
 
       output: {
-        json: '',
-        html: '',
+        json: 'Input something to see output',
+        html: 'Input something to see output',
       },
     };
   },
