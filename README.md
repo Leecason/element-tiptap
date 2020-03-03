@@ -56,6 +56,8 @@ npm install --save element-tiptap
 ```js
 import Vue from 'vue';
 import { ElementTiptapPlugin } from 'element-tiptap';
+// import Element styles
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementTiptapPlugin);
 // Now you register `'el-tiptap'` component globally.
@@ -74,6 +76,8 @@ Or
 
 <script>
 import { ElementTiptap } from 'element-tiptap';
+// import Element styles
+import 'element-ui/lib/theme-chalk/index.css';
 
 export default {
   components: {
