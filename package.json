@@ -13,7 +13,6 @@
   "main": "lib/element-tiptap.common.js",
   "module": "lib/element-tiptap.esm.js",
   "unpkg": "lib/element-tiptap.js",
-  "types": "types/index.d.ts",
   "files": [
     "lib/*",
     "src/*",
