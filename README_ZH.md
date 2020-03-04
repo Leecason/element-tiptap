@@ -3,6 +3,7 @@
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
   <a href="https://www.codefactor.io/repository/github/leecason/element-tiptap"><img src="https://www.codefactor.io/repository/github/leecason/element-tiptap/badge" alt="CodeFactor" /></a>
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap/master">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/Leecason/element-tiptap">
