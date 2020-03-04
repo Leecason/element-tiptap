@@ -1,7 +1,5 @@
 import { VueConstructor } from 'vue';
 
-export * from '@/extensions';
-
 export interface OptionsInterface {
   lang?: string;
 }
