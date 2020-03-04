@@ -62,6 +62,7 @@ function getConfig ({
         'element-ui/lib/popover': 'ELEMENT.Popover',
         'element-ui/lib/upload': 'ELEMENT.Upload',
         'element-ui/lib/message-box': 'ELEMENT.MessageBox',
+        'element-ui/lib/dropdown': 'ELEMENT.Dropdown',
         'element-ui/lib/dropdown-menu': 'ELEMENT.DropdownMenu',
         'element-ui/lib/dropdown-item': 'ELEMENT.DropdownItem',
         'vue-awesome': 'vue-awesome',
@@ -81,6 +82,7 @@ function getConfig ({
       'element-ui/lib/popover',
       'element-ui/lib/upload',
       'element-ui/lib/message-box',
+      'element-ui/lib/dropdown',
       'element-ui/lib/dropdown-menu',
       'element-ui/lib/dropdown-item',
       'vue-awesome',
@@ -136,15 +138,6 @@ function getConfig ({
             },
           ],
         ],
-        plugins: [
-          [
-            'component',
-            {
-              libraryName: 'element-ui',
-              styleLibraryName: 'theme-chalk'
-            }
-          ]
-        ]
       }),
       env !== 'development' && isProduction && terser(),
     ],
