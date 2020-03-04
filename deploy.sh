@@ -8,7 +8,7 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy: 🎉'
+git commit -m 'deploy: 🎉[skip ci]'
 
 git push -f git@github.com:Leecason/element-tiptap.git master:gh-pages
 
