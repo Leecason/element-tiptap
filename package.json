@@ -20,7 +20,6 @@
   ],
   "dependencies": {
     "core-js": "^3.4.3",
-    "element-ui": "^2.13.0",
     "tiptap": "^1.26.6",
     "tiptap-extensions": "^1.28.6",
     "vue-awesome": "^4.0.2",
@@ -50,6 +49,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-component": "^1.1.1",
     "cssnano": "^4.1.10",
+    "element-ui": "^2.13.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
@@ -77,8 +77,8 @@
     "vue-template-compiler": "^2.6.10"
   },
   "peerDependencies": {
-    "vue": "^2.0.0",
-    "element-ui": "^2.0.0"
+    "element-ui": "^2.0.0",
+    "vue": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/Leecason/element-tiptap/issues"
