@@ -416,11 +416,23 @@ export default {
 
 ## 🚩TODO
 
-- `Emoji` 扩展
-- 改变图片尺寸
-- 主题
-- 更详细的文档
-- 升级 tiptap
+- [x] demo 页面
+- [x] `Table` extension
+- [x] `Iframe` extension
+- [ ] `FontFamily` extension
+- [ ] `FontSize` extension
+- [x] `TextColor` extension
+- [x] `TextHighlight` extension
+- [ ] `Emoji` extension
+- [x] `Fullscreen` extension
+- [x] `Print` extension
+- [x] `Preview` extension
+- [x] i18n
+- [x] 编辑器 readonly
+- [ ] 改变图片尺寸
+- [ ] 主题
+- [ ] 更详细的文档
+- [ ] 升级 tiptap
 
 ## 👍🏼 请我喝咖啡
 

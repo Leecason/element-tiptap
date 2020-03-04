@@ -412,11 +412,23 @@ Footer of the editor, after the editor content.
 
 ## 🚩TODO
 
-- `Emoji` extension
-- resize image
-- theme
-- more detailed docs
-- upgrade tiptap
+- [x] demo page
+- [x] `Table` extension
+- [x] `Iframe` extension
+- [ ] `FontFamily` extension
+- [ ] `FontSize` extension
+- [x] `TextColor` extension
+- [x] `TextHighlight` extension
+- [ ] `Emoji` extension
+- [x] `Fullscreen` extension
+- [x] `Print` extension
+- [x] `Preview` extension
+- [x] i18n
+- [x] readonly editor
+- [ ] image resizable
+- [ ] theme
+- [ ] more detailed docs
+- [ ] upgrade tiptap
 
 ## 👍🏼 Buy Me A Coffee
 
