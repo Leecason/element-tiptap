@@ -1,3 +1,14 @@
+## [1.10.2](https://github.com/Leecason/element-tiptap/compare/@1.10.1...@1.10.2) (2020-03-05)
+
+
+### Bug Fixes
+
+* 🐛 remove extensions ([9fc839e](https://github.com/Leecason/element-tiptap/commit/9fc839e594ee6d57613e731223653c627826adab))
+* 🐛 type definitions ([228e972](https://github.com/Leecason/element-tiptap/commit/228e9720fff2866d82648a66a21ab7e2c19f128b))
+* 🐛 types attributes in package.json ([4dd78dc](https://github.com/Leecason/element-tiptap/commit/4dd78dc391674d03645b4b681de87ccd768cc433))
+* 🐛 unpack element-ui dropdown ([ee38e0d](https://github.com/Leecason/element-tiptap/commit/ee38e0d05fccb4eb1c254f33163c7fdf8418054a))
+* 💄 border-box with command_button ([97d369f](https://github.com/Leecason/element-tiptap/commit/97d369fd24330053621d3ec75a85d3cc2efbaa5c))
+
 ## [1.10.1](https://github.com/Leecason/element-tiptap/compare/@1.10.0...@1.10.1) (2020-03-02)
 
 
