@@ -136,6 +136,7 @@ function getConfig ({
             'component',
             {
               libraryName: 'element-ui',
+              style: false,
             }
           ],
         ],
