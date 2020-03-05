@@ -58,8 +58,10 @@ npm install --save element-tiptap
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import { ElementTiptapPlugin } from 'element-tiptap';
-// import ElementUI styles
+// import ElementUI's styles
 import 'element-ui/lib/theme-chalk/index.css';
+// import this package's styles
+import 'element-tiptap/lib/index.css';
 
 // use ElementUI's plugin
 Vue.use(ElementUI);
@@ -81,8 +83,6 @@ Or
 
 <script>
 import { ElementTiptap } from 'element-tiptap';
-// import Element styles
-import 'element-ui/lib/theme-chalk/index.css';
 
 export default {
   components: {

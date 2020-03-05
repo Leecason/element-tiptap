@@ -60,6 +60,8 @@ import ElementUI from 'element-ui';
 import { ElementTiptapPlugin } from 'element-tiptap';
 // 引入 ElementUI 样式
 import 'element-ui/lib/theme-chalk/index.css';
+// import element-tiptap 样式
+import 'element-tiptap/lib/index.css';
 
 // 安装 ElementUI 插件
 Vue.use(ElementUI);
@@ -81,8 +83,6 @@ Vue.use(ElementTiptapPlugin);
 
 <script>
 import { ElementTiptap } from 'element-tiptap';
-// 引入 Element 样式
-import 'element-ui/lib/theme-chalk/index.css';
 
 export default {
   components: {
