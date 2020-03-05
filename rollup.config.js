@@ -4,8 +4,6 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import cjs from 'rollup-plugin-commonjs';
 import node from 'rollup-plugin-node-resolve';
-import cssnext from 'postcss-cssnext';
-import cssnano from 'cssnano';
 import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
@@ -43,7 +41,7 @@ function getConfig ({
   env,
 }) {
   return {
-    input: 'src/index.ts',
+    input: path.resolve(srcDir, 'index.ts'),
     output: {
       file,
       name: 'ElementTiptap',
@@ -107,7 +105,7 @@ function getConfig ({
         extensions: ['.ts', '.js'],
       }),
       postcss({
-        extract: false,
+        extract: path.resolve(libDir, 'index.css'),
         minimize: true,
         plugins: [
           postcssPresetEnv()
@@ -117,12 +115,7 @@ function getConfig ({
         defaultLang: {
           style: 'scss',
         },
-        style: {
-          postcssPlugins: [
-            cssnext(),
-            cssnano(),
-          ],
-        },
+        css: false,
       }),
       babel({
         exclude: 'node_modules/**',
@@ -136,6 +129,14 @@ function getConfig ({
               useBuiltIns: 'usage',
               corejs: 3,
             },
+          ],
+        ],
+        plugins: [
+          [
+            'component',
+            {
+              libraryName: 'element-ui',
+            }
           ],
         ],
       }),
