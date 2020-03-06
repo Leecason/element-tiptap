@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/Leecason/element-tiptap/compare/@1.10.2...@1.11.0) (2020-03-06)
+
+
+### Bug Fixes
+
+* 🐛 resolve error caused by import element-ui styles ([3454506](https://github.com/Leecason/element-tiptap/commit/34545061c21662e032281f0cf2d8f65da4c54cdd))
+
+
+### Features
+
+* **line_height:** 💄 add line_height dropdown trigger to click ([b1d2d71](https://github.com/Leecason/element-tiptap/commit/b1d2d71cf3b97f8118e3cd7b7dd1b43d5a8e5abe))
+* **tooltip:** 💫 use el-zoom-in-bottom transition ([cbfcb2e](https://github.com/Leecason/element-tiptap/commit/cbfcb2e2e4ffac4b4965e4a23c4a2595c40b2bf6))
+
 ## [1.10.2](https://github.com/Leecason/element-tiptap/compare/@1.10.1...@1.10.2) (2020-03-05)
 
 

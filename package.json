@@ -1,6 +1,6 @@
 {
   "name": "element-tiptap",
-  "version": "1.10.2",
+  "version": "1.11.0",
   "description": "A WYSIWYG editor based on Tiptap and Element.",
   "author": "leecason",
   "scripts": {
