@@ -1,7 +1,7 @@
 <template>
   <el-dropdown
     placement="bottom"
-    trigger="hover"
+    trigger="click"
     @command="lineHeight => editorContext.commands.line_height({ lineHeight })"
   >
     <command-button
