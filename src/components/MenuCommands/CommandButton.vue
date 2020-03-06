@@ -2,6 +2,7 @@
   <el-tooltip
     :content="tooltip"
     :open-delay="350"
+    transition="el-zoom-in-bottom"
     effect="dark"
     placement="top"
   >
