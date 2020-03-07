@@ -120,8 +120,6 @@
 </template>
 
 <script>
-import 'vue-awesome/icons/brands/github';
-
 export default {
   name: 'index',
 };
