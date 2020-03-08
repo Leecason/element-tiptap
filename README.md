@@ -7,7 +7,6 @@
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/Leecason/element-tiptap">
-  <img alt="npm" src="https://img.shields.io/npm/dw/element-tiptap">
   <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
@@ -363,11 +362,13 @@ You can customize the menubar and will receive some properties through a scoped 
 
 properties: [https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
 
-```vue
+```html
 <el-tiptap
   v-model="content"
   :extensions="extensions"
 >
+  <!-- new syntax for slot since Vue 2.6.0
+  see: https://vuejs.org/v2/guide/components-slots.html -->
   <template #menubar="{ commands, isActive }">
     <!--You can render custom menu buttons.-->
     <custom-button
@@ -386,7 +387,7 @@ Customize the bubble menu like menubar.
 
 properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
 
-```vue
+```html
 <el-tiptap
   v-model="content"
   :extensions="extensions"
@@ -428,14 +429,3 @@ Footer of the editor, after the editor content.
 - [x] readonly editor
 - [ ] image resizable
 - [ ] theme
-- [ ] more detailed docs
-- [ ] upgrade tiptap
-
-## 👍🏼 Buy Me A Coffee
-
-I can do more feature for you, or solve your problem faster if had your support.💪
-
-<p>
-  <img alt="reward" src="/examples/assets/wechat_reward_qrcode.jpg?raw=true" width="300">
-  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
-</p>

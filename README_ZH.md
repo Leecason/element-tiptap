@@ -7,7 +7,6 @@
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/Leecason/element-tiptap">
-  <img alt="npm" src="https://img.shields.io/npm/dw/element-tiptap">
   <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
@@ -363,11 +362,13 @@ export default {
 
 属性：[https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
 
-```vue
+```html
 <el-tiptap
   v-model="content"
   :extensions="extensions"
 >
+  <!-- Vue 在 2.6.0 中，为具名插槽和作用域插槽引入了一个新的统一的语法
+  https://cn.vuejs.org/v2/guide/components-slots.html -->
   <template #menubar="{ commands, isActive }">
     <!--渲染自定义菜单按钮-->
     <custom-button
@@ -386,7 +387,7 @@ export default {
 
 属性: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
 
-```vue
+```html
 <el-tiptap
   v-model="content"
   :extensions="extensions"
@@ -432,14 +433,3 @@ export default {
 - [x] 编辑器 readonly
 - [ ] 改变图片尺寸
 - [ ] 主题
-- [ ] 更详细的文档
-- [ ] 升级 tiptap
-
-## 👍🏼 请我喝咖啡
-
-如果有你的支持💪，我会更迅速的开发新功能和解决你的问题
-
-<p>
-  <img alt="reward" src="/examples/assets/wechat_reward_qrcode.jpg?raw=true" width="300">
-  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
-</p>
