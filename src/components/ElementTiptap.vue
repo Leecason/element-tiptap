@@ -37,7 +37,14 @@
       class="el-tiptap-editor__content"
     />
 
-    <slot name="footer" :editor="editor" />
+    <slot
+      name="footer"
+      :editor="editor"
+    >
+      <div class="el-tiptap-editor__footer">
+        Characters: {{ characters }}
+      </div>
+    </slot>
   </div>
 </template>
 
@@ -111,6 +118,12 @@ export default class ElTiptap extends Vue {
     return extensionManager.extensions.some(extension => {
       return extension.options.bubble;
     });
+  }
+
+  get characters (): number {
+    if (!this.editor) return 0;
+
+    return this.editor.state.doc.textContent.length;
   }
 
   @Watch('content')

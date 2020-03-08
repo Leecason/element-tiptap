@@ -153,5 +153,6 @@ export default {
         },
       },
     },
+    characters: '字数',
   },
 };
