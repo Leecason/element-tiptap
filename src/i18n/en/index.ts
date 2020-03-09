@@ -152,6 +152,9 @@ export default {
           title: 'Preview',
         },
       },
+      SelectAll: {
+        tooltip: 'Select all',
+      },
     },
     characters: 'Characters',
   },

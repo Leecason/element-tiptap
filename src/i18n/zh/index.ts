@@ -152,6 +152,9 @@ export default {
           title: '预览',
         },
       },
+      SelectAll: {
+        tooltip: '全选',
+      },
     },
     characters: '字数',
   },

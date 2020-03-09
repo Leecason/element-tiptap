@@ -152,6 +152,9 @@ export default {
           title: 'Podgląd',
         },
       },
+      SelectAll: {
+        tooltip: 'Zaznacz wszystko',
+      },
     },
     characters: 'Postać',
   },

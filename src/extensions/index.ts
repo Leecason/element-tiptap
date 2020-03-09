@@ -42,3 +42,4 @@ export { default as FormatClear } from './format_clear';
 export { default as Fullscreen } from './fullscreen';
 export { default as Print } from './print';
 export { default as Preview } from './preview';
+export { default as SelectAll } from './select_all';
