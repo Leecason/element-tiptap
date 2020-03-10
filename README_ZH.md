@@ -13,11 +13,8 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-<p align="center">
-  一个 Vue.js 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
-  <br>
-  易上手，对开发者友好，可扩展性强，设计简洁
-</p>
+一个 Vue.js 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器
+易上手，对开发者友好，可扩展性强，设计简洁
 
 ## 📔 选择语言
 

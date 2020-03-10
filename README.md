@@ -13,11 +13,8 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-<p align="center">
-  A WYSIWYG rich-text editor using [tiptap](https://github.com/scrumpy/tiptap) and [Element UI](https://github.com/ElemeFE/element) for Vue.js
-  <br>
-  that's easy to use, friendly to developers, fully extensible and clean in design.
-</p>
+A WYSIWYG rich-text editor using [tiptap](https://github.com/scrumpy/tiptap) and [Element UI](https://github.com/ElemeFE/element) for Vue.js
+that's easy to use, friendly to developers, fully extensible and clean in design.
 
 ## 📔 Languages
 
