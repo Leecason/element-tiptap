@@ -13,7 +13,11 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-一个 Vue.js 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
+<p align="center">
+  一个 Vue.js 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
+  <br>
+  易上手，对开发者友好，可扩展性强，设计简洁
+</p>
 
 ## 📔 选择语言
 
@@ -413,6 +417,8 @@ export default {
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
 ## 🚩TODO
+
+我在持续努力地添加新功能 💪.
 
 - [x] demo 页面
 - [x] `Table` extension
