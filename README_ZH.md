@@ -2,7 +2,7 @@
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
-  <a href="https://www.codefactor.io/repository/github/leecason/element-tiptap"><img src="https://www.codefactor.io/repository/github/leecason/element-tiptap/badge" alt="CodeFactor" /></a>
+  <a href="https://www.codacy.com/manual/Leecason/element-tiptap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Leecason/element-tiptap&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/33557c5554394b0ab5870797f33c61c3"/></a>
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap/master">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
@@ -13,15 +13,13 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-一个 Vue2 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
+一个 Vue.js 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器。
 
 ## 📔 选择语言
 
 [English](./README.md) | 简体中文
 
-## 🎄 示例
-
-![ScreenShot](/examples/assets/screenshot.png?raw=true)
+## 🎄 Demo
 
 👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
@@ -204,6 +202,7 @@ Type: `Array`
 - `Preview` (新)
 - `Print` (新)
 - `Fullscreen` (新)
+- `SelectAll` (新)
 
 你可以自定义菜单按钮的渲染视图
 
@@ -410,9 +409,6 @@ export default {
 ## 📝 更新日志
 [更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
-## 💪 路线图
-- TypeScript
-
 ## 📄 许可证
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
@@ -429,6 +425,7 @@ export default {
 - [x] `Fullscreen` extension
 - [x] `Print` extension
 - [x] `Preview` extension
+- [x] `SelectAll` extension
 - [x] i18n
 - [x] 编辑器 readonly
 - [ ] 改变图片尺寸

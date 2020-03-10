@@ -2,7 +2,7 @@
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
-  <a href="https://www.codefactor.io/repository/github/leecason/element-tiptap"><img src="https://www.codefactor.io/repository/github/leecason/element-tiptap/badge" alt="CodeFactor" /></a>
+  <a href="https://www.codacy.com/manual/Leecason/element-tiptap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Leecason/element-tiptap&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/33557c5554394b0ab5870797f33c61c3"/></a>
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap/master">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
@@ -13,15 +13,14 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-A rich-text editor using [tiptap](https://github.com/scrumpy/tiptap) and [Element UI](https://github.com/ElemeFE/element) for Vue.js
+A WYSIWYG rich-text editor using [tiptap](https://github.com/scrumpy/tiptap) and [Element UI](https://github.com/ElemeFE/element) for Vue.js
+that's easy to use, friendly to developers, fully extensible and clean in design.
 
 ## 📔 Languages
 
 English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
-
-![ScreenShot](/examples/assets/screenshot.png?raw=true)
 
 👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
@@ -204,6 +203,7 @@ All available extensions:
 - `Preview` (New)
 - `Print` (New)
 - `Fullscreen` (New)
+- `SelectAll` (New)
 
 You can customize the extension menu button view
 
@@ -425,6 +425,7 @@ Footer of the editor, after the editor content.
 - [x] `Fullscreen` extension
 - [x] `Print` extension
 - [x] `Preview` extension
+- [x] `SelectAll` extension
 - [x] i18n
 - [x] readonly editor
 - [ ] image resizable
