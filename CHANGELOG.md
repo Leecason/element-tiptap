@@ -1,3 +1,12 @@
+# [1.12.0](https://github.com/Leecason/element-tiptap/compare/@1.11.0...@1.12.0) (2020-03-10)
+
+
+### Features
+
+* ✨ add characters count to editor footer ([ede119e](https://github.com/Leecason/element-tiptap/commit/ede119efbb39f8c182949afa4c7f90df48d4a8df))
+* ✨ add SelectAll extension ([1054270](https://github.com/Leecason/element-tiptap/commit/105427034b234b38ef255d61d4388cc51d609dbf))
+* 💄 pointer cursor for link ([e94085c](https://github.com/Leecason/element-tiptap/commit/e94085c47504bd8b9097dcad6c0e061f75e73340))
+
 # [1.11.0](https://github.com/Leecason/element-tiptap/compare/@1.10.2...@1.11.0) (2020-03-06)
 
 
