@@ -28,6 +28,7 @@ import {
   Strike,
   Blockquote,
   CodeBlock,
+  Image,
   ListItem,
   BulletList,
   OrderedList,
@@ -52,6 +53,7 @@ export default {
         new Strike(),
         new Blockquote(),
         new CodeBlock(),
+        new Image(),
         new TextAlign(),
         new ListItem(),
         new BulletList(),
@@ -62,50 +64,38 @@ export default {
         new History(),
       ],
 
-      content: `
-        <h1>You can view editor Events in Console</h1>
-        <p><strong>Events: </strong></p>
-        <p data-indent="1"><strong>Init、 Transaction、 Focus、 Blur、 Paste、 Drop、 Update</strong></p>
-      `,
+      content: '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300" height="NaN"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
     };
   },
 
   methods: {
-    onInitEvent ({ editor }) {
-      console.log('init', editor);
+    onInitEvent () {
+      console.log('init');
     },
 
-    onTransactionEvent ({ editor }) {
-      console.log('transaction', editor);
+    onTransactionEvent () {
+      console.log('transaction');
     },
 
-    onFocusEvent ({ editor }) {
-      console.log('focus', editor);
+    onFocusEvent () {
+      console.log('focus');
     },
 
-    onBlurEvent ({ editor }) {
-      console.log('blur', editor);
+    onBlurEvent () {
+      console.log('blur');
     },
 
-    onPasteEvent ({ editor }) {
-      console.log('paste', editor);
+    onPasteEvent () {
+      console.log('paste');
     },
 
-    onDropEvent ({ editor }) {
-      console.log('drop', editor);
+    onDropEvent () {
+      console.log('drop');
     },
 
-    onUpdateEvent (output) {
-      console.log('update', output);
+    onUpdateEvent () {
+      console.log('update');
     },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.el-tiptap-editor {
-  &__wrapper {
-    width: 60vw;
-  }
-}
-</style>

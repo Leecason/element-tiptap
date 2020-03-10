@@ -39,7 +39,6 @@ import {
   Indent,
   LineHeight,
   TrailingNode,
-  Preview,
   History,
 } from 'element-tiptap';
 
@@ -64,11 +63,10 @@ export default {
         new OrderedList(),
         new Indent(),
         new TrailingNode(),
-        new Preview(),
         new History(),
       ],
 
-      content: '<h2>Test Text</h2><p>You can input to see the <strong>output</strong></p><p>And <strong>preview</strong> the content with the <strong>Preview Menu Button</strong></p>',
+      content: '<p>Can output both <strong>JSON</strong> and <strong>HTML</strong> data sources.</p>',
 
       output: {
         json: 'Input something to see output',
@@ -99,8 +97,8 @@ export default {
       margin-top: 50px;
 
       &__title {
-        border-bottom: 1px solid #fff;
-        color: #fff;
+        border-bottom: 1px solid #000;
+        color: #000;
         margin-bottom: 10px;
       }
 

@@ -10,7 +10,9 @@
 
       <div class="header__right">
         <router-link
-          :to="{ name: 'Basic' }"
+          v-for="{ label, route } in routes"
+          :key="label"
+          :to="{ name: route }"
           v-slot="{ navigate, isExactActive }"
         >
           <span
@@ -18,84 +20,21 @@
             class="router-link"
             @click="navigate"
           >
-            Basic
-          </span>
-        </router-link>
-
-        <router-link
-          :to="{ name: 'MenuBubble' }"
-          v-slot="{ navigate, isActive }"
-        >
-          <span
-            :class="{ 'router-link--active': isActive }"
-            class="router-link"
-            @click="navigate"
-          >
-            Menu Bubble
-          </span>
-        </router-link>
-
-        <router-link
-          :to="{ name: 'Table' }"
-          v-slot="{ navigate, isActive }"
-        >
-          <span
-            :class="{ 'router-link--active': isActive }"
-            class="router-link"
-            @click="navigate"
-          >
-            Table
-          </span>
-        </router-link>
-
-        <router-link
-          :to="{ name: 'Embed' }"
-          v-slot="{ navigate, isActive }"
-        >
-          <span
-            :class="{ 'router-link--active': isActive }"
-            class="router-link"
-            @click="navigate"
-          >
-            Embed
-          </span>
-        </router-link>
-
-        <router-link
-          :to="{ name: 'Event' }"
-          v-slot="{ navigate, isActive }"
-        >
-          <span
-            :class="{ 'router-link--active': isActive }"
-            class="router-link"
-            @click="navigate"
-          >
-            Event
-          </span>
-        </router-link>
-
-        <router-link
-          :to="{ name: 'Preview' }"
-          v-slot="{ navigate, isActive }"
-        >
-          <span
-            :class="{ 'router-link--active': isActive }"
-            class="router-link"
-            @click="navigate"
-          >
-            Preview
+            {{ label }}
           </span>
         </router-link>
       </div>
     </el-header>
 
     <el-main>
-      <router-view />
+      <transition name="fade">
+        <router-view class="child-view" />
+      </transition>
     </el-main>
 
     <el-footer>
-      <div>If you like this editor, please star ⭐ the github to support the project, thanks! 🙏🙏🙏</div>
-      <iframe src="https://ghbtns.com/github-btn.html?user=Leecason&repo=element-tiptap&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+      <div>If you like this editor, please star ⭐ the github to support the project, thanks! 🙏</div>
+      <iframe src="https://ghbtns.com/github-btn.html?user=Leecason&repo=element-tiptap&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
     </el-footer>
 
     <a
@@ -122,13 +61,50 @@
 <script>
 export default {
   name: 'index',
+
+  data: () => ({
+    routes: [
+      {
+        label: 'Simple Usage',
+        route: 'Simple',
+      },
+      {
+        label: 'All Extensions',
+        route: 'AllExtensions',
+      },
+      {
+        label: 'Bubble Menu',
+        route: 'BubbleMenu',
+      },
+      {
+        label: 'Placeholder',
+        route: 'Placeholder',
+      },
+      {
+        label: 'Readonly',
+        route: 'Readonly',
+      },
+      {
+        label: 'Custom Menubar',
+        route: 'CustomMenubar',
+      },
+      {
+        label: 'Event',
+        route: 'Event',
+      },
+      {
+        label: 'Output',
+        route: 'Output',
+      },
+    ],
+  }),
 };
 </script>
 
 <style lang="scss">
 .el-container {
-  background: linear-gradient(135deg, rgb(0, 103, 245), rgb(13, 197, 231) 75%);
-  font-family: Muli,sans-serif;
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
+  font-family: sans-serif;
 }
 
 .header {
@@ -145,7 +121,7 @@ export default {
     margin-top: 50px;
 
     .logo {
-      height: 80px;
+      height: 50px;
       margin-bottom: 20px;
     }
   }
@@ -153,13 +129,16 @@ export default {
   &__right {
     align-items: flex-start;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 50px;
     margin-left: 10vw;
+    width: 600px;
 
     .router-link {
       color: #fff;
       cursor: pointer;
+      flex-shrink: 0;
       font-weight: 700;
       margin: 15px;
       transition: all .3s ease-in-out;
@@ -179,15 +158,23 @@ export default {
 .el-main {
   display: flex;
   justify-content: center;
+  overflow: initial;
   padding: 50px;
+}
+
+.el-tiptap-editor {
+  margin-bottom: 30px;
+
+  &__wrapper {
+    width: 60vw;
+  }
 }
 
 .el-footer {
   align-items: center;
-  color: #fff;
   display: flex;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   justify-content: center;
 }
 
@@ -195,6 +182,19 @@ export default {
   .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s ease-in-out;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+
+.child-view {
+  position: absolute;
+  transition: all .3s cubic-bezier(.55, 0, .1, 1);
 }
 
 @media (max-width:500px) {

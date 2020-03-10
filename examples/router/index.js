@@ -2,12 +2,14 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 const Index = () => import('../views/Index.vue');
-const Basic = () => import('../views/Basic.vue');
-const MenuBubble = () => import('../views/MenuBubble.vue');
-const Table = () => import('../views/Table.vue');
-const Embed = () => import('../views/Embed.vue');
+const Simple = () => import('../views/Simple.vue');
+const AllExtensions = () => import('../views/AllExtensions.vue');
+const BubbleMenu = () => import('../views/BubbleMenu.vue');
+const Placeholder = () => import('../views/Placeholder.vue');
+const Readonly = () => import('../views/Readonly.vue');
+const CustomMenubar = () => import('../views/CustomMenubar.vue');
 const Event = () => import('../views/Event.vue');
-const Preview = () => import('../views/Preview.vue');
+const Output = () => import('../views/Output.vue');
 
 Vue.use(VueRouter);
 
@@ -17,24 +19,34 @@ const routes = [
     component: Index,
     children: [
       {
-        name: 'Basic',
+        name: 'Simple',
         path: '/',
-        component: Basic,
+        component: Simple,
       },
       {
-        name: 'MenuBubble',
-        path: '/menu_bubble',
-        component: MenuBubble,
+        name: 'AllExtensions',
+        path: 'all_extensions',
+        component: AllExtensions,
       },
       {
-        name: 'Table',
-        path: '/table',
-        component: Table,
+        name: 'BubbleMenu',
+        path: '/bubble_menu',
+        component: BubbleMenu,
       },
       {
-        name: 'Embed',
-        path: '/embed',
-        component: Embed,
+        name: 'Placeholder',
+        path: '/placeholder',
+        component: Placeholder,
+      },
+      {
+        name: 'Readonly',
+        path: '/readonly',
+        component: Readonly,
+      },
+      {
+        name: 'CustomMenubar',
+        path: '/custom_menubar',
+        component: CustomMenubar,
       },
       {
         name: 'Event',
@@ -42,9 +54,9 @@ const routes = [
         component: Event,
       },
       {
-        name: 'Preview',
-        path: '/preview',
-        component: Preview,
+        name: 'Output',
+        path: '/output',
+        component: Output,
       },
     ],
   },

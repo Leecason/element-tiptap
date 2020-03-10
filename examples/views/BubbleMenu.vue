@@ -3,7 +3,6 @@
     <el-tiptap
       :extensions="extensions"
       :content="content"
-      placeholder="Write something ..."
     />
   </div>
 </template>
@@ -19,14 +18,11 @@ import {
   Italic,
   Strike,
   Link,
-  Image,
   Blockquote,
   CodeBlock,
   ListItem,
   BulletList,
   OrderedList,
-  TodoItem,
-  TodoList,
   TextAlign,
   TextColor,
   Indent,
@@ -46,13 +42,12 @@ export default {
         new Text(),
         new Paragraph(),
         new Heading({ level: 5 }),
-        new TextColor({ bubble: true }),
+        new TextColor(),
         new Bold({ bubble: true }),
         new Underline({ bubble: true }),
         new Italic({ bubble: true }),
         new Strike({ bubble: true }),
         new Link({ bubble: true }),
-        new Image(),
         new Blockquote({ bubble: true }),
         new CodeBlock({ bubble: true }),
         new TextAlign({ bubble: true }),
@@ -60,8 +55,6 @@ export default {
         new ListItem(),
         new BulletList(),
         new OrderedList(),
-        new TodoItem(),
-        new TodoList(),
         new Indent({ bubble: true }),
         new HardBreak(),
         new HorizontalRule(),
@@ -70,20 +63,8 @@ export default {
         new History(),
       ],
 
-      content: `
-        <h1>Menu Bubble</h1>
-        <p>Try to select some text here. There will popup a menu for some commands.</p>
-        <p>All of available bubble menu commands are in this example for you.</p>
-      `,
+      content: '<h1>Bubble Menu</h1><p>Try to select some text here. There will popup a menu for some commands.</p><p>Pass a property</p><pre><code>{ bubble: true }</code></pre><p>to extension is all you need to do.</p>',
     };
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.el-tiptap-editor {
-  &__wrapper {
-    width: 60vw;
-  }
-}
-</style>

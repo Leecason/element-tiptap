@@ -5,6 +5,7 @@ import {
   Header,
   Main,
   Footer,
+  Button,
 } from 'element-ui';
 
 import { ElementTiptapPlugin } from 'element-tiptap';
@@ -15,6 +16,7 @@ Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
 Vue.use(Footer);
+Vue.use(Button);
 
 Vue.use(ElementTiptapPlugin);
 
