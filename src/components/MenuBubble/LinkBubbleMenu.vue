@@ -3,8 +3,10 @@
     <edit-link-command-button
       :editor-context="editorContext"
       :init-url="url"
-    >
-    </edit-link-command-button>
+    />
+    <unlink-command-button
+      :editor-context="editorContext"
+    />
   </div>
 </template>
 
@@ -12,10 +14,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import EditLinkCommandButton from '@/components/MenuCommands/EditLinkCommandButton.vue';
+import UnlinkCommandButton from '@/components/MenuCommands/UnlinkCommandButton.vue';
 
 @Component({
   components: {
     EditLinkCommandButton,
+    UnlinkCommandButton,
   },
 })
 export default class LinkBubbleMenu extends Vue {
@@ -32,3 +36,9 @@ export default class LinkBubbleMenu extends Vue {
   }
 };
 </script>
+
+<style lang="scss">
+.link-bubble-menu {
+  display: flex;
+}
+</style>

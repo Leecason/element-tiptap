@@ -45,6 +45,9 @@ export default {
             cancel: '取消',
           },
         },
+        unlink: {
+          tooltip: '取消链接',
+        },
       },
       Image: {
         tooltip: '插入图片',

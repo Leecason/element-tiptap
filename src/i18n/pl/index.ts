@@ -45,6 +45,9 @@ export default {
             cancel: 'Anuluj',
           },
         },
+        unlink: {
+          tooltip: 'Odczepić',
+        },
       },
       Image: {
         tooltip: 'Dodaj obraz',
