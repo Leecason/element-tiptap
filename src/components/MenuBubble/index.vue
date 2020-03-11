@@ -13,7 +13,7 @@
       `"
       class="el-tiptap-editor__menu-bubble"
     >
-      <template v-if="editorContext.isActive.link && editorContext.isActive.link()">
+      <template v-if="showLinkMenu">
         <link-bubble-menu
           :editor="editor"
           :editorContext="editorContext"
@@ -35,6 +35,8 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
+// @ts-ignore
+import { getMarkRange } from 'tiptap-utils';
 import { MenuBtnViewType } from '@/../types';
 
 import LinkBubbleMenu from './LinkBubbleMenu.vue';
@@ -51,6 +53,24 @@ export default class MenuBubble extends Vue {
     required: true,
   })
   readonly editor!: Editor;
+
+  private get showLinkMenu (): boolean {
+    const { state, schema } = this.editor;
+
+    if (schema.marks.link) {
+      const { tr } = state;
+      const { selection } = tr;
+
+      if (!selection) return false;
+
+      const { $from, $to } = selection;
+      const range = getMarkRange($from, schema.marks.link);
+      if (!range) return false;
+
+      return range.to === $to.pos;
+    }
+    return false;
+  }
 
   private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
     const extensionManager = this.editor.extensions;
