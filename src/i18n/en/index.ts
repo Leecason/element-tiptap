@@ -27,12 +27,23 @@ export default {
         tooltip: 'Code block',
       },
       Link: {
-        tooltip: 'Apply link',
-        control: {
-          title: 'Link',
-          placeholder: 'Href',
-          confirm: 'Apply',
-          cancel: 'Close',
+        insert: {
+          tooltip: 'Insert link',
+          control: {
+            title: 'Insert Link',
+            placeholder: 'Href',
+            confirm: 'Insert',
+            cancel: 'Cancel',
+          },
+        },
+        edit: {
+          tooltip: 'Edit link',
+          control: {
+            title: 'Edit Link',
+            placeholder: 'Href',
+            confirm: 'Update',
+            cancel: 'Cancel',
+          },
         },
       },
       Image: {

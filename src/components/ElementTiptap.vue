@@ -4,19 +4,8 @@
     class="el-tiptap-editor"
   >
     <menu-bubble
-      v-if="bubbleMenuVisible"
       :editor="editor"
-    >
-      <template
-        v-if="$scopedSlots.menububble"
-        v-slot="slotProps"
-      >
-        <slot
-          name="menububble"
-          v-bind="slotProps"
-        />
-      </template>
-    </menu-bubble>
+    />
 
     <menu-bar
       :editor="editor"

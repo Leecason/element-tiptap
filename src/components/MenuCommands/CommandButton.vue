@@ -26,6 +26,7 @@ import 'vue-awesome/icons/underline';
 import 'vue-awesome/icons/italic';
 import 'vue-awesome/icons/strikethrough';
 import 'vue-awesome/icons/link';
+import 'vue-awesome/icons/edit';
 import 'vue-awesome/icons/image';
 import 'vue-awesome/icons/video';
 import 'vue-awesome/icons/code';

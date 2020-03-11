@@ -27,12 +27,23 @@ export default {
         tooltip: '代码块',
       },
       Link: {
-        tooltip: '插入超链接',
-        control: {
-          title: '插入超链接',
-          placeholder: '输入链接',
-          confirm: '插入',
-          cancel: '取消',
+        insert: {
+          tooltip: '插入链接',
+          control: {
+            title: '插入链接',
+            placeholder: '输入链接',
+            confirm: '插入',
+            cancel: '取消',
+          },
+        },
+        edit: {
+          tooltip: '编辑链接',
+          control: {
+            title: '编辑链接',
+            placeholder: '输入链接',
+            confirm: '更新',
+            cancel: '取消',
+          },
         },
       },
       Image: {

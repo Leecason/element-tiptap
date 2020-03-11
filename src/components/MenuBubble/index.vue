@@ -3,25 +3,32 @@
     v-slot="editorContext"
     :editor="editor"
   >
-    <slot v-bind="editorContext">
-      <div
-        :class="{
-          'el-tiptap-editor__menu-bubble--active': editorContext.menu.isActive,
-        }"
-        :style="`
-          left: ${editorContext.menu.left}px;
-          bottom: ${editorContext.menu.bottom}px;
-        `"
-        class="el-tiptap-editor__menu-bubble"
-      >
+    <div
+      :class="{
+        'el-tiptap-editor__menu-bubble--active': editorContext.menu.isActive,
+      }"
+      :style="`
+        left: ${ editorContext.menu.left }px;
+        bottom: ${ editorContext.menu.bottom }px;
+      `"
+      class="el-tiptap-editor__menu-bubble"
+    >
+      <template v-if="editorContext.isActive.link && editorContext.isActive.link()">
+        <link-bubble-menu
+          :editor="editor"
+          :editorContext="editorContext"
+        />
+      </template>
+
+      <template v-else>
         <component
           v-for="(spec, i) in generateCommandButtonComponentSpecs(editorContext)"
           :key="'command-button' + i"
           :is="spec.component"
           v-bind="spec.componentProps"
         />
-      </div>
-    </slot>
+      </template>
+    </div>
   </editor-menu-bubble>
 </template>
 
@@ -30,9 +37,12 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 import { MenuBtnViewType } from '@/../types';
 
+import LinkBubbleMenu from './LinkBubbleMenu.vue';
+
 @Component({
   components: {
     EditorMenuBubble,
+    LinkBubbleMenu,
   },
 })
 export default class MenuBubble extends Vue {
