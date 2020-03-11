@@ -2,7 +2,7 @@
   <command-button
     :is-active="editorContext.isActive.link()"
     :command="openApplyLinkControl"
-    :tooltip="t('editor.extensions.Link.insert.tooltip')"
+    :tooltip="t('editor.extensions.Link.add.tooltip')"
     icon="link"
   />
 </template>
@@ -19,7 +19,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class InsertLinkCommandButton extends Mixins(i18nMixin) {
+export default class AddLinkCommandButton extends Mixins(i18nMixin) {
   @Prop({
     type: Object,
     required: true,
@@ -27,10 +27,10 @@ export default class InsertLinkCommandButton extends Mixins(i18nMixin) {
   readonly editorContext!: MenuData;
 
   openApplyLinkControl (): void {
-    MessageBox.prompt('', this.t('editor.extensions.Link.insert.control.title'), {
-      confirmButtonText: this.t('editor.extensions.Link.insert.control.confirm'),
-      cancelButtonText: this.t('editor.extensions.Link.insert.control.cancel'),
-      inputPlaceholder: this.t('editor.extensions.Link.insert.control.placeholder'),
+    MessageBox.prompt('', this.t('editor.extensions.Link.add.control.title'), {
+      confirmButtonText: this.t('editor.extensions.Link.add.control.confirm'),
+      cancelButtonText: this.t('editor.extensions.Link.add.control.cancel'),
+      inputPlaceholder: this.t('editor.extensions.Link.add.control.placeholder'),
       roundButton: true,
     // @ts-ignore
     }).then(({ value: href }) => {

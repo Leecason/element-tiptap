@@ -27,12 +27,12 @@ export default {
         tooltip: 'Kod',
       },
       Link: {
-        insert: {
-          tooltip: 'Wstaw link',
+        add: {
+          tooltip: 'Dodaj link',
           control: {
-            title: 'Wstaw Link',
+            title: 'Dodaj Link',
             placeholder: 'Źródło',
-            confirm: 'Wstaw',
+            confirm: 'Dodaj',
             cancel: 'Anuluj',
           },
         },

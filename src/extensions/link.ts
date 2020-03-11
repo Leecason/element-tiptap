@@ -7,7 +7,7 @@ import { updateMark, removeMark, CommandFunction } from 'tiptap-commands';
 import { getMarkRange } from 'tiptap-utils';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
-import InsertLinkCommandButton from '@/components/MenuCommands/InsertLinkCommandButton.vue';
+import AddLinkCommandButton from '@/components/MenuCommands/AddLinkCommandButton.vue';
 
 export default class Link extends TiptapLink implements MenuBtnView {
   commands ({ type }: { type: MarkType }) {
@@ -50,7 +50,7 @@ export default class Link extends TiptapLink implements MenuBtnView {
 
   menuBtnView (editorContext: MenuData) {
     return {
-      component: InsertLinkCommandButton,
+      component: AddLinkCommandButton,
       componentProps: {
         editorContext,
       },

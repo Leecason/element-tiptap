@@ -27,12 +27,12 @@ export default {
         tooltip: '代码块',
       },
       Link: {
-        insert: {
-          tooltip: '插入链接',
+        add: {
+          tooltip: '添加链接',
           control: {
-            title: '插入链接',
+            title: '添加链接',
             placeholder: '输入链接',
-            confirm: '插入',
+            confirm: '添加',
             cancel: '取消',
           },
         },
