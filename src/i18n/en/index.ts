@@ -48,6 +48,9 @@ export default {
         unlink: {
           tooltip: 'Unlink',
         },
+        open: {
+          tooltip: 'Open link',
+        },
       },
       Image: {
         tooltip: 'Insert image',

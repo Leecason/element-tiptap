@@ -1,5 +1,8 @@
 <template>
   <div class="link-bubble-menu">
+    <open-link-command-button
+      :url="url"
+    />
     <edit-link-command-button
       :editor-context="editorContext"
       :init-url="url"
@@ -13,11 +16,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
+import OpenLinkCommandButton from '@/components/MenuCommands/OpenLinkCommandButton.vue';
 import EditLinkCommandButton from '@/components/MenuCommands/EditLinkCommandButton.vue';
 import UnlinkCommandButton from '@/components/MenuCommands/UnlinkCommandButton.vue';
 
 @Component({
   components: {
+    OpenLinkCommandButton,
     EditLinkCommandButton,
     UnlinkCommandButton,
   },

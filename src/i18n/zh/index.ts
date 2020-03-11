@@ -48,6 +48,9 @@ export default {
         unlink: {
           tooltip: '取消链接',
         },
+        open: {
+          tooltip: '打开链接',
+        },
       },
       Image: {
         tooltip: '插入图片',

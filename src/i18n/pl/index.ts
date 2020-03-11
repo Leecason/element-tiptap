@@ -48,6 +48,9 @@ export default {
         unlink: {
           tooltip: 'Odczepić',
         },
+        open: {
+          tooltip: 'Otwórz link',
+        },
       },
       Image: {
         tooltip: 'Dodaj obraz',
