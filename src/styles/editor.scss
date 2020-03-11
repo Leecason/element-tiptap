@@ -20,7 +20,7 @@
     }
   }
 
-  #{$root}__content {
+  > #{$root}__content {
     background-color: $white-color;
     border: 1px solid $lighter-border-color;
     border-bottom: 0;
@@ -49,7 +49,7 @@
     opacity: 0;
     position: absolute;
     transform: translateX(-50%);
-    transition: opacity .3s, visibility .3s;
+    transition: opacity .3s ease-in-out;
     visibility: hidden;
     z-index: 50;
 

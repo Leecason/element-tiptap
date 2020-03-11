@@ -15,16 +15,15 @@
     height: 40px;
     margin: 2px;
     outline: 0;
+    transition: all .2s ease-in-out;
     width: 40px;
 
     &:hover {
-      background-color: $extra-light-primary-color;
-      color: $primary-color;
+      background-color: darken($light-background-color, 5%);
     }
 
     &--active {
       background-color: $extra-light-primary-color;
-      border-color: $light-primary-color;
       color: $primary-color;
     }
   }
@@ -34,14 +33,12 @@
       color: $white-color;
 
       &:hover {
-        background-color: $extra-light-primary-color;
-        border-color: transparent;
-        color: $primary-color;
+        background-color: transparentize($black-color, .5);
       }
 
       &--active {
-        background-color: $extra-light-primary-color;
-        border-color: $light-primary-color;
+        background-color: transparent;
+        border-color: transparent;
         color: $primary-color;
       }
     }
