@@ -1,11 +1,10 @@
 <template>
   <span
-    :class="{ 'image-view--focused': selected }"
-    class="image-view"
+    :class="imageViewClass"
     @click="handleImageViewClick"
   >
     <div class="image-view__body">
-      <span class="image-view__body__image-clip">
+      <span class="image-view__body__image">
         <img
           :src="node.attrs.src"
           :title="node.attrs.title"
@@ -112,6 +111,13 @@ export default class ImageView extends Vue {
 
   private get height (): number {
     return this.node.attrs.height;
+  }
+
+  private get imageViewClass () {
+    return {
+      'image-view': true,
+      'image-view--focused': this.selected,
+    };
   }
 
   private async created () {

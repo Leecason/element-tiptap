@@ -5,22 +5,21 @@
   >
     <div
       :class="{
-        'el-tiptap-editor__menu-bubble--active': editorContext.menu.isActive,
+        'el-tiptap-editor__menu-bubble--active':
+          editorContext.menu.isActive && (showLinkMenu || showTextMenu),
       }"
       :style="`
         left: ${ editorContext.menu.left }px;
-        bottom: ${ editorContext.menu.bottom }px;
+        bottom: ${ editorContext.menu.bottom + 10 }px;
       `"
       class="el-tiptap-editor__menu-bubble"
     >
-      <template v-if="showLinkMenu">
-        <link-bubble-menu
-          :editor="editor"
-          :editorContext="editorContext"
-        />
-      </template>
+      <link-bubble-menu
+        v-if="showLinkMenu"
+        :editorContext="editorContext"
+      />
 
-      <template v-else>
+      <template v-else-if="showTextMenu">
         <component
           v-for="(spec, i) in generateCommandButtonComponentSpecs(editorContext)"
           :key="'command-button' + i"
@@ -34,6 +33,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { TextSelection } from 'prosemirror-state';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
@@ -54,6 +54,7 @@ export default class MenuBubble extends Vue {
   })
   readonly editor!: Editor;
 
+  /* Only appears when link is selected separately */
   private get showLinkMenu (): boolean {
     const { state, schema } = this.editor;
 
@@ -70,6 +71,10 @@ export default class MenuBubble extends Vue {
       return range.to === $to.pos;
     }
     return false;
+  }
+
+  private get showTextMenu (): boolean {
+    return this.editor.state.selection instanceof TextSelection;
   }
 
   private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
