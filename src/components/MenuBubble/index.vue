@@ -2,6 +2,7 @@
   <editor-menu-bubble
     v-slot="editorContext"
     :editor="editor"
+    :keep-in-bounds="false"
   >
     <div
       :class="{
