@@ -31,19 +31,20 @@
       :editor="editor"
     >
       <div class="el-tiptap-editor__footer">
-        Characters: {{ characters }}
+        {{ t('editor.characters') }}: {{ characters }}
       </div>
     </slot>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Model, Vue } from 'vue-property-decorator';
+import { Component, Prop, Watch, Model, Mixins } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 
 import { Placeholder } from '@/extensions';
 import { capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
+import i18nMixin from '@/mixins/i18nMixin';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
@@ -63,7 +64,7 @@ const COMMON_EMIT_EVENTS: EVENTS[] = [
     EditorContent,
   },
 })
-export default class ElTiptap extends Vue {
+export default class ElTiptap extends Mixins(i18nMixin) {
   @Prop({
     type: Array,
     default: () => [],
