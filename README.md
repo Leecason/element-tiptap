@@ -65,11 +65,20 @@ import 'element-tiptap/lib/index.css';
 // use ElementUI's plugin
 Vue.use(ElementUI);
 // use this package's plugin
-Vue.use(ElementTiptapPlugin);
+Vue.use(ElementTiptapPlugin, { /* plugin options */ });
 // Now you register `'el-tiptap'` component globally.
 ```
 
-Or
+Default plugin options:
+
+```json
+{
+  "lang": "en", // see i18n
+  "spellcheck": true, // can be overwritten by editor prop
+}
+```
+
+_Or_
 
 #### Partial import
 
@@ -320,6 +329,21 @@ Default: `false`
 
 when `readonly` is `true`, editor is not editable.
 
+### spellcheck
+
+Type: `boolean`
+
+Default: plugin `spellcheck` option value
+
+```html
+<el-tiptap
+  :spellcheck="true"
+>
+</el-tiptap>
+```
+
+Whether the content is spellcheck enabled.
+
 ## 👽 Events
 
 ### Init
@@ -407,6 +431,16 @@ properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.
 ### footer
 Footer of the editor, after the editor content.
 
+## 🏗 Contribution
+
+1. fork this project
+2. edit code
+3. PR
+
+_OR_
+
+1. Just create an issue!
+
 ## 📝 Changelog
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
@@ -431,5 +465,5 @@ I'm continuously working to add in new features 💪.
 - [x] `SelectAll` extension
 - [x] i18n
 - [x] readonly editor
-- [ ] image resizable
+- [x] image resizable
 - [ ] theme

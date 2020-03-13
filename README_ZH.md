@@ -65,11 +65,20 @@ import 'element-tiptap/lib/index.css';
 // 安装 ElementUI 插件
 Vue.use(ElementUI);
 // 安装 element-tiptap 插件
-Vue.use(ElementTiptapPlugin);
+Vue.use(ElementTiptapPlugin, { /* 插件配置项 */ });
 // 现在你已经在全局注册了 `el-tiptap` 组件。
 ```
 
-或者
+默认插件配置项:
+
+```json
+{
+  "lang": "en", // 见 i18n
+  "spellcheck": true, // 可被 editor 同名 prop 重写
+}
+```
+
+_或者_
 
 #### 局部引入
 
@@ -320,6 +329,21 @@ Default: `false`
 
 当 `readonly` 为 `true`, 编辑器不可编辑。
 
+### spellcheck
+
+Type: `boolean`
+
+Default: 插件 `spellcheck` 配置项的值
+
+```html
+<el-tiptap
+  :spellcheck="true"
+>
+</el-tiptap>
+```
+
+编辑器内容是否开启拼写检查。
+
 ## 👽 事件 Events
 
 ### Init
@@ -408,6 +432,16 @@ export default {
 
 编辑器的底部，在编辑器内容的后面
 
+## 🏗 贡献
+
+1. fork 此项目
+2. 编辑你的代码
+3. PR
+
+_OR_
+
+1. 留下你的 issue
+
 ## 📝 更新日志
 [更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
@@ -432,5 +466,5 @@ export default {
 - [x] `SelectAll` extension
 - [x] i18n
 - [x] 编辑器 readonly
-- [ ] 改变图片尺寸
+- [x] 改变图片尺寸
 - [ ] 主题
