@@ -31,19 +31,33 @@
   }
 
   &__menu-bar {
-    background-color: $light-background-color;
+    background-color: $white-color;
     border: 1px solid $lighter-border-color;
+    border-bottom: 0;
     border-radius: 8px 8px 0 0;
     display: flex;
     flex-shrink: 0;
     flex-wrap: wrap;
     padding: 5px;
+    position: relative;
+
+    &::before {
+      bottom: 0;
+      background-color: $lighter-border-color;
+      content: '';
+      height: 1px;
+      left: 0;
+      margin: 0 10px;
+      right: 0;
+      position: absolute;
+    }
   }
 
   &__menu-bubble {
     border-radius: 8px;
     display: flex;
-    background-color: transparentize($black-color, .3);
+    background-color: $white-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     padding: 5px;
     opacity: 0;
     position: absolute;

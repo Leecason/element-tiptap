@@ -27,22 +27,6 @@
       color: $primary-color;
     }
   }
-
-  &__menu-bubble {
-    #{$editor}__command-button {
-      color: $white-color;
-
-      &:hover {
-        background-color: transparentize($black-color, .5);
-      }
-
-      &--active {
-        background-color: transparent;
-        border-color: transparent;
-        color: $primary-color;
-      }
-    }
-  }
 }
 
 .el-tiptap-dropdown-menu {
