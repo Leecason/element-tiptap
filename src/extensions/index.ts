@@ -1,6 +1,7 @@
 export { Doc, Text } from 'tiptap';
 
 export {
+  Code,
   HardBreak,
   TrailingNode,
   Placeholder,

@@ -149,6 +149,16 @@
       padding-left: 1em;
     }
 
+    code {
+      background-color: $lighter-primary-color;
+      border-radius: 4px;
+      color: $primary-color;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 0 8px;
+    }
+
     pre {
       background-color: $primary-text-color;
       color: $lighter-primary-color;
@@ -159,8 +169,14 @@
       border-radius: 5px;
 
       code {
+        background-color: transparent;
+        border-radius: 0;
+        color: inherit;
         display: block;
         font-family: 'Menlo,Monaco,Consolas,Courier,monospace';
+        font-size: inherit;
+        font-weight: normal;
+        padding: 0;
       }
     }
 
