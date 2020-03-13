@@ -1,26 +1,23 @@
-// @ts-nocheck
-import Icon from 'vue-awesome/components/Icon.vue';
-import 'vue-awesome/icons/check-square';
-import 'vue-awesome/icons/regular/square';
 import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions';
 import { transformLineHeightToCSS } from '@/utils/line_height';
 import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '@/constants';
+import TodoItemView from '@/components/ExtensionViews/TodoItemView.vue';
 
-function getAttrs (dom) {
+function getAttrs (dom: HTMLElement) {
   let {
     textAlign,
     lineHeight,
   } = dom.style;
 
-  let align = dom.getAttribute('data-text-align') || textAlign || '';
-  align = ALIGN_PATTERN.test(align) ? align : null;
+  let align: string | null = dom.getAttribute('data-text-align') || textAlign || '';
+  align = ALIGN_PATTERN.test(align) ? align : '';
 
-  lineHeight = (lineHeight && lineHeight !== transformLineHeightToCSS(LINE_HEIGHT_100)) ? lineHeight : null;
+  lineHeight = (lineHeight && lineHeight !== transformLineHeightToCSS(LINE_HEIGHT_100)) ? lineHeight : '';
 
   return {
-    textAlign: align,
-    lineHeight,
+    textAlign: align || null,
+    lineHeight: lineHeight || null,
     done: dom.getAttribute('data-done') === 'true',
   };
 }
@@ -58,6 +55,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 }
 
 export default class TodoItem extends TiptapTodoItem {
+  // @ts-ignore
   get schema () {
     return {
       attrs: {
@@ -77,64 +75,6 @@ export default class TodoItem extends TiptapTodoItem {
   }
 
   get view () {
-    return {
-      components: {
-        'v-icon': Icon,
-      },
-
-      template: `
-        <li
-          :data-type="node.type.name"
-          :data-done="done.toString()"
-          :data-text-align="node.attrs.textAlign"
-          :class="{ 'todo-item--done': done }"
-          :style="todoItemStyle"
-          class="todo-item"
-          data-drag-handle
-        >
-          <span
-            contenteditable="false"
-            class="todo-checkbox"
-            @click.stop="toggle"
-          >
-            <v-icon :name="done ? 'check-square' : 'regular/square'" />
-          </span>
-
-          <div
-            ref="content"
-            :contenteditable="view.editable.toString()"
-            class="todo-content"
-          />
-        </li>
-      `,
-
-      props: ['node', 'updateAttrs', 'view'],
-
-      computed: {
-        done: {
-          get () {
-            return this.node.attrs.done;
-          },
-
-          set (done) {
-            this.updateAttrs({
-              done,
-            });
-          },
-        },
-
-        todoItemStyle () {
-          return {
-            lineHeight: transformLineHeightToCSS(this.node.attrs.lineHeight),
-          };
-        },
-      },
-
-      methods: {
-        toggle () {
-          this.done = !this.done;
-        },
-      },
-    };
+    return TodoItemView;
   }
 }
