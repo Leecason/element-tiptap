@@ -74,7 +74,13 @@ export default class MenuBubble extends Vue {
   }
 
   private get showTextMenu (): boolean {
-    return this.editor.state.selection instanceof TextSelection;
+    if (this.editor.state.selection instanceof TextSelection) {
+      const extensionManager = this.editor.extensions;
+      return extensionManager.extensions.some(extension => {
+        return extension.options.bubble;
+      });
+    }
+    return false;
   }
 
   private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {

@@ -100,15 +100,6 @@ export default class ElTiptap extends Vue {
   editor: Editor | null = null;
   emitAfterOnUpdate: boolean = false;
 
-  private get bubbleMenuVisible (): boolean {
-    if (!this.editor) return false;
-
-    const extensionManager = this.editor.extensions;
-    return extensionManager.extensions.some(extension => {
-      return extension.options.bubble;
-    });
-  }
-
   get characters (): number {
     if (!this.editor) return 0;
 
