@@ -71,10 +71,10 @@ Vue.use(ElementTiptapPlugin, { /* plugin options */ });
 
 Default plugin options:
 
-```json
+```js
 {
-  "lang": "en", // see i18n
-  "spellcheck": true, // can be overwritten by editor prop
+  lang: "en", // see i18n
+  spellcheck: true, // can be overwritten by editor prop
 }
 ```
 

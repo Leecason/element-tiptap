@@ -71,10 +71,10 @@ Vue.use(ElementTiptapPlugin, { /* 插件配置项 */ });
 
 默认插件配置项:
 
-```json
+```js
 {
-  "lang": "en", // 见 i18n
-  "spellcheck": true, // 可被 editor 同名 prop 重写
+  lang: "en", // 见 i18n
+  spellcheck: true, // 可被 editor 同名 prop 重写
 }
 ```
 
