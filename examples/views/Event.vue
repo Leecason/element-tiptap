@@ -64,7 +64,7 @@ export default {
         new History(),
       ],
 
-      content: '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300" height="NaN"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
+      content: '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
     };
   },
 

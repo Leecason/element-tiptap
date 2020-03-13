@@ -31,6 +31,7 @@ import {
   Italic,
   Strike,
   Blockquote,
+  Code,
   CodeBlock,
   ListItem,
   BulletList,
@@ -55,6 +56,7 @@ export default {
         new Italic(),
         new Strike(),
         new Blockquote(),
+        new Code(),
         new CodeBlock(),
         new TextAlign(),
         new LineHeight(),
@@ -66,11 +68,11 @@ export default {
         new History(),
       ],
 
-      content: '<p>Can output both <strong>JSON</strong> and <strong>HTML</strong> data sources.</p>',
+      content: '<p>The <code>output</code> prop: <strong>HTML or JSON</strong></p>',
 
       output: {
-        json: 'Input something to see output',
-        html: 'Input something to see output',
+        json: 'Update content to see changes',
+        html: 'Update content to see changes',
       },
     };
   },

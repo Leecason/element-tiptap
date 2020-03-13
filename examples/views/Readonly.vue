@@ -18,6 +18,7 @@ import {
   Underline,
   Italic,
   Strike,
+  Code,
   ListItem,
   BulletList,
   OrderedList,
@@ -38,6 +39,7 @@ export default {
         new Underline(),
         new Italic(),
         new Strike(),
+        new Code(),
         new TextAlign(),
         new ListItem(),
         new BulletList(),
@@ -46,7 +48,7 @@ export default {
         new History(),
       ],
 
-      content: '<p>I\' m non-editable now. 😰</p>',
+      content: '<p>I\' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>',
     };
   },
 };

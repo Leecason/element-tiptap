@@ -27,9 +27,7 @@
     </el-header>
 
     <el-main>
-      <transition name="fade">
-        <router-view class="child-view" />
-      </transition>
+      <router-view />
     </el-main>
 
     <el-footer>
@@ -182,19 +180,6 @@ export default {
   .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s ease-in-out;
-}
-
-.fade-enter, .fade-leave-active {
-  opacity: 0;
-}
-
-.child-view {
-  position: absolute;
-  transition: all .3s cubic-bezier(.55, 0, .1, 1);
 }
 
 @media (max-width:500px) {
