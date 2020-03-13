@@ -421,4 +421,8 @@
       pointer-events: none;
     }
   }
+
+  &__characters {
+    color: lighten($regular-text-color, 20%);
+  }
 }

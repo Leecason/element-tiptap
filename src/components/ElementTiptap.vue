@@ -31,7 +31,9 @@
       :editor="editor"
     >
       <div class="el-tiptap-editor__footer">
-        {{ t('editor.characters') }}: {{ characters }}
+        <span class="el-tiptap-editor__characters">
+          {{ t('editor.characters') }}: {{ characters }}
+        </span>
       </div>
     </slot>
   </div>
