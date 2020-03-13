@@ -24,6 +24,7 @@ English | [简体中文](./README_ZH.md)
 ## 🎄 Demo
 
 👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
+
 👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
 
 ## ✨ Features
