@@ -4,7 +4,6 @@ export {
   Code,
   HardBreak,
   TrailingNode,
-  Placeholder,
   TableHeader,
   TableCell,
   TableRow,

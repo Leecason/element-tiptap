@@ -43,7 +43,8 @@
 import { Component, Prop, Watch, Model, Mixins } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 
-import { Placeholder } from '@/extensions';
+import { Placeholder } from 'tiptap-extensions';
+import ContentAttributes from '@/extensions/content_attributes';
 import { capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
 import i18nMixin from '@/mixins/i18nMixin';
@@ -99,6 +100,12 @@ export default class ElTiptap extends Mixins(i18nMixin) {
     default: false,
   })
   readonly readonly!: boolean;
+
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
+  readonly spellcheck!: boolean | undefined;
 
   editor: Editor | null = null;
   emitAfterOnUpdate: boolean = false;
@@ -157,7 +164,18 @@ export default class ElTiptap extends Mixins(i18nMixin) {
   }
 
   private generateExtensions (): Array<Extension> {
-    const extensions = this.extensions;
+    let extensions: Extension[] = [];
+
+    const spellcheck = this.spellcheck == null
+      ? this.$elementTiptapPlugin.spellcheck
+      : this.spellcheck;
+
+    extensions = extensions.concat(
+      new ContentAttributes({
+        spellcheck,
+      }),
+    );
+    extensions = extensions.concat([...this.extensions]);
 
     if (this.placeholder) {
       extensions.push(
