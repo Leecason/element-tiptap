@@ -1,3 +1,25 @@
+# [1.13.0](https://github.com/Leecason/element-tiptap/compare/@1.12.0...@1.13.0) (2020-03-13)
+
+
+### Bug Fixes
+
+* 🌐 editor characters i18n ([18a3935](https://github.com/Leecason/element-tiptap/commit/18a39356adfb230de279e53fd66df2097014d039))
+* 💄 tweak bubble menu position and style ([1c73e04](https://github.com/Leecason/element-tiptap/commit/1c73e04c3a5c529a18eb0f688f3eef2682d3374a))
+
+
+### Features
+
+* ✨ add Code extension ([dab5bdc](https://github.com/Leecason/element-tiptap/commit/dab5bdc98fda90b17a3d47a0bb61a144d184658e))
+* ✨ edit link in bubble menu ([8b93b2c](https://github.com/Leecason/element-tiptap/commit/8b93b2cf52b3102d683e0f3859d16ee0f7ad7063))
+* ✨ make image resizable ([d3523e7](https://github.com/Leecason/element-tiptap/commit/d3523e73646bd6778a801567519bfc1049e6f34f))
+* ✨ open link in bubble menu ([8768f82](https://github.com/Leecason/element-tiptap/commit/8768f8207f7e408bdeb7b2af46f2d7cff3f49f0a))
+* ✨ select link when clicked ([825d8ca](https://github.com/Leecason/element-tiptap/commit/825d8ca675774409b1b5f4704d03e2bda4146056))
+* ✨ spellcheck attribute for editor ([876c497](https://github.com/Leecason/element-tiptap/commit/876c4976473006e2400e502deca7cdd5d1bb9cb6))
+* ✨ unlink in bubble menu ([d991841](https://github.com/Leecason/element-tiptap/commit/d991841543e7f1d2d7e4a394a7fcfa75c48b2f25))
+* 💄 editor characters style ([3261f3b](https://github.com/Leecason/element-tiptap/commit/3261f3b5a20a854823d7058ba0fd690c97ce50b6))
+* 💄 new ui for command button ([6e924cc](https://github.com/Leecason/element-tiptap/commit/6e924cc28ffae2bcb808f4ffca2b9d1c377ca92b))
+* 💄 new ui for menubar and menububble ([5204444](https://github.com/Leecason/element-tiptap/commit/5204444b36d5b4a7948bb40c2ea091b4526c228d))
+
 # [1.12.0](https://github.com/Leecason/element-tiptap/compare/@1.11.0...@1.12.0) (2020-03-10)
 
 
