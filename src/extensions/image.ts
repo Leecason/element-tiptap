@@ -16,9 +16,9 @@ function getAttrs (dom: HTMLElement): { [key: string]: any } {
   height = height || dom.getAttribute('height') || null;
 
   return {
-    src: dom.getAttribute('src') || null,
-    title: dom.getAttribute('title') || null,
-    alt: dom.getAttribute('alt') || null,
+    src: dom.getAttribute('src') || '',
+    title: dom.getAttribute('title') || '',
+    alt: dom.getAttribute('alt') || '',
     width: width == null ? null : parseInt(width, 10),
     height: height == null ? null : parseInt(height, 10),
   };

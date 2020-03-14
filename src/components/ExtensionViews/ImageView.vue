@@ -1,18 +1,17 @@
 <template>
   <span
     :class="imageViewClass"
-    @click="handleImageViewClick"
   >
     <div class="image-view__body">
-      <span class="image-view__body__image">
-        <img
-          :src="node.attrs.src"
-          :title="node.attrs.title"
-          :alt="node.attrs.alt"
-          :width="width"
-          :height="height"
-        >
-      </span>
+      <img
+        :src="node.attrs.src"
+        :title="node.attrs.title"
+        :alt="node.attrs.alt"
+        :width="width"
+        :height="height"
+        class="image-view__body__image"
+        @click="selectImage"
+      >
 
       <div
         v-if="view.editable"
@@ -26,6 +25,13 @@
           class="image-resizer__handler"
           @mousedown="onMouseDown($event, direction)"
         />
+
+        <span
+          class="image-view__delete-trigger"
+          @click="removeImage"
+        >
+          <v-icon name="regular/trash-alt" />
+        </span>
       </div>
     </div>
   </span>
@@ -36,6 +42,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { NodeSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
+import { deleteSelection } from 'prosemirror-commands';
+import Icon from 'vue-awesome/components/Icon.vue';
+import 'vue-awesome/icons/regular/trash-alt';
 import { resolveImg } from '@/utils/image';
 
 const enum ResizeDirection {
@@ -47,7 +56,11 @@ const enum ResizeDirection {
 
 const MIN_SIZE = 20;
 
-@Component
+@Component({
+  components: {
+    'v-icon': Icon,
+  },
+})
 export default class ImageView extends Vue {
   @Prop({
     type: ProsemirrorNode,
@@ -134,18 +147,17 @@ export default class ImageView extends Vue {
     };
   }
 
-  private handleImageViewClick () {
-    this.selectImage();
-  }
-
   // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
   private selectImage () {
-    const tr = this.view.state.tr;
-    const pos = this.getPos();
-    const pos1 = this.view.state.doc.resolve(pos);
-    const selection = new NodeSelection(pos1);
-    tr.setSelection(selection);
+    let tr = this.view.state.tr;
+    const selection = NodeSelection.create(this.view.state.doc, this.getPos());
+    tr = tr.setSelection(selection);
     this.view.dispatch(tr);
+  }
+
+  private removeImage () {
+    const { state, dispatch } = this.view;
+    deleteSelection(state, dispatch);
   }
 
   private onMouseDown (e: MouseEvent, dir: ResizeDirection): void {
