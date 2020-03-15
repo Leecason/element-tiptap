@@ -438,7 +438,7 @@ export default {
 
 1. fork 此项目
 2. 编辑你的代码
-3. PR
+3. PR to `develop` 分支
 
 _OR_
 

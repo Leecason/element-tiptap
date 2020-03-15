@@ -437,7 +437,7 @@ Footer of the editor, after the editor content.
 
 1. fork this project
 2. edit code
-3. PR
+3. PR to `develop` branch
 
 _OR_
 
