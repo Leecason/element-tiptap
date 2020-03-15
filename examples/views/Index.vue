@@ -138,6 +138,7 @@ export default {
       cursor: pointer;
       flex-shrink: 0;
       font-weight: 700;
+      letter-spacing: 1px;
       margin: 15px;
       transition: all .3s ease-in-out;
 
