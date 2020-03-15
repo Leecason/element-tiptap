@@ -30,7 +30,10 @@
 }
 
 .el-tiptap-dropdown-menu {
-  &__item {
+  $menu: &;
+
+  #{$menu}__item {
+    color: $primary-text-color;
     line-height: 1.5;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -52,6 +55,7 @@
 
   &__menu {
     &__item {
+      color: $primary-text-color;
       cursor: pointer;
       padding: 8px 0;
 
