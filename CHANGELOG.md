@@ -1,3 +1,17 @@
+# [1.14.0](https://github.com/Leecason/element-tiptap/compare/@1.13.0...@1.14.0) (2020-03-15)
+
+
+### Bug Fixes
+
+* 🐛 bubble menu bind command_ button component events ([6c94328](https://github.com/Leecason/element-tiptap/commit/6c943280a512d730a81e3a2e6a9f959775a735cd))
+* 💄 dropdown menu item active style ([29b2a5f](https://github.com/Leecason/element-tiptap/commit/29b2a5f9cb72ead5fbfe9ca6d3bf12fdb805a5c5))
+
+
+### Features
+
+* ✨ active fullscreen command_button if fullscreen ([54420d9](https://github.com/Leecason/element-tiptap/commit/54420d961dc1c0867e063e15224265de4b02ef73))
+* ✨ show remove_image button when image selected ([095d5cd](https://github.com/Leecason/element-tiptap/commit/095d5cd783eefa272ada34f88a884b60796c79c0))
+
 # [1.13.0](https://github.com/Leecason/element-tiptap/compare/@1.12.0...@1.13.0) (2020-03-13)
 
 
