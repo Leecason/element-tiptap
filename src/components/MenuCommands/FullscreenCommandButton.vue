@@ -3,6 +3,7 @@
     :command="toggleFullScreen"
     :tooltip="buttonTooltip"
     :icon="isFullscreen ? 'compress' : 'expand'"
+    :is-active="isFullscreen"
   />
 </template>
 
