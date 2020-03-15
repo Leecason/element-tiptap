@@ -26,6 +26,7 @@
           :key="'command-button' + i"
           :is="spec.component"
           v-bind="spec.componentProps"
+          v-on="spec.componentEvents"
         />
       </template>
     </div>
