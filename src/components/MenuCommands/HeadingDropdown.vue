@@ -1,7 +1,7 @@
 <template>
   <el-dropdown
     placement="bottom"
-    trigger="hover"
+    trigger="click"
     @command="i => i > 0
       ? editorContext.commands.heading({ level: i })
       : editorContext.commands.paragraph()
