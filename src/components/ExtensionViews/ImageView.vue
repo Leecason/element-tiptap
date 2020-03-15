@@ -149,8 +149,9 @@ export default class ImageView extends Vue {
 
   // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
   private selectImage () {
-    let tr = this.view.state.tr;
-    const selection = NodeSelection.create(this.view.state.doc, this.getPos());
+    const { state } = this.view;
+    let { tr } = state;
+    const selection = NodeSelection.create(state.doc, this.getPos());
     tr = tr.setSelection(selection);
     this.view.dispatch(tr);
   }
