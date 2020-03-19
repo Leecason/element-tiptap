@@ -33,7 +33,7 @@ English | [简体中文](./README_ZH.md)
 - 💅Many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
 - 🔖Markdown support
 - 📘TypeScript support
-- 🌐I18n support(`en`, `zh`, `pl`). welcome to contribute more languages
+- 🌐I18n support(`en`, `zh`, `pl`, `ru`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀Fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror)
 - 🌂Customize all extension menu button view
@@ -112,7 +112,12 @@ Vue.use(ElementTiptapPlugin, {
 });
 ```
 
-Available languages: `en`(default), `zh`, `pl`.
+Available languages:
+
+- `en`(default)
+- `zh`
+- `pl` by @FurtakM
+- `ru` by @baitkul
 
 Welcome contribution.
 
@@ -431,12 +436,13 @@ properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.
 ```
 
 ### footer
+
 Footer of the editor, after the editor content.
 
 ## 🏗 Contribution
 
 1. fork this project
-2. edit code
+2. edit code (semantic commit is better)
 3. PR to `develop` branch
 
 _OR_
