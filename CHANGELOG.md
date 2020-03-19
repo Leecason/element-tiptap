@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/Leecason/element-tiptap/compare/@1.14.0...@1.15.0) (2020-03-19)
+
+
+### Features
+
+* Add russiang i18n locale ([9e7f241](https://github.com/Leecason/element-tiptap/commit/9e7f24166ede13bbecd9cc0d39dd44d25a5eebee))
+
 # [1.14.0](https://github.com/Leecason/element-tiptap/compare/@1.13.0...@1.14.0) (2020-03-15)
 
 
