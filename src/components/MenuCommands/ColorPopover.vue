@@ -17,7 +17,8 @@
               'background-color': color,
             }"
             class="color"
-            @click="selectColor(color)"
+            @mousedown.prevent
+            @click.stop="selectColor(color)"
           />
         </div>
       </div>
@@ -26,12 +27,14 @@
         v-if="resetButtonText"
         class="colors-container__footer"
       >
-        <el-button
-          type="text"
-          @click="selectColor(null)"
+        <span
+          @mousedown.prevent
+          @click="selectColor('')"
         >
-          {{ resetButtonText }}
-        </el-button>
+          <el-button type="text">
+            {{ resetButtonText }}
+          </el-button>
+        </span>
       </div>
     </div>
 
