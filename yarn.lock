@@ -2065,11 +2065,11 @@
     webpack "^4.0.0"
 
 "@vue/cli-plugin-eslint@~4.2.2":
-  version "4.2.2"
-  resolved "https://registry.npm.taobao.org/@vue/cli-plugin-eslint/download/@vue/cli-plugin-eslint-4.2.2.tgz#ea0ecfc3f816102f61df3050d82f23909aa3df1b"
-  integrity sha1-6g7Pw/gWEC9h3zBQ2C8jkJqj3xs=
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-4.2.3.tgz#2a70df99aaa60697a13893e94034a1386f31c3ee"
+  integrity sha512-r3J0OAa8x0tZZYFxxFZ/C5WWxYGGH8hLfUUhs3FePo0VsBci28lrgvnBqr69uj/T40v/ndBh0geAz28mjjQ+mg==
   dependencies:
-    "@vue/cli-shared-utils" "^4.2.2"
+    "@vue/cli-shared-utils" "^4.2.3"
     eslint-loader "^2.1.2"
     globby "^9.2.0"
     inquirer "^6.3.1"
@@ -2162,10 +2162,10 @@
     webpack-dev-server "^3.10.2"
     webpack-merge "^4.2.2"
 
-"@vue/cli-shared-utils@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.npm.taobao.org/@vue/cli-shared-utils/download/@vue/cli-shared-utils-4.2.2.tgz#953fec34115cb12d0820012a9d7400f8c27d6660"
-  integrity sha1-lT/sNBFcsS0IIAEqnXQA+MJ9ZmA=
+"@vue/cli-shared-utils@^4.2.2", "@vue/cli-shared-utils@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.2.3.tgz#13646452cc25b0ab68a57cb52cac27983cee39a4"
+  integrity sha512-GCoTB6vMZsi9z/Bmn8/C9IlnUw8eeHONOGE+48TJkZyulftVFhlwVWjTFp5GuDAlwpTWarHchW9IoVu3pIIGfA==
   dependencies:
     "@hapi/joi" "^15.0.1"
     chalk "^2.4.2"
