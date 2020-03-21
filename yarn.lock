@@ -2209,9 +2209,9 @@
     stylus "^0.54.5"
 
 "@vue/eslint-config-standard@^5.1.0":
-  version "5.1.1"
-  resolved "https://registry.npm.taobao.org/@vue/eslint-config-standard/download/@vue/eslint-config-standard-5.1.1.tgz?cache=0&sync_timestamp=1581085803743&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Feslint-config-standard%2Fdownload%2F%40vue%2Feslint-config-standard-5.1.1.tgz#545d7079c638cfbc9280e7cccf48036ab5f14c07"
-  integrity sha1-VF1wecY4z7ySgOfMz0gDarXxTAc=
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@vue/eslint-config-standard/-/eslint-config-standard-5.1.2.tgz#c5d55af894a3ae23b65b1af4a425777ac0170b42"
+  integrity sha512-FTz0k77dIrj9r3xskt9jsZyL/YprrLiPRf4m3k7G6dZ5PKuD6OPqYrHR9eduUmHDFpTlRgFpTVQrq+1el9k3QQ==
   dependencies:
     eslint-config-standard "^14.1.0"
     eslint-import-resolver-node "^0.3.3"
@@ -5211,15 +5211,7 @@ eslint-config-standard@^14.1.0:
   resolved "https://registry.npm.taobao.org/eslint-config-standard/download/eslint-config-standard-14.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-config-standard%2Fdownload%2Feslint-config-standard-14.1.0.tgz#b23da2b76fe5a2eba668374f246454e7058f15d4"
   integrity sha1-sj2it2/louumaDdPJGRU5wWPFdQ=
 
-eslint-import-resolver-node@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.npm.taobao.org/eslint-import-resolver-node/download/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
-  integrity sha1-WPFfuDm40FdsqYBBNHaqskcttmo=
-  dependencies:
-    debug "^2.6.9"
-    resolve "^1.5.0"
-
-eslint-import-resolver-node@^0.3.3:
+eslint-import-resolver-node@^0.3.2, eslint-import-resolver-node@^0.3.3:
   version "0.3.3"
   resolved "https://registry.npm.taobao.org/eslint-import-resolver-node/download/eslint-import-resolver-node-0.3.3.tgz#dbaa52b6b2816b50bc6711af75422de808e98404"
   integrity sha1-26pStrKBa1C8ZxGvdUIt6AjphAQ=
