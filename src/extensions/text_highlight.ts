@@ -75,7 +75,7 @@ export default class TextHighlight extends Mark implements MenuBtnView {
         icon: 'highlighter',
       },
       componentEvents: {
-        select: (color: string) => commands.text_highlight(color),
+        confirm: (color: string) => commands.text_highlight(color),
       },
     };
   }

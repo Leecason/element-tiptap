@@ -75,7 +75,7 @@ export default class TextColor extends Mark implements MenuBtnView {
         icon: 'font',
       },
       componentEvents: {
-        select: (color: string) => commands.text_color(color),
+        confirm: (color: string) => commands.text_color(color),
       },
     };
   }

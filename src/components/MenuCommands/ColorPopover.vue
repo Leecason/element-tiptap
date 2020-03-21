@@ -18,7 +18,7 @@
           :class="{ 'color--selected': selectedColor === color }"
           class="color"
           @mousedown.prevent
-          @click.stop="selectColor(color)"
+          @click.stop="confirmColor(color)"
         />
       </div>
 
@@ -26,7 +26,7 @@
         <div
           class="color color--remove"
           @mousedown.prevent
-          @click.stop="selectColor('')"
+          @click.stop="confirmColor('')"
         />
       </div>
     </div>
@@ -45,7 +45,7 @@
         type="text"
         size="small"
         class="color-hex__button"
-        @click="selectColor(color)"
+        @click="confirmColor(color)"
       >
         ok
       </el-button>
@@ -113,8 +113,8 @@ export default class ColorPopover extends Vue {
     this.color = color;
   }
 
-  @Emit('select')
-  selectColor (color: string): string {
+  @Emit('confirm')
+  confirmColor (color: string): string {
     this.popoverVisible = false;
 
     return color;
