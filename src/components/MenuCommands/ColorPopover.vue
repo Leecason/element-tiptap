@@ -1,6 +1,6 @@
 <template>
   <el-popover
-    ref="popoverRef"
+    v-model="popoverVisible"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
@@ -104,6 +104,7 @@ export default class ColorPopover extends Vue {
   readonly resetButtonText!: string;
 
   private color: string = '';
+  private popoverVisible: boolean = false;
 
   @Watch('selectedColor', {
     immediate: true,
@@ -114,8 +115,7 @@ export default class ColorPopover extends Vue {
 
   @Emit('select')
   selectColor (color: string): string {
-    // @ts-ignore
-    this.$refs.popoverRef.doClose();
+    this.popoverVisible = false;
 
     return color;
   }

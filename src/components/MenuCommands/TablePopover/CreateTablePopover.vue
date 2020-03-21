@@ -1,6 +1,6 @@
 <template>
   <el-popover
-    ref="popoverRef"
+    v-model="popoverVisible"
     placement="right"
     trigger="hover"
     popper-class="el-tiptap-popper"
@@ -63,7 +63,7 @@ interface GridSize {
   },
 })
 export default class CreateTablePopover extends Mixins(i18nMixin) {
-  popoverVisible = false;
+  private popoverVisible = false;
 
   tableGridSize: GridSize = {
     row: INIT_GRID_SIZE,
@@ -90,8 +90,7 @@ export default class CreateTablePopover extends Mixins(i18nMixin) {
 
   @Emit('createTable')
   onMouseDown (row: number, col: number): GridSize {
-    // @ts-ignore
-    this.$refs.popoverRef.doClose();
+    this.popoverVisible = false;
 
     return { row, col };
   }
