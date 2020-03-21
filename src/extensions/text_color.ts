@@ -4,7 +4,7 @@ import { CommandFunction } from 'tiptap-commands';
 import { MenuBtnView } from '@/../types';
 import applyMark from '@/utils/apply_mark';
 import { t } from '@/i18n/index';
-import { PREDEFINED_COLORS } from '@/constants';
+import { COLOR_SET } from '@/constants';
 import ColorPopover from '@/components/MenuCommands/ColorPopover.vue';
 
 export default class TextColor extends Mark implements MenuBtnView {
@@ -14,7 +14,7 @@ export default class TextColor extends Mark implements MenuBtnView {
 
   get defaultOptions () {
     return {
-      colors: PREDEFINED_COLORS,
+      colors: COLOR_SET,
     };
   }
 
@@ -65,17 +65,17 @@ export default class TextColor extends Mark implements MenuBtnView {
     };
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView ({ commands, getMarkAttrs }: MenuData) {
     return {
       component: ColorPopover,
       componentProps: {
-        predefinedColors: this.options.colors,
+        colorSet: this.options.colors,
+        selectedColor: getMarkAttrs('text_color').color,
         tooltip: t('editor.extensions.TextColor.tooltip'),
         icon: 'font',
-        resetButtonText: t('editor.extensions.TextColor.reset'),
       },
       componentEvents: {
-        select: (color: string) => editorContext.commands.text_color(color),
+        select: (color: string) => commands.text_color(color),
       },
     };
   }

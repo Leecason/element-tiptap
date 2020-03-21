@@ -4,7 +4,7 @@ import { CommandFunction } from 'tiptap-commands';
 import { MenuBtnView } from '@/../types';
 import applyMark from '@/utils/apply_mark';
 import { t } from '@/i18n/index';
-import { PREDEFINED_COLORS } from '@/constants';
+import { COLOR_SET } from '@/constants';
 import ColorPopover from '../components/MenuCommands/ColorPopover.vue';
 
 export default class TextHighlight extends Mark implements MenuBtnView {
@@ -14,7 +14,7 @@ export default class TextHighlight extends Mark implements MenuBtnView {
 
   get defaultOptions () {
     return {
-      colors: PREDEFINED_COLORS,
+      colors: COLOR_SET,
     };
   }
 
@@ -65,17 +65,17 @@ export default class TextHighlight extends Mark implements MenuBtnView {
     };
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView ({ commands, getMarkAttrs }: MenuData) {
     return {
       component: ColorPopover,
       componentProps: {
-        predefinedColors: this.options.colors,
+        colorSet: this.options.colors,
+        selectedColor: getMarkAttrs('text_highlight').highlightColor,
         tooltip: t('editor.extensions.TextHighlight.tooltip'),
         icon: 'highlighter',
-        resetButtonText: t('editor.extensions.TextHighlight.reset'),
       },
       componentEvents: {
-        select: (color: string) => editorContext.commands.text_highlight(color),
+        select: (color: string) => commands.text_highlight(color),
       },
     };
   }

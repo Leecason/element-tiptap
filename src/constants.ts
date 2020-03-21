@@ -11,7 +11,7 @@ export const ALIGN_PATTERN: RegExp = new RegExp(`(${Alignment.left}|${Alignment.
 export const LINE_HEIGHT_100 = 1.7;
 export const DEFAULT_LINE_HEIGHT = '100%';
 
-export const PREDEFINED_COLORS: string[] = [
+export const COLOR_SET: string[] = [
   '#f44336',
   '#e91e63',
   '#9c27b0',
@@ -28,6 +28,7 @@ export const PREDEFINED_COLORS: string[] = [
   '#ffc107',
   '#ff9800',
   '#ff5722',
+  '#000000',
 ];
 
 export const enum EVENTS {

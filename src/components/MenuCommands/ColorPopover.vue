@@ -5,36 +5,29 @@
     trigger="click"
     popper-class="el-tiptap-popper"
   >
-    <div class="colors-container">
-      <div class="predefined-colors__container">
+    <div class="color-set">
+      <div
+        v-for="color in colorSet"
+        :key="color"
+        class="color__wrapper"
+      >
         <div
-          v-for="color in predefinedColors"
-          :key="color"
-          class="color__wrapper"
-        >
-          <div
-            :style="{
-              'background-color': color,
-            }"
-            class="color"
-            @mousedown.prevent
-            @click.stop="selectColor(color)"
-          />
-        </div>
+          :style="{
+            'background-color': color,
+          }"
+          :class="{ 'color--selected': selectedColor === color }"
+          class="color"
+          @mousedown.prevent
+          @click.stop="selectColor(color)"
+        />
       </div>
 
-      <div
-        v-if="resetButtonText"
-        class="colors-container__footer"
-      >
-        <span
+      <div class="color__wrapper">
+        <div
+          class="color color--remove"
           @mousedown.prevent
-          @click="selectColor('')"
-        >
-          <el-button type="text">
-            {{ resetButtonText }}
-          </el-button>
-        </span>
+          @click.stop="selectColor('')"
+        />
       </div>
     </div>
 
@@ -63,7 +56,13 @@ export default class ColorPopover extends Vue {
     type: Array,
     default: () => [],
   })
-  readonly predefinedColors!: string[];
+  readonly colorSet!: string[];
+
+  @Prop({
+    type: String,
+    default: '',
+  })
+  readonly selectedColor!: string;
 
   @Prop({
     type: String,
