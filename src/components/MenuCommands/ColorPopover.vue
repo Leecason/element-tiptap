@@ -31,6 +31,26 @@
       </div>
     </div>
 
+    <div class="color-hex">
+      <el-input
+        v-model="color"
+        placeholder="HEX"
+        autofocus="true"
+        maxlength="7"
+        size="small"
+        class="color-hex__input"
+      />
+
+      <el-button
+        type="text"
+        size="small"
+        class="color-hex__button"
+        @click="selectColor(color)"
+      >
+        ok
+      </el-button>
+    </div>
+
     <command-button
       slot="reference"
       :tooltip="tooltip"
@@ -40,14 +60,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
-import { Button, Popover } from 'element-ui';
+import { Component, Prop, Watch, Emit, Vue } from 'vue-property-decorator';
+import { Button, Popover, Input } from 'element-ui';
 import CommandButton from './CommandButton.vue';
 
 @Component({
   components: {
     [Button.name]: Button,
     [Popover.name]: Popover,
+    [Input.name]: Input,
     CommandButton,
   },
 })
@@ -81,6 +102,15 @@ export default class ColorPopover extends Vue {
     default: '',
   })
   readonly resetButtonText!: string;
+
+  private color: string = '';
+
+  @Watch('selectedColor', {
+    immediate: true,
+  })
+  onSelectedColorChange (color: string): void {
+    this.color = color;
+  }
 
   @Emit('select')
   selectColor (color: string): string {
