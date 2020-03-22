@@ -1,3 +1,17 @@
+# [1.16.0](https://github.com/Leecason/element-tiptap/compare/@1.15.0...@1.16.0) (2020-03-22)
+
+
+### Bug Fixes
+
+* **dialog:** 🐛 nested dialog ([bd83b9c](https://github.com/Leecason/element-tiptap/commit/bd83b9c171f91fa340b22ff24647349950bc7d04))
+* 🐛 bubble menu render error when select color ([80678e2](https://github.com/Leecason/element-tiptap/commit/80678e2880ad2d658289a11fefd58b4d480ebc2c))
+
+
+### Features
+
+* **color:** ✨ new ui for color_picker, add [#000](https://github.com/Leecason/element-tiptap/issues/000) to default colorSet ([6954354](https://github.com/Leecason/element-tiptap/commit/6954354146893ea1ebbbef154bec3a65fd84559e))
+* **color:** ✨ support hex color input ([648ea43](https://github.com/Leecason/element-tiptap/commit/648ea435143236fd35d48b954d89cbbaffbe22fb))
+
 # [1.15.0](https://github.com/Leecason/element-tiptap/compare/@1.14.0...@1.15.0) (2020-03-19)
 
 
