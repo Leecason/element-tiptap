@@ -108,11 +108,9 @@ export default {
       },
       TextColor: {
         tooltip: '文本颜色',
-        reset: '清除',
       },
       TextHighlight: {
         tooltip: '文本高亮',
-        reset: '透明',
       },
       LineHeight: {
         tooltip: '行距',

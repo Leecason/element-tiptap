@@ -47,7 +47,7 @@
         class="color-hex__button"
         @click="confirmColor(color)"
       >
-        ok
+        {{ confirmText }}
       </el-button>
     </div>
 
@@ -99,9 +99,9 @@ export default class ColorPopover extends Vue {
 
   @Prop({
     type: String,
-    default: '',
+    default: 'OK',
   })
-  readonly resetButtonText!: string;
+  readonly confirmText!: string; // TODO: i18n ?
 
   private color: string = '';
   private popoverVisible: boolean = false;

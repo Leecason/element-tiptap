@@ -108,11 +108,9 @@ export default {
       },
       TextColor: {
         tooltip: 'Text color',
-        reset: 'Clear',
       },
       TextHighlight: {
         tooltip: 'Text highlight',
-        reset: 'Transparent',
       },
       LineHeight: {
         tooltip: 'Line height',

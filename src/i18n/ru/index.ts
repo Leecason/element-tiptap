@@ -108,11 +108,9 @@ export default {
       },
       TextColor: {
         tooltip: 'Цвет текста',
-        reset: 'Очистить',
       },
       TextHighlight: {
         tooltip: 'Цвет выделения текста',
-        reset: 'Нет цвета',
       },
       LineHeight: {
         tooltip: 'Интервал',
