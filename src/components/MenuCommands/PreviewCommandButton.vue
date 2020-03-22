@@ -10,6 +10,7 @@
       :title="t('editor.extensions.Preview.dialog.title')"
       :visible.sync="previewDialogVisible"
       :width="contentWidth"
+      :append-to-body="true"
     >
       <div class="el-tiptap-editor__content">
         <div v-html="html"></div>

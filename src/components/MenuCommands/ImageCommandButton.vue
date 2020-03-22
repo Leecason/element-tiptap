@@ -31,6 +31,7 @@
     <el-dialog
       :title="t('editor.extensions.Image.control.upload_image.title')"
       :visible.sync="imageUploadDialogVisible"
+      :append-to-body="true"
     >
       <el-upload
         :http-request="uploadImage"
