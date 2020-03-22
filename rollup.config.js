@@ -16,29 +16,27 @@ const srcDir = path.resolve(__dirname, 'src');
 
 export default () => [
   getConfig({
-    file: path.resolve(libDir, 'element-tiptap.js'),
-    format: 'umd',
-    env: 'development',
-  }),
-  getConfig({
+    optimize: true,
     file: path.resolve(libDir, 'element-tiptap.min.js'),
     format: 'umd',
-    env: 'production',
+    esModule: true,
   }),
   getConfig({
+    optimize: true,
     file: path.resolve(libDir, 'element-tiptap.common.js'),
     format: 'cjs',
   }),
   getConfig({
     file: path.resolve(libDir, 'element-tiptap.esm.js'),
     format: 'es',
+    esModule: true,
   }),
 ];
 
 function getConfig ({
   file,
   format,
-  env,
+  optimize,
 }) {
   return {
     input: path.resolve(srcDir, 'index.ts'),
@@ -48,12 +46,7 @@ function getConfig ({
       format,
       globals: {
         vue: 'Vue',
-        tiptap: 'tiptap',
-        'tiptap-extensions': 'tiptap',
-        'prosemirror-utils': 'prosemirror-utils',
-        'prosemirror-state': 'prosemirror-state',
-        'prosemirror-model': 'prosemirror-model',
-        'prosemirror-tables': 'prosemirror-tables',
+        // TODO: tiptap
         'element-ui/lib/button': 'ELEMENT.Button',
         'element-ui/lib/tooltip': 'ELEMENT.Tooltip',
         'element-ui/lib/dialog': 'ELEMENT.Dialog',
@@ -63,7 +56,6 @@ function getConfig ({
         'element-ui/lib/dropdown': 'ELEMENT.Dropdown',
         'element-ui/lib/dropdown-menu': 'ELEMENT.DropdownMenu',
         'element-ui/lib/dropdown-item': 'ELEMENT.DropdownItem',
-        'vue-awesome': 'vue-awesome',
       },
     },
     external: [
@@ -86,8 +78,8 @@ function getConfig ({
       'vue-awesome',
     ],
     plugins: [
-      env && replace({
-        'process.env.NODE_ENV': JSON.stringify(env),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('production'),
       }),
       alias({
         entries: {
@@ -141,7 +133,7 @@ function getConfig ({
           ],
         ],
       }),
-      env !== 'development' && isProduction && terser(),
+      optimize && isProduction && terser(),
     ],
   };
 }

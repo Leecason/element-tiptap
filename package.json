@@ -1,7 +1,7 @@
 {
   "name": "element-tiptap",
   "version": "1.16.0",
-  "description": "A WYSIWYG editor based on Tiptap and Element.",
+  "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element UI for Vue.js",
   "author": "leecason",
   "scripts": {
     "serve": "vue-cli-service serve --open examples/main.js",
@@ -12,7 +12,8 @@
   },
   "main": "lib/element-tiptap.common.js",
   "module": "lib/element-tiptap.esm.js",
-  "unpkg": "lib/element-tiptap.js",
+  "unpkg": "lib/element-tiptap.min.js",
+  "jsdelivr": "lib/element-tiptap.min.js",
   "files": [
     "lib/*",
     "src/*",
@@ -86,7 +87,6 @@
     "pre-commit": "lint-staged"
   },
   "homepage": "https://github.com/Leecason/element-tiptapr#readme",
-  "jsdelivr": "lib/element-tiptap.js",
   "keywords": [
     "editor",
     "element",
