@@ -21,7 +21,7 @@ export default {
         }
       },
       Blockquote: {
-        tooltip: 'Blockzitat',
+        tooltip: 'Zitat',
       },
       CodeBlock: {
         tooltip: 'Codeblock',
