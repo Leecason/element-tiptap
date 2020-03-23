@@ -434,15 +434,18 @@ export default {
 
 编辑器的底部，在编辑器内容的后面
 
-## 🏗 贡献
+## 🏗 贡献 ![PR or ISSUE](https://img.shields.io/badge/PR%20or%20ISSUE-welcome-brightgreen)
 
-1. fork 此项目
-2. 编辑你的代码
-3. PR to `develop` 分支
+1. 🍴Fork 此项目
+2. 🔀创建你的分支: `git checkout -b your-branch`
+3. 🎨编辑你的代码
+4. 📝Commit 你的代码，推荐 [Semantic Commit Messages (recommended)](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+5. 🚀Push 到你的分支: `git push origin your-branch`
+6. 🎉提交 PR 到 `develop` 分支
 
 _OR_
 
-1. 留下你的 issue
+留下你的 [issue](https://github.com/Leecason/element-tiptap/issues) - 欢迎任何有用的建议. 😜
 
 ## 📝 更新日志
 [更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
