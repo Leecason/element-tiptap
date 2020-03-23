@@ -2091,22 +2091,7 @@
     semver "^6.1.0"
     strip-ansi "^6.0.0"
 
-"@vue/component-compiler-utils@^3.0.0", "@vue/component-compiler-utils@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.npm.taobao.org/@vue/component-compiler-utils/download/@vue/component-compiler-utils-3.0.2.tgz?cache=0&sync_timestamp=1573021543062&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fcomponent-compiler-utils%2Fdownload%2F%40vue%2Fcomponent-compiler-utils-3.0.2.tgz#7daf8aaf0d5faa66e7c8a1f6fea315630e45fbc9"
-  integrity sha1-fa+Krw1fqmbnyKH2/qMVYw5F+8k=
-  dependencies:
-    consolidate "^0.15.1"
-    hash-sum "^1.0.2"
-    lru-cache "^4.1.2"
-    merge-source-map "^1.1.0"
-    postcss "^7.0.14"
-    postcss-selector-parser "^5.0.0"
-    prettier "^1.18.2"
-    source-map "~0.6.1"
-    vue-template-es2015-compiler "^1.9.0"
-
-"@vue/component-compiler-utils@^3.1.0":
+"@vue/component-compiler-utils@^3.0.0", "@vue/component-compiler-utils@^3.0.2", "@vue/component-compiler-utils@^3.1.0":
   version "3.1.1"
   resolved "https://registry.npm.taobao.org/@vue/component-compiler-utils/download/@vue/component-compiler-utils-3.1.1.tgz?cache=0&sync_timestamp=1578324359895&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fcomponent-compiler-utils%2Fdownload%2F%40vue%2Fcomponent-compiler-utils-3.1.1.tgz#d4ef8f80292674044ad6211e336a302e4d2a6575"
   integrity sha1-1O+PgCkmdARK1iEeM2owLk0qZXU=
@@ -2121,7 +2106,7 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vue/component-compiler@^4.2.0":
+"@vue/component-compiler@^4.1.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@vue/component-compiler/-/component-compiler-4.2.0.tgz#437855cd59f3d713a4eef81bac7ab0f4950977b4"
   integrity sha512-bxFNxUpKzLfHDoGTsAe2w7gEz4OwII7tp5m7sAXES1DApbpYglH4YSpYxdZRZ4GN/wj2fPD0u72QRJXd4UPvFQ==
@@ -11766,11 +11751,11 @@ rollup-plugin-typescript2@^0.26.0:
     tslib "1.10.0"
 
 rollup-plugin-vue@^5.1.4:
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-vue/-/rollup-plugin-vue-5.1.4.tgz#d1892cbb18e9a2224e2dfabcbccf4707186e02eb"
-  integrity sha512-caXDQkq1yn8+wgRF1sO7IftFtHwKxiOsbB507UHaPDvCLihll/H9683io85k51txbLO9AfdGFN4aMH0nGVOZfw==
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-vue/-/rollup-plugin-vue-5.1.6.tgz#c0b31de919ff1aad36f3277957ac90345e897c23"
+  integrity sha512-O8AmNCecKGn8k28UCIBQ6fD4j2UAxeTwjmajR32IxtL2sBBUcJ0vAIwBTGZn75ijmXOoxngYgssJceY3kV/MVA==
   dependencies:
-    "@vue/component-compiler" "^4.2.0"
+    "@vue/component-compiler" "^4.1.0"
     "@vue/component-compiler-utils" "^3.0.0"
     debug "^4.1.1"
     hash-sum "^1.0.2"
@@ -11778,7 +11763,7 @@ rollup-plugin-vue@^5.1.4:
     querystring "^0.2.0"
     rollup-pluginutils "^2.4.1"
     source-map "0.7.3"
-    vue-runtime-helpers "^1.1.2"
+    vue-runtime-helpers "^1.1.1"
 
 rollup-pluginutils@2.8.2, rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.4.1, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
   version "2.8.2"
@@ -13726,7 +13711,7 @@ vue-router@^3.1.3:
   resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.1.3.tgz#e6b14fabc0c0ee9fda0e2cbbda74b350e28e412b"
   integrity sha1-5rFPq8DA7p/aDiy72nSzUOKOQSs=
 
-vue-runtime-helpers@^1.1.2:
+vue-runtime-helpers@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vue-runtime-helpers/-/vue-runtime-helpers-1.1.2.tgz#446b7b820888ab0c5264d2c3a32468e72e4100f3"
   integrity sha512-pZfGp+PW/IXEOyETE09xQHR1CKkR9HfHZdnMD/FVLUNI+HxYTa82evx5WrF6Kz4s82qtqHvMZ8MZpbk2zT2E1Q==
