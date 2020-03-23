@@ -37,6 +37,7 @@ function getConfig ({
   file,
   format,
   optimize,
+  esModule = false,
 }) {
   return {
     input: path.resolve(srcDir, 'index.ts'),
@@ -44,6 +45,7 @@ function getConfig ({
       file,
       name: 'ElementTiptap',
       format,
+      esModule,
       globals: {
         vue: 'Vue',
         // TODO: tiptap
