@@ -123,7 +123,7 @@ export default {
           add_column_after: 'Добавить столбец справа',
           delete_column: 'Удалить столбец',
           add_row_before: 'Добавить строку сверху',
-          add_row_after: 'Добавить строки снизу',
+          add_row_after: 'Добавить строку снизу',
           delete_row: 'Удалить строку',
           merge_cells: 'Объединить ячейки',
           split_cell: 'Разделить ячейки',
@@ -171,6 +171,6 @@ export default {
         tooltip: 'Выделить все',
       },
     },
-    characters: 'Символ',
+    characters: 'Количество символов',
   },
 };
