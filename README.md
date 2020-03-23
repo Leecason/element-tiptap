@@ -439,15 +439,18 @@ properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.
 
 Footer of the editor, after the editor content.
 
-## 🏗 Contribution
+## 🏗 Contributing ![PR or ISSUE](https://img.shields.io/badge/PR%20or%20ISSUE-welcome-brightgreen)
 
-1. fork this project
-2. edit code (semantic commit is better)
-3. PR to `develop` branch
+1. 🍴Fork it
+2. 🔀Create your branch: `git checkout -b your-branch`
+3. 🎨Make your changes
+4. 📝Commit your changes with [Semantic Commit Messages (recommended)](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+5. 🚀Push to the branch: `git push origin your-branch`
+6. 🎉Submit a PR to `develop` branch
 
 _OR_
 
-1. Just create an issue!
+Just submit an [issue](https://github.com/Leecason/element-tiptap/issues)! - any helpful suggestions are welcomed. 😜
 
 ## 📝 Changelog
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
