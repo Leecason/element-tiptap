@@ -1,3 +1,11 @@
+## [1.16.1](https://github.com/Leecason/element-tiptap/compare/@1.16.0...@1.16.1) (2020-03-23)
+
+
+### Bug Fixes
+
+* typos in some labels ([ede1659](https://github.com/Leecason/element-tiptap/commit/ede16592454afdb821f4b4bb2af64d6667d3b0ca))
+* **color:** 🐛 set color-item border-box ([8962c01](https://github.com/Leecason/element-tiptap/commit/8962c01b4c18b65a35c8727eb08ac63b67498490))
+
 # [1.16.0](https://github.com/Leecason/element-tiptap/compare/@1.15.0...@1.16.0) (2020-03-22)
 
 
