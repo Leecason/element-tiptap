@@ -54,7 +54,7 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import { Dialog, Upload, MessageBox, Popover } from 'element-ui';
+import { Dialog, Upload, MessageBox, Popover, Loading } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
 import i18nMixin from '@/mixins/i18nMixin';
@@ -105,15 +105,19 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
 
     const uploadRequest = this.imageNodeOptions.uploadRequest;
 
+    const loadingInstance = Loading.service({
+      target: '.el-tiptap-upload',
+    });
     try {
-      this.uploading = true;
       const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));
       this.editorContext.commands.image({ src: url });
       this.imageUploadDialogVisible = false;
     } catch (e) {
       Logger.error(e);
     } finally {
-      this.uploading = false;
+      this.$nextTick(() => {
+        loadingInstance.close();
+      });
     }
   }
 };
