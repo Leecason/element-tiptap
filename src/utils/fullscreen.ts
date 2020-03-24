@@ -1,6 +1,5 @@
 // @ts-nocheck
-import { warn } from '@/utils/console';
-import { ELEMENT_TIPTAP_TIP } from '@/constants';
+import Logger from '@/utils/logger';
 
 export function supportFullScreen (): boolean {
   const doc = document.documentElement;
@@ -33,7 +32,7 @@ export function requestFullscreen (element: Element): void {
   } else if (element.msRequestFullscreen) {
     element.msRequestFullscreen();
   } else {
-    warn(`[${ELEMENT_TIPTAP_TIP}] Fullscreen API is not supported.`);
+    Logger.warn('Fullscreen API is not supported');
   }
 }
 
@@ -47,7 +46,7 @@ export function exitFullscreen (): void {
   } else if (document.msExitFullscreen) {
     document.msExitFullscreen();
   } else {
-    warn(`[${ELEMENT_TIPTAP_TIP}] Fullscreen API is not supported.`);
+    Logger.warn('Fullscreen API is not supported');
   }
 }
 

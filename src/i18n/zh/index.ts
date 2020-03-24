@@ -53,10 +53,18 @@ export default {
         },
       },
       Image: {
-        tooltip: '插入图片',
         buttons: {
-          insert_by_url: '插入网络图片',
-          upload_image: '上传本地图片',
+          insert_image: {
+            tooltip: '插入图片',
+            external: '插入网络图片',
+            upload: '上传本地图片',
+          },
+          remove_image: {
+            tooltip: '删除',
+          },
+          image_options: {
+            tooltip: '图片属性',
+          },
         },
         control: {
           insert_by_url: {
@@ -69,6 +77,17 @@ export default {
           upload_image: {
             title: '上传本地图片',
             button: '将图片文件拖到此处或者点击上传',
+          },
+          edit_image: {
+            title: '编辑图片',
+            confirm: '更新',
+            cancel: '取消',
+            form: {
+              src: '图片链接',
+              alt: '备用文本描述',
+              width: '宽度',
+              height: '高度',
+            },
           },
         },
       },

@@ -53,10 +53,18 @@ export default {
         },
       },
       Image: {
-        tooltip: 'Вставить картинку',
         buttons: {
-          insert_by_url: 'Вставить картинку по адресу',
-          upload_image: 'Загрузить картинку',
+          insert_image: {
+            tooltip: 'Вставить картинку',
+            external: 'Вставить картинку по адресу',
+            upload: 'Загрузить картинку',
+          },
+          remove_image: {
+            tooltip: 'Удалить',
+          },
+          image_options: {
+            tooltip: 'Варианты изображения',
+          },
         },
         control: {
           insert_by_url: {
@@ -69,6 +77,17 @@ export default {
           upload_image: {
             title: 'Загрузить картинку',
             button: 'Выберите файл изображения или перетащите сюда',
+          },
+          edit_image: {
+            title: 'Редактировать изображение',
+            confirm: 'Обновить',
+            cancel: 'Отменить',
+            form: {
+              src: 'Адрес картинки',
+              alt: 'Альтернативный текст',
+              width: 'ширина',
+              height: 'Высота',
+            },
           },
         },
       },

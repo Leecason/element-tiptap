@@ -25,13 +25,6 @@
           class="image-resizer__handler"
           @mousedown="onMouseDown($event, direction)"
         />
-
-        <span
-          class="image-view__delete-trigger"
-          @click="removeImage"
-        >
-          <v-icon name="regular/trash-alt" />
-        </span>
       </div>
     </div>
   </span>
@@ -42,10 +35,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { NodeSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
-import { deleteSelection } from 'prosemirror-commands';
-import Icon from 'vue-awesome/components/Icon.vue';
-import 'vue-awesome/icons/regular/trash-alt';
+import { ResizeObserver } from '@juggle/resize-observer';
 import { resolveImg } from '@/utils/image';
+import { clamp } from '@/utils/shared';
 
 const enum ResizeDirection {
   TOP_LEFT = 'tl',
@@ -55,12 +47,9 @@ const enum ResizeDirection {
 };
 
 const MIN_SIZE = 20;
+const MAX_SIZE = 100000;
 
-@Component({
-  components: {
-    'v-icon': Icon,
-  },
-})
+@Component
 export default class ImageView extends Vue {
   @Prop({
     type: ProsemirrorNode,
@@ -92,10 +81,19 @@ export default class ImageView extends Vue {
   })
   readonly selected!: boolean;
 
+  maxSize = {
+    width: MAX_SIZE,
+    height: MAX_SIZE,
+  };
+
   originalSize = {
     width: 0,
     height: 0,
   };
+
+  resizeOb = new ResizeObserver(() => {
+    this.getMaxSize();
+  });
 
   resizeDirections = [
     ResizeDirection.TOP_LEFT,
@@ -147,6 +145,14 @@ export default class ImageView extends Vue {
     };
   }
 
+  private mounted () {
+    this.resizeOb.observe(this.view.dom);
+  }
+
+  private beforeDestroy () {
+    this.resizeOb.disconnect();
+  }
+
   // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
   private selectImage () {
     const { state } = this.view;
@@ -156,9 +162,9 @@ export default class ImageView extends Vue {
     this.view.dispatch(tr);
   }
 
-  private removeImage () {
-    const { state, dispatch } = this.view;
-    deleteSelection(state, dispatch);
+  private getMaxSize () {
+    const { width } = getComputedStyle(this.view.dom);
+    this.maxSize.width = parseInt(width, 10);
   }
 
   private onMouseDown (e: MouseEvent, dir: ResizeDirection): void {
@@ -173,14 +179,19 @@ export default class ImageView extends Vue {
     const aspectRatio = originalWidth / originalHeight;
 
     let { width, height } = this.node.attrs;
+    const maxWidth = this.maxSize.width;
 
     if (width && !height) {
+      width = width > maxWidth ? maxWidth : width;
       height = Math.round(width / aspectRatio);
     } else if (height && !width) {
       width = Math.round(height * aspectRatio);
+      width = width > maxWidth ? maxWidth : width;
     } else if (!width && !height) {
-      width = originalWidth;
-      height = originalHeight;
+      width = originalWidth > maxWidth ? maxWidth : originalWidth;
+      height = Math.round(width / aspectRatio);
+    } else {
+      width = width > maxWidth ? maxWidth : width;
     }
 
     this.resizerState.w = width;
@@ -203,7 +214,7 @@ export default class ImageView extends Vue {
     const dy = (e.clientY - y) * (/t/.test(dir) ? -1 : 1);
 
     this.updateAttrs({
-      width: Math.max(w + dx, MIN_SIZE),
+      width: clamp(w + dx, MIN_SIZE, this.maxSize.width),
       height: Math.max(h + dy, MIN_SIZE),
     });
   }

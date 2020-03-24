@@ -53,10 +53,18 @@ export default {
         },
       },
       Image: {
-        tooltip: 'Insert image',
         buttons: {
-          insert_by_url: 'Insert Image By Url',
-          upload_image: 'Upload Image',
+          insert_image: {
+            tooltip: 'Insert image',
+            external: 'Insert Image By Url',
+            upload: 'Upload Image',
+          },
+          remove_image: {
+            tooltip: 'Remove',
+          },
+          image_options: {
+            tooltip: 'Image options',
+          },
         },
         control: {
           insert_by_url: {
@@ -69,6 +77,17 @@ export default {
           upload_image: {
             title: 'Upload image',
             button: 'Choose an image file or drag it here',
+          },
+          edit_image: {
+            title: 'Edit image',
+            confirm: 'Update',
+            cancel: 'Cancel',
+            form: {
+              src: 'Image Url',
+              alt: 'Alternative Text',
+              width: 'Width',
+              height: 'Height',
+            },
           },
         },
       },

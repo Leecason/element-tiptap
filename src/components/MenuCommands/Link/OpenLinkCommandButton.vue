@@ -9,7 +9,7 @@
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import i18nMixin from '@/mixins/i18nMixin';
-import CommandButton from './CommandButton.vue';
+import CommandButton from '../CommandButton.vue';
 
 @Component({
   components: {

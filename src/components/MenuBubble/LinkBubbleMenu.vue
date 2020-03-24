@@ -16,9 +16,9 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
-import OpenLinkCommandButton from '@/components/MenuCommands/OpenLinkCommandButton.vue';
-import EditLinkCommandButton from '@/components/MenuCommands/EditLinkCommandButton.vue';
-import UnlinkCommandButton from '@/components/MenuCommands/UnlinkCommandButton.vue';
+import OpenLinkCommandButton from '@/components/MenuCommands/Link/OpenLinkCommandButton.vue';
+import EditLinkCommandButton from '@/components/MenuCommands/Link/EditLinkCommandButton.vue';
+import UnlinkCommandButton from '@/components/MenuCommands/Link/UnlinkCommandButton.vue';
 
 @Component({
   components: {
