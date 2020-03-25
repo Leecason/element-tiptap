@@ -7,11 +7,7 @@
     <div
       :class="{
         'el-tiptap-editor__menu-bubble--active':
-          editorContext.menu.isActive && (
-            editorContext.isActive.image()
-            || showLinkMenu
-            || showTextMenu
-          ),
+          editorContext.menu.isActive && (showLinkMenu || showTextMenu),
       }"
       :style="`
         left: ${ editorContext.menu.left }px;
@@ -19,14 +15,8 @@
       `"
       class="el-tiptap-editor__menu-bubble"
     >
-      <image-bubble-menu
-        v-if="editorContext.isActive.image()"
-        :editor="editor"
-        :editorContext="editorContext"
-      />
-
       <link-bubble-menu
-        v-else-if="showLinkMenu"
+        v-if="showLinkMenu"
         :editorContext="editorContext"
       />
 
@@ -52,13 +42,11 @@ import { getMarkRange } from 'tiptap-utils';
 import { MenuBtnViewType } from '@/../types';
 
 import LinkBubbleMenu from './LinkBubbleMenu.vue';
-import ImageBubbleMenu from './ImageBubbleMenu.vue';
 
 @Component({
   components: {
     EditorMenuBubble,
     LinkBubbleMenu,
-    ImageBubbleMenu,
   },
 })
 export default class MenuBubble extends Vue {

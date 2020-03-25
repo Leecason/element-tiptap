@@ -1,20 +1,21 @@
 <template>
   <div class="image-bubble-menu">
     <edit-image-command-button
-      :editor-context="editorContext"
-      :init-image-attrs="imageAttrs"
+      :node="node"
+      :update-attrs="updateAttrs"
+      :select-image="selectImage"
     />
 
     <remove-image-command-button
-      :editor-context="editorContext"
+      :view="view"
     />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Editor, MenuData } from 'tiptap';
-import { isNodeSelection } from 'prosemirror-utils';
+import { Node as ProsemirrorNode } from 'prosemirror-model';
+import { EditorView } from 'prosemirror-view';
 import EditImageCommandButton from '../MenuCommands/Image/EditImageCommandButton.vue';
 import RemoveImageCommandButton from '../MenuCommands/Image/RemoveImageCommandButton.vue';
 
@@ -26,31 +27,27 @@ import RemoveImageCommandButton from '../MenuCommands/Image/RemoveImageCommandBu
 })
 export default class ImageBubbleMenu extends Vue {
   @Prop({
-    type: Editor,
+    type: ProsemirrorNode,
     required: true,
   })
-  readonly editor!: Editor;
+  readonly node!: ProsemirrorNode;
 
   @Prop({
-    type: Object,
+    type: EditorView,
     required: true,
   })
-  readonly editorContext!: MenuData;
+  readonly view!: EditorView;
 
-  private get imageAttrs (): Object {
-    const { selection } = this.editor.state;
-    if (isNodeSelection(selection)) {
-      // @ts-ignore
-      const { node } = selection;
-      return node.attrs;
-    }
-    return {};
-  }
+  @Prop({
+    type: Function,
+    required: true,
+  })
+  readonly updateAttrs!: Function;
+
+  @Prop({
+    type: Function,
+    required: true,
+  })
+  readonly selectImage!: Function;
 };
 </script>
-
-<style lang="scss">
-.image-bubble-menu {
-  display: flex;
-}
-</style>

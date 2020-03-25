@@ -12,6 +12,7 @@
       :append-to-body="true"
       width="400px"
       custom-class="el-tiptap-edit-image-dialog"
+      @open="syncImageAttrs"
     >
       <el-form
         :model="imageAttrs"
@@ -81,8 +82,7 @@
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { Dialog, Form, FormItem, Input, Col } from 'element-ui';
-import { MenuData } from 'tiptap';
-import { ImageNodeAttrs } from '@/extensions/image';
+import { Node as ProsemirrorNode } from 'prosemirror-model';
 import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from '../CommandButton.vue';
 
@@ -98,40 +98,58 @@ import CommandButton from '../CommandButton.vue';
 })
 export default class EditImageCommandButton extends Mixins(i18nMixin) {
   @Prop({
-    type: Object,
+    type: ProsemirrorNode,
     required: true,
   })
-  readonly editorContext!: MenuData;
+  readonly node!: ProsemirrorNode;
 
   @Prop({
-    type: Object,
+    type: Function,
     required: true,
   })
-  readonly initImageAttrs!: ImageNodeAttrs;
+  readonly updateAttrs!: Function;
+
+  @Prop({
+    type: Function,
+    required: true,
+  })
+  readonly selectImage!: Function;
 
   editImageDialogVisible = false;
 
-  imageAttrs = {
-    ...this.initImageAttrs,
-  };
+  imageAttrs = this.getImageAttrs();
 
-  updateImageAttrs () {
-    const attrs: ImageNodeAttrs = {
-      ...this.imageAttrs,
+  private syncImageAttrs () {
+    this.imageAttrs = this.getImageAttrs();
+  }
+
+  private getImageAttrs () {
+    return {
+      src: this.node.attrs.src,
+      alt: this.node.attrs.alt,
+      width: this.node.attrs.width,
+      height: this.node.attrs.height,
     };
-    let { width, height } = attrs;
+  }
 
-    // Input converts it to string
+  private updateImageAttrs () {
+    let { width, height } = this.imageAttrs;
+
+    // input converts it to string
     // needs to be manually converted to number
     // @ts-ignore
     width = parseInt(width, 10);
     // @ts-ignore
     height = parseInt(height, 10);
 
-    attrs.width = width >= 0 ? width : null;
-    attrs.height = height >= 0 ? height : null;
+    this.updateAttrs({
+      alt: this.imageAttrs.alt,
+      width: width >= 0 ? width : null,
+      height: height >= 0 ? height : null,
+    });
 
-    this.editorContext.commands.update_image(attrs);
+    this.selectImage();
+
     this.closeEditImageDialog();
   }
 

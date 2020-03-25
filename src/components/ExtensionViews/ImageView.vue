@@ -26,18 +26,43 @@
           @mousedown="onMouseDown($event, direction)"
         />
       </div>
+
+      <!-- when image is break text or float
+      bubble menu's position is miscalculated
+      use el-popover instead bubble menu -->
+      <el-popover
+        :value="selected"
+        :visible-arrow="false"
+        placement="top"
+        trigger="manual"
+        popper-class="el-tiptap-image-popper"
+      >
+        <image-bubble-menu
+          :node="node"
+          :view="view"
+          :update-attrs="updateAttrs"
+          :select-image="selectImage"
+        />
+
+        <div
+          slot="reference"
+          class="image-view__body__placeholder"
+        />
+      </el-popover>
     </div>
   </span>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Popover } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { NodeSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { resolveImg } from '@/utils/image';
 import { clamp } from '@/utils/shared';
+import ImageBubbleMenu from '../MenuBubble/ImageBubbleMenu.vue';
 
 const enum ResizeDirection {
   TOP_LEFT = 'tl',
@@ -49,7 +74,12 @@ const enum ResizeDirection {
 const MIN_SIZE = 20;
 const MAX_SIZE = 100000;
 
-@Component
+@Component({
+  components: {
+    [Popover.name]: Popover,
+    ImageBubbleMenu,
+  },
+})
 export default class ImageView extends Vue {
   @Prop({
     type: ProsemirrorNode,

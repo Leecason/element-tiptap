@@ -1,7 +1,3 @@
-import { Transaction } from 'prosemirror-state';
-import { NodeType } from 'prosemirror-model';
-import { isNodeSelection } from 'prosemirror-utils';
-
 type ImageResult = {
   complete: boolean;
   width: number;
@@ -51,16 +47,4 @@ export function resolveImg (src: string): Promise<ImageResult> {
 
     img.src = src;
   });
-}
-
-export function updateImageAttrs (tr: Transaction, image: NodeType, attrs: Object): Transaction {
-  const { selection } = tr;
-  if (!selection) return tr;
-
-  if (!isNodeSelection(selection)) return tr;
-
-  // @ts-ignore
-  const { from, node } = selection;
-  tr = tr.setNodeMarkup(from, image, attrs, node.marks);
-  return tr;
 }
