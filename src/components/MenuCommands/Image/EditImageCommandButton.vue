@@ -136,11 +136,8 @@ export default class EditImageCommandButton extends Mixins(i18nMixin) {
     let { width, height } = this.imageAttrs;
 
     // input converts it to string
-    // needs to be manually converted to number
-    // @ts-ignore
-    width = parseInt(width, 10);
-    // @ts-ignore
-    height = parseInt(height, 10);
+    width = parseInt(width as string, 10);
+    height = parseInt(height as string, 10);
 
     this.updateAttrs({
       alt: this.imageAttrs.alt,

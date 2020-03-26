@@ -198,13 +198,25 @@
 
       display: inline-block;
       line-height: 0;
-      margin: 10px;
+      margin: 12px 0;
       max-width: 100%;
       user-select: none;
       vertical-align: baseline;
 
-      &--blocked {
+      &--block {
         display: block;
+      }
+
+      &--float-left {
+        float: left;
+        margin-left: 0;
+        margin-right: 12px;
+      }
+
+      &--float-right {
+        float: right;
+        margin-left: 12px;
+        margin-right: 0;
       }
 
       &__body {

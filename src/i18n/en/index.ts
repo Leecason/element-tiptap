@@ -69,6 +69,8 @@ export default {
             tooltip: 'Display',
             inline: 'Inline',
             break_text: 'Break Text',
+            float_left: 'Float Left',
+            float_right: 'Float Right',
           },
         },
         control: {

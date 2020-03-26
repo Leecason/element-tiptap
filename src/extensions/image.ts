@@ -5,12 +5,23 @@ import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
+import { ImageDisplay } from '@/constants';
 
 const IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
 // @ts-ignore
 function getAttrs (dom: HTMLElement): { [key: string]: any } {
+  const { cssFloat, display } = dom.style;
   let { width, height } = dom.style;
+
+  let dp = 'inline';
+  if (cssFloat === 'left' && !display) {
+    dp = 'left';
+  } else if (cssFloat === 'right' && !display) {
+    dp = 'right';
+  } else if (!cssFloat && display === 'block') {
+    dp = 'block';
+  }
 
   width = width || dom.getAttribute('width') || null;
   height = height || dom.getAttribute('height') || null;
@@ -21,6 +32,7 @@ function getAttrs (dom: HTMLElement): { [key: string]: any } {
     alt: dom.getAttribute('alt') || '',
     width: width == null ? null : parseInt(width, 10),
     height: height == null ? null : parseInt(height, 10),
+    display: dp,
   };
 }
 
@@ -51,8 +63,8 @@ export default class Image extends TiptapImage implements MenuBtnView {
         height: {
           default: null,
         },
-        inline: {
-          default: true,
+        display: {
+          default: ImageDisplay.INLINE,
         },
       },
       group: 'inline',

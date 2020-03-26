@@ -7,21 +7,16 @@
   >
     <div class="el-tiptap-popper__menu">
       <div
-        :class="{ 'el-tiptap-popper__menu__item--active': inline }"
+        v-for="display in displayCollection"
+        :key="display"
+        :class="{
+          'el-tiptap-popper__menu__item--active': display === currDisplay,
+        }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="updateAttrs({ inline: true })"
+        @click="updateAttrs({ display })"
       >
-        <span>{{ t('editor.extensions.Image.buttons.display.inline') }}</span>
-      </div>
-
-      <div
-        :class="{ 'el-tiptap-popper__menu__item--active': !inline }"
-        class="el-tiptap-popper__menu__item"
-        @mousedown="hidePopover"
-        @click="updateAttrs({ inline: false })"
-      >
-        <span>{{ t('editor.extensions.Image.buttons.display.break_text') }}</span>
+        <span>{{ t(`editor.extensions.Image.buttons.display.${display}`) }}</span>
       </div>
     </div>
 
@@ -38,6 +33,7 @@ import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { Popover } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import i18nMixin from '@/mixins/i18nMixin';
+import { ImageDisplay } from '@/constants';
 import CommandButton from '../CommandButton.vue';
 
 @Component({
@@ -61,8 +57,15 @@ export default class ImageDisplayCommandButton extends Mixins(i18nMixin) {
 
   popoverVisible = false;
 
-  private get inline () {
-    return this.node.attrs.inline;
+  displayCollection = [
+    ImageDisplay.INLINE,
+    ImageDisplay.BREAK_TEXT,
+    ImageDisplay.FLOAT_LEFT,
+    ImageDisplay.FLOAT_RIGHT,
+  ];
+
+  private get currDisplay () {
+    return this.node.attrs.display;
   }
 
   private hidePopover () {
