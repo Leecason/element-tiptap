@@ -1,3 +1,10 @@
+## [1.16.2](https://github.com/Leecason/element-tiptap/compare/@1.16.1...@1.16.2) (2020-03-26)
+
+
+### Bug Fixes
+
+* 🐛 spellcheck init in component partial usage (fix https://github.com/Leecason/element-tiptap/issues/31) ([8eb1e91](https://github.com/Leecason/element-tiptap/commit/8eb1e91c9eff3befee7111fc66a3df462ab06457))
+
 ## [1.16.1](https://github.com/Leecason/element-tiptap/compare/@1.16.0...@1.16.1) (2020-03-23)
 
 
