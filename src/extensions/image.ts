@@ -51,6 +51,9 @@ export default class Image extends TiptapImage implements MenuBtnView {
         height: {
           default: null,
         },
+        inline: {
+          default: true,
+        },
       },
       group: 'inline',
       draggable: true,

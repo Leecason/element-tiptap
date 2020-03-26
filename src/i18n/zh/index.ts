@@ -65,6 +65,11 @@ export default {
           image_options: {
             tooltip: '图片属性',
           },
+          display: {
+            tooltip: '布局',
+            inline: '内联',
+            break_text: '断行',
+          },
         },
         control: {
           insert_by_url: {

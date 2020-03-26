@@ -197,12 +197,15 @@
       $root: &;
 
       display: inline-block;
-      cursor: pointer;
       line-height: 0;
       margin: 10px;
       max-width: 100%;
       user-select: none;
       vertical-align: baseline;
+
+      &--blocked {
+        display: block;
+      }
 
       &__body {
         clear: both;
@@ -220,6 +223,7 @@
         }
 
         &__image {
+          cursor: pointer;
           max-width: 100%;
         }
       }

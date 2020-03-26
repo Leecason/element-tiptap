@@ -65,6 +65,11 @@ export default {
           image_options: {
             tooltip: 'Варианты изображения',
           },
+          display: {
+            tooltip: 'дисплей',
+            inline: 'Инлайн',
+            break_text: 'Разрыв текста',
+          },
         },
         control: {
           insert_by_url: {

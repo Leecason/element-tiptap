@@ -51,7 +51,9 @@
 }
 
 .el-tiptap-popper {
-  min-width: 0;
+  &.el-popper {
+    min-width: 0;
+  }
 
   &__menu {
     &__item {
@@ -60,6 +62,10 @@
       padding: 8px 0;
 
       &:hover {
+        color: $primary-color;
+      }
+
+      &--active {
         color: $primary-color;
       }
 

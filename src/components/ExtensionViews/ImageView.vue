@@ -157,7 +157,7 @@ export default class ImageView extends Vue {
   private get imageViewClass () {
     return {
       'image-view': true,
-      'image-view--focused': this.selected,
+      'image-view--blocked': !this.node.attrs.inline,
     };
   }
 

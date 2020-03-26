@@ -65,6 +65,11 @@ export default {
           image_options: {
             tooltip: 'Opcje obrazu',
           },
+          display: {
+            tooltip: 'Pokaz',
+            inline: 'Inline',
+            break_text: 'Podziel tekst',
+          },
         },
         control: {
           insert_by_url: {

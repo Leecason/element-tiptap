@@ -65,6 +65,11 @@ export default {
           image_options: {
             tooltip: 'Image options',
           },
+          display: {
+            tooltip: 'Display',
+            inline: 'Inline',
+            break_text: 'Break Text',
+          },
         },
         control: {
           insert_by_url: {
