@@ -167,7 +167,9 @@ export default class ElTiptap extends Mixins(i18nMixin) {
     let extensions: Extension[] = [];
 
     const spellcheck = this.spellcheck == null
-      ? this.$elementTiptapPlugin.spellcheck
+      ? this.$elementTiptapPlugin
+        ? this.$elementTiptapPlugin.spellcheck
+        : true
       : this.spellcheck;
 
     extensions = extensions.concat(
