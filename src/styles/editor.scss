@@ -203,6 +203,11 @@
       user-select: none;
       vertical-align: baseline;
 
+      &--inline {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
       &--block {
         display: block;
       }
@@ -223,7 +228,19 @@
         clear: both;
         display: inline-block;
         max-width: 100%;
+        outline-color: transparent;
+        outline-style: solid;
+        outline-width: 2px;
+        transition: all .2s ease-in;
         position: relative;
+
+        &:hover {
+          outline-color: #ffc83d;
+        }
+
+        &--focused:hover {
+          outline-color: transparent;
+        }
 
         &__placeholder {
           height: 100%;

@@ -2,7 +2,10 @@
   <span
     :class="imageViewClass"
   >
-    <div class="image-view__body">
+    <div
+      :class="{ 'image-view__body--focused': selected }"
+      class="image-view__body"
+    >
       <img
         :src="node.attrs.src"
         :title="node.attrs.title"
