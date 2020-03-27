@@ -232,12 +232,15 @@ import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
-    // editorContext contains some properties that are useful to you
-    // see https://github.com/scrumpy/tiptap#editormenubar
+    // editorContext contains some properties that are useful to you, such as isActive, commands, etc
+    // more detailed docs check this https://github.com/scrumpy/tiptap#editormenubar
     // this package append editor instance to editorContext
     return {
       component: CustomButton, // your component
-      componentProps: {
+      componentProps: { // bind to your component with v-bind
+        ...
+      },
+      componentEvents: { // bind to your component with v-on
         ...
       },
     },
@@ -267,6 +270,8 @@ export default {
 };
 </script>
 ```
+
+[Here](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545) is the example of how to create your extension button view (an extension can also render multiple menu buttons).
 
 ### placeholder
 

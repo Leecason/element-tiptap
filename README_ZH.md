@@ -227,12 +227,15 @@ import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
-    // editorContext 包含了一些对你有用的属性
-    // 见 https://github.com/scrumpy/tiptap#editormenubar
+    // editorContext 包含了一些对你有用的属性，例如 isActive, commands 等
+    // 更详细的文档请查看此 https://github.com/scrumpy/tiptap#editormenubar
     // ElementTiptap 将 editor 实例也添加到了其中
     return {
       component: CustomButton, // 你的组件
-      componentProps: {
+      componentProps: { // 会通过 v-bind 绑定到你的组件
+        ...
+      },
+      componentEvents: { // 会通过 v-on 绑定到你的组件
         ...
       },
     },
@@ -262,6 +265,8 @@ export default {
 };
 </script>
 ```
+
+这是一个是如何自定义 extension 菜单按钮的[示例](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545)(一个 extension 可对应多个菜单按钮)
 
 ### 占位符 placeholder
 
