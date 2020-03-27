@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="editor"
+    :style="editorSizeStyle"
     class="el-tiptap-editor"
   >
     <menu-bubble
@@ -45,12 +46,14 @@ import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 
 import { Placeholder } from 'tiptap-extensions';
 import ContentAttributes from '@/extensions/content_attributes';
-import { capitalize } from '@/utils/shared';
+import { isNaN, capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
 import i18nMixin from '@/mixins/i18nMixin';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
+
+const DEFAULT_EDITOR_SIZE_UNIT = 'px';
 
 const COMMON_EMIT_EVENTS: EVENTS[] = [
   EVENTS.TRANSACTION,
@@ -107,6 +110,18 @@ export default class ElTiptap extends Mixins(i18nMixin) {
   })
   readonly spellcheck!: boolean | undefined;
 
+  @Prop({
+    type: [String, Number],
+    default: undefined,
+  })
+  readonly width!: string | number;
+
+  @Prop({
+    type: [String, Number],
+    default: undefined,
+  })
+  readonly height!: string | number;
+
   editor: Editor | null = null;
   emitAfterOnUpdate: boolean = false;
 
@@ -114,6 +129,18 @@ export default class ElTiptap extends Mixins(i18nMixin) {
     if (!this.editor) return 0;
 
     return this.editor.state.doc.textContent.length;
+  }
+
+  get editorSizeStyle () {
+    let { width, height } = this;
+
+    width = isNaN(Number(width)) ? width : `${width}${DEFAULT_EDITOR_SIZE_UNIT}`;
+    height = isNaN(Number(height)) ? height : `${height}${DEFAULT_EDITOR_SIZE_UNIT}`;
+
+    return {
+      width,
+      height,
+    };
   }
 
   @Watch('content')

@@ -351,6 +351,27 @@ Default: plugin `spellcheck` option value
 
 Whether the content is spellcheck enabled.
 
+### width, height
+
+Type: `string | number`
+
+A string value with unit or a simple value (the default unit is **`px`**)：
+
+```html
+<el-tiptap
+  :width="700"
+  height="100%"
+>
+</el-tiptap>
+```
+
+The above example will be converted to:
+
+```css
+width: 700px;
+height: 100%;
+```
+
 ## 👽 Events
 
 ### Init

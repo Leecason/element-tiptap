@@ -1,5 +1,12 @@
 export function noop (): void {}
 
+/**
+ * Check whether a value is NaN
+ */
+export function isNaN (val: any) {
+  return Number.isNaN(val);
+}
+
 export function clamp (val: number, min: number, max: number): number {
   if (val < min) {
     return min;
