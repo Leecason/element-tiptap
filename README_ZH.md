@@ -175,7 +175,7 @@ export default {
 
 ### 扩展 extensions
 
-Type: `Array`
+类型: `Array`
 
 你可以只使用需要的 extension，对应的菜单按钮将会按照你声明的顺序被添加。
 
@@ -268,11 +268,21 @@ export default {
 
 这是一个是如何自定义 extension 菜单按钮的[示例](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545)(一个 extension 可对应多个菜单按钮)
 
+### editorProps
+
+类型: `Object`
+
+默认值: `{}`
+
+一个强大的 prop，你可以使用这个 prop 直接控制编辑器的行为，为自己定制编辑器。
+
+见 [Prosemirror editorProps](https://prosemirror.net/docs/ref/#view.EditorProps) 列表。
+
 ### 占位符 placeholder
 
-Type: `string`
+类型: `string`
 
-Default: `''`
+默认值: `''`
 
 当编辑器没有内容的时候，将会显示 placeholder。
 
@@ -284,9 +294,9 @@ Default: `''`
 
 ### 内容 content
 
-Type: `string`
+类型: `string`
 
-Default: `''`
+默认值: `''`
 
 编辑器的内容
 
@@ -307,9 +317,9 @@ Default: `''`
 
 ### 输出 output
 
-Type: `string`
+类型: `string`
 
-Default: `'html'`
+默认值: `'html'`
 
 可被定义为 `'html'`(默认) 或者 `'json'`.
 
@@ -319,14 +329,13 @@ Default: `'html'`
 />
 ```
 
-[prosemirror 数据解构](https://prosemirror.net/docs/guide/#doc)
-[html and json output demo](https://leecason.github.io/element-tiptap/#/preview)
+进一步了解: [prosemirror 数据结构](https://prosemirror.net/docs/guide/#doc)
 
 ### readonly
 
-Type: `boolean`
+类型: `boolean`
 
-Default: `false`
+默认值: `false`
 
 ```html
 <el-tiptap
@@ -338,9 +347,9 @@ Default: `false`
 
 ### spellcheck
 
-Type: `boolean`
+类型: `boolean`
 
-Default: 插件 `spellcheck` 配置项的值
+默认值: 插件 `spellcheck` 配置项的值
 
 ```html
 <el-tiptap
@@ -353,7 +362,7 @@ Default: 插件 `spellcheck` 配置项的值
 
 ### width, height
 
-Type: `string | number`
+类型: `string | number`
 
 带单位的字符串值，无单位的值会将 **`px`** 作为单位:
 
@@ -387,21 +396,17 @@ height: 100%;
 export default {
   ...
   methods: {
-    // 参数 (object)
-    // {
-    //   editor: Editor, // 编辑器 editor 的实例
-    // }
-    methods: {
-      onInit ({ editor }) {
+    /*
+     * tiptap editor 实例
+     * 阅读 https://tiptap.scrumpy.io/docs/guide/editor.html
+    */
+    onInit ({ editor }) {
 
-      },
     },
   },
 },
 </script>
 ```
-
-[tiptap editor properties](https://github.com/scrumpy/tiptap#editor-properties)
 
 ### Transaction, Focus, Blur, Paste, Drop
 

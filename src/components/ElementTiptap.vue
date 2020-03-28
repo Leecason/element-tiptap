@@ -43,8 +43,8 @@
 <script lang="ts">
 import { Component, Prop, Watch, Model, Mixins } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
-
 import { Placeholder } from 'tiptap-extensions';
+import { EditorProps } from 'prosemirror-view';
 import ContentAttributes from '@/extensions/content_attributes';
 import { isNaN, capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
@@ -88,6 +88,12 @@ export default class ElTiptap extends Mixins(i18nMixin) {
     default: '',
   })
   readonly placeholder!: string;
+
+  @Prop({
+    type: Object,
+    default: () => ({}),
+  })
+  readonly editorProps!: EditorProps;
 
   @Prop({
     type: String,
@@ -174,10 +180,11 @@ export default class ElTiptap extends Mixins(i18nMixin) {
 
     this.editor = new Editor({
       editable: !this.readonly,
+      editorProps: this.editorProps,
       useBuiltInExtensions: false,
       extensions,
-      content: this.content,
       ...eventOptions,
+      content: this.content,
       onUpdate: this.onUpdate.bind(this),
     });
 

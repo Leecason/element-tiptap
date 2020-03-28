@@ -273,6 +273,16 @@ export default {
 
 [Here](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545) is the example of how to create your extension button view (an extension can also render multiple menu buttons).
 
+### editorProps
+
+Type: `Object`
+
+Default: `{}`
+
+A powerful prop, you can use this prop to control the behavior of the editor directly, customize the editor for yourself.
+
+See the list of [Prosemirror editorProps](https://prosemirror.net/docs/ref/#view.EditorProps).
+
 ### placeholder
 
 Type: `string`
@@ -324,8 +334,7 @@ Output can be defined to `'html'` or `'json'`.
 />
 ```
 
-[prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
-[html and json output demo](https://leecason.github.io/element-tiptap/#/preview)
+further reading: [prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
 
 ### readonly
 
@@ -392,21 +401,17 @@ height: 100%;
 export default {
   ...
   methods: {
-    // arguments (object)
-    // {
-    //   editor: Editor, // tiptap editor instance
-    // }
-    methods: {
-      onInit ({ editor }) {
+    /*
+     * the tiptap editor instance
+     * see https://tiptap.scrumpy.io/docs/guide/editor.html
+    */
+    onInit ({ editor }) {
 
-      },
     },
   },
 },
 </script>
 ```
-
-[tiptap editor properties](https://github.com/scrumpy/tiptap#editor-properties)
 
 ### Transaction, Focus, Blur, Paste, Drop
 
