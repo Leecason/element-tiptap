@@ -68,9 +68,9 @@ export default {
           display: {
             tooltip: '布局',
             inline: '内联',
-            break_text: '断行',
-            float_left: '左浮动',
-            float_right: '右浮动',
+            block: '断行',
+            left: '左浮动',
+            right: '右浮动',
           },
         },
         control: {

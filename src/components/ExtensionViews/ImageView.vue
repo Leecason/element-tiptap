@@ -63,7 +63,7 @@ import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { NodeSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
 import { ResizeObserver } from '@juggle/resize-observer';
-import { resolveImg, ImageDisplay, IMAGE_DISPLAY_ATTR_MAPPING } from '@/utils/image';
+import { resolveImg, ImageDisplay } from '@/utils/image';
 import { clamp } from '@/utils/shared';
 import ImageBubbleMenu from '../MenuBubble/ImageBubbleMenu.vue';
 
@@ -164,7 +164,7 @@ export default class ImageView extends Vue {
   private get imageViewClass () {
     return [
       'image-view',
-      `image-view--${IMAGE_DISPLAY_ATTR_MAPPING.get(this.display)}`,
+      `image-view--${this.display}`,
     ];
   }
 

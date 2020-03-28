@@ -3,7 +3,7 @@ import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
-import { ImageDisplay, IMAGE_DISPLAY_ATTR_MAPPING } from '@/utils/image';
+import { ImageDisplay } from '@/utils/image';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
 
@@ -16,7 +16,7 @@ function getAttrs (dom: HTMLElement): { [key: string]: any } {
 
   let dp = dom.getAttribute('data-display') || dom.getAttribute('display');
   if (dp) {
-    dp = /(inline|block|float-left|float-right)/.test(dp) ? dp : ImageDisplay.INLINE;
+    dp = /(inline|block|left|right)/.test(dp) ? dp : ImageDisplay.INLINE;
   } else if (cssFloat === 'left' && !display) {
     dp = ImageDisplay.FLOAT_LEFT;
   } else if (cssFloat === 'right' && !display) {
@@ -51,9 +51,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
     height,
   };
 
-  if (IMAGE_DISPLAY_ATTR_MAPPING.has(display)) {
-    attrs['data-display'] = IMAGE_DISPLAY_ATTR_MAPPING.get(display);
-  }
+  attrs['data-display'] = display;
 
   return ['image', attrs];
 }

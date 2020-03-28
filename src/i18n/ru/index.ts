@@ -68,9 +68,9 @@ export default {
           display: {
             tooltip: 'дисплей',
             inline: 'Инлайн',
-            break_text: 'Разрыв текста',
-            float_left: 'Поплавок влево',
-            float_right: 'Поплавок справа',
+            block: 'Разрыв текста',
+            left: 'Поплавок влево',
+            right: 'Поплавок справа',
           },
         },
         control: {

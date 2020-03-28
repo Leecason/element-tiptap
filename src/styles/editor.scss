@@ -208,13 +208,13 @@
         display: block;
       }
 
-      &[data-display=float-left] {
+      &[data-display=left] {
         float: left;
         margin-left: 0;
         margin-right: 12px;
       }
 
-      &[data-display=float-right] {
+      &[data-display=right] {
         float: right;
         margin-left: 12px;
         margin-right: 0;
@@ -241,13 +241,13 @@
         display: block;
       }
 
-      &--float-left {
+      &--left {
         float: left;
         margin-left: 0;
         margin-right: 12px;
       }
 
-      &--float-right {
+      &--right {
         float: right;
         margin-left: 12px;
         margin-right: 0;

@@ -68,9 +68,9 @@ export default {
           display: {
             tooltip: 'Pokaz',
             inline: 'Inline',
-            break_text: 'Podziel tekst',
-            float_left: 'Przesuń w lewo',
-            float_right: 'Płyń w prawo',
+            block: 'Podziel tekst',
+            left: 'Przesuń w lewo',
+            right: 'Płyń w prawo',
           },
         },
         control: {
