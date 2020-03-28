@@ -33,7 +33,7 @@ import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { Popover } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import i18nMixin from '@/mixins/i18nMixin';
-import { ImageDisplay } from '@/constants';
+import { ImageDisplay } from '@/utils/image';
 import CommandButton from '../CommandButton.vue';
 
 @Component({

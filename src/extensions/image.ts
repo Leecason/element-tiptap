@@ -1,11 +1,11 @@
 // @ts-nocheck
-import { Node as ProsemirrorNode } from 'prosemirror-model';
+import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
+import { ImageDisplay, IMAGE_DISPLAY_ATTR_MAPPING } from '@/utils/image';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
-import { ImageDisplay } from '@/constants';
 
 const IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
@@ -14,13 +14,17 @@ function getAttrs (dom: HTMLElement): { [key: string]: any } {
   const { cssFloat, display } = dom.style;
   let { width, height } = dom.style;
 
-  let dp = 'inline';
-  if (cssFloat === 'left' && !display) {
-    dp = 'left';
+  let dp = dom.getAttribute('data-display') || dom.getAttribute('display');
+  if (dp) {
+    dp = /(inline|block|float-left|float-right)/.test(dp) ? dp : ImageDisplay.INLINE;
+  } else if (cssFloat === 'left' && !display) {
+    dp = ImageDisplay.FLOAT_LEFT;
   } else if (cssFloat === 'right' && !display) {
-    dp = 'right';
+    dp = ImageDisplay.FLOAT_RIGHT;
   } else if (!cssFloat && display === 'block') {
-    dp = 'block';
+    dp = ImageDisplay.BREAK_TEXT;
+  } else {
+    dp = ImageDisplay.INLINE;
   }
 
   width = width || dom.getAttribute('width') || null;
@@ -34,6 +38,24 @@ function getAttrs (dom: HTMLElement): { [key: string]: any } {
     height: height == null ? null : parseInt(height, 10),
     display: dp,
   };
+}
+
+function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+  const { src, alt, title, width, height, display } = node.attrs;
+
+  const attrs: { [key: string]: any } = {
+    src,
+    alt,
+    title,
+    width,
+    height,
+  };
+
+  if (IMAGE_DISPLAY_ATTR_MAPPING.has(display)) {
+    attrs['data-display'] = IMAGE_DISPLAY_ATTR_MAPPING.get(display);
+  }
+
+  return ['image', attrs];
 }
 
 export default class Image extends TiptapImage implements MenuBtnView {
@@ -70,7 +92,7 @@ export default class Image extends TiptapImage implements MenuBtnView {
       group: 'inline',
       draggable: true,
       parseDOM: [{ tag: 'img[src]', getAttrs }],
-      toDOM: (node: ProsemirrorNode) => ['img', node.attrs],
+      toDOM,
     };
   }
 

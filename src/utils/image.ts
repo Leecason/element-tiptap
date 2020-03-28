@@ -48,3 +48,17 @@ export function resolveImg (src: string): Promise<ImageResult> {
     img.src = src;
   });
 }
+
+export const enum ImageDisplay {
+  INLINE = 'inline',
+  BREAK_TEXT = 'break_text',
+  FLOAT_LEFT = 'float_left',
+  FLOAT_RIGHT = 'float_right',
+};
+
+export const IMAGE_DISPLAY_ATTR_MAPPING = new Map([
+  [ImageDisplay.INLINE, 'inline'],
+  [ImageDisplay.BREAK_TEXT, 'block'],
+  [ImageDisplay.FLOAT_LEFT, 'float-left'],
+  [ImageDisplay.FLOAT_RIGHT, 'float-right'],
+]);

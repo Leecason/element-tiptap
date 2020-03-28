@@ -63,17 +63,9 @@ import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { NodeSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
 import { ResizeObserver } from '@juggle/resize-observer';
-import { resolveImg } from '@/utils/image';
+import { resolveImg, ImageDisplay, IMAGE_DISPLAY_ATTR_MAPPING } from '@/utils/image';
 import { clamp } from '@/utils/shared';
-import { ImageDisplay } from '@/constants';
 import ImageBubbleMenu from '../MenuBubble/ImageBubbleMenu.vue';
-
-const IMAGE_DISPLAY_CLASS = {
-  inline: 'inline',
-  break_text: 'block',
-  float_left: 'float-left',
-  float_right: 'float-right',
-};
 
 const enum ResizeDirection {
   TOP_LEFT = 'tl',
@@ -172,7 +164,7 @@ export default class ImageView extends Vue {
   private get imageViewClass () {
     return [
       'image-view',
-      `image-view--${IMAGE_DISPLAY_CLASS[this.display]}`,
+      `image-view--${IMAGE_DISPLAY_ATTR_MAPPING.get(this.display)}`,
     ];
   }
 

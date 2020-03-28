@@ -22,10 +22,3 @@ export const enum EVENTS {
 };
 
 export const PREVIEW_WINDOW_WIDTH: string = '80vw';
-
-export const enum ImageDisplay {
-  INLINE = 'inline',
-  BREAK_TEXT = 'break_text',
-  FLOAT_LEFT = 'float_left',
-  FLOAT_RIGHT = 'float_right',
-};
