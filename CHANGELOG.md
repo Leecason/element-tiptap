@@ -1,3 +1,18 @@
+# [1.17.0](https://github.com/Leecason/element-tiptap/compare/@1.16.2...@1.17.0) (2020-03-28)
+
+
+### Features
+
+* **editor:** ✨ a new prop: editorProps, enable customize editor for yourself with it ([532e8a3](https://github.com/Leecason/element-tiptap/commit/532e8a34efdd69625c4615b310714a395c9334c9))
+* **editor:** ✨ add editor props: width, height (https://github.com/Leecason/element-tiptap/issues/23) ([1290fb0](https://github.com/Leecason/element-tiptap/commit/1290fb0f03da90297f58f4a708360e4656bdc64a))
+* **image:** ✨ add image bubble menu, enable edit image alt, width, height ([9791533](https://github.com/Leecason/element-tiptap/commit/9791533931532bf3a4ff9299d4b7e263afffe590))
+* **image:** ✨ enable update imgae display: float_left and float_right ([3adf51b](https://github.com/Leecason/element-tiptap/commit/3adf51b62d33982da0aafb582fe29cdc6bec69f7))
+* **image:** ✨ enable update imgae display: inline or break_text ([6f27fbd](https://github.com/Leecason/element-tiptap/commit/6f27fbd8577ceaa49e392b117e560f21e7c73af9))
+* **image:** ✨ parse img dom to node, add img data-display style ([a6680a4](https://github.com/Leecason/element-tiptap/commit/a6680a41aabd11cf4e344183570b9837a56529db))
+* **image:** 💫 add image-view outline hover color ([655cef3](https://github.com/Leecason/element-tiptap/commit/655cef3ba635fb553692122ec600f8520b896330))
+* **image:** 💫 improve image outline-color when resizing, try to resolve popover wrong position after edit size, add core func comments ([26f65ad](https://github.com/Leecason/element-tiptap/commit/26f65ada10f94ad8d3baecc9c26188baaae864ad))
+* **image:** 💫 show loading when image uploading ([c915aea](https://github.com/Leecason/element-tiptap/commit/c915aea2e1fe8ee84a248ed45f703dce31429471))
+
 ## [1.16.2](https://github.com/Leecason/element-tiptap/compare/@1.16.1...@1.16.2) (2020-03-26)
 
 
