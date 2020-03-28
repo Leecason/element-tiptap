@@ -1,13 +1,14 @@
 <template>
-  <span
-    :class="imageViewClass"
-  >
+  <span :class="imageViewClass">
     <div
-      :class="{ 'image-view__body--focused': selected }"
+      :class="{
+        'image-view__body--focused': selected,
+        'image-view__body--resizing': resizing,
+      }"
       class="image-view__body"
     >
       <img
-        :src="node.attrs.src"
+        :src="src"
         :title="node.attrs.title"
         :alt="node.attrs.alt"
         :width="width"
@@ -44,7 +45,6 @@
           :node="node"
           :view="view"
           :update-attrs="updateAttrs"
-          :select-image="selectImage"
         />
 
         <div
@@ -199,11 +199,16 @@ export default class ImageView extends Vue {
     this.view.dispatch(tr);
   }
 
+  /* invoked when window or editor resize */
   private getMaxSize () {
     const { width } = getComputedStyle(this.view.dom);
     this.maxSize.width = parseInt(width, 10);
   }
 
+  /* on resizer handler mousedown
+   * record the position where the event is triggered and resize direction
+   * calculate the initial width and height of the image
+   */
   private onMouseDown (e: MouseEvent, dir: ResizeDirection): void {
     e.preventDefault();
     e.stopPropagation();

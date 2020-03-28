@@ -8,7 +8,6 @@
     <edit-image-command-button
       :node="node"
       :update-attrs="updateAttrs"
-      :select-image="selectImage"
     />
 
     <remove-image-command-button
@@ -50,11 +49,5 @@ export default class ImageBubbleMenu extends Vue {
     required: true,
   })
   readonly updateAttrs!: Function;
-
-  @Prop({
-    type: Function,
-    required: true,
-  })
-  readonly selectImage!: Function;
 };
 </script>

@@ -109,12 +109,6 @@ export default class EditImageCommandButton extends Mixins(i18nMixin) {
   })
   readonly updateAttrs!: Function;
 
-  @Prop({
-    type: Function,
-    required: true,
-  })
-  readonly selectImage!: Function;
-
   editImageDialogVisible = false;
 
   imageAttrs = this.getImageAttrs();
@@ -144,8 +138,6 @@ export default class EditImageCommandButton extends Mixins(i18nMixin) {
       width: width >= 0 ? width : null,
       height: height >= 0 ? height : null,
     });
-
-    this.selectImage();
 
     this.closeEditImageDialog();
   }

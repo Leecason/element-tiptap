@@ -267,7 +267,8 @@
           outline-color: #ffc83d;
         }
 
-        &--focused:hover {
+        &--focused:hover,
+        &--resizing:hover {
           outline-color: transparent;
         }
 
