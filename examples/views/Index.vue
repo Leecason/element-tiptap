@@ -131,7 +131,7 @@ export default {
     justify-content: center;
     margin-top: 50px;
     margin-left: 10vw;
-    width: 600px;
+    width: 650px;
 
     .router-link {
       color: #fff;
