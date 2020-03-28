@@ -23,21 +23,20 @@ English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)(`demo of latest version`)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)(`demo of version 1.14.0`)
 
 ## ✨ Features
 
 - 🎨Use [element-ui](https://github.com/ElemeFE/element) components
-- 💅Many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
+- 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
 - 🌐I18n support(`en`, `zh`, `pl`, `ru`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- 🍀Fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror)
-- 🌂Customize all extension menu button view
-- 💭Menu buttons can render in menubar and bubble menu
+- 🍀Fully extensible, you can customize editor extension and its menu button view
+- 💻Also can control the behavior of the editor directly, customize the editor for yourself.
 
 ## 📦 Installation
 

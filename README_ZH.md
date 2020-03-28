@@ -23,21 +23,20 @@
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)(最新版本的 demo)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)(`1.14.0 版本的 demo`)
 
 ## ✨ 特色
 
 - 🎨使用 [element-ui](https://github.com/ElemeFE/element) 组件
-- 💅许多 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
+- 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
 - 🔖支持 markdown 语法
 - 📘TypeScript 支持
 - 🌐支持 i18n(`en`, `zh`, `pl`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- 🍀高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
-- 🌂自定义菜单按钮
-- 💭菜单按钮可以被渲染在菜单栏和气泡菜单中
+- 🍀高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
+- 💻也可以通过直接控制编辑器的行为来定制编辑器。
 
 ## 📦 安装
 
