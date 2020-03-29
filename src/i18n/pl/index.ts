@@ -197,6 +197,6 @@ export default {
         tooltip: 'Zaznacz wszystko',
       },
     },
-    characters: 'Postać',
+    characters: 'Znaki',
   },
 };
