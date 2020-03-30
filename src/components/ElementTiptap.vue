@@ -2,6 +2,7 @@
   <div
     v-if="editor"
     :style="editorSizeStyle"
+    :class="{ 'el-tiptap-editor--fullscreen': isFullscreen }"
     class="el-tiptap-editor"
   >
     <menu-bubble
@@ -41,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Model, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Watch, Provide, ProvideReactive, Model, Mixins } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 import { Placeholder } from 'tiptap-extensions';
 import { EditorProps } from 'prosemirror-view';
@@ -243,6 +244,12 @@ export default class ElTiptap extends Mixins(i18nMixin) {
     }
 
     this.$emit(this.genEvent(EVENTS.UPDATE), output, options);
+  }
+
+  // TODO: provide to fullscreen command button, need to be optimized
+  @ProvideReactive() isFullscreen = false;
+  @Provide() toggleFullscreen () {
+    this.isFullscreen = !this.isFullscreen;
   }
 
   private genEvent (event: EVENTS) {
