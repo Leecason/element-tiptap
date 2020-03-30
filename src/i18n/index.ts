@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { warn } from '@/utils/console';
+import Logger from '@/utils/logger';
 import en from './en';
 import zh from './zh';
 import pl from './pl';
@@ -21,7 +21,7 @@ export function useLang (l: string): void {
   if (dictionary[l]) {
     currentLang = dictionary[l];
   } else {
-    warn(`Can't find the current language "${l}", Using language "${defaultLang}" by default. Welcome contribution to https://github.com/Leecason/element-tiptap`);
+    Logger.warn(`Can't find the current language "${l}", Using language "${defaultLang}" by default. Welcome contribution to https://github.com/Leecason/element-tiptap`);
     currentLang = dictionary[defaultLang];
   }
 }

@@ -23,21 +23,20 @@
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)(最新版本的 demo)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)(`1.14.0 版本的 demo`)
 
 ## ✨ 特色
 
 - 🎨使用 [element-ui](https://github.com/ElemeFE/element) 组件
-- 💅许多 [内置 extension](https://github.com/Leecason/element-tiptap#extensions)
+- 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
 - 🔖支持 markdown 语法
 - 📘TypeScript 支持
 - 🌐支持 i18n(`en`, `zh`, `pl`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- 🍀高度自定义, 你可以使用 [tiptap](https://github.com/scrumpy/tiptap) 和 [Prosemirror](https://github.com/ProseMirror/prosemirror) 自定义 extension
-- 🌂自定义菜单按钮
-- 💭菜单按钮可以被渲染在菜单栏和气泡菜单中
+- 🍀高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
+- 💻也可以通过直接控制编辑器的行为来定制编辑器。
 
 ## 📦 安装
 
@@ -175,7 +174,7 @@ export default {
 
 ### 扩展 extensions
 
-Type: `Array`
+类型: `Array`
 
 你可以只使用需要的 extension，对应的菜单按钮将会按照你声明的顺序被添加。
 
@@ -227,12 +226,15 @@ import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
-    // editorContext 包含了一些对你有用的属性
-    // 见 https://github.com/scrumpy/tiptap#editormenubar
+    // editorContext 包含了一些对你有用的属性，例如 isActive, commands 等
+    // 更详细的文档请查看此 https://github.com/scrumpy/tiptap#editormenubar
     // ElementTiptap 将 editor 实例也添加到了其中
     return {
       component: CustomButton, // 你的组件
-      componentProps: {
+      componentProps: { // 会通过 v-bind 绑定到你的组件
+        ...
+      },
+      componentEvents: { // 会通过 v-on 绑定到你的组件
         ...
       },
     },
@@ -263,11 +265,23 @@ export default {
 </script>
 ```
 
+这是一个是如何自定义 extension 菜单按钮的[示例](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545)(一个 extension 可对应多个菜单按钮)
+
+### editorProps
+
+类型: `Object`
+
+默认值: `{}`
+
+一个强大的 prop，你可以使用这个 prop 直接控制编辑器的行为，为自己定制编辑器。
+
+见 [Prosemirror editorProps](https://prosemirror.net/docs/ref/#view.EditorProps) 列表。
+
 ### 占位符 placeholder
 
-Type: `string`
+类型: `string`
 
-Default: `''`
+默认值: `''`
 
 当编辑器没有内容的时候，将会显示 placeholder。
 
@@ -279,9 +293,9 @@ Default: `''`
 
 ### 内容 content
 
-Type: `string`
+类型: `string`
 
-Default: `''`
+默认值: `''`
 
 编辑器的内容
 
@@ -302,9 +316,9 @@ Default: `''`
 
 ### 输出 output
 
-Type: `string`
+类型: `string`
 
-Default: `'html'`
+默认值: `'html'`
 
 可被定义为 `'html'`(默认) 或者 `'json'`.
 
@@ -314,14 +328,13 @@ Default: `'html'`
 />
 ```
 
-[prosemirror 数据解构](https://prosemirror.net/docs/guide/#doc)
-[html and json output demo](https://leecason.github.io/element-tiptap/#/preview)
+进一步了解: [prosemirror 数据结构](https://prosemirror.net/docs/guide/#doc)
 
 ### readonly
 
-Type: `boolean`
+类型: `boolean`
 
-Default: `false`
+默认值: `false`
 
 ```html
 <el-tiptap
@@ -333,9 +346,9 @@ Default: `false`
 
 ### spellcheck
 
-Type: `boolean`
+类型: `boolean`
 
-Default: 插件 `spellcheck` 配置项的值
+默认值: 插件 `spellcheck` 配置项的值
 
 ```html
 <el-tiptap
@@ -345,6 +358,27 @@ Default: 插件 `spellcheck` 配置项的值
 ```
 
 编辑器内容是否开启拼写检查。
+
+### width, height
+
+类型: `string | number`
+
+带单位的字符串值，无单位的值会将 **`px`** 作为单位:
+
+```html
+<el-tiptap
+  :width="700"
+  height="100%"
+>
+</el-tiptap>
+```
+
+上例会被转换为:
+
+```css
+width: 700px;
+height: 100%;
+```
 
 ## 👽 事件 Events
 
@@ -361,21 +395,17 @@ Default: 插件 `spellcheck` 配置项的值
 export default {
   ...
   methods: {
-    // 参数 (object)
-    // {
-    //   editor: Editor, // 编辑器 editor 的实例
-    // }
-    methods: {
-      onInit ({ editor }) {
+    /*
+     * tiptap editor 实例
+     * 阅读 https://tiptap.scrumpy.io/docs/guide/editor.html
+    */
+    onInit ({ editor }) {
 
-      },
     },
   },
 },
 </script>
 ```
-
-[tiptap editor properties](https://github.com/scrumpy/tiptap#editor-properties)
 
 ### Transaction, Focus, Blur, Paste, Drop
 
@@ -434,15 +464,18 @@ export default {
 
 编辑器的底部，在编辑器内容的后面
 
-## 🏗 贡献
+## 🏗 贡献 ![PR or ISSUE](https://img.shields.io/badge/PR%20or%20ISSUE-welcome-brightgreen)
 
-1. fork 此项目
-2. 编辑你的代码
-3. PR to `develop` 分支
+1. 🍴Fork 此项目
+2. 🔀创建你的分支: `git checkout -b your-branch`
+3. 🎨编辑你的代码
+4. 📝Commit 你的代码，推荐 [Semantic Commit Messages (recommended)](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+5. 🚀Push 到你的分支: `git push origin your-branch`
+6. 🎉提交 PR 到 `develop` 分支
 
 _OR_
 
-1. 留下你的 issue
+留下你的 [issue](https://github.com/Leecason/element-tiptap/issues) - 欢迎任何有用的建议. 😜
 
 ## 📝 更新日志
 [更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)

@@ -12,7 +12,7 @@ import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MessageBox } from 'element-ui';
 import { MenuData } from 'tiptap';
 import i18nMixin from '@/mixins/i18nMixin';
-import CommandButton from './CommandButton.vue';
+import CommandButton from '../CommandButton.vue';
 
 @Component({
   components: {

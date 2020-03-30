@@ -23,21 +23,20 @@ English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)(`demo of latest version`)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)(`demo of version 1.14.0`)
 
 ## ✨ Features
 
 - 🎨Use [element-ui](https://github.com/ElemeFE/element) components
-- 💅Many [native extensions](https://github.com/Leecason/element-tiptap#extensions) can be used directly
+- 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
 - 🌐I18n support(`en`, `zh`, `pl`, `ru`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- 🍀Fully extensible, you can customize extension with [tiptap](https://github.com/scrumpy/tiptap) and [Prosemirror](https://github.com/ProseMirror/prosemirror)
-- 🌂Customize all extension menu button view
-- 💭Menu buttons can render in menubar and bubble menu
+- 🍀Fully extensible, you can customize editor extension and its menu button view
+- 💻Also can control the behavior of the editor directly, customize the editor for yourself.
 
 ## 📦 Installation
 
@@ -232,12 +231,15 @@ import { Bold } from 'element-tiptap';
 
 export default class CustomBold extends Bold {
   menuBtnView (editorContext) {
-    // editorContext contains some properties that are useful to you
-    // see https://github.com/scrumpy/tiptap#editormenubar
+    // editorContext contains some properties that are useful to you, such as isActive, commands, etc
+    // more detailed docs check this https://github.com/scrumpy/tiptap#editormenubar
     // this package append editor instance to editorContext
     return {
       component: CustomButton, // your component
-      componentProps: {
+      componentProps: { // bind to your component with v-bind
+        ...
+      },
+      componentEvents: { // bind to your component with v-on
         ...
       },
     },
@@ -267,6 +269,18 @@ export default {
 };
 </script>
 ```
+
+[Here](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545) is the example of how to create your extension button view (an extension can also render multiple menu buttons).
+
+### editorProps
+
+Type: `Object`
+
+Default: `{}`
+
+A powerful prop, you can use this prop to control the behavior of the editor directly, customize the editor for yourself.
+
+See the list of [Prosemirror editorProps](https://prosemirror.net/docs/ref/#view.EditorProps).
 
 ### placeholder
 
@@ -319,8 +333,7 @@ Output can be defined to `'html'` or `'json'`.
 />
 ```
 
-[prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
-[html and json output demo](https://leecason.github.io/element-tiptap/#/preview)
+further reading: [prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
 
 ### readonly
 
@@ -351,6 +364,27 @@ Default: plugin `spellcheck` option value
 
 Whether the content is spellcheck enabled.
 
+### width, height
+
+Type: `string | number`
+
+A string value with unit or a simple value (the default unit is **`px`**)：
+
+```html
+<el-tiptap
+  :width="700"
+  height="100%"
+>
+</el-tiptap>
+```
+
+The above example will be converted to:
+
+```css
+width: 700px;
+height: 100%;
+```
+
 ## 👽 Events
 
 ### Init
@@ -366,21 +400,17 @@ Whether the content is spellcheck enabled.
 export default {
   ...
   methods: {
-    // arguments (object)
-    // {
-    //   editor: Editor, // tiptap editor instance
-    // }
-    methods: {
-      onInit ({ editor }) {
+    /*
+     * the tiptap editor instance
+     * see https://tiptap.scrumpy.io/docs/guide/editor.html
+    */
+    onInit ({ editor }) {
 
-      },
     },
   },
 },
 </script>
 ```
-
-[tiptap editor properties](https://github.com/scrumpy/tiptap#editor-properties)
 
 ### Transaction, Focus, Blur, Paste, Drop
 
@@ -439,15 +469,18 @@ properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.
 
 Footer of the editor, after the editor content.
 
-## 🏗 Contribution
+## 🏗 Contributing ![PR or ISSUE](https://img.shields.io/badge/PR%20or%20ISSUE-welcome-brightgreen)
 
-1. fork this project
-2. edit code (semantic commit is better)
-3. PR to `develop` branch
+1. 🍴Fork it
+2. 🔀Create your branch: `git checkout -b your-branch`
+3. 🎨Make your changes
+4. 📝Commit your changes with [Semantic Commit Messages (recommended)](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+5. 🚀Push to the branch: `git push origin your-branch`
+6. 🎉Submit a PR to `develop` branch
 
 _OR_
 
-1. Just create an issue!
+Just submit an [issue](https://github.com/Leecason/element-tiptap/issues)! - any helpful suggestions are welcomed. 😜
 
 ## 📝 Changelog
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)

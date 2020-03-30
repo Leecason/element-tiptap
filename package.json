@@ -1,7 +1,7 @@
 {
   "name": "element-tiptap",
-  "version": "1.16.0",
-  "description": "A WYSIWYG editor based on Tiptap and Element.",
+  "version": "1.17.0",
+  "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element UI for Vue.js",
   "author": "leecason",
   "scripts": {
     "serve": "vue-cli-service serve --open examples/main.js",
@@ -12,13 +12,15 @@
   },
   "main": "lib/element-tiptap.common.js",
   "module": "lib/element-tiptap.esm.js",
-  "unpkg": "lib/element-tiptap.js",
+  "unpkg": "lib/element-tiptap.min.js",
+  "jsdelivr": "lib/element-tiptap.min.js",
   "files": [
     "lib/*",
     "src/*",
     "types/*"
   ],
   "dependencies": {
+    "@juggle/resize-observer": "^3.1.2",
     "core-js": "^3.4.3",
     "tiptap": "^1.26.6",
     "tiptap-extensions": "^1.28.6",
@@ -56,7 +58,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
-    "lint-staged": "^9.4.3",
+    "lint-staged": "^10.0.8",
     "node-sass": "^4.12.0",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^1.27.13",
@@ -86,7 +88,6 @@
     "pre-commit": "lint-staged"
   },
   "homepage": "https://github.com/Leecason/element-tiptapr#readme",
-  "jsdelivr": "lib/element-tiptap.js",
   "keywords": [
     "editor",
     "element",

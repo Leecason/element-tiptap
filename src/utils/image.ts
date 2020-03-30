@@ -48,3 +48,10 @@ export function resolveImg (src: string): Promise<ImageResult> {
     img.src = src;
   });
 }
+
+export const enum ImageDisplay {
+  INLINE = 'inline',
+  BREAK_TEXT = 'block',
+  FLOAT_LEFT = 'left',
+  FLOAT_RIGHT = 'right',
+};

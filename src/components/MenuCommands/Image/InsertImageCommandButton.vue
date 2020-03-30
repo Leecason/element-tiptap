@@ -10,20 +10,20 @@
           class="el-tiptap-popper__menu__item"
           @click="openUrlPrompt"
         >
-          <span>{{ t('editor.extensions.Image.buttons.insert_by_url') }}</span>
+          <span>{{ t('editor.extensions.Image.buttons.insert_image.external') }}</span>
         </div>
 
         <div
           class="el-tiptap-popper__menu__item"
           @click="imageUploadDialogVisible = true"
         >
-          <span>{{ t('editor.extensions.Image.buttons.upload_image') }}</span>
+          <span>{{ t('editor.extensions.Image.buttons.insert_image.upload') }}</span>
         </div>
       </div>
 
       <command-button
         slot="reference"
-        :tooltip="t('editor.extensions.Image.tooltip')"
+        :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
         icon="image"
       />
     </el-popover>
@@ -54,12 +54,13 @@
 
 <script lang="ts">
 import { Component, Prop, Mixins } from 'vue-property-decorator';
-import { Dialog, Upload, MessageBox, Popover } from 'element-ui';
+import { Dialog, Upload, MessageBox, Popover, Loading } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
 import i18nMixin from '@/mixins/i18nMixin';
 import { readFileDataUrl } from '@/utils/shared';
-import CommandButton from './CommandButton.vue';
+import Logger from '@/utils/logger';
+import CommandButton from '../CommandButton.vue';
 
 @Component({
   components: {
@@ -76,7 +77,8 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  imageUploadDialogVisible: boolean = false;
+  imageUploadDialogVisible = false;
+  uploading = false;
 
   private get imageNodeOptions () {
     return this.editorContext.editor.extensions.options.image;
@@ -102,11 +104,21 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
     const { file } = requestOptions;
 
     const uploadRequest = this.imageNodeOptions.uploadRequest;
-    const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));
 
-    this.editorContext.commands.image({ src: url });
-
-    this.imageUploadDialogVisible = false;
+    const loadingInstance = Loading.service({
+      target: '.el-tiptap-upload',
+    });
+    try {
+      const url = await (uploadRequest ? uploadRequest(file) : readFileDataUrl(file));
+      this.editorContext.commands.image({ src: url });
+      this.imageUploadDialogVisible = false;
+    } catch (e) {
+      Logger.error(e);
+    } finally {
+      this.$nextTick(() => {
+        loadingInstance.close();
+      });
+    }
   }
 };
 </script>

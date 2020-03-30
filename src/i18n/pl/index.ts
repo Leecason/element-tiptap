@@ -53,10 +53,25 @@ export default {
         },
       },
       Image: {
-        tooltip: 'Dodaj obraz',
         buttons: {
-          insert_by_url: 'Dodaj obraz online',
-          upload_image: 'Dodaj obraz z dysku',
+          insert_image: {
+            tooltip: 'Dodaj obraz',
+            external: 'Dodaj obraz online',
+            upload: 'Dodaj obraz z dysku',
+          },
+          remove_image: {
+            tooltip: 'Usuń',
+          },
+          image_options: {
+            tooltip: 'Opcje obrazu',
+          },
+          display: {
+            tooltip: 'Pokaz',
+            inline: 'Inline',
+            block: 'Podziel tekst',
+            left: 'Przesuń w lewo',
+            right: 'Płyń w prawo',
+          },
         },
         control: {
           insert_by_url: {
@@ -69,6 +84,17 @@ export default {
           upload_image: {
             title: 'Dodawanie obrazu z dysku',
             button: 'Wskaż obraz lub przeciągnij go tutaj',
+          },
+          edit_image: {
+            title: 'Edytuj obraz',
+            confirm: 'Aktualizacja',
+            cancel: 'Zamknij',
+            form: {
+              src: 'URL obrazu',
+              alt: 'Alternatywny Tekst',
+              width: 'Szerokość',
+              height: 'Wysokość',
+            },
           },
         },
       },
@@ -171,6 +197,6 @@ export default {
         tooltip: 'Zaznacz wszystko',
       },
     },
-    characters: 'Postać',
+    characters: 'Znaki',
   },
 };

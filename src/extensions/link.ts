@@ -7,7 +7,7 @@ import { updateMark, removeMark, CommandFunction } from 'tiptap-commands';
 import { getMarkRange } from 'tiptap-utils';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
-import AddLinkCommandButton from '@/components/MenuCommands/AddLinkCommandButton.vue';
+import AddLinkCommandButton from '@/components/MenuCommands/Link/AddLinkCommandButton.vue';
 
 export default class Link extends TiptapLink implements MenuBtnView {
   commands ({ type }: { type: MarkType }) {

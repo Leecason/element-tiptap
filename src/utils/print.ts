@@ -1,3 +1,5 @@
+import Logger from './logger';
+
 function printHtml (dom: Element) {
   const style :string = Array.from(document.querySelectorAll('style, link'))
     .reduce((str, style) => str + style.outerHTML, '');
@@ -33,7 +35,7 @@ function printHtml (dom: Element) {
           frameWindow.close();
         }, 10);
       } catch (err) {
-        console.log(err);
+        Logger.error(err);
       }
 
       setTimeout(function () {

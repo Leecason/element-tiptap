@@ -1,6 +1,6 @@
 <template>
   <command-button
-    :command="openApplyLinkControl"
+    :command="openEditLinkControl"
     :tooltip="t('editor.extensions.Link.edit.tooltip')"
     icon="edit"
   />
@@ -11,7 +11,7 @@ import { Component, Prop, Mixins } from 'vue-property-decorator';
 import { MessageBox } from 'element-ui';
 import { MenuData } from 'tiptap';
 import i18nMixin from '@/mixins/i18nMixin';
-import CommandButton from './CommandButton.vue';
+import CommandButton from '../CommandButton.vue';
 
 @Component({
   components: {
@@ -31,7 +31,7 @@ export default class EditLinkCommandButton extends Mixins(i18nMixin) {
   })
   readonly initUrl!: string;
 
-  openApplyLinkControl (): void {
+  openEditLinkControl (): void {
     MessageBox.prompt('', this.t('editor.extensions.Link.edit.control.title'), {
       confirmButtonText: this.t('editor.extensions.Link.edit.control.confirm'),
       cancelButtonText: this.t('editor.extensions.Link.edit.control.cancel'),

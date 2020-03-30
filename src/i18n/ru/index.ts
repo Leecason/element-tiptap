@@ -53,10 +53,25 @@ export default {
         },
       },
       Image: {
-        tooltip: 'Вставить картинку',
         buttons: {
-          insert_by_url: 'Вставить картинку по адресу',
-          upload_image: 'Загрузить картинку',
+          insert_image: {
+            tooltip: 'Вставить картинку',
+            external: 'Вставить картинку по адресу',
+            upload: 'Загрузить картинку',
+          },
+          remove_image: {
+            tooltip: 'Удалить',
+          },
+          image_options: {
+            tooltip: 'Варианты изображения',
+          },
+          display: {
+            tooltip: 'дисплей',
+            inline: 'Инлайн',
+            block: 'Разрыв текста',
+            left: 'Поплавок влево',
+            right: 'Поплавок справа',
+          },
         },
         control: {
           insert_by_url: {
@@ -69,6 +84,17 @@ export default {
           upload_image: {
             title: 'Загрузить картинку',
             button: 'Выберите файл изображения или перетащите сюда',
+          },
+          edit_image: {
+            title: 'Редактировать изображение',
+            confirm: 'Обновить',
+            cancel: 'Отменить',
+            form: {
+              src: 'Адрес картинки',
+              alt: 'Альтернативный текст',
+              width: 'ширина',
+              height: 'Высота',
+            },
           },
         },
       },
@@ -123,7 +149,7 @@ export default {
           add_column_after: 'Добавить столбец справа',
           delete_column: 'Удалить столбец',
           add_row_before: 'Добавить строку сверху',
-          add_row_after: 'Добавить строки снизу',
+          add_row_after: 'Добавить строку снизу',
           delete_row: 'Удалить строку',
           merge_cells: 'Объединить ячейки',
           split_cell: 'Разделить ячейки',
@@ -171,6 +197,6 @@ export default {
         tooltip: 'Выделить все',
       },
     },
-    characters: 'Символ',
+    characters: 'Количество символов',
   },
 };

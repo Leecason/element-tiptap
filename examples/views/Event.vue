@@ -3,6 +3,7 @@
     <el-tiptap
       :extensions="extensions"
       :content="content"
+      :editor-props="editorProps"
       placeholder="Write something ..."
       @onInit="onInitEvent"
       @onTransaction="onTransactionEvent"
@@ -64,37 +65,46 @@ export default {
         new History(),
       ],
 
+      editorProps: { // https://prosemirror.net/docs/ref/#view.EditorProps
+        handleKeyDown () {
+          console.log('🚀EditorProps: Keydown');
+        },
+        handleTextInput () {
+          console.log('🚀EditorProps: TextInput');
+        },
+      },
+
       content: '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
     };
   },
 
   methods: {
     onInitEvent () {
-      console.log('init');
+      console.log('🔥init');
     },
 
     onTransactionEvent () {
-      console.log('transaction');
+      console.log('🔥transaction');
     },
 
     onFocusEvent () {
-      console.log('focus');
+      console.log('🔥focus');
     },
 
     onBlurEvent () {
-      console.log('blur');
+      console.log('🔥blur');
     },
 
     onPasteEvent () {
-      console.log('paste');
+      console.log('🔥paste');
     },
 
     onDropEvent () {
-      console.log('drop');
+      console.log('🔥drop');
     },
 
     onUpdateEvent () {
-      console.log('update');
+      console.log('🔥update');
     },
   },
 };
