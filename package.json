@@ -1,6 +1,6 @@
 {
   "name": "element-tiptap",
-  "version": "1.17.0",
+  "version": "1.17.1",
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element UI for Vue.js",
   "author": "leecason",
   "scripts": {

@@ -1,3 +1,12 @@
+## [1.17.1](https://github.com/Leecason/element-tiptap/compare/@1.17.0...@1.17.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* 🐛 temporarily remove EditorView type check, https://github.com/Leecason/element-tiptap/issues/21#issuecomment-605615966 ([1232f26](https://github.com/Leecason/element-tiptap/commit/1232f269703c64fede92d85f0d51deefb737eb77)), closes [/github.com/Leecason/element-tiptap/issues/21#issuecomment-605615966](https://github.com//github.com/Leecason/element-tiptap/issues/21/issues/issuecomment-605615966)
+* **fullscreen:** 🐛 use fixed position instead fullscreen API because the append-to-body element is invisble in fullscreen mode https://github.com/Leecason/element-tiptap/issues/21#issuecomment-605615794 ([042a22a](https://github.com/Leecason/element-tiptap/commit/042a22afe3ea687e9158325164b19459debe12c1)), closes [/github.com/Leecason/element-tiptap/issues/21#issuecomment-605615794](https://github.com//github.com/Leecason/element-tiptap/issues/21/issues/issuecomment-605615794)
+* **i18n:** 🐛 fix wrong polish translation ([d2bb414](https://github.com/Leecason/element-tiptap/commit/d2bb414b3b8f6bc2536ad2b8eae3faa10c9664bf))
+
 # [1.17.0](https://github.com/Leecason/element-tiptap/compare/@1.16.2...@1.17.0) (2020-03-28)
 
 
