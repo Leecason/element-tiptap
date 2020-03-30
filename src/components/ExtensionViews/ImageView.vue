@@ -91,7 +91,9 @@ export default class ImageView extends Vue {
   readonly node!: ProsemirrorNode;
 
   @Prop({
-    type: EditorView,
+    // TODO: EditorView type check failed
+    // issue: https://github.com/Leecason/element-tiptap/issues/21#issuecomment-605615966
+    type: Object,
     required: true,
   })
   readonly view!: EditorView;

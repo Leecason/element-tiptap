@@ -20,7 +20,7 @@ import CommandButton from '../CommandButton.vue';
 })
 export default class RemoveImageCommandButton extends Mixins(i18nMixin) {
   @Prop({
-    type: EditorView,
+    type: Object,
     required: true,
   })
   readonly view!: EditorView;

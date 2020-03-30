@@ -39,7 +39,7 @@ export default class ImageBubbleMenu extends Vue {
   readonly node!: ProsemirrorNode;
 
   @Prop({
-    type: EditorView,
+    type: Object,
     required: true,
   })
   readonly view!: EditorView;

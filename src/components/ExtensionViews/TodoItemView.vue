@@ -46,7 +46,7 @@ export default class TodoItemView extends Vue {
   readonly node!: ProsemirrorNode;
 
   @Prop({
-    type: EditorView,
+    type: Object,
     required: true,
   })
   readonly view!: EditorView;
