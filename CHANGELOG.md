@@ -1,3 +1,11 @@
+## [1.17.2](https://github.com/Leecason/element-tiptap/compare/@1.17.1...@1.17.2) (2020-03-31)
+
+
+### Bug Fixes
+
+* **fullscreen:** 🐛 fix editor fullscreen width, height ([acc52dd](https://github.com/Leecason/element-tiptap/commit/acc52dde881508caf3892cc8b2998b673aa140f3))
+* 🐛 @ProvideReactive (https://github.com/Leecason/element-tiptap/issues/39) ([c5dc5b6](https://github.com/Leecason/element-tiptap/commit/c5dc5b6bf0b9230f32aa5b96d3adc32733a65882))
+
 ## [1.17.1](https://github.com/Leecason/element-tiptap/compare/@1.17.0...@1.17.1) (2020-03-30)
 
 
