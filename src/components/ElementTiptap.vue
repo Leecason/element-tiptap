@@ -70,6 +70,9 @@ const COMMON_EMIT_EVENTS: EVENTS[] = [
     MenuBubble,
     EditorContent,
   },
+  // fix @ProvideReactive
+  // https://github.com/kaorun343/vue-property-decorator/issues/277#issuecomment-558594655
+  inject: [],
 })
 export default class ElTiptap extends Mixins(i18nMixin) {
   @Prop({
