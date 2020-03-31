@@ -13,11 +13,13 @@
   &--fullscreen {
     border-radius: 0 !important;
     bottom: 0 !important;
+    height: 100% !important;
     left: 0 !important;
+    margin: 0 !important;
     position: fixed !important;
     right: 0 !important;
     top: 0 !important;
-    margin: 0 !important;
+    width: 100% !important;
     z-index: 500;
 
     #{$root}__menu-bar,
