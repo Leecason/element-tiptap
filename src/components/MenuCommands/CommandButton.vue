@@ -20,6 +20,7 @@
 import Icon from 'vue-awesome/components/Icon.vue';
 import 'vue-awesome/icons/heading';
 import 'vue-awesome/icons/font';
+import 'vue-awesome/icons/tint';
 import 'vue-awesome/icons/highlighter';
 import 'vue-awesome/icons/bold';
 import 'vue-awesome/icons/underline';

@@ -132,6 +132,9 @@ export default {
           },
         },
       },
+      FontType: {
+        tooltip: 'Schriftfamilie',
+      },
       TextColor: {
         tooltip: 'Textfarbe',
       },

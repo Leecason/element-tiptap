@@ -47,3 +47,11 @@ export function cached (fn: Function): Function {
 export const capitalize = cached((str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 });
+
+/**
+ * Strict object type check. Only returns true
+ * for plain JavaScript objects.
+ */
+export function isPlainObject (obj: any): boolean {
+  return Object.prototype.toString.call(obj) === '[object Object]';
+}

@@ -132,6 +132,9 @@ export default {
           },
         },
       },
+      FontType: {
+        tooltip: 'Rodzina czcionek',
+      },
       TextColor: {
         tooltip: 'Kolor tekstu',
       },

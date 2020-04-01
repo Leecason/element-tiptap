@@ -220,6 +220,7 @@ All available extensions:
 - `Print` (New)
 - `Fullscreen` (New)
 - `SelectAll` (New)
+- `FontType` (New)
 
 You can customize the extension menu button view
 
@@ -495,7 +496,7 @@ I'm continuously working to add in new features 💪.
 - [x] demo page
 - [x] `Table` extension
 - [x] `Iframe` extension
-- [ ] `FontFamily` extension
+- [x] `FontType` extension
 - [ ] `FontSize` extension
 - [x] `TextColor` extension
 - [x] `TextHighlight` extension

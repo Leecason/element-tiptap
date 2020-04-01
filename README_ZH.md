@@ -215,6 +215,7 @@ export default {
 - `Print` (新)
 - `Fullscreen` (新)
 - `SelectAll` (新)
+- `FontType` (新)
 
 你可以自定义菜单按钮的渲染视图
 
@@ -490,7 +491,7 @@ _OR_
 - [x] demo 页面
 - [x] `Table` extension
 - [x] `Iframe` extension
-- [ ] `FontFamily` extension
+- [x] `FontType` extension
 - [ ] `FontSize` extension
 - [x] `TextColor` extension
 - [x] `TextHighlight` extension

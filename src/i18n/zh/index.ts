@@ -132,6 +132,9 @@ export default {
           },
         },
       },
+      FontType: {
+        tooltip: '字体',
+      },
       TextColor: {
         tooltip: '文本颜色',
       },

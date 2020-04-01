@@ -72,7 +72,7 @@ export default class TextColor extends Mark implements MenuBtnView {
         colorSet: this.options.colors,
         selectedColor: getMarkAttrs('text_color').color,
         tooltip: t('editor.extensions.TextColor.tooltip'),
-        icon: 'font',
+        icon: 'tint',
       },
       componentEvents: {
         confirm: (color: string) => commands.text_color(color),
