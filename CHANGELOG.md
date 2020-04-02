@@ -1,3 +1,11 @@
+# [1.18.0](https://github.com/Leecason/element-tiptap/compare/@1.17.2...@1.18.0) (2020-04-02)
+
+
+### Features
+
+* **font-type:** ✨ add new extension FontType ([0c5bd28](https://github.com/Leecason/element-tiptap/commit/0c5bd28be985f3771222853989f1673c9c6f5e30))
+* **i18n:** support german ([46bd42c](https://github.com/Leecason/element-tiptap/commit/46bd42c38f6b9ed1fdf3ff23d7f37de93a0a5493))
+
 ## [1.17.2](https://github.com/Leecason/element-tiptap/compare/@1.17.1...@1.17.2) (2020-03-31)
 
 
