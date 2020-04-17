@@ -274,15 +274,28 @@ export default {
 
 这是一个是如何自定义 extension 菜单按钮的[示例](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545)(一个 extension 可对应多个菜单按钮)
 
-### editorProps
+### editorProperties
 
 类型: `Object`
 
 默认值: `{}`
 
-一个强大的 prop，你可以使用这个 prop 直接控制编辑器的行为，为自己定制编辑器。
+Tiptap `Editor` 属性（将作为参数传入 constructor）
 
-见 [Prosemirror editorProps](https://prosemirror.net/docs/ref/#view.EditorProps) 列表。
+[这里](https://github.com/scrumpy/tiptap#editor-properties)可以查看所有的属性
+
+[`editorProps`](https://prosemirror.net/docs/ref/#view.EditorProps) 是该列表中一个强大的属性，你可以使用这个属性直接控制编辑器的行为，为自己定制编辑器。
+
+❗一些不可用的属性❗(因为它们已经在这个包中被使用了):
+
+- `content`
+- `editable`
+- `useBuiltInExtensions`
+- `extensions`
+- `onInit`
+- `OnFocus`
+- `onBlur`
+- `onUpdate`
 
 ### 占位符 placeholder
 

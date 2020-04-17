@@ -274,15 +274,28 @@ export default {
 
 [Here](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545) is the example of how to create your extension button view (an extension can also render multiple menu buttons).
 
-### editorProps
+### editorProperties
 
 Type: `Object`
 
 Default: `{}`
 
-A powerful prop, you can use this prop to control the behavior of the editor directly, customize the editor for yourself.
+Tiptap `Editor` properties (passed to the constructor).
 
-See the list of [Prosemirror editorProps](https://prosemirror.net/docs/ref/#view.EditorProps).
+see the full list of properties [here](https://github.com/scrumpy/tiptap#editor-properties).
+
+[`editorProps`](https://prosemirror.net/docs/ref/#view.EditorProps) is a powerful prop in this list, you can use this prop to control the behavior of the editor directly, customize the editor for yourself.
+
+❗not available properties❗(they are used in this package):
+
+- `content`
+- `editable`
+- `useBuiltInExtensions`
+- `extensions`
+- `onInit`
+- `OnFocus`
+- `onBlur`
+- `onUpdate`
 
 ### placeholder
 

@@ -3,7 +3,7 @@
     <el-tiptap
       :extensions="extensions"
       :content="content"
-      :editor-props="editorProps"
+      :editor-properties="editorProperties"
       placeholder="Write something ..."
       @onInit="onInitEvent"
       @onTransaction="onTransactionEvent"
@@ -65,12 +65,14 @@ export default {
         new History(),
       ],
 
-      editorProps: { // https://prosemirror.net/docs/ref/#view.EditorProps
-        handleKeyDown () {
-          console.log('🚀EditorProps: Keydown');
-        },
-        handleTextInput () {
-          console.log('🚀EditorProps: TextInput');
+      editorProperties: {
+        editorProps: { // https://prosemirror.net/docs/ref/#view.EditorProps
+          handleKeyDown () {
+            console.log('🚀EditorProps: Keydown');
+          },
+          handleTextInput () {
+            console.log('🚀EditorProps: TextInput');
+          },
         },
       },
 
