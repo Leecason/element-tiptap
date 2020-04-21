@@ -162,10 +162,10 @@ export default {
       Indent: {
         buttons: {
           indent: {
-            tooltip: '增加锁进',
+            tooltip: '增加缩进',
           },
           outdent: {
-            tooltip: '减少锁进',
+            tooltip: '减少缩进',
           },
         },
       },
