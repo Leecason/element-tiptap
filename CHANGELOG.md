@@ -1,3 +1,16 @@
+# [1.19.0](https://github.com/Leecason/element-tiptap/compare/@1.18.0...@1.19.0) (2020-04-23)
+
+
+### Bug Fixes
+
+* 🐛 fix text highlight parseDOM (https://github.com/Leecason/element-tiptap/issues/59) ([b1dc509](https://github.com/Leecason/element-tiptap/commit/b1dc509d6376647defccf14cd6fd3852c40251f3))
+* 🐛 zh indent typo (https://github.com/Leecason/element-tiptap/issues/55) ([5a1a948](https://github.com/Leecason/element-tiptap/commit/5a1a948de13de25d4b26abb42a0e8a0ecc8b29ca))
+
+
+### Features
+
+* ✨ change prop editorProps to editorProperties (https://github.com/Leecason/element-tiptap/issues/47) ([66374dd](https://github.com/Leecason/element-tiptap/commit/66374ddf3b9590adef9bab4e6c03751f3743a658))
+
 # [1.18.0](https://github.com/Leecason/element-tiptap/compare/@1.17.2...@1.18.0) (2020-04-02)
 
 
