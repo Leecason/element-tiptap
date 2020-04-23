@@ -26,10 +26,12 @@ export default class TextHighlight extends Mark implements MenuBtnView {
       inline: true,
       group: 'inline',
       parseDOM: [{
-        style: 'span[style*=background-color]',
-        getAttrs: color => {
+        tag: 'span[style*=background-color]',
+        getAttrs: (dom: HTMLElement) => {
+          const { backgroundColor } = dom.style;
+
           return {
-            highlightColor: this.options.colors.includes(color) ? color : '',
+            highlightColor: backgroundColor,
           };
         },
       }],
