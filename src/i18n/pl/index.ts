@@ -135,6 +135,10 @@ export default {
       FontType: {
         tooltip: 'Rodzina czcionek',
       },
+      FontSize: {
+        tooltip: 'Rozmiar czcionki',
+        default: 'domyślna',
+      },
       TextColor: {
         tooltip: 'Kolor tekstu',
       },

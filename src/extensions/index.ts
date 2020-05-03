@@ -32,6 +32,7 @@ export { default as Link } from './link';
 export { default as TextColor } from './text_color';
 export { default as TextHighlight } from './text_highlight';
 export { default as FontType } from './font_type';
+export { default as FontSize } from './font_size';
 
 // extensions
 export { default as HorizontalRule } from './horizontal_rule';

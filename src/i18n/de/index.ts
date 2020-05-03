@@ -135,6 +135,10 @@ export default {
       FontType: {
         tooltip: 'Schriftfamilie',
       },
+      FontSize: {
+        tooltip: 'Schriftgröße',
+        default: 'standard',
+      },
       TextColor: {
         tooltip: 'Textfarbe',
       },

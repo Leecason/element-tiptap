@@ -222,6 +222,7 @@ export default {
 - `Fullscreen` (新)
 - `SelectAll` (新)
 - `FontType` (新)
+- `FontSize` (新)
 
 你可以自定义菜单按钮的渲染视图
 

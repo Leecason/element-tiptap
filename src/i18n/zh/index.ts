@@ -135,6 +135,10 @@ export default {
       FontType: {
         tooltip: '字体',
       },
+      FontSize: {
+        tooltip: '字号',
+        default: '默认',
+      },
       TextColor: {
         tooltip: '文本颜色',
       },

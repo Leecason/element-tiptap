@@ -41,6 +41,7 @@ import 'vue-awesome/icons/align-left';
 import 'vue-awesome/icons/align-center';
 import 'vue-awesome/icons/align-right';
 import 'vue-awesome/icons/align-justify';
+import 'vue-awesome/icons/text-width';
 import 'vue-awesome/icons/text-height';
 import 'vue-awesome/icons/list-ul';
 import 'vue-awesome/icons/list-ol';

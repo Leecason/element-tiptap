@@ -222,6 +222,7 @@ All available extensions:
 - `Fullscreen` (New)
 - `SelectAll` (New)
 - `FontType` (New)
+- `FontSize` (New)
 
 You can customize the extension menu button view
 
