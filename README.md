@@ -159,7 +159,7 @@ export default {
       new Paragraph(),
       new Heading({ level: 5 }),
       new Bold({ bubble: true }), // render command-button in bubble menu.
-      new Underline(),
+      new Underline({ bubble: true, menubar: false }), // render command-button in bubble menu but not in menubar.
       new Italic(),
       new Strike(),
       new ListItem(),

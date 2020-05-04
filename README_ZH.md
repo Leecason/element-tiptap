@@ -159,7 +159,7 @@ export default {
       new Paragraph(),
       new Heading({ level: 5 }),
       new Bold({ bubble: true }), // 在气泡菜单中渲染菜单按钮
-      new Underline(),
+      new Underline({ bubble: true, menubar: false }), // 在气泡菜单而不在菜单栏中渲染菜单按钮
       new Italic(),
       new Strike(),
       new ListItem(),
