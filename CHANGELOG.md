@@ -1,3 +1,12 @@
+# [1.20.0](https://github.com/Leecason/element-tiptap/compare/@1.19.0...@1.20.0) (2020-05-05)
+
+
+### Features
+
+* ✨ `Print` extension bind `Mod-p` keymap ([d231ac9](https://github.com/Leecason/element-tiptap/commit/d231ac9f06aa5149e538c6583a4f6f21a9a86db4))
+* ✨ can set `menubar: false` to prevent the button from rendering in the menubar (https://github.com/Leecason/element-tiptap/issues/53) ([644d3dd](https://github.com/Leecason/element-tiptap/commit/644d3dda933d881dcc198c097cae0f826a89194e))
+* ✨ new FontSize extension (https://github.com/Leecason/element-tiptap/issues/54) ([103ef46](https://github.com/Leecason/element-tiptap/commit/103ef46277140cc54836352b502bf22bc2406ac6))
+
 # [1.19.0](https://github.com/Leecason/element-tiptap/compare/@1.18.0...@1.19.0) (2020-04-23)
 
 
