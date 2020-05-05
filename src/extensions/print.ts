@@ -2,8 +2,8 @@ import { Extension, MenuData } from 'tiptap';
 import { CommandFunction } from 'tiptap-commands';
 import { MenuBtnView } from '@/../types';
 import { t } from '@/i18n/index';
+import { printEditorContent } from '@/utils/print';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
-import printHtml from '../utils/print';
 
 export default class Print extends Extension implements MenuBtnView {
   get name () {
@@ -12,12 +12,16 @@ export default class Print extends Extension implements MenuBtnView {
 
   commands () {
     return (): CommandFunction => (_state, _dispatch, view) => {
-      const editorContent = view.dom.closest('.el-tiptap-editor__content');
-      if (editorContent) {
-        printHtml(editorContent);
-        return true;
-      }
-      return false;
+      return printEditorContent(view);
+    };
+  }
+
+  keys () {
+    return {
+      // @ts-ignore
+      'Mod-p': (_state, _dispatch, view) => {
+        return printEditorContent(view);
+      },
     };
   }
 

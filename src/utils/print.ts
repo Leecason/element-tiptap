@@ -1,3 +1,4 @@
+import { EditorView } from 'prosemirror-view';
 import Logger from './logger';
 
 function printHtml (dom: Element) {
@@ -45,4 +46,11 @@ function printHtml (dom: Element) {
   }
 }
 
-export default printHtml;
+export function printEditorContent (view: EditorView) {
+  const editorContent = view.dom.closest('.el-tiptap-editor__content');
+  if (editorContent) {
+    printHtml(editorContent);
+    return true;
+  }
+  return false;
+}
