@@ -36,7 +36,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
   attrs['data-done'] = done.toString();
 
   if (textAlign && textAlign !== 'left') {
-    attrs['data-text-align'] = textAlign;
+    style += `text-align: ${textAlign}`;
   }
 
   if (lineHeight) {

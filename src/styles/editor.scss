@@ -404,18 +404,6 @@
       margin-bottom: 20px;
     }
 
-    *[data-text-align=right] {
-      text-align: right !important;
-    }
-
-    *[data-text-align=center] {
-      text-align: center !important;
-    }
-
-    *[data-text-align=justify] {
-      text-align: justify !important;
-    }
-
     @for $i from 1 through 7 /* max-indent */ {
       $indent-margin-base: 30px;
 
