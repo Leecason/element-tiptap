@@ -53,7 +53,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 
   attrs['data-display'] = display;
 
-  return ['image', attrs];
+  return ['img', attrs];
 }
 
 export default class Image extends TiptapImage implements MenuBtnView {
