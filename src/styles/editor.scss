@@ -4,9 +4,11 @@
   $root: &;
 
   box-sizing: border-box;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   max-height: 100%;
+  overflow: hidden;
   position: relative;
   width: 100%;
 
@@ -36,14 +38,13 @@
     border-top: 0;
     color: $black-color;
     flex-grow: 1;
-    padding: 20px;
+    padding: 30px 20px;
   }
 
   &__menu-bar {
     background-color: $white-color;
     border: 1px solid $lighter-border-color;
     border-bottom: 0;
-    border-radius: 8px 8px 0 0;
     display: flex;
     flex-shrink: 0;
     flex-wrap: wrap;
@@ -491,7 +492,6 @@
   &__footer {
     align-items: center;
     background-color: $white-color;
-    border-radius: 0 0 8px 8px;
     border: 1px solid $lighter-border-color;
     display: flex;
     font-family: sans-serif;

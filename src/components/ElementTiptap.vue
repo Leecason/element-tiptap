@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="editor"
-    :style="editorSizeStyle"
+    :style="elTiptapEditorStyle"
     :class="{ 'el-tiptap-editor--fullscreen': isFullscreen }"
     class="el-tiptap-editor"
   >
@@ -10,6 +10,7 @@
     />
 
     <menu-bar
+      v-if="showMenubar"
       :editor="editor"
     >
       <template
@@ -32,7 +33,10 @@
       name="footer"
       :editor="editor"
     >
-      <div class="el-tiptap-editor__footer">
+      <div
+        v-if="charCounterCount"
+        class="el-tiptap-editor__footer"
+      >
         <span class="el-tiptap-editor__characters">
           {{ t('editor.characters') }}: {{ characters }}
         </span>
@@ -46,14 +50,13 @@ import { Component, Prop, Watch, Provide, ProvideReactive, Model, Mixins } from 
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 import { Placeholder } from 'tiptap-extensions';
 import ContentAttributes from '@/extensions/content_attributes';
-import { isNaN, capitalize } from '@/utils/shared';
+import { capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
+import EditorStylesMixin from '@/mixins/EditorStylesMixin';
 import i18nMixin from '@/mixins/i18nMixin';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
-
-const DEFAULT_EDITOR_SIZE_UNIT = 'px';
 
 const COMMON_EMIT_EVENTS: EVENTS[] = [
   EVENTS.TRANSACTION,
@@ -73,7 +76,7 @@ const COMMON_EMIT_EVENTS: EVENTS[] = [
   // https://github.com/kaorun343/vue-property-decorator/issues/277#issuecomment-558594655
   inject: [],
 })
-export default class ElTiptap extends Mixins(i18nMixin) {
+export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
   @Prop({
     type: Array,
     default: () => [],
@@ -119,18 +122,6 @@ export default class ElTiptap extends Mixins(i18nMixin) {
   })
   readonly spellcheck!: boolean | undefined;
 
-  @Prop({
-    type: [String, Number],
-    default: undefined,
-  })
-  readonly width!: string | number;
-
-  @Prop({
-    type: [String, Number],
-    default: undefined,
-  })
-  readonly height!: string | number;
-
   editor: Editor | null = null;
   emitAfterOnUpdate: boolean = false;
 
@@ -138,18 +129,6 @@ export default class ElTiptap extends Mixins(i18nMixin) {
     if (!this.editor) return 0;
 
     return this.editor.state.doc.textContent.length;
-  }
-
-  get editorSizeStyle () {
-    let { width, height } = this;
-
-    width = isNaN(Number(width)) ? width : `${width}${DEFAULT_EDITOR_SIZE_UNIT}`;
-    height = isNaN(Number(height)) ? height : `${height}${DEFAULT_EDITOR_SIZE_UNIT}`;
-
-    return {
-      width,
-      height,
-    };
   }
 
   @Watch('content')
