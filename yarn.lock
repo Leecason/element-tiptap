@@ -13567,9 +13567,9 @@ vue-awesome@^4.0.2:
     nanoid "^2.1.6"
 
 vue-class-component@^7.0.2, vue-class-component@^7.1.0:
-  version "7.2.2"
-  resolved "https://registry.npm.taobao.org/vue-class-component/download/vue-class-component-7.2.2.tgz#aecc6d28801f64c61eb04407cf3a5476da26b0c0"
-  integrity sha1-rsxtKIAfZMYesEQHzzpUdtomsMA=
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.3.tgz#a5b1abd53513a72ad51098752e2dedd499807cca"
+  integrity sha512-oEqYpXKaFN+TaXU+mRLEx8dX0ah85aAJEe61mpdoUrq0Bhe/6sWhyZX1JjMQLhVsHAkncyhedhmCdDVSasUtDw==
 
 vue-eslint-parser@^7.0.0:
   version "7.0.0"
