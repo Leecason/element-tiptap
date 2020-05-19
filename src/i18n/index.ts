@@ -5,6 +5,7 @@ import zh from './zh';
 import pl from './pl';
 import ru from './ru';
 import de from './de';
+import ko from './ko';
 
 const defaultLang = 'en';
 const dictionary = {
@@ -13,6 +14,7 @@ const dictionary = {
   pl,
   ru,
   de,
+  ko,
 };
 
 let currentLang: object = dictionary[defaultLang];
