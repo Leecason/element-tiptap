@@ -7,6 +7,7 @@ const AllExtensions = () => import('../views/AllExtensions.vue');
 const BubbleMenu = () => import('../views/BubbleMenu.vue');
 const Placeholder = () => import('../views/Placeholder.vue');
 const Readonly = () => import('../views/Readonly.vue');
+const Title = () => import('../views/Title.vue');
 const CustomMenubar = () => import('../views/CustomMenubar.vue');
 const Event = () => import('../views/Event.vue');
 const Output = () => import('../views/Output.vue');
@@ -42,6 +43,11 @@ const routes = [
         name: 'Readonly',
         path: '/readonly',
         component: Readonly,
+      },
+      {
+        name: 'Title',
+        path: '/title',
+        component: Title,
       },
       {
         name: 'CustomMenubar',

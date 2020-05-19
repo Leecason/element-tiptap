@@ -25,6 +25,7 @@ const ALLOWED_NODE_TYPES = [
   'heading',
   'list_item',
   'todo_item',
+  'title',
 ];
 
 interface SetTextAlignTask {

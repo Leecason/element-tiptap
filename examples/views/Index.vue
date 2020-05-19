@@ -83,6 +83,10 @@ export default {
         route: 'Readonly',
       },
       {
+        label: 'Title',
+        route: 'Title',
+      },
+      {
         label: 'Custom Menubar',
         route: 'CustomMenubar',
       },

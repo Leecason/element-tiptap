@@ -1,4 +1,4 @@
-export { Doc, Text } from 'tiptap';
+export { Text } from 'tiptap';
 
 export {
   Code,
@@ -10,6 +10,8 @@ export {
 } from 'tiptap-extensions';
 
 // nodes
+export { default as Doc } from './doc';
+export { default as Title } from './title';
 export { default as Paragraph } from './paragraph';
 export { default as Heading } from './heading';
 export { default as Blockquote } from './blockquote';

@@ -50,6 +50,7 @@ import { Component, Prop, Watch, Provide, ProvideReactive, Model, Mixins } from 
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 import { Placeholder } from 'tiptap-extensions';
 import ContentAttributes from '@/extensions/content_attributes';
+import Title from '@/extensions/title';
 import { capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
 import EditorStylesMixin from '@/mixins/EditorStylesMixin';
@@ -57,6 +58,7 @@ import i18nMixin from '@/mixins/i18nMixin';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
+import Logger from '../utils/logger';
 
 const COMMON_EMIT_EVENTS: EVENTS[] = [
   EVENTS.TRANSACTION,
@@ -180,21 +182,31 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
   }
 
   private generateExtensions (): Array<Extension> {
-    let extensions: Extension[] = [];
+    const extensions: Extension[] = [...this.extensions];
 
+    // spellcheck
     const spellcheck = this.spellcheck == null
       ? this.$elementTiptapPlugin
         ? this.$elementTiptapPlugin.spellcheck
         : true
       : this.spellcheck;
 
-    extensions = extensions.concat(
+    extensions.push(
       new ContentAttributes({
         spellcheck,
       }),
     );
-    extensions = extensions.concat([...this.extensions]);
 
+    // has title
+    const doc = this.extensions[0];
+    if (doc.name !== 'doc') {
+      Logger.warn('\'Doc\' shuold be the first extension');
+    }
+    if (doc.options.title) {
+      extensions.push(new Title());
+    }
+
+    // placeholder
     if (this.placeholder) {
       extensions.push(
         new Placeholder({
