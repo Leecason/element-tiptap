@@ -1,3 +1,18 @@
+# [1.21.0](https://github.com/Leecason/element-tiptap/compare/@1.20.0...@1.21.0) (2020-05-19)
+
+
+### Bug Fixes
+
+* 🐛 tweak image tag from `image` to `img` (https://github.com/Leecason/element-tiptap/issues/79) ([627c5ab](https://github.com/Leecason/element-tiptap/commit/627c5aba376df82a699948709304a1f503aac1e7))
+* 🐛 use `text-align` style instead `data-text-align` attr (https://github.com/Leecason/element-tiptap/issues/77) ([2998667](https://github.com/Leecason/element-tiptap/commit/29986674a91688eca0f3864c5da15273a5f495f8))
+
+
+### Features
+
+* ✨ `Doc` extension support `title` option ([167dd88](https://github.com/Leecason/element-tiptap/commit/167dd88463a58ca7684f3cedb49caf0c20f5d61f))
+* ✨ support `showMenubar` and `charCounterCount` props (https://github.com/Leecason/element-tiptap/issues/75) ([a8cb334](https://github.com/Leecason/element-tiptap/commit/a8cb3344cddbc779bf057f2063c746c2641e0afd))
+* add i18n korean support ([d792b61](https://github.com/Leecason/element-tiptap/commit/d792b617f0f8af8eb10bffd1960b55e700b1b035))
+
 # [1.20.0](https://github.com/Leecason/element-tiptap/compare/@1.19.0...@1.20.0) (2020-05-05)
 
 
