@@ -33,7 +33,7 @@ English | [简体中文](./README_ZH.md)
 - 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
-- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`). welcome to contribute more languages
+- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀Fully extensible, you can customize editor extension and its menu button view
 - 💻Also can control the behavior of the editor directly, customize the editor for yourself.
@@ -118,6 +118,7 @@ Available languages:
 - `pl` by @FurtakM
 - `ru` by @baitkul
 - `de` by @Thesicstar
+- `ko` by @Hotbrains
 
 Welcome contribution.
 
@@ -401,6 +402,22 @@ width: 700px;
 height: 100%;
 ```
 
+### showMenubar
+
+Type: `boolean`
+
+Default: `true`
+
+Enables or disables the display of the menubar.
+
+### charCounterCount
+
+Type: `boolean`
+
+Default: `true`
+
+Enables or disables the display of the character counter.
+
 ## 👽 Events
 
 ### Init
@@ -512,7 +529,7 @@ I'm continuously working to add in new features 💪.
 - [x] `Table` extension
 - [x] `Iframe` extension
 - [x] `FontType` extension
-- [ ] `FontSize` extension
+- [x] `FontSize` extension
 - [x] `TextColor` extension
 - [x] `TextHighlight` extension
 - [ ] `Emoji` extension
@@ -524,3 +541,4 @@ I'm continuously working to add in new features 💪.
 - [x] readonly editor
 - [x] image resizable
 - [ ] theme
+- [ ] more detailed docs

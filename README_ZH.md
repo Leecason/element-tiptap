@@ -33,7 +33,7 @@
 - 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
 - 🔖支持 markdown 语法
 - 📘TypeScript 支持
-- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`). 欢迎贡献更多的语言
+- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
 - 💻也可以通过直接控制编辑器的行为来定制编辑器。
@@ -118,6 +118,7 @@ Vue.use(ElementTiptapPlugin, {
 - `pl` by @FurtakM
 - `ru` by @baitkul
 - `de` by @Thesicstar
+- `ko` by @Hotbrains
 
 欢迎贡献更多的语言.
 
@@ -401,6 +402,22 @@ width: 700px;
 height: 100%;
 ```
 
+### showMenubar
+
+类型: `boolean`
+
+默认值: `true`
+
+是否显示 menubar
+
+### charCounterCount
+
+类型: `boolean`
+
+默认值: `true`
+
+是否显示字数统计
+
 ## 👽 事件 Events
 
 ### Init
@@ -512,7 +529,7 @@ _OR_
 - [x] `Table` extension
 - [x] `Iframe` extension
 - [x] `FontType` extension
-- [ ] `FontSize` extension
+- [x] `FontSize` extension
 - [x] `TextColor` extension
 - [x] `TextHighlight` extension
 - [ ] `Emoji` extension
@@ -524,3 +541,4 @@ _OR_
 - [x] 编辑器 readonly
 - [x] 改变图片尺寸
 - [ ] 主题
+- [ ] 更详细的文档
