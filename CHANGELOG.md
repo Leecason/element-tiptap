@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/Leecason/element-tiptap/compare/@1.21.0...@1.21.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* 🐛 fix table created with reversed row and col (https://github.com/Leecason/element-tiptap/issues/86) ([7261d48](https://github.com/Leecason/element-tiptap/commit/7261d48afca9ee1a2bce8d03cce98669197afc39))
+
 # [1.21.0](https://github.com/Leecason/element-tiptap/compare/@1.20.0...@1.21.0) (2020-05-19)
 
 
