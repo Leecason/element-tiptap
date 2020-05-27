@@ -23,9 +23,9 @@
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)(最新版本的 demo)
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)(`1.14.0 版本的 demo`)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
 
 ## ✨ 特色
 
@@ -218,12 +218,12 @@ export default {
 - `FormatClear`
 - `TextColor`
 - `TextHighlight`
-- `Preview` (新)
-- `Print` (新)
-- `Fullscreen` (新)
-- `SelectAll` (新)
-- `FontType` (新)
-- `FontSize` (新)
+- `Preview`
+- `Print`
+- `Fullscreen`
+- `SelectAll`
+- `FontType`
+- `FontSize`
 
 你可以自定义菜单按钮的渲染视图
 
@@ -521,24 +521,11 @@ _OR_
 ## 📄 许可证
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
-## 🚩TODO
+## 💝 Buy Me A Coffee
 
-我在持续努力地添加新功能 💪.
+看到这么多人喜欢这个项目我非常开心，有了你们的支持我会做的更好。
 
-- [x] demo 页面
-- [x] `Table` extension
-- [x] `Iframe` extension
-- [x] `FontType` extension
-- [x] `FontSize` extension
-- [x] `TextColor` extension
-- [x] `TextHighlight` extension
-- [ ] `Emoji` extension
-- [x] `Fullscreen` extension
-- [x] `Print` extension
-- [x] `Preview` extension
-- [x] `SelectAll` extension
-- [x] i18n
-- [x] 编辑器 readonly
-- [x] 改变图片尺寸
-- [ ] 主题
-- [ ] 更详细的文档
+<p>
+  <img alt="reward" src="/public/wechat_reward_qrcode.jpg?raw=true" width="300">
+  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+</p>

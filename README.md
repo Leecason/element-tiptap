@@ -23,9 +23,9 @@ English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)(`demo of latest version`)
+👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)(`demo of version 1.14.0`)
+👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
 
 ## ✨ Features
 
@@ -218,12 +218,12 @@ All available extensions:
 - `FormatClear`
 - `TextColor`
 - `TextHighlight`
-- `Preview` (New)
-- `Print` (New)
-- `Fullscreen` (New)
-- `SelectAll` (New)
-- `FontType` (New)
-- `FontSize` (New)
+- `Preview`
+- `Print`
+- `Fullscreen`
+- `SelectAll`
+- `FontType`
+- `FontSize`
 
 You can customize the extension menu button view
 
@@ -521,24 +521,11 @@ Just submit an [issue](https://github.com/Leecason/element-tiptap/issues)! - any
 ## 📄 License
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
-## 🚩TODO
+## 💝 Buy Me A Coffee
 
-I'm continuously working to add in new features 💪.
+I am so happy that so many people like this project, and I will do better with your support.
 
-- [x] demo page
-- [x] `Table` extension
-- [x] `Iframe` extension
-- [x] `FontType` extension
-- [x] `FontSize` extension
-- [x] `TextColor` extension
-- [x] `TextHighlight` extension
-- [ ] `Emoji` extension
-- [x] `Fullscreen` extension
-- [x] `Print` extension
-- [x] `Preview` extension
-- [x] `SelectAll` extension
-- [x] i18n
-- [x] readonly editor
-- [x] image resizable
-- [ ] theme
-- [ ] more detailed docs
+<p>
+  <img alt="reward" src="/public/wechat_reward_qrcode.jpg?raw=true" width="300">
+  <a href="https://www.buymeacoffee.com/leecason" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+</p>
