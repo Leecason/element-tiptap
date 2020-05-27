@@ -13,6 +13,7 @@
         <div
           v-for="row in tableGridSize.row"
           :key="'r' + row"
+          class="table-grid-size-editor__row"
         >
           <div
             v-for="col in tableGridSize.col"

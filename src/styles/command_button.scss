@@ -200,8 +200,13 @@
 
   &__body {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  &__row {
+    display: flex;
   }
 
   &__cell {
