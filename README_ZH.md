@@ -4,6 +4,7 @@
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
   <a href="https://www.codacy.com/manual/Leecason/element-tiptap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Leecason/element-tiptap&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/33557c5554394b0ab5870797f33c61c3"/></a>
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Leecason/element-tiptap/master">
+  <img alt="gzipped size" src="https://img.badgesize.io/https://unpkg.com/element-tiptap/lib/element-tiptap.min.js?compression=gzip&color=blue">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/Leecason/element-tiptap">
@@ -33,7 +34,7 @@
 - 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
 - 🔖支持 markdown 语法
 - 📘TypeScript 支持
-- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`). 欢迎贡献更多的语言
+- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
 - 💻也可以通过直接控制编辑器的行为来定制编辑器。
@@ -119,6 +120,7 @@ Vue.use(ElementTiptapPlugin, {
 - `ru` by @baitkul
 - `de` by @Thesicstar
 - `ko` by @Hotbrains
+- `es` by @koas
 
 欢迎贡献更多的语言.
 
