@@ -10,34 +10,27 @@ import postcssPresetEnv from 'postcss-preset-env';
 import typescript from 'rollup-plugin-typescript2';
 import alias from '@rollup/plugin-alias';
 
-const isProduction = process.env.BUILD === 'production';
 const libDir = path.resolve(__dirname, 'lib');
 const srcDir = path.resolve(__dirname, 'src');
 
 export default () => [
   getConfig({
-    optimize: true,
     file: path.resolve(libDir, 'element-tiptap.min.js'),
     format: 'umd',
-    esModule: true,
   }),
   getConfig({
-    optimize: true,
     file: path.resolve(libDir, 'element-tiptap.common.js'),
     format: 'cjs',
   }),
   getConfig({
     file: path.resolve(libDir, 'element-tiptap.esm.js'),
     format: 'es',
-    esModule: true,
   }),
 ];
 
 function getConfig ({
   file,
   format,
-  optimize,
-  esModule = false,
 }) {
   return {
     input: path.resolve(srcDir, 'index.ts'),
@@ -45,7 +38,6 @@ function getConfig ({
       file,
       name: 'ElementTiptap',
       format,
-      esModule,
       globals: {
         vue: 'Vue',
         // TODO: tiptap
@@ -135,7 +127,7 @@ function getConfig ({
           ],
         ],
       }),
-      optimize && isProduction && terser(),
+      terser(),
     ],
   };
 }
