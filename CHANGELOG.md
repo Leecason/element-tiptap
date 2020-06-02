@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/Leecason/element-tiptap/compare/@1.21.1...@1.22.0) (2020-06-02)
+
+
+### Features
+
+* ✨ Spanish translation ([c1a7c5b](https://github.com/Leecason/element-tiptap/commit/c1a7c5b24629b9309ff99600e09112069c85495f))
+
 ## [1.21.1](https://github.com/Leecason/element-tiptap/compare/@1.21.0...@1.21.1) (2020-05-27)
 
 
