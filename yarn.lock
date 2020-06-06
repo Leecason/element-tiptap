@@ -1548,6 +1548,15 @@
   dependencies:
     slash "^3.0.0"
 
+"@rollup/pluginutils@^3.0.8":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
+  integrity sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==
+  dependencies:
+    "@types/estree" "0.0.39"
+    estree-walker "^1.0.1"
+    picomatch "^2.2.2"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.npm.taobao.org/@samverschueren/stream-to-observable/download/@samverschueren/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -5338,6 +5347,11 @@ estree-walker@^0.6.1:
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
   integrity sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
 
+estree-walker@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
+  integrity sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==
+
 esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/esutils/download/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
@@ -5722,22 +5736,13 @@ find-cache-dir@^2.0.0, find-cache-dir@^2.1.0:
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
 
-find-cache-dir@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.npm.taobao.org/find-cache-dir/download/find-cache-dir-3.1.0.tgz?cache=0&sync_timestamp=1573277838864&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffind-cache-dir%2Fdownload%2Ffind-cache-dir-3.1.0.tgz#9935894999debef4cf9f677fdf646d002c4cdecb"
-  integrity sha1-mTWJSZnevvTPn2d/32RtACxM3ss=
+find-cache-dir@^3.0.0, find-cache-dir@^3.2.0, find-cache-dir@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-3.3.1.tgz#89b33fad4a4670daa94f855f7fbe31d6d84fe880"
+  integrity sha512-t2GDMt3oGC/v+BMwzmllWDuJF/xcDtE5j/fCGbqDD7OLuJkj0cfh1YSA5VKPvwMeLFLNDBkwOKZ2X85jGLVftQ==
   dependencies:
     commondir "^1.0.1"
-    make-dir "^3.0.0"
-    pkg-dir "^4.1.0"
-
-find-cache-dir@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.npm.taobao.org/find-cache-dir/download/find-cache-dir-3.2.0.tgz#e7fe44c1abc1299f516146e563108fd1006c1874"
-  integrity sha1-5/5EwavBKZ9RYUblYxCP0QBsGHQ=
-  dependencies:
-    commondir "^1.0.1"
-    make-dir "^3.0.0"
+    make-dir "^3.0.2"
     pkg-dir "^4.1.0"
 
 find-npm-prefix@^1.0.2:
@@ -8154,10 +8159,10 @@ make-dir@^2.0.0:
     pify "^4.0.1"
     semver "^5.6.0"
 
-make-dir@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npm.taobao.org/make-dir/download/make-dir-3.0.0.tgz#1b5f39f6b9270ed33f9f054c5c0f84304989f801"
-  integrity sha1-G1859rknDtM/nwVMXA+EMEmJ+AE=
+make-dir@^3.0.2:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
+  integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
     semver "^6.0.0"
 
@@ -9751,6 +9756,11 @@ picomatch@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.1.tgz#21bac888b6ed8601f831ce7816e335bc779f0a4a"
   integrity sha512-ISBaA8xQNmwELC7eOjqFKMESB2VIqt4PPDD0nsS95b/9dZXvVKOlz9keMSnoGGKcOHXfTvDD6WMaRoSc9UuhRA==
+
+picomatch@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
+  integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
 
 pify@^2.0.0:
   version "2.3.0"
@@ -11665,16 +11675,16 @@ rollup-plugin-terser@^5.1.3:
     serialize-javascript "^2.1.2"
     terser "^4.6.2"
 
-rollup-plugin-typescript2@^0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.26.0.tgz#cee2b44d51d9623686656d76dc30a73c4de91672"
-  integrity sha512-lUK7XZVG77tu8dmv1L/0LZFlavED/5Yo6e4iMMl6fdox/yKdj4IFRRPPJEXNdmEaT1nDQQeCi7b5IwKHffMNeg==
+rollup-plugin-typescript2@^0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.27.1.tgz#4f27193408a8f040139eed3e3db7b0c7f3668200"
+  integrity sha512-RJl77Bbj1EunAQDC3dK/O2HWuSUX3oJbRGzyLoS5o9W4Hs1Nix3Gavqj1Lzs5Y6Ff4H2xXfmZ1WWUQCYocSbzQ==
   dependencies:
-    find-cache-dir "^3.2.0"
+    "@rollup/pluginutils" "^3.0.8"
+    find-cache-dir "^3.3.1"
     fs-extra "8.1.0"
     resolve "1.15.1"
-    rollup-pluginutils "2.8.2"
-    tslib "1.10.0"
+    tslib "1.11.2"
 
 rollup-plugin-vue@^5.1.4:
   version "5.1.6"
@@ -11691,7 +11701,7 @@ rollup-plugin-vue@^5.1.4:
     source-map "0.7.3"
     vue-runtime-helpers "^1.1.1"
 
-rollup-pluginutils@2.8.2, rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.4.1, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
+rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.4.1, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
   integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
@@ -13132,10 +13142,10 @@ ts-pnp@^1.1.2:
   resolved "https://registry.npm.taobao.org/ts-pnp/download/ts-pnp-1.1.5.tgz#840e0739c89fce5f3abd9037bb091dbff16d9dec"
   integrity sha1-hA4HOcifzl86vZA3uwkdv/Ftnew=
 
-tslib@1.10.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
-  integrity sha1-w8GflZc/sKYpc/sJ2Q2WHuQ+XIo=
+tslib@1.11.2, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.2.tgz#9c79d83272c9a7aaf166f73915c9667ecdde3cc9"
+  integrity sha512-tTSkux6IGPnUGUd1XAZHcpu85MOkIl5zX49pO+jfsie3eP0B6pyhOlLXm3cAC6T7s+euSDDUUV+Acop5WmtkVg==
 
 tslint@^5.20.1:
   version "5.20.1"
