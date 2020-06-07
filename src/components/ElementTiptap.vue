@@ -49,6 +49,7 @@
 import { Component, Prop, Watch, Provide, ProvideReactive, Model, Mixins } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 import { Placeholder } from 'tiptap-extensions';
+import { Node as ProsemirrorNode } from 'prosemirror-model';
 import ContentAttributes from '@/extensions/content_attributes';
 import Title from '@/extensions/title';
 import { capitalize } from '@/utils/shared';
@@ -58,7 +59,6 @@ import i18nMixin from '@/mixins/i18nMixin';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
-import Logger from '../utils/logger';
 
 const COMMON_EMIT_EVENTS: EVENTS[] = [
   EVENTS.TRANSACTION,
@@ -197,25 +197,8 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
       }),
     );
 
-    // has title
-    const doc = this.extensions[0];
-    if (doc.name !== 'doc') {
-      Logger.warn('\'Doc\' shuold be the first extension');
-    }
-    if (doc.options.title) {
-      extensions.push(new Title());
-    }
-
     // placeholder
-    if (this.placeholder) {
-      extensions.push(
-        new Placeholder({
-          emptyEditorClass: 'el-tiptap-editor--empty',
-          emptyNodeClass: 'el-tiptap-editor__placeholder',
-          emptyNodeText: this.placeholder,
-        })
-      );
-    }
+    extensions.push(this.initPlaceholderExtension());
 
     return extensions;
   }
@@ -247,6 +230,38 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
 
   private genEvent (event: EVENTS) {
     return `on${capitalize(event)}`;
+  }
+
+  private getTitleExtension (): Title | null {
+    const doc = this.extensions.find(e => e.name === 'doc');
+    if (doc.options.title) {
+      const title = this.extensions.find(e => e.name === 'title');
+      if (title) return title;
+    }
+    return null;
+  }
+
+  private initPlaceholderExtension (): Placeholder {
+    const title = this.getTitleExtension();
+    if (title) {
+      // @ts-ignore
+      return new Placeholder({
+        emptyEditorClass: 'el-tiptap-editor--empty',
+        emptyNodeClass: 'el-tiptap-editor__with-title-placeholder',
+        showOnlyCurrent: false,
+        emptyNodeText: (node: ProsemirrorNode) => {
+          if (node.type.name === 'title') {
+            return title.options.placeholder;
+          }
+          return this.placeholder;
+        },
+      });
+    }
+    return new Placeholder({
+      emptyEditorClass: 'el-tiptap-editor--empty',
+      emptyNodeClass: 'el-tiptap-editor__placeholder',
+      emptyNodeText: this.placeholder,
+    });
   }
 };
 </script>

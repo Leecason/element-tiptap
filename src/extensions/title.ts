@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Node } from 'tiptap';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
@@ -5,6 +6,13 @@ import { getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 export default class Title extends Node {
   get name () {
     return 'title';
+  }
+
+  get defaultOptions () {
+    return {
+      placeholder: '',
+      class: '',
+    };
   }
 
   get schema () {
@@ -19,9 +27,10 @@ export default class Title extends Node {
       }],
       toDOM: (node: ProsemirrorNode) => {
         const dom = toParagraphDOM(node);
-        // @ts-ignore
-        dom[0] = 'h1';
-        return dom;
+        return ['h1', {
+          ...dom[1],
+          class: this.options.class,
+        }, 0];
       },
     };
   }

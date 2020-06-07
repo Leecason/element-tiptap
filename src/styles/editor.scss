@@ -493,9 +493,18 @@
   }
 
   &__placeholder {
-    pointer-events: none;
-
     &.el-tiptap-editor--empty:first-child::before {
+      color: $placeholder-text-color;
+      content: attr(data-empty-text);
+      float: left;
+      height: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__with-title-placeholder {
+    &:nth-child(1)::before,
+    &:nth-child(2)::before {
       color: $placeholder-text-color;
       content: attr(data-empty-text);
       float: left;
