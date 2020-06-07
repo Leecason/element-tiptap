@@ -48,8 +48,16 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 
   return [
     'li',
-    attrs,
-    ['span', { class: 'todo-checkbox', contenteditable: 'false' }],
+    { ...attrs, class: `todo-item ${done ? 'todo-item--done' : ''}` },
+    // el-checkbox dom
+    ['span', {
+      contenteditable: 'false'
+    }, ['span', {
+      class: `el-checkbox ${done ? 'is-checked' : ''}`,
+      style: 'pointer-events: none;',
+    }, ['span', { class: `el-checkbox__input ${done ? 'is-checked' : ''}` }, [
+      'span', { class: 'el-checkbox__inner' }
+    ]]]],
     ['div', { class: 'todo-content' }, 0],
   ];
 }

@@ -42,6 +42,7 @@ function getConfig ({
         vue: 'Vue',
         // TODO: tiptap
         'element-ui/lib/button': 'ELEMENT.Button',
+        'element-ui/lib/checkbox': 'ELEMENT.Checkbox',
         'element-ui/lib/tooltip': 'ELEMENT.Tooltip',
         'element-ui/lib/dialog': 'ELEMENT.Dialog',
         'element-ui/lib/popover': 'ELEMENT.Popover',
@@ -61,6 +62,7 @@ function getConfig ({
       'prosemirror-model',
       'prosemirror-tables',
       'element-ui/lib/button',
+      'element-ui/lib/checkbox',
       'element-ui/lib/tooltip',
       'element-ui/lib/dialog',
       'element-ui/lib/popover',
