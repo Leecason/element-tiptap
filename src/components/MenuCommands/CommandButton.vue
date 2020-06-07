@@ -2,6 +2,7 @@
   <el-tooltip
     :content="tooltip"
     :open-delay="350"
+    :disabled="readonly"
     transition="el-zoom-in-bottom"
     effect="dark"
     placement="top"
@@ -9,7 +10,7 @@
     <div
       :class="commandButtonClass"
       @mousedown.prevent
-      @click="command"
+      @click="onClick"
     >
       <v-icon :name="icon"/>
     </div>
@@ -58,6 +59,7 @@ import 'vue-awesome/icons/compress';
 import 'vue-awesome/icons/print';
 import 'vue-awesome/icons/eye';
 import 'vue-awesome/icons/regular/object-group';
+import 'vue-awesome/icons/regular/file-code';
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Tooltip } from 'element-ui';
@@ -94,11 +96,22 @@ export default class CommandButton extends Vue {
   })
   readonly command!: Function;
 
+  @Prop({
+    type: Boolean,
+    default: false,
+  })
+  readonly readonly!: boolean;
+
   private get commandButtonClass (): object {
     return {
       'el-tiptap-editor__command-button': true,
       'el-tiptap-editor__command-button--active': this.isActive,
+      'el-tiptap-editor__command-button--readonly': this.readonly,
     };
+  }
+
+  onClick () {
+    if (!this.readonly) this.command();
   }
 }
 </script>

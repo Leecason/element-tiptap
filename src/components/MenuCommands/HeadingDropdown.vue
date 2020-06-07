@@ -10,6 +10,7 @@
     <command-button
       :is-active="isHeadingActive()"
       :tooltip="t('editor.extensions.Heading.tooltip')"
+      :readonly="editorStateOptions.isCodeViewMode"
       icon="heading"
     />
     <el-dropdown-menu
@@ -46,11 +47,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
 import i18nMixin from '@/mixins/i18nMixin';
 import { isHeadingActive } from '@/utils/heading';
+import { EditorStateOptions } from '@/../types';
 import CommandButton from './CommandButton.vue';
 
 @Component({
@@ -67,6 +69,8 @@ export default class HeadingDropdown extends Mixins(i18nMixin) {
     required: true,
   })
   readonly editorContext!: MenuData;
+
+  @Inject() readonly editorStateOptions!: EditorStateOptions;
 
   private get editor () {
     return this.editorContext.editor;

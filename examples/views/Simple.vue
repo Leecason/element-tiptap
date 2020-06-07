@@ -32,8 +32,15 @@ import {
   Indent,
   HardBreak,
   HorizontalRule,
+  CodeView,
   History,
 } from 'element-tiptap';
+
+import codemirror from 'codemirror';
+import 'codemirror/lib/codemirror.css'; // import base style
+import 'codemirror/mode/xml/xml.js'; // language
+import 'codemirror/addon/selection/active-line.js'; // require active-line.js
+import 'codemirror/addon/edit/closetag.js'; // autoCloseTags
 
 export default {
   data () {
@@ -60,6 +67,13 @@ export default {
         new Indent(),
         new HardBreak(),
         new HorizontalRule({ bubble: true }),
+        new CodeView({
+          codemirror,
+          codemirrorOptions: {
+            styleActiveLine: true,
+            autoCloseTags: true,
+          },
+        }),
         new History(),
       ],
 

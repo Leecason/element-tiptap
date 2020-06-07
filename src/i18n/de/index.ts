@@ -203,6 +203,9 @@ export default {
       SelectAll: {
         tooltip: 'Alles auswählen',
       },
+      CodeView: {
+        tooltip: 'Codeansicht',
+      },
     },
     characters: 'Zeichen',
   },

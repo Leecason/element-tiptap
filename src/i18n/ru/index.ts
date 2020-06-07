@@ -203,6 +203,9 @@ export default {
       SelectAll: {
         tooltip: 'Выделить все',
       },
+      CodeView: {
+        tooltip: 'Просмотр кода',
+      },
     },
     characters: 'Количество символов',
   },

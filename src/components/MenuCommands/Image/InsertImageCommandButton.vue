@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-popover
+      :disabled="editorStateOptions.isCodeViewMode"
       placement="bottom"
       trigger="click"
       popper-class="el-tiptap-popper"
@@ -24,6 +25,7 @@
       <command-button
         slot="reference"
         :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
+        :readonly="editorStateOptions.isCodeViewMode"
         icon="image"
       />
     </el-popover>
@@ -53,10 +55,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { Dialog, Upload, MessageBox, Popover, Loading } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
+import { EditorStateOptions } from '@/../types';
 import i18nMixin from '@/mixins/i18nMixin';
 import { readFileDataUrl } from '@/utils/shared';
 import Logger from '@/utils/logger';
@@ -79,6 +82,8 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
 
   imageUploadDialogVisible = false;
   uploading = false;
+
+  @Inject() readonly editorStateOptions!: EditorStateOptions;
 
   private get imageNodeOptions () {
     return this.editorContext.editor.extensions.options.image;
