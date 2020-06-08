@@ -8,12 +8,8 @@
     class="todo-item"
     data-drag-handle
   >
-    <span
-      contenteditable="false"
-      class="todo-checkbox"
-      @click.stop="toggle"
-    >
-      <v-icon :name="done ? 'check-square' : 'regular/square'" />
+    <span contenteditable="false">
+      <el-checkbox v-model="done" />
     </span>
 
     <div
@@ -26,16 +22,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Checkbox } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { EditorView } from 'prosemirror-view';
-import Icon from 'vue-awesome/components/Icon.vue';
-import 'vue-awesome/icons/check-square';
-import 'vue-awesome/icons/regular/square';
 import { transformLineHeightToCSS } from '@/utils/line_height';
 
 @Component({
   components: {
-    'v-icon': Icon,
+    [Checkbox.name]: Checkbox,
   },
 })
 export default class TodoItemView extends Vue {
@@ -71,10 +65,6 @@ export default class TodoItemView extends Vue {
     return {
       lineHeight: transformLineHeightToCSS(this.node.attrs.lineHeight),
     };
-  }
-
-  toggle () {
-    this.done = !this.done;
   }
 };
 </script>
