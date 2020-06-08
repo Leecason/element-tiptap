@@ -1,3 +1,15 @@
+# [1.23.0](https://github.com/Leecason/element-tiptap/compare/@1.22.0...@1.23.0) (2020-06-08)
+
+
+### Bug Fixes
+
+* **todo_item:** fix `TodoItem` checkbox unexpected render in preview modal (https://github.com/Leecason/element-tiptap/issues/73) ([c4a8860](https://github.com/Leecason/element-tiptap/commit/c4a88606dae6a44309e06129a8bff06716d7759b))
+
+
+### Features
+
+* **title:** ✨ make `Title` extension independent (https://github.com/Leecason/element-tiptap/issues/83) ([e2d7afb](https://github.com/Leecason/element-tiptap/commit/e2d7afbf1f2461ec885bbf702368c1fe833e519c))
+
 # [1.22.0](https://github.com/Leecason/element-tiptap/compare/@1.21.1...@1.22.0) (2020-06-02)
 
 
