@@ -1,3 +1,15 @@
+# [1.24.0](https://github.com/Leecason/element-tiptap/compare/@1.23.0...@1.24.0) (2020-06-10)
+
+
+### Bug Fixes
+
+* 🐛 bubble menu cut off by editor perimeter (https://github.com/Leecason/element-tiptap/issues/98) ([94d4415](https://github.com/Leecason/element-tiptap/commit/94d4415f0f53d2e58c1ad84e4debdeb92d0130fc))
+
+
+### Features
+
+* ✨ add `CodeView` extension (https://github.com/Leecason/element-tiptap/issues/81) ([e2de3b2](https://github.com/Leecason/element-tiptap/commit/e2de3b21e693f26cf9a05989ff2f12224a260f4c))
+
 # [1.23.0](https://github.com/Leecason/element-tiptap/compare/@1.22.0...@1.23.0) (2020-06-08)
 
 
