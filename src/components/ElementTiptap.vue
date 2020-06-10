@@ -12,6 +12,9 @@
     <menu-bar
       v-if="showMenubar"
       :editor="editor"
+      :class="{
+        'border-top-radius': showMenubar,
+      }"
     >
       <template
         v-if="$scopedSlots.menubar"
@@ -26,7 +29,10 @@
 
     <div
       v-if="isCodeViewMode"
-      class="el-tiptap-editor__codemirror"
+      :class="{
+        'el-tiptap-editor__codemirror': true,
+        'border-bottom-radius': isCodeViewMode,
+      }"
     >
       <textarea ref="cmTextArea"></textarea>
     </div>
@@ -35,7 +41,11 @@
     <editor-content
       v-show="!isCodeViewMode"
       :editor="editor"
-      class="el-tiptap-editor__content"
+      :class="{
+        'el-tiptap-editor__content': true,
+        'border-top-radius': !showMenubar,
+        'border-bottom-radius': !showFooter,
+      }"
     />
 
     <slot
@@ -43,8 +53,11 @@
       :editor="editor"
     >
       <div
-        v-if="charCounterCount && !isCodeViewMode"
-        class="el-tiptap-editor__footer"
+        v-if="showFooter"
+        :class="{
+          'el-tiptap-editor__footer': true,
+          'border-bottom-radius': showFooter,
+        }"
       >
         <span class="el-tiptap-editor__characters">
           {{ t('editor.characters') }}: {{ characters }}
@@ -142,6 +155,10 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
     if (!this.editor) return 0;
 
     return this.editor.state.doc.textContent.length;
+  }
+
+  get showFooter (): boolean {
+    return this.charCounterCount && !this.isCodeViewMode;
   }
 
   get spellcheckEnabled (): boolean {
