@@ -2,7 +2,7 @@
   <div
     v-if="editor"
     :style="elTiptapEditorStyle"
-    :class="{ 'el-tiptap-editor--fullscreen': isFullscreen }"
+    :class="{ 'el-tiptap-editor--fullscreen': editorStateOptions.isFullscreen }"
     class="el-tiptap-editor"
   >
     <menu-bubble
@@ -24,7 +24,16 @@
       </template>
     </menu-bar>
 
+    <div
+      v-if="isCodeViewMode"
+      class="el-tiptap-editor__codemirror"
+    >
+      <textarea ref="cmTextArea"></textarea>
+    </div>
+
+    <!-- use v-show to keep history -->
     <editor-content
+      v-show="!isCodeViewMode"
       :editor="editor"
       class="el-tiptap-editor__content"
     />
@@ -34,7 +43,7 @@
       :editor="editor"
     >
       <div
-        v-if="charCounterCount"
+        v-if="charCounterCount && !isCodeViewMode"
         class="el-tiptap-editor__footer"
       >
         <span class="el-tiptap-editor__characters">
@@ -46,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Provide, ProvideReactive, Model, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Watch, Provide, Model, Mixins, Vue } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 import { Placeholder } from 'tiptap-extensions';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
@@ -55,7 +64,9 @@ import Title from '@/extensions/title';
 import { capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
 import EditorStylesMixin from '@/mixins/EditorStylesMixin';
+import CodeViewMixin from '@/mixins/CodeViewMixin';
 import i18nMixin from '@/mixins/i18nMixin';
+import { EditorStateOptions } from '@/../types';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
@@ -78,7 +89,7 @@ const COMMON_EMIT_EVENTS: EVENTS[] = [
   // https://github.com/kaorun343/vue-property-decorator/issues/277#issuecomment-558594655
   inject: [],
 })
-export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
+export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i18nMixin) {
   @Prop({
     type: Array,
     default: () => [],
@@ -133,6 +144,14 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
     return this.editor.state.doc.textContent.length;
   }
 
+  get spellcheckEnabled (): boolean {
+    return this.spellcheck == null
+      ? this.$elementTiptapPlugin
+        ? this.$elementTiptapPlugin.spellcheck
+        : true
+      : this.spellcheck;
+  }
+
   @Watch('content')
   onContentChange (val: string): void {
     if (this.emitAfterOnUpdate) {
@@ -185,15 +204,9 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
     const extensions: Extension[] = [...this.extensions];
 
     // spellcheck
-    const spellcheck = this.spellcheck == null
-      ? this.$elementTiptapPlugin
-        ? this.$elementTiptapPlugin.spellcheck
-        : true
-      : this.spellcheck;
-
     extensions.push(
       new ContentAttributes({
-        spellcheck,
+        spellcheck: this.spellcheckEnabled,
       }),
     );
 
@@ -222,11 +235,12 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, i18nMixin) {
     this.$emit(this.genEvent(EVENTS.UPDATE), output, options);
   }
 
-  // TODO: provide to fullscreen command button, need to be optimized
-  @ProvideReactive() isFullscreen = false;
-  @Provide() toggleFullscreen () {
-    this.isFullscreen = !this.isFullscreen;
-  }
+  @Provide() get editorStateOptions (): EditorStateOptions {
+    return Vue.observable({
+      isFullscreen: false,
+      isCodeViewMode: false,
+    });
+  };
 
   private genEvent (event: EVENTS) {
     return `on${capitalize(event)}`;

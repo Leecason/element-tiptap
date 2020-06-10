@@ -1,6 +1,7 @@
 <template>
   <el-popover
     v-model="popoverVisible"
+    :disabled="editorStateOptions.isCodeViewMode"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
@@ -106,14 +107,16 @@
       slot="reference"
       :is-active="isTableActive"
       :tooltip="t('editor.extensions.Table.tooltip')"
+      :readonly="editorStateOptions.isCodeViewMode"
       icon="table"
     />
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
+import { EditorStateOptions } from '@/../types';
 import { Popover } from 'element-ui';
 import { isTableActive, enableMergeCells, enableSplitCell } from '@/utils/table';
 import i18nMixin from '@/mixins/i18nMixin';
@@ -135,6 +138,8 @@ export default class TablePopover extends Mixins(i18nMixin) {
   readonly editorContext!: MenuData;
 
   private popoverVisible: boolean = false;
+
+  @Inject() readonly editorStateOptions!: EditorStateOptions;
 
   private get editor () {
     return this.editorContext.editor;

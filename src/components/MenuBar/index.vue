@@ -10,6 +10,7 @@
           :key="'command-button' + i"
           :is="spec.component"
           v-bind="spec.componentProps"
+          :readonly="editorStateOptions.isCodeViewMode"
           v-on="spec.componentEvents"
         />
       </div>
@@ -18,9 +19,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
 import { Editor, EditorMenuBar, MenuData } from 'tiptap';
-import { MenuBtnViewType } from '@/../types';
+import { MenuBtnViewType, EditorStateOptions } from '@/../types';
 
 @Component({
   components: {
@@ -33,6 +34,8 @@ export default class Menubar extends Vue {
     required: true,
   })
   readonly editor!: Editor;
+
+  @Inject() readonly editorStateOptions!: EditorStateOptions;
 
   private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
     const extensionManager = this.editor.extensions;

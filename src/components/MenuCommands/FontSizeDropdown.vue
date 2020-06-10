@@ -6,6 +6,7 @@
   >
     <command-button
       :tooltip="t('editor.extensions.FontSize.tooltip')"
+      :readonly="editorStateOptions.isCodeViewMode"
       icon="text-width"
     />
 
@@ -40,8 +41,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
+import { EditorStateOptions } from '@/../types';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
 import i18nMixin from '@/mixins/i18nMixin';
 import { DEFAULT_FONT_SIZE, findActiveFontSize } from '@/utils/font_size';
@@ -63,6 +65,8 @@ export default class FontSizeDropdown extends Mixins(i18nMixin) {
   readonly editorContext!: MenuData;
 
   defaultSize = DEFAULT_FONT_SIZE;
+
+  @Inject() readonly editorStateOptions!: EditorStateOptions;
 
   private get editor () {
     return this.editorContext.editor;

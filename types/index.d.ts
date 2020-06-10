@@ -17,6 +17,11 @@ export interface MenuBtnComponentOptions {
   componentEvents?: { [key: string]: any };
 }
 
+export interface EditorStateOptions {
+  isFullscreen: boolean;
+  isCodeViewMode: boolean;
+}
+
 export type MenuBtnViewType = MenuBtnComponentOptions | MenuBtnComponentOptions[];
 
 export interface MenuBtnView {

@@ -47,3 +47,4 @@ export { default as Fullscreen } from './fullscreen';
 export { default as Print } from './print';
 export { default as Preview } from './preview';
 export { default as SelectAll } from './select_all';
+export { default as CodeView } from './code_view';

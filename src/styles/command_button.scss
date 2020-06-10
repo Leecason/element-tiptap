@@ -26,6 +26,16 @@
       background-color: $extra-light-primary-color;
       color: $primary-color;
     }
+
+    &--readonly {
+      cursor: default;
+      opacity: .3;
+      pointer-events: none;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
   }
 }
 

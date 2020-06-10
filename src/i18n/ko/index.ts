@@ -203,6 +203,9 @@ export default {
       SelectAll: {
         tooltip: '전체선택',
       },
+      CodeView: {
+        tooltip: '코드 뷰',
+      },
     },
     characters: '문자수',
   },

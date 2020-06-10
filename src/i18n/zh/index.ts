@@ -203,6 +203,9 @@ export default {
       SelectAll: {
         tooltip: '全选',
       },
+      CodeView: {
+        tooltip: '查看源代码',
+      },
     },
     characters: '字数',
   },
