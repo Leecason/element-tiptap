@@ -226,6 +226,9 @@ export default {
 - `SelectAll`
 - `FontType`
 - `FontSize`
+- `CodeView` (🆕)
+
+[查看](https://github.com/Leecason/element-tiptap/issues/107)所有 extensions 的文档
 
 你可以自定义菜单按钮的渲染视图
 

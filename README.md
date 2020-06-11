@@ -225,6 +225,9 @@ All available extensions:
 - `SelectAll`
 - `FontType`
 - `FontSize`
+- `CodeView` (🆕)
+
+You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
 You can customize the extension menu button view
 
