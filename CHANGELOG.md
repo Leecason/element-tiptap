@@ -1,3 +1,10 @@
+## [1.24.1](https://github.com/Leecason/element-tiptap/compare/@1.24.0...@1.24.1) (2020-06-11)
+
+
+### Bug Fixes
+
+* 🐛 missing `prosemirror-utils` dep ([d7625aa](https://github.com/Leecason/element-tiptap/commit/d7625aaa808281ca1b1ec0e15fdaee994a03ca51))
+
 # [1.24.0](https://github.com/Leecason/element-tiptap/compare/@1.23.0...@1.24.0) (2020-06-10)
 
 
