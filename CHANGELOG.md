@@ -1,3 +1,10 @@
+## [1.24.2](https://github.com/Leecason/element-tiptap/compare/@1.24.1...@1.24.2) (2020-06-12)
+
+
+### Bug Fixes
+
+* **text_color:** 🐛 fix text color parser (https://github.com/Leecason/element-tiptap/issues/110) ([97353db](https://github.com/Leecason/element-tiptap/commit/97353dbe50026a06d8adc729686b6a32a697a83b))
+
 ## [1.24.1](https://github.com/Leecason/element-tiptap/compare/@1.24.0...@1.24.1) (2020-06-11)
 
 
