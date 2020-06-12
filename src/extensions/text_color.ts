@@ -29,7 +29,7 @@ export default class TextColor extends Mark implements MenuBtnView {
         style: 'color',
         getAttrs: color => {
           return {
-            color: this.options.colors.includes(color) ? color : '',
+            color,
           };
         },
       }],
