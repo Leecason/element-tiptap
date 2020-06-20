@@ -1,8 +1,5 @@
-import { MarkType } from 'prosemirror-model';
 import { Plugin, TextSelection } from 'prosemirror-state';
 import { Link as TiptapLink } from 'tiptap-extensions';
-// @ts-ignore
-import { updateMark, removeMark, CommandFunction } from 'tiptap-commands';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
 import { MenuData } from 'tiptap';
@@ -10,20 +7,6 @@ import { MenuBtnView } from '@/../types';
 import AddLinkCommandButton from '@/components/MenuCommands/Link/AddLinkCommandButton.vue';
 
 export default class Link extends TiptapLink implements MenuBtnView {
-  commands ({ type }: { type: MarkType }) {
-    return {
-      link: (attrs: { href: string }) => {
-        if (attrs.href) {
-          return updateMark(type, attrs);
-        }
-
-        return removeMark(type);
-      },
-
-      unlink: (): CommandFunction => removeMark(type),
-    };
-  }
-
   get plugins () {
     return [
       new Plugin({
