@@ -1,6 +1,6 @@
 <template>
   <command-button
-    :command="editorContext.commands.unlink"
+    :command="() => editorContext.commands.link({ href: '' })"
     :tooltip="t('editor.extensions.Link.unlink.tooltip')"
     icon="unlink"
   />
