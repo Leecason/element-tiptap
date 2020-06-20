@@ -50,7 +50,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
   const attrs: { [key: string]: any } = {};
 
   if (textAlign && textAlign !== 'left') {
-    style += `text-align: ${textAlign}`;
+    style += `text-align: ${textAlign};`;
   }
 
   if (indent) {
