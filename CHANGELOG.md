@@ -1,3 +1,11 @@
+## [1.24.3](https://github.com/Leecason/element-tiptap/compare/@1.24.2...@1.24.3) (2020-06-20)
+
+
+### Bug Fixes
+
+* 🐛 `Link` not work in Firefox (https://github.com/Leecason/element-tiptap/issues/119) ([f286d5c](https://github.com/Leecason/element-tiptap/commit/f286d5cd47cf211eceff48cc1a4db29695f6f5c8))
+* 🐛 missing alignment style separator (https://github.com/Leecason/element-tiptap/issues/120) ([5616818](https://github.com/Leecason/element-tiptap/commit/5616818cd128bc4bd92cb0a5c01d981fe422c0b5))
+
 ## [1.24.2](https://github.com/Leecason/element-tiptap/compare/@1.24.1...@1.24.2) (2020-06-12)
 
 
