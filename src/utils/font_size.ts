@@ -22,6 +22,16 @@ export const DEFAULT_FONT_SIZES = [
 
 export const DEFAULT_FONT_SIZE = 'default';
 
+const SIZE_PATTERN = /([\d.]+)px/i;
+
+export function convertToPX (styleValue: string): string {
+  const matches = styleValue.match(SIZE_PATTERN);
+  if (!matches) return '';
+  const value = matches[1];
+  if (!value) return '';
+  return value;
+}
+
 export function setFontSize (tr: Transaction, type: MarkType, fontSize: string): Transaction {
   const { selection } = tr;
 

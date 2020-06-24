@@ -4,9 +4,9 @@ import { CommandFunction } from 'tiptap-commands';
 import { Node as ProsemirrorNode, MarkType } from 'prosemirror-model';
 import { MenuBtnView } from '@/../types';
 import FontSizeDropdown from '@/components/MenuCommands/FontSizeDropdown.vue';
-import { DEFAULT_FONT_SIZES, setFontSize } from '@/utils/font_size';
+import { DEFAULT_FONT_SIZES, setFontSize, convertToPX } from '@/utils/font_size';
 
-export default class FontSiz extends Mark implements MenuBtnView {
+export default class FontSize extends Mark implements MenuBtnView {
   get name () {
     return 'font_size';
   }
@@ -28,8 +28,13 @@ export default class FontSiz extends Mark implements MenuBtnView {
         {
           style: 'font-size',
           getAttrs: (fontSize: string) => {
+            const attrs = {};
+            if (!fontSize) return attrs;
+            const px = convertToPX(fontSize);
+            if (!px) return attrs;
+
             return {
-              px: fontSize || '',
+              px,
             };
           },
         },
