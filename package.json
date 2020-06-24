@@ -83,6 +83,9 @@
     "element-ui": "^2.0.0",
     "vue": "^2.0.0"
   },
+  "resolutions": {
+    "prosemirror-model": "1.9.1"
+  },
   "bugs": {
     "url": "https://github.com/Leecason/element-tiptap/issues"
   },
