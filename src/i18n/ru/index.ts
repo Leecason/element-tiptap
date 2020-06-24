@@ -56,21 +56,21 @@ export default {
         buttons: {
           insert_image: {
             tooltip: 'Вставить картинку',
-            external: 'Вставить картинку по адресу',
+            external: 'Вставить картинку по ссылке',
             upload: 'Загрузить картинку',
           },
           remove_image: {
             tooltip: 'Удалить',
           },
           image_options: {
-            tooltip: 'Варианты изображения',
+            tooltip: 'Опции изображения',
           },
           display: {
-            tooltip: 'дисплей',
-            inline: 'Инлайн',
-            block: 'Разрыв текста',
-            left: 'Поплавок влево',
-            right: 'Поплавок справа',
+            tooltip: 'Положение',
+            inline: 'В тексте',
+            block: 'Обтекание текстом',
+            left: 'Слева',
+            right: 'Справа',
           },
         },
         control: {
@@ -92,7 +92,7 @@ export default {
             form: {
               src: 'Адрес картинки',
               alt: 'Альтернативный текст',
-              width: 'ширина',
+              width: 'Ширина',
               height: 'Высота',
             },
           },
@@ -133,11 +133,11 @@ export default {
         },
       },
       FontType: {
-        tooltip: 'Семейство шрифтов',
+        tooltip: 'Шрифт',
       },
       FontSize: {
         tooltip: 'Размер шрифта',
-        default: 'дефолт',
+        default: 'По умолчанию',
       },
       TextColor: {
         tooltip: 'Цвет текста',
