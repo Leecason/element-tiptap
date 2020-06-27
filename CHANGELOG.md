@@ -1,3 +1,16 @@
+## [1.24.4](https://github.com/Leecason/element-tiptap/compare/@1.24.3...@1.24.4) (2020-06-27)
+
+
+### Bug Fixes
+
+* 🐛 convert font-size style value to px (https://github.com/Leecason/element-tiptap/issues/128) ([b785780](https://github.com/Leecason/element-tiptap/commit/b785780df532c58816ebbd511f30a043b01a24fa))
+* 🐛 lock `prosemirror-model` version (https://github.com/Leecason/element-tiptap/issues/129) ([8af02e6](https://github.com/Leecason/element-tiptap/commit/8af02e6468288cfcb34fd9bb4279568ed8c11144))
+
+
+### Reverts
+
+* Revert "chore: 🔧 update tag format and remove gh assets" ([33346a1](https://github.com/Leecason/element-tiptap/commit/33346a106d0bec94fe8c1bb21f09cceb09481da5))
+
 ## [1.24.3](https://github.com/Leecason/element-tiptap/compare/@1.24.2...@1.24.3) (2020-06-20)
 
 
