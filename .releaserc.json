@@ -3,7 +3,7 @@
     "master",
     { "name": "beta", "prerelease": true }
   ],
-  "tagFormat": "v${version}",
+  "tagFormat": "@${version}",
   "plugins": [
     ["@semantic-release/commit-analyzer", {
       "preset": "angular",
@@ -19,7 +19,14 @@
     ["@semantic-release/changelog", {
       "changelogFile": "CHANGELOG.md"
     }],
-    "@semantic-release/github",
+    ["@semantic-release/github", {
+      "assets": [
+        { "path": "lib/element-tiptap.js", "label": "UMD module" },
+        { "path": "lib/element-tiptap.min.js", "label": "UMD optimize module" },
+        { "path": "lib/element-tiptap.common.js", "label": "CommonJs module" },
+        { "path": "lib/element-tiptap.esm.js", "label": "ECMAScript 6 module" }
+      ]
+    }],
     "@semantic-release/npm",
     "@semantic-release/git"
   ]
