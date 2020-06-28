@@ -1,3 +1,11 @@
+## [1.24.5](https://github.com/Leecason/element-tiptap/compare/@1.24.4...@1.24.5) (2020-06-28)
+
+
+### Bug Fixes
+
+* 🐛 add menuBubbleOptions prop to temporary fix bubble menu cut-off (https://github.com/Leecason/element-tiptap/issues/118) ([aec41ea](https://github.com/Leecason/element-tiptap/commit/aec41ea7d1ef894a8a4c8943873d76d7dfabfbec))
+* update i18n/ru locale ([cb364b8](https://github.com/Leecason/element-tiptap/commit/cb364b8b05ad53c8433576223bf844219ef76c16))
+
 ## [1.24.4](https://github.com/Leecason/element-tiptap/compare/@1.24.3...@1.24.4) (2020-06-27)
 
 
