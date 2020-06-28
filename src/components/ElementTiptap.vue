@@ -7,6 +7,7 @@
   >
     <menu-bubble
       :editor="editor"
+      :menuBubbleOptions="menuBubbleOptions"
     />
 
     <menu-bar
@@ -147,6 +148,13 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
     default: undefined,
   })
   readonly spellcheck!: boolean | undefined;
+
+  // TODO: popper.js
+  @Prop({
+    type: Object,
+    default: () => ({}),
+  })
+  readonly menuBubbleOptions!: Object;
 
   editor: Editor | null = null;
   emitAfterOnUpdate: boolean = false;

@@ -4,6 +4,7 @@
       :extensions="extensions"
       :content="content"
       :spellcheck="false"
+      :menu-bubble-options="{ 'keep-in-bounds': false }"
       placeholder="Write something ..."
     />
   </div>

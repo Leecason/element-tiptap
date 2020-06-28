@@ -1,8 +1,8 @@
 <template>
   <editor-menu-bubble
     v-slot="editorContext"
+    v-bind="menuBubbleOptions"
     :editor="editor"
-    :keep-in-bounds="false"
   >
     <div
       :class="{
@@ -55,6 +55,12 @@ export default class MenuBubble extends Vue {
     required: true,
   })
   readonly editor!: Editor;
+
+  @Prop({
+    type: Object,
+    default: () => ({}),
+  })
+  readonly menuBubbleOptions!: Object;
 
   /* Only appears when link is selected separately */
   private get showLinkMenu (): boolean {
