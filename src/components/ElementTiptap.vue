@@ -14,7 +14,11 @@
       v-if="showMenubar"
       :editor="editor"
       :class="{
-        'border-top-radius': showMenubar,
+        'border-top-radius': !isMenubarBottomPosition && showMenubar,
+        'border-bottom-radius': isMenubarBottomPosition && !showFooter,
+        'border-bottom': isMenubarBottomPosition && !showFooter,
+        'order1': isMenubarBottomPosition,
+        'el-tiptap-editor__menu-bar_divider_none': isMenubarBottomPosition,
       }"
     >
       <template
@@ -32,7 +36,8 @@
       v-if="isCodeViewMode"
       :class="{
         'el-tiptap-editor__codemirror': true,
-        'border-bottom-radius': isCodeViewMode,
+        'border-bottom-radius': isCodeViewMode && !isMenubarBottomPosition,
+        'border-top-radius': isCodeViewMode && isMenubarBottomPosition,
       }"
     >
       <textarea ref="cmTextArea"></textarea>
@@ -44,8 +49,8 @@
       :editor="editor"
       :class="{
         'el-tiptap-editor__content': true,
-        'border-top-radius': !showMenubar,
-        'border-bottom-radius': !showFooter,
+        'border-top-radius': !showMenubar || isMenubarBottomPosition,
+        'border-bottom-radius': !showFooter && !isMenubarBottomPosition,
       }"
     />
 
@@ -58,6 +63,7 @@
         :class="{
           'el-tiptap-editor__footer': true,
           'border-bottom-radius': showFooter,
+          'order2': isMenubarBottomPosition,
         }"
       >
         <span class="el-tiptap-editor__characters">

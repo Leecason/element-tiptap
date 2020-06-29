@@ -25,6 +25,18 @@
     border-bottom-right-radius: 8px;
   }
 
+  .border-bottom {
+    border-bottom: 1px solid $lighter-border-color;
+  }
+
+  .order1 {
+    order: 1
+  }
+
+  .order2 {
+    order: 2
+  }
+
   &__codemirror {
     display: flex;
     flex-grow: 1;
@@ -86,6 +98,12 @@
       margin: 0 10px;
       right: 0;
       position: absolute;
+    }
+
+    &_divider_none{
+      &::before {
+        display: none;
+      }
     }
   }
 

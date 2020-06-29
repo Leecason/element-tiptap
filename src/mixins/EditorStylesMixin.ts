@@ -24,6 +24,15 @@ export default class EditorStylesMixin extends Vue {
   readonly showMenubar!: boolean;
 
   @Prop({
+    type: String,
+    default: 'top',
+    validator: function (value) {
+      return ['top', 'bottom'].indexOf(value) !== -1;
+    }
+  })
+  readonly menubarPosition!: string;
+
+  @Prop({
     type: Boolean,
     default: true,
   })
@@ -45,5 +54,9 @@ export default class EditorStylesMixin extends Vue {
       width,
       height,
     };
+  }
+
+  get isMenubarBottomPosition () {
+    return this.menubarPosition === 'bottom';
   }
 };
