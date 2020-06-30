@@ -30,11 +30,11 @@
   }
 
   .order1 {
-    order: 1
+    order: 1;
   }
 
   .order2 {
-    order: 2
+    order: 2;
   }
 
   &__codemirror {
@@ -76,11 +76,11 @@
     flex-grow: 1;
     padding: 30px 20px;
 
-    &_border-bottom_none{
+    &_border-bottom_none {
       border-bottom: 0;
     }
 
-    &_border-top_none{
+    &_border-top_none {
       border-top: 0;
     }
   }
@@ -106,7 +106,7 @@
       position: absolute;
     }
 
-    &_divider_none{
+    &_divider_none {
       &::before {
         display: none;
       }
