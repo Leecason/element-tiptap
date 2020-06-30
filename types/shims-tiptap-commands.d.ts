@@ -1,6 +1,6 @@
 declare module 'tiptap-commands' {
   import { EditorView } from 'prosemirror-view';
-  import { EditorState, Transaction } from "prosemirror-state";
+  import { EditorState, Transaction } from 'prosemirror-state';
 
   interface DispatchFunction {
     (tr: Transaction): boolean;

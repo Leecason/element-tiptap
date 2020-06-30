@@ -9,6 +9,7 @@ import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import typescript from 'rollup-plugin-typescript2';
 import alias from '@rollup/plugin-alias';
+import dts from 'rollup-plugin-dts';
 
 const libDir = path.resolve(__dirname, 'lib');
 const srcDir = path.resolve(__dirname, 'src');
@@ -26,6 +27,14 @@ export default () => [
     file: path.resolve(libDir, 'element-tiptap.esm.js'),
     format: 'es',
   }),
+  {
+    input: './types/index.d.ts',
+    output: [{
+      file: path.resolve(libDir, 'index.d.ts'),
+      format: 'es'
+    }],
+    plugins: [dts()],
+  },
 ];
 
 function getConfig ({
