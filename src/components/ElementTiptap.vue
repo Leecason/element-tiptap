@@ -49,6 +49,8 @@
       :editor="editor"
       :class="{
         'el-tiptap-editor__content': true,
+        'el-tiptap-editor__content_border-bottom_none': showFooter || (showMenubar && isMenubarBottomPosition),
+        'el-tiptap-editor__content_border-top_none': showMenubar && !isMenubarBottomPosition,
         'border-top-radius': !showMenubar || isMenubarBottomPosition,
         'border-bottom-radius': !showFooter && !isMenubarBottomPosition,
       }"
@@ -63,7 +65,7 @@
         :class="{
           'el-tiptap-editor__footer': true,
           'border-bottom-radius': showFooter,
-          'order2': isMenubarBottomPosition,
+          'order2': showMenubar && isMenubarBottomPosition,
         }"
       >
         <span class="el-tiptap-editor__characters">

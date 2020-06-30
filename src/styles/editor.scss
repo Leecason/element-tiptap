@@ -72,11 +72,17 @@
   > #{$root}__content {
     background-color: $white-color;
     border: 1px solid $lighter-border-color;
-    border-bottom: 0;
-    border-top: 0;
     color: $black-color;
     flex-grow: 1;
     padding: 30px 20px;
+
+    &_border-bottom_none{
+      border-bottom: 0;
+    }
+
+    &_border-top_none{
+      border-top: 0;
+    }
   }
 
   &__menu-bar {
