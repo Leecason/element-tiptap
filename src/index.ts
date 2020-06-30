@@ -27,3 +27,5 @@ export {
   ElementTiptapPlugin,
   ElementTiptap,
 };
+
+export default ElementTiptapPlugin;
