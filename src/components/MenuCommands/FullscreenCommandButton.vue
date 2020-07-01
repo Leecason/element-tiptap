@@ -1,6 +1,7 @@
 <template>
   <command-button
     :command="() => isFullscreen = !isFullscreen"
+    :enable-tooltip="et.tooltip"
     :tooltip="buttonTooltip"
     :icon="isFullscreen ? 'compress' : 'expand'"
     :is-active="isFullscreen"
@@ -9,7 +10,6 @@
 
 <script lang="ts">
 import { Component, Inject, Mixins } from 'vue-property-decorator';
-import { EditorStateOptions } from '@/../types';
 import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from './CommandButton.vue';
 
@@ -19,15 +19,15 @@ import CommandButton from './CommandButton.vue';
   },
 })
 export default class FullscreenCommandButton extends Mixins(i18nMixin) {
-  @Inject() readonly editorStateOptions!: EditorStateOptions;
+  @Inject() readonly et!: any;
 
-  get isFullscreen (): EditorStateOptions['isFullscreen'] {
-    return this.editorStateOptions.isFullscreen;
+  get isFullscreen (): boolean {
+    return this.et.isFullscreen;
   }
 
   set isFullscreen (val: boolean) {
     // eslint-disable-next-line no-debugger
-    this.editorStateOptions.isFullscreen = val;
+    this.et.isFullscreen = val;
   }
 
   private get buttonTooltip () {

@@ -2,7 +2,7 @@
   <el-tooltip
     :content="tooltip"
     :open-delay="350"
-    :disabled="readonly"
+    :disabled="!enableTooltip || readonly"
     transition="el-zoom-in-bottom"
     effect="dark"
     placement="top"
@@ -89,6 +89,12 @@ export default class CommandButton extends Vue {
     required: true,
   })
   readonly tooltip!: string;
+
+  @Prop({
+    type: Boolean,
+    required: true,
+  })
+  readonly enableTooltip!: boolean;
 
   @Prop({
     type: Function,

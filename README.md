@@ -422,6 +422,14 @@ Default: `true`
 
 Enables or disables the display of the character counter.
 
+### tooltip
+
+Type: `boolean`
+
+Default: `true`
+
+Control if tooltips are shown when getting with mouse over the buttons from the toolbar.
+
 ## 👽 Events
 
 ### Init

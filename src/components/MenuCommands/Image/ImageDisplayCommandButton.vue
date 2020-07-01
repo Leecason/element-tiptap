@@ -22,6 +22,7 @@
 
     <command-button
       slot="reference"
+      :enable-tooltip="et.tooltip"
       :tooltip="t('editor.extensions.Image.buttons.display.tooltip')"
       icon="regular/image"
     />
@@ -29,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { Popover } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import i18nMixin from '@/mixins/i18nMixin';
@@ -54,6 +55,8 @@ export default class ImageDisplayCommandButton extends Mixins(i18nMixin) {
     required: true,
   })
   readonly updateAttrs!: Function;
+
+  @Inject() readonly et!: any;
 
   popoverVisible = false;
 

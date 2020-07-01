@@ -5,8 +5,9 @@
     @command="lineHeight => editorContext.commands.line_height({ lineHeight })"
   >
     <command-button
+      :enable-tooltip="et.tooltip"
       :tooltip="t('editor.extensions.LineHeight.tooltip')"
-      :readonly="editorStateOptions.isCodeViewMode"
+      :readonly="et.isCodeViewMode"
       icon="text-height"
     />
     <el-dropdown-menu
@@ -31,7 +32,6 @@
 <script lang="ts">
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
-import { EditorStateOptions } from '@/../types';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
 import i18nMixin from '@/mixins/i18nMixin';
 import { isLineHeightActive } from '@/utils/line_height';
@@ -52,7 +52,7 @@ export default class LineHeightDropdown extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  @Inject() readonly editorStateOptions!: EditorStateOptions;
+  @Inject() readonly et!: any;
 
   private get editor () {
     return this.editorContext.editor;

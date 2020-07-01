@@ -1,8 +1,9 @@
 <template>
   <command-button
     :is-active="editorContext.isActive.link()"
-    :readonly="editorStateOptions.isCodeViewMode"
+    :readonly="et.isCodeViewMode"
     :command="openApplyLinkControl"
+    :enable-tooltip="et.tooltip"
     :tooltip="t('editor.extensions.Link.add.tooltip')"
     icon="link"
   />
@@ -12,7 +13,6 @@
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MessageBox } from 'element-ui';
 import { MenuData } from 'tiptap';
-import { EditorStateOptions } from '@/../types';
 import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from '../CommandButton.vue';
 
@@ -28,7 +28,7 @@ export default class AddLinkCommandButton extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  @Inject() readonly editorStateOptions!: EditorStateOptions;
+  @Inject() readonly et!: any;
 
   openApplyLinkControl (): void {
     const { editor } = this.editorContext;

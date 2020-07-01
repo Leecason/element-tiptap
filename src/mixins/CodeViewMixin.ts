@@ -1,14 +1,10 @@
 // @ts-nocheck
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import { EditorStateOptions } from '@/../types';
 
 @Component
 export default class CodeViewMixin extends Vue {
   cmInstance = null;
-
-  get isCodeViewMode (): EditorStateOptions['isCodeViewMode'] {
-    return this.editorStateOptions.isCodeViewMode;
-  }
+  isCodeViewMode = false;
 
   @Watch('isCodeViewMode')
   onCodeViewModeChange (val: boolean): void {

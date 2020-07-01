@@ -25,6 +25,7 @@
           v-for="(spec, i) in generateCommandButtonComponentSpecs(editorContext)"
           :key="'command-button' + i"
           :is="spec.component"
+          :enable-tooltip="et.tooltip"
           v-bind="spec.componentProps"
           v-on="spec.componentEvents"
         />
@@ -34,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
 import { TextSelection } from 'prosemirror-state';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 // @ts-ignore
@@ -61,6 +62,8 @@ export default class MenuBubble extends Vue {
     default: () => ({}),
   })
   readonly menuBubbleOptions!: Object;
+
+  @Inject() readonly et!: any;
 
   /* Only appears when link is selected separately */
   private get showLinkMenu (): boolean {

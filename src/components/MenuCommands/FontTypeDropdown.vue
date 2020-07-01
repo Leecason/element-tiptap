@@ -5,8 +5,9 @@
     @command="toggleFontType"
   >
     <command-button
+      :enable-tooltip="et.tooltip"
       :tooltip="t('editor.extensions.FontType.tooltip')"
-      :readonly="editorStateOptions.isCodeViewMode"
+      :readonly="et.isCodeViewMode"
       icon="font"
     />
 
@@ -35,7 +36,6 @@
 <script lang="ts">
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
-import { EditorStateOptions } from '@/../types';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
 import i18nMixin from '@/mixins/i18nMixin';
 import { DEFAULT_FONT_TYPE_MAP, findActiveFontType } from '@/utils/font_type';
@@ -58,7 +58,7 @@ export default class FontTypeDropdown extends Mixins(i18nMixin) {
   })
   readonly editorContext!: MenuData;
 
-  @Inject() readonly editorStateOptions!: EditorStateOptions;
+  @Inject() readonly et!: any;
 
   private get editor () {
     return this.editorContext.editor;

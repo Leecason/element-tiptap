@@ -46,6 +46,7 @@ function getConfig ({
     output: {
       file,
       name: 'ElementTiptap',
+      exports: 'named',
       format,
       globals: {
         vue: 'Vue',

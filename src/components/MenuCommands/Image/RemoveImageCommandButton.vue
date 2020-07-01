@@ -1,13 +1,14 @@
 <template>
   <command-button
     :command="removeImage"
+    :enable-tooltip="et.tooltip"
     :tooltip="t('editor.extensions.Image.buttons.remove_image.tooltip')"
     icon="regular/trash-alt"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import i18nMixin from '@/mixins/i18nMixin';
 import { EditorView } from 'prosemirror-view';
 import { deleteSelection } from 'prosemirror-commands';
@@ -24,6 +25,8 @@ export default class RemoveImageCommandButton extends Mixins(i18nMixin) {
     required: true,
   })
   readonly view!: EditorView;
+
+  @Inject() readonly et!: any;
 
   private removeImage () {
     const { state, dispatch } = this.view;

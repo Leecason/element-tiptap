@@ -2,7 +2,7 @@
   <div
     v-if="editor"
     :style="elTiptapEditorStyle"
-    :class="{ 'el-tiptap-editor--fullscreen': editorStateOptions.isFullscreen }"
+    :class="{ 'el-tiptap-editor--fullscreen': isFullscreen }"
     class="el-tiptap-editor"
   >
     <menu-bubble
@@ -69,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Provide, Model, Mixins, Vue } from 'vue-property-decorator';
+import { Component, Prop, Watch, Provide, Model, Mixins } from 'vue-property-decorator';
 import { Editor, EditorContent, Extension, EditorUpdateEvent } from 'tiptap';
 import { Placeholder } from 'tiptap-extensions';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
@@ -80,7 +80,6 @@ import { EVENTS } from '@/constants';
 import EditorStylesMixin from '@/mixins/EditorStylesMixin';
 import CodeViewMixin from '@/mixins/CodeViewMixin';
 import i18nMixin from '@/mixins/i18nMixin';
-import { EditorStateOptions } from '@/../types';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
@@ -149,6 +148,12 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
   })
   readonly spellcheck!: boolean | undefined;
 
+  @Prop({
+    type: Boolean,
+    default: true,
+  })
+  readonly tooltip!: boolean;
+
   // TODO: popper.js
   @Prop({
     type: Object,
@@ -158,6 +163,11 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
 
   editor: Editor | null = null;
   emitAfterOnUpdate: boolean = false;
+  isFullscreen: boolean = false;
+
+  @Provide() get et (): ElTiptap {
+    return this;
+  };
 
   get characters (): number {
     if (!this.editor) return 0;
@@ -259,13 +269,6 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
 
     this.$emit(this.genEvent(EVENTS.UPDATE), output, options);
   }
-
-  @Provide() get editorStateOptions (): EditorStateOptions {
-    return Vue.observable({
-      isFullscreen: false,
-      isCodeViewMode: false,
-    });
-  };
 
   private genEvent (event: EVENTS) {
     return `on${capitalize(event)}`;

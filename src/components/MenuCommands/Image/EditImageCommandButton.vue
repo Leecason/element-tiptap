@@ -2,6 +2,7 @@
   <div>
     <command-button
       :command="openEditImageDialog"
+      :enable-tooltip="et.tooltip"
       :tooltip="t('editor.extensions.Image.buttons.image_options.tooltip')"
       icon="ellipsis-h"
     />
@@ -80,7 +81,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { Dialog, Form, FormItem, Input, Col } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import i18nMixin from '@/mixins/i18nMixin';
@@ -108,6 +109,8 @@ export default class EditImageCommandButton extends Mixins(i18nMixin) {
     required: true,
   })
   readonly updateAttrs!: Function;
+
+  @Inject() readonly et!: any;
 
   editImageDialogVisible = false;
 

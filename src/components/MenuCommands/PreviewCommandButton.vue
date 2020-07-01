@@ -2,8 +2,9 @@
   <div>
     <command-button
       :command="togglePreviewDialogVisible"
+      :enable-tooltip="et.tooltip"
       :tooltip="t('editor.extensions.Preview.tooltip')"
-      :readonly="editorStateOptions.isCodeViewMode"
+      :readonly="et.isCodeViewMode"
       icon="eye"
     />
 
@@ -24,7 +25,6 @@
 import { Component, Prop, Watch, Mixins, Inject } from 'vue-property-decorator';
 import { Dialog } from 'element-ui';
 import { MenuData } from 'tiptap';
-import { EditorStateOptions } from '@/../types';
 import { PREVIEW_WINDOW_WIDTH } from '@/constants';
 import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from './CommandButton.vue';
@@ -48,10 +48,10 @@ export default class PreviewCommandButton extends Mixins(i18nMixin) {
   })
   readonly contentWidth!: string;
 
+  @Inject() readonly et!: any;
+
   html: string = '';
   previewDialogVisible: boolean = false;
-
-  @Inject() readonly editorStateOptions!: EditorStateOptions;
 
   @Watch('previewDialogVisible')
   onVisibleChange (visible: boolean) {

@@ -1,7 +1,7 @@
 <template>
   <el-popover
     v-model="popoverVisible"
-    :disabled="editorStateOptions.isCodeViewMode"
+    :disabled="et.isCodeViewMode"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
@@ -54,16 +54,16 @@
 
     <command-button
       slot="reference"
+      :enable-tooltip="et.tooltip"
       :tooltip="tooltip"
       :icon="icon"
-      :readonly="editorStateOptions.isCodeViewMode"
+      :readonly="et.isCodeViewMode"
     />
   </el-popover>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Watch, Emit, Vue, Inject } from 'vue-property-decorator';
-import { EditorStateOptions } from '@/../types';
 import { Button, Popover, Input } from 'element-ui';
 import CommandButton from './CommandButton.vue';
 
@@ -109,7 +109,7 @@ export default class ColorPopover extends Vue {
   private color: string = '';
   private popoverVisible: boolean = false;
 
-  @Inject() readonly editorStateOptions!: EditorStateOptions;
+  @Inject() readonly et!: any;
 
   @Watch('selectedColor', {
     immediate: true,

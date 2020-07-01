@@ -1,13 +1,14 @@
 <template>
   <command-button
     :command="openEditLinkControl"
+    :enable-tooltip="et.tooltip"
     :tooltip="t('editor.extensions.Link.edit.tooltip')"
     icon="edit"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
 import { MessageBox } from 'element-ui';
 import { MenuData } from 'tiptap';
 import i18nMixin from '@/mixins/i18nMixin';
@@ -30,6 +31,8 @@ export default class EditLinkCommandButton extends Mixins(i18nMixin) {
     required: true,
   })
   readonly initUrl!: string;
+
+  @Inject() readonly et!: any;
 
   openEditLinkControl (): void {
     const { editor } = this.editorContext;
