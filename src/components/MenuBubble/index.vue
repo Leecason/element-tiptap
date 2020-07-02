@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
-import { TextSelection } from 'prosemirror-state';
+import { TextSelection, AllSelection } from 'prosemirror-state';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
@@ -85,7 +85,8 @@ export default class MenuBubble extends Vue {
   }
 
   private get showTextMenu (): boolean {
-    if (this.editor.state.selection instanceof TextSelection) {
+    if (this.editor.state.selection instanceof TextSelection ||
+    this.editor.state.selection instanceof AllSelection) {
       const extensionManager = this.editor.extensions;
       return extensionManager.extensions.some(extension => {
         return extension.options.bubble;
