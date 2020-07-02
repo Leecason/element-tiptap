@@ -3,11 +3,13 @@
     v-slot="editorContext"
     v-bind="menuBubbleOptions"
     :editor="editor"
+    @show="onBubbleMenuShow"
+    @hide="setMenuType('none')"
   >
     <div
       :class="{
         'el-tiptap-editor__menu-bubble--active':
-          editorContext.menu.isActive && (showLinkMenu || showTextMenu),
+          editorContext.menu.isActive && bubbleMenuEnable,
       }"
       :style="`
         left: ${ editorContext.menu.left }px;
@@ -16,11 +18,23 @@
       class="el-tiptap-editor__menu-bubble"
     >
       <link-bubble-menu
-        v-if="showLinkMenu"
+        v-if="activeMenu === 'link'"
         :editorContext="editorContext"
-      />
+        @back="setMenuType('default')"
+      >
+        <template #prepend>
+          <div
+            v-if="textMenuEnable"
+            class="el-tiptap-editor__command-button"
+            @mousedown.prevent
+            @click="setMenuType('default')"
+          >
+            <v-icon name="arrow-left" />
+          </div>
+        </template>
+      </link-bubble-menu>
 
-      <template v-else-if="showTextMenu">
+      <template v-else-if="activeMenu === 'default'">
         <component
           v-for="(spec, i) in generateCommandButtonComponentSpecs(editorContext)"
           :key="'command-button' + i"
@@ -35,17 +49,25 @@
 </template>
 
 <script lang="ts">
+import Icon from 'vue-awesome/components/Icon.vue';
 import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
-import { TextSelection, AllSelection } from 'prosemirror-state';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
+import { TextSelection, AllSelection } from 'prosemirror-state';
 import { MenuBtnViewType } from '@/../types';
 
 import LinkBubbleMenu from './LinkBubbleMenu.vue';
 
+const enum MenuType {
+  NONE = 'none',
+  DEFAULT = 'default',
+  LINK = 'link',
+};
+
 @Component({
   components: {
+    'v-icon': Icon,
     EditorMenuBubble,
     LinkBubbleMenu,
   },
@@ -65,8 +87,25 @@ export default class MenuBubble extends Vue {
 
   @Inject() readonly et!: any;
 
-  /* Only appears when link is selected separately */
-  private get showLinkMenu (): boolean {
+  activeMenu: MenuType = MenuType.DEFAULT;
+
+  private get bubbleMenuEnable (): boolean {
+    return this.linkMenuEnable || this.textMenuEnable;
+  }
+
+  private get linkMenuEnable (): boolean {
+    const { schema } = this.editor;
+    return !!schema.marks.link;
+  }
+
+  private get textMenuEnable (): boolean {
+    const extensionManager = this.editor.extensions;
+    return extensionManager.extensions.some(extension => {
+      return extension.options.bubble;
+    });
+  }
+
+  private get isLinkSelection (): boolean {
     const { state, schema } = this.editor;
 
     if (schema.marks.link) {
@@ -80,17 +119,6 @@ export default class MenuBubble extends Vue {
       if (!range) return false;
 
       return range.to === $to.pos;
-    }
-    return false;
-  }
-
-  private get showTextMenu (): boolean {
-    if (this.editor.state.selection instanceof TextSelection ||
-    this.editor.state.selection instanceof AllSelection) {
-      const extensionManager = this.editor.extensions;
-      return extensionManager.extensions.some(extension => {
-        return extension.options.bubble;
-      });
     }
     return false;
   }
@@ -117,6 +145,23 @@ export default class MenuBubble extends Vue {
         menuBtnComponentSpec,
       ];
     }, []);
+  }
+
+  onBubbleMenuShow () {
+    this.activeMenu = this.$_getCurrentMenuType();
+  }
+
+  setMenuType (type: MenuType) {
+    this.activeMenu = type;
+  }
+
+  $_getCurrentMenuType (): MenuType {
+    if (this.isLinkSelection) return MenuType.LINK;
+    if (this.editor.state.selection instanceof TextSelection ||
+      this.editor.state.selection instanceof AllSelection) {
+      return MenuType.DEFAULT;
+    }
+    return MenuType.NONE;
   }
 }
 </script>

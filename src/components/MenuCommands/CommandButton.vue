@@ -60,6 +60,7 @@ import 'vue-awesome/icons/print';
 import 'vue-awesome/icons/eye';
 import 'vue-awesome/icons/regular/object-group';
 import 'vue-awesome/icons/regular/file-code';
+import 'vue-awesome/icons/arrow-left';
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Tooltip } from 'element-ui';

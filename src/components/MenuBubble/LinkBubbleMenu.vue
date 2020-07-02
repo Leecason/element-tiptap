@@ -1,5 +1,7 @@
 <template>
   <div class="link-bubble-menu">
+    <slot name="prepend" />
+
     <open-link-command-button
       :url="url"
     />

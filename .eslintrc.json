@@ -28,6 +28,7 @@
     }],
     "space-before-function-paren": ["error", "always"],
     "no-unused-vars": "off",
+    "camelcase": "off",
     "@typescript-eslint/no-unused-vars": "error"
   },
   "parserOptions": {
