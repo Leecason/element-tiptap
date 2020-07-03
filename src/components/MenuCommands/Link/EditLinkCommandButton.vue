@@ -1,21 +1,78 @@
 <template>
-  <command-button
-    :command="openEditLinkControl"
-    :enable-tooltip="et.tooltip"
-    :tooltip="t('editor.extensions.Link.edit.tooltip')"
-    icon="edit"
-  />
+  <div>
+    <command-button
+      :command="openEditLinkDialog"
+      :enable-tooltip="et.tooltip"
+      :tooltip="t('editor.extensions.Link.edit.tooltip')"
+      icon="edit"
+    />
+
+    <el-dialog
+      :title="t('editor.extensions.Link.edit.control.title')"
+      :visible.sync="editLinkDialogVisible"
+      :append-to-body="true"
+      width="400px"
+      custom-class="el-tiptap-edit-link-dialog"
+    >
+      <el-form
+        :model="linkAttrs"
+        label-position="right"
+        size="small"
+      >
+        <el-form-item
+          :label="t('editor.extensions.Link.edit.control.href')"
+          prop="href"
+        >
+          <el-input
+            v-model="linkAttrs.href"
+            autocomplete="off"
+          />
+        </el-form-item>
+
+        <el-form-item prop="openInNewTab">
+          <el-checkbox v-model="linkAttrs.openInNewTab">
+            {{ t('editor.extensions.Link.edit.control.open_in_new_tab') }}
+          </el-checkbox>
+        </el-form-item>
+      </el-form>
+
+      <template #footer>
+        <el-button
+          size="small"
+          round
+          @click="closeEditLinkDialog"
+        >
+          {{ t('editor.extensions.Image.control.edit_image.cancel') }}
+        </el-button>
+
+        <el-button
+          type="primary"
+          size="small"
+          round
+          @mousedown.prevent
+          @click="updateLinkAttrs"
+        >
+          {{ t('editor.extensions.Image.control.edit_image.confirm') }}
+        </el-button>
+      </template>
+    </el-dialog>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
-import { MessageBox } from 'element-ui';
+import { Dialog, Form, FormItem, Input, Checkbox } from 'element-ui';
 import { MenuData } from 'tiptap';
 import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from '../CommandButton.vue';
 
 @Component({
   components: {
+    [Dialog.name]: Dialog,
+    [Form.name]: Form,
+    [FormItem.name]: FormItem,
+    [Input.name]: Input,
+    [Checkbox.name]: Checkbox,
     CommandButton,
   },
 })
@@ -27,37 +84,28 @@ export default class EditLinkCommandButton extends Mixins(i18nMixin) {
   readonly editorContext!: MenuData;
 
   @Prop({
-    type: String,
+    type: Object,
     required: true,
   })
-  readonly initUrl!: string;
+  readonly initLinkAttrs!: object;
 
   @Inject() readonly et!: any;
 
-  openEditLinkControl (): void {
-    const { editor } = this.editorContext;
-    const { state, view } = editor;
-    const { tr } = state; // current trascation, need to restore when confirmed
+  linkAttrs = this.initLinkAttrs;
+  editLinkDialogVisible = false;
 
-    MessageBox.prompt('', this.t('editor.extensions.Link.edit.control.title'), {
-      confirmButtonText: this.t('editor.extensions.Link.edit.control.confirm'),
-      cancelButtonText: this.t('editor.extensions.Link.edit.control.cancel'),
-      inputPlaceholder: this.t('editor.extensions.Link.edit.control.placeholder'),
-      inputValue: this.initUrl,
-      roundButton: true,
-    // @ts-ignore
-    }).then(({ value: href }) => {
-      // https://github.com/Leecason/element-tiptap/issues/119
-      // in Firefox 77, when message-box confirm button clicked, editor will lose focus
-      // and re-focus on closeDialog's next tick, https://github.com/ElemeFE/element/blob/dev/src/utils/aria-dialog.js#L66
-      // but re-focus will lose the previous selection, so add link will not work
-      // here need to restore the previous trascation
-      view.dispatch(tr);
+  private updateLinkAttrs () {
+    this.editorContext.commands.link(this.linkAttrs);
 
-      this.editorContext.commands.link({ href });
-    }).catch(() => {
+    this.closeEditLinkDialog();
+  }
 
-    });
+  private openEditLinkDialog () {
+    this.editLinkDialogVisible = true;
+  }
+
+  private closeEditLinkDialog () {
+    this.editLinkDialogVisible = false;
   }
 };
 </script>

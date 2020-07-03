@@ -40,7 +40,8 @@ export default {
           tooltip: 'Link bearbeiten',
           control: {
             title: 'Link bearbeiten',
-            placeholder: 'Link',
+            href: 'Link',
+            open_in_new_tab: 'Öffnen Sie in einem neuen Tab',
             confirm: 'Speichern',
             cancel: 'Abbrechen',
           },

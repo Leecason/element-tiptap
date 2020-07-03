@@ -3,11 +3,11 @@
     <slot name="prepend" />
 
     <open-link-command-button
-      :url="url"
+      :url="linkAttrs.href"
     />
     <edit-link-command-button
       :editor-context="editorContext"
-      :init-url="url"
+      :init-link-attrs="linkAttrs"
     />
     <unlink-command-button
       :editor-context="editorContext"
@@ -36,10 +36,10 @@ export default class LinkBubbleMenu extends Vue {
   })
   readonly editorContext!: MenuData;
 
-  private get url (): string {
+  private get linkAttrs () {
     const { getMarkAttrs } = this.editorContext;
     const linkAttrs = getMarkAttrs('link');
-    return linkAttrs.href;
+    return linkAttrs;
   }
 };
 </script>

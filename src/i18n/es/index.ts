@@ -40,7 +40,8 @@ export default {
           tooltip: 'Editar enlace',
           control: {
             title: 'Editar enlace',
-            placeholder: 'Href',
+            href: 'Href',
+            open_in_new_tab: 'Abrir en una pestaña nueva',
             confirm: 'Actualizar',
             cancel: 'Cancelar',
           },

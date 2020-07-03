@@ -3,8 +3,6 @@
     v-slot="editorContext"
     v-bind="menuBubbleOptions"
     :editor="editor"
-    @show="onBubbleMenuShow"
-    @hide="setMenuType('none')"
   >
     <div
       :class="{
@@ -19,8 +17,7 @@
     >
       <link-bubble-menu
         v-if="activeMenu === 'link'"
-        :editorContext="editorContext"
-        @back="setMenuType('default')"
+        :editorContext="{ ...editorContext, editor }"
       >
         <template #prepend>
           <div
@@ -50,7 +47,7 @@
 
 <script lang="ts">
 import Icon from 'vue-awesome/components/Icon.vue';
-import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
+import { Component, Prop, Vue, Inject, Watch } from 'vue-property-decorator';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
@@ -87,7 +84,7 @@ export default class MenuBubble extends Vue {
 
   @Inject() readonly et!: any;
 
-  activeMenu: MenuType = MenuType.DEFAULT;
+  activeMenu: MenuType = MenuType.NONE;
 
   private get bubbleMenuEnable (): boolean {
     return this.linkMenuEnable || this.textMenuEnable;
@@ -123,6 +120,11 @@ export default class MenuBubble extends Vue {
     return false;
   }
 
+  @Watch('editor.state.selection')
+  onSelectionChange () {
+    this.activeMenu = this.$_getCurrentMenuType();
+  }
+
   private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
     const extensionManager = this.editor.extensions;
     return extensionManager.extensions.reduce <MenuBtnViewType[]>((acc, extension) => {
@@ -145,10 +147,6 @@ export default class MenuBubble extends Vue {
         menuBtnComponentSpec,
       ];
     }, []);
-  }
-
-  onBubbleMenuShow () {
-    this.activeMenu = this.$_getCurrentMenuType();
   }
 
   setMenuType (type: MenuType) {

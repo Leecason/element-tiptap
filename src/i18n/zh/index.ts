@@ -40,7 +40,8 @@ export default {
           tooltip: '编辑链接',
           control: {
             title: '编辑链接',
-            placeholder: '输入链接',
+            href: '链接',
+            open_in_new_tab: '在新标签页中打开',
             confirm: '更新',
             cancel: '取消',
           },

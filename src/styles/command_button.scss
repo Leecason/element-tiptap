@@ -257,6 +257,12 @@
   }
 }
 
+.el-tiptap-edit-link-dialog {
+  .el-form-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .el-popper.el-tiptap-image-popper {
   background-color: $white-color;
   border-radius: 8px;

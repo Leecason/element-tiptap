@@ -40,7 +40,8 @@ export default {
           tooltip: 'Edit link',
           control: {
             title: 'Edit Link',
-            placeholder: 'Href',
+            href: 'Href',
+            open_in_new_tab: 'Open in new tab',
             confirm: 'Update',
             cancel: 'Cancel',
           },

@@ -40,7 +40,8 @@ export default {
           tooltip: 'Редактировать ссылку',
           control: {
             title: 'Редактировать ссылку',
-            placeholder: 'Адрес',
+            href: 'Адрес',
+            open_in_new_tab: 'Открыть в новой вкладке',
             confirm: 'Обновить',
             cancel: 'Отменить',
           },

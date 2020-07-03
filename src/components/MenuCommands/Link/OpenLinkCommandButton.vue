@@ -28,7 +28,12 @@ export default class OpenLinkCommandButton extends Mixins(i18nMixin) {
 
   openLink () {
     if (this.url) {
-      window.open(this.url);
+      // prevent attack
+      const newTab = window.open();
+      if (newTab) {
+        newTab.opener = null;
+        newTab.location.href = this.url;
+      }
     }
   }
 };

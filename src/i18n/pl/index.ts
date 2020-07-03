@@ -40,7 +40,8 @@ export default {
           tooltip: 'Edytuj link',
           control: {
             title: 'Edytuj link',
-            placeholder: 'Źródło',
+            href: 'Źródło',
+            open_in_new_tab: 'Otwórz w nowej karcie',
             confirm: 'aktualizacja',
             cancel: 'Anuluj',
           },

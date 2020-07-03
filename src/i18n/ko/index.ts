@@ -40,7 +40,8 @@ export default {
           tooltip: '링크 편집',
           control: {
             title: '링크 편집',
-            placeholder: 'URL주소',
+            href: 'URL주소',
+            open_in_new_tab: '새 탭에서 열기',
             confirm: '적용',
             cancel: '취소',
           },
