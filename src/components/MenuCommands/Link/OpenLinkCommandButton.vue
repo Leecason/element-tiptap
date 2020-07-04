@@ -2,14 +2,13 @@
   <command-button
     :command="openLink"
     :enable-tooltip="et.tooltip"
-    :tooltip="t('editor.extensions.Link.open.tooltip')"
+    :tooltip="et.t('editor.extensions.Link.open.tooltip')"
     icon="external-link-alt"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
-import i18nMixin from '@/mixins/i18nMixin';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import CommandButton from '../CommandButton.vue';
 
 @Component({
@@ -17,7 +16,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class OpenLinkCommandButton extends Mixins(i18nMixin) {
+export default class OpenLinkCommandButton extends Vue {
   @Prop({
     type: String,
     required: true,

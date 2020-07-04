@@ -7,7 +7,6 @@
   <img alt="gzipped size" src="https://img.badgesize.io/https://unpkg.com/element-tiptap/lib/element-tiptap.min.js?compression=gzip&color=blue">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
   <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
-  <img alt="GitHub issues" src="https://img.shields.io/github/issues/Leecason/element-tiptap">
   <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
@@ -430,6 +429,21 @@ height: 100%;
 默认值: `true`
 
 鼠标移到按钮上时是否显示 tooltip
+
+### lang
+
+类型: `string`
+
+默认值: 插件 `lang` 选项的值
+
+```html
+<el-tiptap
+  lang="zh"
+>
+</el-tiptap>
+```
+
+指定编辑器国际化语言
 
 ## 👽 事件 Events
 

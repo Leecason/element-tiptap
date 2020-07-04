@@ -1,7 +1,6 @@
 import { Extension, MenuData } from 'tiptap';
 import { CommandFunction } from 'tiptap-commands';
 import { MenuBtnView } from '@/../types';
-import { t } from '@/i18n/index';
 import { printEditorContent } from '@/utils/print';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
@@ -25,7 +24,7 @@ export default class Print extends Extension implements MenuBtnView {
     };
   }
 
-  menuBtnView ({ commands }: MenuData) {
+  menuBtnView ({ commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

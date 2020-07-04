@@ -1,14 +1,16 @@
 import { ElementTiptapPluginInterface } from '../types';
-import { useLang } from '@/i18n/index';
+import { DEFAULT_LANGUAGE } from '@/i18n/index';
 import ElementTiptap from '@/components/ElementTiptap.vue';
 
 const ElementTiptapPlugin: ElementTiptapPluginInterface = {
   installed: false,
   spellcheck: true,
+  lang: DEFAULT_LANGUAGE,
 
   install (Vue, options = {}) {
-    const { lang } = options;
-    if (lang) useLang(lang);
+    if (options.lang) {
+      this.lang = options.lang;
+    }
 
     this.spellcheck = options.spellcheck == null
       ? true

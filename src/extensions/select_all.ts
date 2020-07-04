@@ -2,7 +2,6 @@ import { selectAll } from 'prosemirror-commands';
 import { Extension, MenuData } from 'tiptap';
 import { CommandFunction } from 'tiptap-commands';
 import { MenuBtnView } from '@/../types';
-import { t } from '@/i18n/index';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class SelectAll extends Extension implements MenuBtnView {
@@ -14,7 +13,7 @@ export default class SelectAll extends Extension implements MenuBtnView {
     return (): CommandFunction => selectAll;
   }
 
-  menuBtnView ({ commands }: MenuData) {
+  menuBtnView ({ commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

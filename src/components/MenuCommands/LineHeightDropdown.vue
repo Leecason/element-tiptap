@@ -6,7 +6,7 @@
   >
     <command-button
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.LineHeight.tooltip')"
+      :tooltip="et.t('editor.extensions.LineHeight.tooltip')"
       :readonly="et.isCodeViewMode"
       icon="text-height"
     />
@@ -30,10 +30,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import i18nMixin from '@/mixins/i18nMixin';
 import { isLineHeightActive } from '@/utils/line_height';
 import CommandButton from './CommandButton.vue';
 
@@ -45,7 +44,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class LineHeightDropdown extends Mixins(i18nMixin) {
+export default class LineHeightDropdown extends Vue {
   @Prop({
     type: Object,
     required: true,

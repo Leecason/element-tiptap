@@ -11,6 +11,7 @@ export interface ElementTiptapPluginInterface {
   installed: boolean;
   install (Vue: VueConstructor, options: OptionsInterface): void;
   spellcheck: boolean;
+  lang: string;
 }
 
 export interface MenuBtnComponentOptions {

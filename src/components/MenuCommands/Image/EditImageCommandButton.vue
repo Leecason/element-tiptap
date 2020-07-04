@@ -3,12 +3,12 @@
     <command-button
       :command="openEditImageDialog"
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.Image.buttons.image_options.tooltip')"
+      :tooltip="et.t('editor.extensions.Image.buttons.image_options.tooltip')"
       icon="ellipsis-h"
     />
 
     <el-dialog
-      :title="t('editor.extensions.Image.control.edit_image.title')"
+      :title="et.t('editor.extensions.Image.control.edit_image.title')"
       :visible.sync="editImageDialogVisible"
       :append-to-body="true"
       width="400px"
@@ -20,7 +20,7 @@
         label-position="top"
         size="small"
       >
-        <el-form-item :label="t('editor.extensions.Image.control.edit_image.form.src')">
+        <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.src')">
           <el-input
             :value="imageAttrs.src"
             autocomplete="off"
@@ -28,7 +28,7 @@
           />
         </el-form-item>
 
-        <el-form-item :label="t('editor.extensions.Image.control.edit_image.form.alt')">
+        <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.alt')">
           <el-input
             v-model="imageAttrs.alt"
             autocomplete="off"
@@ -37,7 +37,7 @@
 
         <el-form-item>
           <el-col :span="11">
-            <el-form-item :label="t('editor.extensions.Image.control.edit_image.form.width')">
+            <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.width')">
               <el-input
                 v-model="imageAttrs.width"
                 type="number"
@@ -48,7 +48,7 @@
             :span="11"
             :push="2"
           >
-            <el-form-item :label="t('editor.extensions.Image.control.edit_image.form.height')">
+            <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.height')">
               <el-input
                 v-model="imageAttrs.height"
                 type="number"
@@ -64,7 +64,7 @@
           round
           @click="closeEditImageDialog"
         >
-          {{ t('editor.extensions.Image.control.edit_image.cancel') }}
+          {{ et.t('editor.extensions.Image.control.edit_image.cancel') }}
         </el-button>
 
         <el-button
@@ -73,7 +73,7 @@
           round
           @click="updateImageAttrs"
         >
-          {{ t('editor.extensions.Image.control.edit_image.confirm') }}
+          {{ et.t('editor.extensions.Image.control.edit_image.confirm') }}
         </el-button>
       </template>
     </el-dialog>
@@ -81,10 +81,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { Dialog, Form, FormItem, Input, Col } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
-import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from '../CommandButton.vue';
 
 @Component({
@@ -97,7 +96,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class EditImageCommandButton extends Mixins(i18nMixin) {
+export default class EditImageCommandButton extends Vue {
   @Prop({
     type: ProsemirrorNode,
     required: true,

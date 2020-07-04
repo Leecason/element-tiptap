@@ -47,6 +47,7 @@ export default class Menubar extends Vue {
       const menuBtnComponentSpec = extension.menuBtnView({
         ...editorContext,
         editor: this.editor,
+        t: this.et.t, // i18n
       });
       if (Array.isArray(menuBtnComponentSpec)) {
         return [

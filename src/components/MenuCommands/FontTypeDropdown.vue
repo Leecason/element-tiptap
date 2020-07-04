@@ -6,7 +6,7 @@
   >
     <command-button
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.FontType.tooltip')"
+      :tooltip="et.t('editor.extensions.FontType.tooltip')"
       :readonly="et.isCodeViewMode"
       icon="font"
     />
@@ -34,10 +34,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import i18nMixin from '@/mixins/i18nMixin';
 import { DEFAULT_FONT_TYPE_MAP, findActiveFontType } from '@/utils/font_type';
 import { isPlainObject } from '@/utils/shared';
 import Logger from '@/utils/logger';
@@ -51,7 +50,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class FontTypeDropdown extends Mixins(i18nMixin) {
+export default class FontTypeDropdown extends Vue {
   @Prop({
     type: Object,
     required: true,

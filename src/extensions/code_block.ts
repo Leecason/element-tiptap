@@ -1,11 +1,10 @@
 import { CodeBlock as TiptapCodeBlock } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
-import { t } from '@/i18n/index';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class CodeBlock extends TiptapCodeBlock implements MenuBtnView {
-  menuBtnView ({ isActive, commands }: MenuData) {
+  menuBtnView ({ isActive, commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

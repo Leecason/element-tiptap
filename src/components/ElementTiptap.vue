@@ -79,7 +79,7 @@ import { capitalize } from '@/utils/shared';
 import { EVENTS } from '@/constants';
 import EditorStylesMixin from '@/mixins/EditorStylesMixin';
 import CodeViewMixin from '@/mixins/CodeViewMixin';
-import i18nMixin from '@/mixins/i18nMixin';
+import { Trans } from '@/i18n';
 
 import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
@@ -102,7 +102,7 @@ const COMMON_EMIT_EVENTS: EVENTS[] = [
   // https://github.com/kaorun343/vue-property-decorator/issues/277#issuecomment-558594655
   inject: [],
 })
-export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i18nMixin) {
+export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
   @Prop({
     type: Array,
     default: () => [],
@@ -154,6 +154,15 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
   })
   readonly tooltip!: boolean;
 
+  @Prop({
+    type: String,
+    default: undefined,
+    validator: (lang) => {
+      return Trans.isLangSupported(lang);
+    },
+  })
+  readonly lang!: string;
+
   // TODO: popper.js
   @Prop({
     type: Object,
@@ -185,6 +194,11 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
         ? this.$elementTiptapPlugin.spellcheck
         : true
       : this.spellcheck;
+  }
+
+  get i18nHandler (): Function {
+    const lang = this.lang || this.$elementTiptapPlugin.lang;
+    return Trans.buildI18nHandler(lang);
   }
 
   @Watch('content')
@@ -268,6 +282,11 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin, i
     }
 
     this.$emit(this.genEvent(EVENTS.UPDATE), output, options);
+  }
+
+  // i18n
+  t (...args: any[]): string {
+    return this.i18nHandler.apply(this, args);
   }
 
   private genEvent (event: EVENTS) {

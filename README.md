@@ -430,6 +430,21 @@ Default: `true`
 
 Control if tooltips are shown when getting with mouse over the buttons from the toolbar.
 
+### lang
+
+Type: `string`
+
+Default: plugin `lang` option value
+
+```html
+<el-tiptap
+  lang="zh"
+>
+</el-tiptap>
+```
+
+Specifies the editor i18n language.
+
 ## 👽 Events
 
 ### Init

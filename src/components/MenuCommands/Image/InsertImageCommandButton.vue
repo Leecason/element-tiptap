@@ -11,28 +11,28 @@
           class="el-tiptap-popper__menu__item"
           @click="openUrlPrompt"
         >
-          <span>{{ t('editor.extensions.Image.buttons.insert_image.external') }}</span>
+          <span>{{ et.t('editor.extensions.Image.buttons.insert_image.external') }}</span>
         </div>
 
         <div
           class="el-tiptap-popper__menu__item"
           @click="imageUploadDialogVisible = true"
         >
-          <span>{{ t('editor.extensions.Image.buttons.insert_image.upload') }}</span>
+          <span>{{ et.t('editor.extensions.Image.buttons.insert_image.upload') }}</span>
         </div>
       </div>
 
       <command-button
         slot="reference"
         :enable-tooltip="et.tooltip"
-        :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
+        :tooltip="et.t('editor.extensions.Image.buttons.insert_image.tooltip')"
         :readonly="et.isCodeViewMode"
         icon="image"
       />
     </el-popover>
 
     <el-dialog
-      :title="t('editor.extensions.Image.control.upload_image.title')"
+      :title="et.t('editor.extensions.Image.control.upload_image.title')"
       :visible.sync="imageUploadDialogVisible"
       :append-to-body="true"
     >
@@ -48,7 +48,7 @@
           <i class="fa fa-upload" />
         </div>
         <div class="el-tiptap-upload__text">
-          {{ t('editor.extensions.Image.control.upload_image.button') }}
+          {{ et.t('editor.extensions.Image.control.upload_image.button') }}
         </div>
       </el-upload>
     </el-dialog>
@@ -56,11 +56,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { Dialog, Upload, MessageBox, Popover, Loading } from 'element-ui';
 import { HttpRequestOptions } from 'element-ui/types/upload';
 import { MenuData } from 'tiptap';
-import i18nMixin from '@/mixins/i18nMixin';
 import { readFileDataUrl } from '@/utils/shared';
 import Logger from '@/utils/logger';
 import CommandButton from '../CommandButton.vue';
@@ -73,7 +72,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class ImageCommandButton extends Mixins(i18nMixin) {
+export default class ImageCommandButton extends Vue {
   @Prop({
     type: Object,
     required: true,
@@ -90,12 +89,12 @@ export default class ImageCommandButton extends Mixins(i18nMixin) {
   }
 
   openUrlPrompt (): void {
-    MessageBox.prompt('', this.t('editor.extensions.Image.control.insert_by_url.title'), {
-      confirmButtonText: this.t('editor.extensions.Image.control.insert_by_url.confirm'),
-      cancelButtonText: this.t('editor.extensions.Image.control.insert_by_url.cancel'),
-      inputPlaceholder: this.t('editor.extensions.Image.control.insert_by_url.placeholder'),
+    MessageBox.prompt('', this.et.t('editor.extensions.Image.control.insert_by_url.title'), {
+      confirmButtonText: this.et.t('editor.extensions.Image.control.insert_by_url.confirm'),
+      cancelButtonText: this.et.t('editor.extensions.Image.control.insert_by_url.cancel'),
+      inputPlaceholder: this.et.t('editor.extensions.Image.control.insert_by_url.placeholder'),
       inputPattern: this.imageNodeOptions.urlPattern,
-      inputErrorMessage: this.t('editor.extensions.Image.control.insert_by_url.invalid_url'),
+      inputErrorMessage: this.et.t('editor.extensions.Image.control.insert_by_url.invalid_url'),
       roundButton: true,
     // @ts-ignore
     }).then(({ value: url }) => {

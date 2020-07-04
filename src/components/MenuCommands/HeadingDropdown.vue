@@ -10,7 +10,7 @@
     <command-button
       :is-active="isHeadingActive()"
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.Heading.tooltip')"
+      :tooltip="et.t('editor.extensions.Heading.tooltip')"
       :readonly="et.isCodeViewMode"
       icon="heading"
     />
@@ -25,7 +25,7 @@
         }"
         class="el-tiptap-dropdown-menu__item"
       >
-        <span>{{ t('editor.extensions.Heading.buttons.paragraph') }}</span>
+        <span>{{ et.t('editor.extensions.Heading.buttons.paragraph') }}</span>
       </el-dropdown-item>
       <el-dropdown-item
         v-for="i in level"
@@ -40,7 +40,7 @@
           :is="'h' +i"
           data-item-type="heading"
         >
-          {{ t('editor.extensions.Heading.buttons.heading') }} {{ i }}
+          {{ et.t('editor.extensions.Heading.buttons.heading') }} {{ i }}
         </component>
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -48,10 +48,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import i18nMixin from '@/mixins/i18nMixin';
 import { isHeadingActive } from '@/utils/heading';
 import CommandButton from './CommandButton.vue';
 
@@ -63,7 +62,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class HeadingDropdown extends Mixins(i18nMixin) {
+export default class HeadingDropdown extends Vue {
   @Prop({
     type: Object,
     required: true,

@@ -3,13 +3,13 @@
     <command-button
       :command="togglePreviewDialogVisible"
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.Preview.tooltip')"
+      :tooltip="et.t('editor.extensions.Preview.tooltip')"
       :readonly="et.isCodeViewMode"
       icon="eye"
     />
 
     <el-dialog
-      :title="t('editor.extensions.Preview.dialog.title')"
+      :title="et.t('editor.extensions.Preview.dialog.title')"
       :visible.sync="previewDialogVisible"
       :width="contentWidth"
       :append-to-body="true"
@@ -22,11 +22,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Watch, Inject, Vue } from 'vue-property-decorator';
 import { Dialog } from 'element-ui';
 import { MenuData } from 'tiptap';
 import { PREVIEW_WINDOW_WIDTH } from '@/constants';
-import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from './CommandButton.vue';
 
 @Component({
@@ -35,7 +34,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class PreviewCommandButton extends Mixins(i18nMixin) {
+export default class PreviewCommandButton extends Vue {
   @Prop({
     type: Object,
     required: true,

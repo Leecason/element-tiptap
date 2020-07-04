@@ -6,7 +6,7 @@
   >
     <command-button
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.FontSize.tooltip')"
+      :tooltip="et.t('editor.extensions.FontSize.tooltip')"
       :readonly="et.isCodeViewMode"
       icon="text-width"
     />
@@ -23,7 +23,7 @@
         }"
         class="el-tiptap-dropdown-menu__item"
       >
-        <span data-font-size="default">{{ t('editor.extensions.FontSize.default') }}</span>
+        <span data-font-size="default">{{ et.t('editor.extensions.FontSize.default') }}</span>
       </el-dropdown-item>
 
       <el-dropdown-item
@@ -42,10 +42,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
 import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import i18nMixin from '@/mixins/i18nMixin';
 import { DEFAULT_FONT_SIZE, findActiveFontSize } from '@/utils/font_size';
 import CommandButton from './CommandButton.vue';
 
@@ -57,7 +56,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class FontSizeDropdown extends Mixins(i18nMixin) {
+export default class FontSizeDropdown extends Vue {
   @Prop({
     type: Object,
     required: true,

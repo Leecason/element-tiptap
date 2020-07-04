@@ -4,16 +4,15 @@
     :readonly="et.isCodeViewMode"
     :command="openApplyLinkControl"
     :enable-tooltip="et.tooltip"
-    :tooltip="t('editor.extensions.Link.add.tooltip')"
+    :tooltip="et.t('editor.extensions.Link.add.tooltip')"
     icon="link"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { MessageBox } from 'element-ui';
 import { MenuData } from 'tiptap';
-import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from '../CommandButton.vue';
 
 @Component({
@@ -21,7 +20,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class AddLinkCommandButton extends Mixins(i18nMixin) {
+export default class AddLinkCommandButton extends Vue {
   @Prop({
     type: Object,
     required: true,
@@ -35,10 +34,10 @@ export default class AddLinkCommandButton extends Mixins(i18nMixin) {
     const { state, view } = editor;
     const { tr } = state; // current trascation, need to restore when confirmed
 
-    MessageBox.prompt('', this.t('editor.extensions.Link.add.control.title'), {
-      confirmButtonText: this.t('editor.extensions.Link.add.control.confirm'),
-      cancelButtonText: this.t('editor.extensions.Link.add.control.cancel'),
-      inputPlaceholder: this.t('editor.extensions.Link.add.control.placeholder'),
+    MessageBox.prompt('', this.et.t('editor.extensions.Link.add.control.title'), {
+      confirmButtonText: this.et.t('editor.extensions.Link.add.control.confirm'),
+      cancelButtonText: this.et.t('editor.extensions.Link.add.control.cancel'),
+      inputPlaceholder: this.et.t('editor.extensions.Link.add.control.placeholder'),
       roundButton: true,
     // @ts-ignore
     }).then(({ value: href }) => {

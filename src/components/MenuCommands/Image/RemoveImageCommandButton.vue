@@ -2,14 +2,13 @@
   <command-button
     :command="removeImage"
     :enable-tooltip="et.tooltip"
-    :tooltip="t('editor.extensions.Image.buttons.remove_image.tooltip')"
+    :tooltip="et.t('editor.extensions.Image.buttons.remove_image.tooltip')"
     icon="regular/trash-alt"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
-import i18nMixin from '@/mixins/i18nMixin';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { EditorView } from 'prosemirror-view';
 import { deleteSelection } from 'prosemirror-commands';
 import CommandButton from '../CommandButton.vue';
@@ -19,7 +18,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class RemoveImageCommandButton extends Mixins(i18nMixin) {
+export default class RemoveImageCommandButton extends Vue {
   @Prop({
     type: Object,
     required: true,

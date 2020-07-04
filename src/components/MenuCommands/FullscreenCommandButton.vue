@@ -9,8 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Inject, Mixins } from 'vue-property-decorator';
-import i18nMixin from '@/mixins/i18nMixin';
+import { Component, Inject, Vue } from 'vue-property-decorator';
 import CommandButton from './CommandButton.vue';
 
 @Component({
@@ -18,7 +17,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class FullscreenCommandButton extends Mixins(i18nMixin) {
+export default class FullscreenCommandButton extends Vue {
   @Inject() readonly et!: any;
 
   get isFullscreen (): boolean {
@@ -32,8 +31,8 @@ export default class FullscreenCommandButton extends Mixins(i18nMixin) {
 
   private get buttonTooltip () {
     return this.isFullscreen
-      ? this.t('editor.extensions.Fullscreen.tooltip.exit_fullscreen')
-      : this.t('editor.extensions.Fullscreen.tooltip.fullscreen');
+      ? this.et.t('editor.extensions.Fullscreen.tooltip.exit_fullscreen')
+      : this.et.t('editor.extensions.Fullscreen.tooltip.fullscreen');
   }
 };
 </script>

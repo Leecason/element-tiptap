@@ -2,15 +2,14 @@
   <command-button
     :command="() => editorContext.commands.link({ href: '' })"
     :enable-tooltip="et.tooltip"
-    :tooltip="t('editor.extensions.Link.unlink.tooltip')"
+    :tooltip="et.t('editor.extensions.Link.unlink.tooltip')"
     icon="unlink"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { MenuData } from 'tiptap';
-import i18nMixin from '@/mixins/i18nMixin';
 import CommandButton from '../CommandButton.vue';
 
 @Component({
@@ -18,7 +17,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class UnlinkCommandButton extends Mixins(i18nMixin) {
+export default class UnlinkCommandButton extends Vue {
   @Prop({
     type: Object,
     required: true,

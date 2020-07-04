@@ -39,15 +39,14 @@
       slot="reference"
       @mouseover="popoverVisible = true"
     >
-      <span>{{ t('editor.extensions.Table.buttons.insert_table') }}</span>
+      <span>{{ et.t('editor.extensions.Table.buttons.insert_table') }}</span>
     </div>
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Emit, Mixins } from 'vue-property-decorator';
+import { Component, Emit, Inject, Vue } from 'vue-property-decorator';
 import { Popover } from 'element-ui';
-import i18nMixin from '@/mixins/i18nMixin';
 
 const INIT_GRID_SIZE = 5;
 const MAX_GRID_SIZE = 10;
@@ -63,7 +62,9 @@ interface GridSize {
     [Popover.name]: Popover,
   },
 })
-export default class CreateTablePopover extends Mixins(i18nMixin) {
+export default class CreateTablePopover extends Vue {
+  @Inject() et!: any;
+
   private popoverVisible = false;
 
   tableGridSize: GridSize = {

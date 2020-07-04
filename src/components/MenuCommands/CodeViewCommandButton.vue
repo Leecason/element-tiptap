@@ -2,15 +2,14 @@
   <command-button
     :command="() => isCodeViewMode = !isCodeViewMode"
     :enable-tooltip="et.tooltip"
-    :tooltip="t('editor.extensions.CodeView.tooltip')"
+    :tooltip="et.t('editor.extensions.CodeView.tooltip')"
     icon="regular/file-code"
     :is-active="isCodeViewMode"
   />
 </template>
 
 <script lang="ts">
-import { Component, Inject, Mixins } from 'vue-property-decorator';
-import i18nMixin from '@/mixins/i18nMixin';
+import { Component, Inject, Vue } from 'vue-property-decorator';
 import CommandButton from './CommandButton.vue';
 
 @Component({
@@ -18,7 +17,7 @@ import CommandButton from './CommandButton.vue';
     CommandButton,
   },
 })
-export default class CodeViewCommandButton extends Mixins(i18nMixin) {
+export default class CodeViewCommandButton extends Vue {
   @Inject() readonly et!: any;
 
   get isCodeViewMode (): boolean {

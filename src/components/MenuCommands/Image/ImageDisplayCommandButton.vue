@@ -16,24 +16,23 @@
         @mousedown="hidePopover"
         @click="updateAttrs({ display })"
       >
-        <span>{{ t(`editor.extensions.Image.buttons.display.${display}`) }}</span>
+        <span>{{ et.t(`editor.extensions.Image.buttons.display.${display}`) }}</span>
       </div>
     </div>
 
     <command-button
       slot="reference"
       :enable-tooltip="et.tooltip"
-      :tooltip="t('editor.extensions.Image.buttons.display.tooltip')"
+      :tooltip="et.t('editor.extensions.Image.buttons.display.tooltip')"
       icon="regular/image"
     />
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins, Inject } from 'vue-property-decorator';
+import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
 import { Popover } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
-import i18nMixin from '@/mixins/i18nMixin';
 import { ImageDisplay } from '@/utils/image';
 import CommandButton from '../CommandButton.vue';
 
@@ -43,7 +42,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class ImageDisplayCommandButton extends Mixins(i18nMixin) {
+export default class ImageDisplayCommandButton extends Vue {
   @Prop({
     type: ProsemirrorNode,
     required: true,

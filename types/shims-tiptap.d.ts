@@ -72,6 +72,7 @@ declare module 'tiptap' {
     isActive: IsActiveChecker;
     getMarkAttrs: (markName: string) => { [attributeName: string]: any };
     editor: Editor;
+    t: Function;
     [key: string]: any;
   }
 

@@ -8,7 +8,7 @@ import de from './de';
 import ko from './ko';
 import es from './es';
 
-const defaultLang = 'en';
+export const DEFAULT_LANGUAGE = 'en';
 const dictionary = {
   en,
   zh,
@@ -19,23 +19,42 @@ const dictionary = {
   es,
 };
 
-let currentLang: object = dictionary[defaultLang];
+export const Trans = {
+  get defaultLanguage () {
+    return DEFAULT_LANGUAGE;
+  },
 
-export function useLang (l: string): void {
-  if (dictionary[l]) {
-    currentLang = dictionary[l];
-  } else {
-    Logger.warn(`Can't find the current language "${l}", Using language "${defaultLang}" by default. Welcome contribution to https://github.com/Leecason/element-tiptap`);
-    currentLang = dictionary[defaultLang];
-  }
-}
+  get supportedLanguages (): string[] {
+    return Object.keys(dictionary);
+  },
 
-// @ts-ignore
-export function t (path: string): string | object {
-  const target = path.split('.').reduce((prev, curr) => {
-    // @ts-ignore
-    return prev[curr];
-  }, currentLang);
+  loadLanguage (lang): Object {
+    return dictionary[lang];
+  },
 
-  return target;
-}
+  isLangSupported (lang): boolean {
+    return this.supportedLanguages.includes(lang);
+  },
+
+  buildI18nHandler (lang: string = DEFAULT_LANGUAGE): Function {
+    let l;
+
+    if (!this.isLangSupported(lang)) {
+      Logger.warn(`Can't find the current language "${lang}", Using language "${DEFAULT_LANGUAGE}" by default. Welcome contribution to https://github.com/Leecason/element-tiptap`);
+      l = DEFAULT_LANGUAGE;
+    } else {
+      l = lang;
+    }
+
+    const langObj = this.loadLanguage(l);
+
+    return function t (path: string): string {
+      const target = path.split('.').reduce((prev, curr) => {
+        // @ts-ignore
+        return prev[curr];
+      }, langObj);
+
+      return target;
+    };
+  },
+};
