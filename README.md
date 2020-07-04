@@ -33,7 +33,7 @@ English | [简体中文](./README_ZH.md)
 - 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
-- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`). welcome to contribute more languages
+- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀Fully extensible, you can customize editor extension and its menu button view
 - 💻Also can control the behavior of the editor directly, customize the editor for yourself.
@@ -120,6 +120,7 @@ Available languages:
 - `de` by @Thesicstar
 - `ko` by @Hotbrains
 - `es` by @koas
+- `zh_tw` by @eric0324
 
 Welcome contribution.
 
