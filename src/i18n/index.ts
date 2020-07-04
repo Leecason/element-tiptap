@@ -2,6 +2,7 @@
 import Logger from '@/utils/logger';
 import en from './en';
 import zh from './zh';
+import zh_tw from './zh-tw';
 import pl from './pl';
 import ru from './ru';
 import de from './de';
@@ -12,6 +13,7 @@ const defaultLang = 'en';
 const dictionary = {
   en,
   zh,
+  zh_tw,
   pl,
   ru,
   de,
