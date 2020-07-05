@@ -1,3 +1,23 @@
+# [1.25.0](https://github.com/Leecason/element-tiptap/compare/@1.24.5...@1.25.0) (2020-07-05)
+
+
+### Bug Fixes
+
+* 🎨 type definings ([9cc1274](https://github.com/Leecason/element-tiptap/commit/9cc127462086acf5c93fdf232409bf2de45ec295))
+* 🐛 show bubble menu when all select (https://github.com/Leecason/element-tiptap/issues/97) ([b495bec](https://github.com/Leecason/element-tiptap/commit/b495bec7e490361426131aeb4cbcceee6d342b57))
+
+
+### Features
+
+* ✨ add `defaultWidth`, `defaultDisplay` options for `Image` extension ([64bc1b6](https://github.com/Leecason/element-tiptap/commit/64bc1b66506b8bb0eb39e7c69d2656ecd4041d91))
+* ✨ add `editorClass`, `editorContentClass`, `editorMenubarClass`, `editorBubbleMenuClass`, `editorFooterClass` props (https://github.com/Leecason/element-tiptap/pull/133) ([d43d61e](https://github.com/Leecason/element-tiptap/commit/d43d61e983318e778c7fdd78feda90e8b6509309))
+* ✨ add `lang` prop to support config editor i18n language locally (https://github.com/Leecason/element-tiptap/issues/62) ([e28b6bd](https://github.com/Leecason/element-tiptap/commit/e28b6bd25be8cb46b4def700fa10b8eeb8438e80))
+* ✨ add `openInNewTab` option to `Link` extension, default to `true` ([f66ff5e](https://github.com/Leecason/element-tiptap/commit/f66ff5e3970766200e0fa1227b893b2a6f506850))
+* ✨ add `tooltip` prop to enable/disable tooltip (https://github.com/Leecason/element-tiptap/issues/121) ([08db78e](https://github.com/Leecason/element-tiptap/commit/08db78efa025e6d573b4df537be980767be17547))
+* ✨ Add new language `zh-tw` ([be52f57](https://github.com/Leecason/element-tiptap/commit/be52f57f61de96a2378c23a8e0d0394c059387f0))
+* ✨ default export `ElementTiptapPlugin` ([bf1726f](https://github.com/Leecason/element-tiptap/commit/bf1726f68481a6e434e2da2af2b62318943a6bbb))
+* ✨ enable back to default menu in link bubble menu (https://github.com/Leecason/element-tiptap/issues/117) ([1805987](https://github.com/Leecason/element-tiptap/commit/1805987c9471765e2e015a15c7a74e393395d2a9))
+
 ## [1.24.5](https://github.com/Leecason/element-tiptap/compare/@1.24.4...@1.24.5) (2020-06-28)
 
 
