@@ -2,20 +2,23 @@
   <div
     v-if="editor"
     :style="elTiptapEditorStyle"
-    :class="{ 'el-tiptap-editor--fullscreen': isFullscreen }"
-    class="el-tiptap-editor"
+    :class="[{
+      'el-tiptap-editor': true,
+      'el-tiptap-editor--fullscreen': isFullscreen,
+    }, editorClass]"
   >
     <menu-bubble
       :editor="editor"
       :menuBubbleOptions="menuBubbleOptions"
+      :class="editorBubbleMenuClass"
     />
 
     <menu-bar
       v-if="showMenubar"
       :editor="editor"
-      :class="{
+      :class="[{
         'border-top-radius': showMenubar,
-      }"
+      }, editorMenubarClass]"
     >
       <template
         v-if="$scopedSlots.menubar"
@@ -42,11 +45,11 @@
     <editor-content
       v-show="!isCodeViewMode"
       :editor="editor"
-      :class="{
+      :class="[{
         'el-tiptap-editor__content': true,
         'border-top-radius': !showMenubar,
         'border-bottom-radius': !showFooter,
-      }"
+      }, editorContentClass]"
     />
 
     <slot
@@ -55,10 +58,10 @@
     >
       <div
         v-if="showFooter"
-        :class="{
+        :class="[{
           'el-tiptap-editor__footer': true,
           'border-bottom-radius': showFooter,
-        }"
+        }, editorFooterClass]"
       >
         <span class="el-tiptap-editor__characters">
           {{ t('editor.characters') }}: {{ characters }}
@@ -162,6 +165,36 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
     },
   })
   readonly lang!: string;
+
+  @Prop({
+    type: [String, Array, Object],
+    default: undefined,
+  })
+  readonly editorClass!: string | any[] | object;
+
+  @Prop({
+    type: [String, Array, Object],
+    default: undefined,
+  })
+  readonly editorContentClass!: string | any[] | object;
+
+  @Prop({
+    type: [String, Array, Object],
+    default: undefined,
+  })
+  readonly editorMenubarClass!: string | any[] | object;
+
+  @Prop({
+    type: [String, Array, Object],
+    default: undefined,
+  })
+  readonly editorBubbleMenuClass!: string | any[] | object;
+
+  @Prop({
+    type: [String, Array, Object],
+    default: undefined,
+  })
+  readonly editorFooterClass!: string | any[] | object;
 
   // TODO: popper.js
   @Prop({
