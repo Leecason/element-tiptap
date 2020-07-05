@@ -1,3 +1,5 @@
+import { ImageDisplay } from './utils/image';
+
 export const ELEMENT_TIPTAP_TIP = '[Element-Tiptap Tip]';
 
 export const enum Alignment {
@@ -7,6 +9,10 @@ export const enum Alignment {
   justify = 'justify'
 }
 export const ALIGN_PATTERN: RegExp = new RegExp(`(${Alignment.left}|${Alignment.center}|${Alignment.right}|${Alignment.justify})`);
+
+export const DEFAULT_IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+export const DEFAULT_IMAGE_WIDTH = 200;
+export const DEFAULT_IMAGE_DISPLAY = ImageDisplay.INLINE;
 
 export const LINE_HEIGHT_100 = 1.7;
 export const DEFAULT_LINE_HEIGHT = '100%';

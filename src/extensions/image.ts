@@ -4,10 +4,9 @@ import { Image as TiptapImage } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
 import { ImageDisplay } from '@/utils/image';
+import { DEFAULT_IMAGE_WIDTH, DEFAULT_IMAGE_DISPLAY, DEFAULT_IMAGE_URL_REGEX } from '@/constants';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
-
-const IMAGE_URL_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
 // @ts-ignore
 function getAttrs (dom: HTMLElement): { [key: string]: any } {
@@ -59,7 +58,9 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 export default class Image extends TiptapImage implements MenuBtnView {
   get defaultOptions () {
     return {
-      urlPattern: IMAGE_URL_REGEX,
+      defaultWidth: DEFAULT_IMAGE_WIDTH,
+      defaultDisplay: DEFAULT_IMAGE_DISPLAY,
+      urlPattern: DEFAULT_IMAGE_URL_REGEX,
       uploadRequest: null,
     };
   }
@@ -78,13 +79,17 @@ export default class Image extends TiptapImage implements MenuBtnView {
           default: '',
         },
         width: {
-          default: null,
+          default: this.imageDefaultWidth > 0
+            ? this.imageDefaultWidth
+            : DEFAULT_IMAGE_WIDTH,
         },
         height: {
           default: null,
         },
         display: {
-          default: ImageDisplay.INLINE,
+          default: /(inline|block|left|right)/.test(this.defaultDisplay)
+            ? this.defaultDisplay
+            : DEFAULT_IMAGE_DISPLAY,
         },
       },
       group: 'inline',
