@@ -24,7 +24,7 @@
             v-if="textMenuEnable"
             class="el-tiptap-editor__command-button"
             @mousedown.prevent
-            @click="setMenuType('default')"
+            @click="linkBack"
           >
             <v-icon name="arrow-left" />
           </div>
@@ -85,6 +85,7 @@ export default class MenuBubble extends Vue {
   @Inject() readonly et!: any;
 
   activeMenu: MenuType = MenuType.NONE;
+  isLinkBack: boolean = false;
 
   private get bubbleMenuEnable (): boolean {
     return this.linkMenuEnable || this.textMenuEnable;
@@ -120,9 +121,19 @@ export default class MenuBubble extends Vue {
     return false;
   }
 
+  linkBack () {
+    this.setMenuType(MenuType.DEFAULT);
+    this.isLinkBack = true;
+  }
+
   @Watch('editor.state.selection')
   onSelectionChange () {
-    this.activeMenu = this.$_getCurrentMenuType();
+    if (this.isLinkSelection && !this.isLinkBack) {
+      this.setMenuType(MenuType.LINK);
+    } else {
+      this.activeMenu = this.$_getCurrentMenuType();
+      this.isLinkBack = false;
+    }
   }
 
   private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
