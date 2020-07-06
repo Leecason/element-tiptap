@@ -1,3 +1,11 @@
+## [1.25.1](https://github.com/Leecason/element-tiptap/compare/@1.25.0...@1.25.1) (2020-07-06)
+
+
+### Bug Fixes
+
+* 🐛 add isLinkBack flag to prevent link menu change ([ccd305f](https://github.com/Leecason/element-tiptap/commit/ccd305fcfc3729107824e087a79d02dc27530892))
+* 🐛 enable `open in new tab` when add link ([bcea961](https://github.com/Leecason/element-tiptap/commit/bcea961f0af37accfe2bbf811bc90188ed7a413c))
+
 # [1.25.0](https://github.com/Leecason/element-tiptap/compare/@1.24.5...@1.25.0) (2020-07-05)
 
 
