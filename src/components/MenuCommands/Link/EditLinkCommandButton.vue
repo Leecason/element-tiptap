@@ -42,7 +42,7 @@
           round
           @click="closeEditLinkDialog"
         >
-          {{ et.t('editor.extensions.Image.control.edit_image.cancel') }}
+          {{ et.t('editor.extensions.Link.edit.control.cancel') }}
         </el-button>
 
         <el-button
@@ -52,7 +52,7 @@
           @mousedown.prevent
           @click="updateLinkAttrs"
         >
-          {{ et.t('editor.extensions.Image.control.edit_image.confirm') }}
+          {{ et.t('editor.extensions.Link.edit.control.confirm') }}
         </el-button>
       </template>
     </el-dialog>

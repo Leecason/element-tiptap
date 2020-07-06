@@ -31,7 +31,8 @@ export default {
           tooltip: 'Crear enlace',
           control: {
             title: 'Crear enlace',
-            placeholder: 'Href',
+            href: 'Href',
+            open_in_new_tab: 'Abrir en una pestaña nueva',
             confirm: 'Crear',
             cancel: 'Cancelar',
           },

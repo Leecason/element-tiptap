@@ -31,7 +31,8 @@ export default {
           tooltip: 'Link hinzufügen',
           control: {
             title: 'Link hinzufügen',
-            placeholder: 'Link',
+            href: 'Link',
+            open_in_new_tab: 'Öffnen Sie in einem neuen Tab',
             confirm: 'Hinzufügen',
             cancel: 'Abbrechen',
           },

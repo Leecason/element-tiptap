@@ -31,7 +31,8 @@ export default {
           tooltip: 'Добавить ссылку',
           control: {
             title: 'Добавить ссылку',
-            placeholder: 'Адрес',
+            href: 'Адрес',
+            open_in_new_tab: 'Открыть в новой вкладке',
             confirm: 'Применить',
             cancel: 'Отменить',
           },

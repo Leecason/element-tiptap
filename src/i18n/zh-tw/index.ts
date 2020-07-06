@@ -31,7 +31,8 @@ export default {
           tooltip: '新增超連結',
           control: {
             title: '新增超連結',
-            placeholder: '輸入超連結',
+            href: '超連結',
+            open_in_new_tab: '在新分頁開啟',
             confirm: '新增',
             cancel: '取消',
           },

@@ -31,7 +31,8 @@ export default {
           tooltip: 'Dodaj link',
           control: {
             title: 'Dodaj Link',
-            placeholder: 'Źródło',
+            href: 'Źródło',
+            open_in_new_tab: 'Otwórz w nowej karcie',
             confirm: 'Dodaj',
             cancel: 'Anuluj',
           },

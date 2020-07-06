@@ -31,7 +31,8 @@ export default {
           tooltip: '添加链接',
           control: {
             title: '添加链接',
-            placeholder: '输入链接',
+            href: '链接',
+            open_in_new_tab: '在新标签页中打开',
             confirm: '添加',
             cancel: '取消',
           },
