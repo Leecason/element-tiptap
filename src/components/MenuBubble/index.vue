@@ -51,7 +51,7 @@ import { Component, Prop, Vue, Inject, Watch } from 'vue-property-decorator';
 import { Editor, EditorMenuBubble, MenuData } from 'tiptap';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
-import { TextSelection, AllSelection } from 'prosemirror-state';
+import { TextSelection, AllSelection, Selection } from 'prosemirror-state';
 import { MenuBtnViewType } from '@/../types';
 
 import LinkBubbleMenu from './LinkBubbleMenu.vue';
@@ -104,21 +104,11 @@ export default class MenuBubble extends Vue {
   }
 
   private get isLinkSelection (): boolean {
-    const { state, schema } = this.editor;
+    const { state } = this.editor;
+    const { tr } = state;
+    const { selection } = tr;
 
-    if (schema.marks.link) {
-      const { tr } = state;
-      const { selection } = tr;
-
-      if (!selection) return false;
-
-      const { $from, $to } = selection;
-      const range = getMarkRange($from, schema.marks.link);
-      if (!range) return false;
-
-      return range.to === $to.pos;
-    }
-    return false;
+    return this.$_isLinkSelection(selection);
   }
 
   linkBack () {
@@ -127,9 +117,11 @@ export default class MenuBubble extends Vue {
   }
 
   @Watch('editor.state.selection')
-  onSelectionChange () {
-    if (this.isLinkSelection && !this.isLinkBack) {
-      this.setMenuType(MenuType.LINK);
+  onSelectionChange (selection: Selection) {
+    if (this.$_isLinkSelection(selection)) {
+      if (!this.isLinkBack) {
+        this.setMenuType(MenuType.LINK);
+      }
     } else {
       this.activeMenu = this.$_getCurrentMenuType();
       this.isLinkBack = false;
@@ -163,6 +155,19 @@ export default class MenuBubble extends Vue {
 
   setMenuType (type: MenuType) {
     this.activeMenu = type;
+  }
+
+  $_isLinkSelection (selection: Selection) {
+    const { schema } = this.editor;
+    const linkType = schema.marks.link;
+    if (!linkType) return false;
+    if (!selection) return false;
+
+    const { $from, $to } = selection;
+    const range = getMarkRange($from, linkType);
+    if (!range) return false;
+
+    return range.to === $to.pos;
   }
 
   $_getCurrentMenuType (): MenuType {
