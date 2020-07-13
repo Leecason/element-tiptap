@@ -1,3 +1,10 @@
+## [1.25.2](https://github.com/Leecason/element-tiptap/compare/@1.25.1...@1.25.2) (2020-07-13)
+
+
+### Bug Fixes
+
+* 🐛 fix link menu wrong change when set line-height ([c30e0fa](https://github.com/Leecason/element-tiptap/commit/c30e0fa5b713fc8c80054de834a603904820564a))
+
 ## [1.25.1](https://github.com/Leecason/element-tiptap/compare/@1.25.0...@1.25.1) (2020-07-06)
 
 
