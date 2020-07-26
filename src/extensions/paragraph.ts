@@ -1,7 +1,7 @@
 import { NodeSpec, Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
 import { Paragraph as TiptapParagraph } from 'tiptap';
-import { transformLineHeightToCSS } from '@/utils/line_height';
-import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '@/constants';
+import { transformLineHeightToCSS, transformCSStoLineHeight } from '@/utils/line_height';
+import { ALIGN_PATTERN } from '@/constants';
 
 export const ParagraphNodeSpec: NodeSpec = {
   attrs: {
@@ -30,7 +30,7 @@ function getAttrs (dom): { [key: string]: any } {
 
   const indent = parseInt(dom.getAttribute('data-indent'), 10) || 0;
 
-  lineHeight = (lineHeight && lineHeight !== transformLineHeightToCSS(LINE_HEIGHT_100)) ? lineHeight : null;
+  lineHeight = transformCSStoLineHeight(lineHeight) || null;
 
   return {
     textAlign: align,
