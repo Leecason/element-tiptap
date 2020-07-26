@@ -1,3 +1,10 @@
+## [1.25.3](https://github.com/Leecason/element-tiptap/compare/@1.25.2...@1.25.3) (2020-07-26)
+
+
+### Bug Fixes
+
+* 🐛 fix initial lineHeight wrong transform ([a5fd73f](https://github.com/Leecason/element-tiptap/commit/a5fd73f5fcecf9e2667fc9946fff397082bbdc10))
+
 ## [1.25.2](https://github.com/Leecason/element-tiptap/compare/@1.25.1...@1.25.2) (2020-07-13)
 
 
