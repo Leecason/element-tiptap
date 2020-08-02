@@ -8,6 +8,7 @@ import ru from './ru';
 import de from './de';
 import ko from './ko';
 import es from './es';
+import fr from './fr';
 
 export const DEFAULT_LANGUAGE = 'en';
 const dictionary = {
@@ -19,6 +20,7 @@ const dictionary = {
   de,
   ko,
   es,
+  fr,
 };
 
 export const Trans = {
