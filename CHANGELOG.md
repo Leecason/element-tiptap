@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/Leecason/element-tiptap/compare/@1.25.3...@1.26.0) (2020-08-03)
+
+
+### Features
+
+* ✨ Add French language ([57c8f99](https://github.com/Leecason/element-tiptap/commit/57c8f994a88633b25df47e923911b6e22c47f267))
+
 ## [1.25.3](https://github.com/Leecason/element-tiptap/compare/@1.25.2...@1.25.3) (2020-07-26)
 
 
