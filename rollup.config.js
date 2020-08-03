@@ -1,10 +1,10 @@
 import path from 'path';
 import vue from 'rollup-plugin-vue';
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import cjs from 'rollup-plugin-commonjs';
-import node from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import typescript from 'rollup-plugin-typescript2';
@@ -92,14 +92,14 @@ function getConfig ({
           '@': srcDir,
         },
       }),
-      node({
+      nodeResolve({
         extensions: ['.ts', '.js', '.vue'],
       }),
       typescript({
         clear: true,
         typescript: require('typescript'),
       }),
-      cjs({
+      commonjs({
         extensions: ['.ts', '.js'],
       }),
       postcss({
@@ -117,7 +117,7 @@ function getConfig ({
       }),
       babel({
         exclude: 'node_modules/**',
-        runtimeHelpers: true,
+        babelHelpers: 'runtime',
         extensions: ['.js', '.ts'],
         presets: [
           [
