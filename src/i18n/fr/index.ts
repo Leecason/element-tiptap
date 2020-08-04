@@ -28,12 +28,12 @@ export default {
       },
       Link: {
         add: {
-          tooltip: 'Appliquer le lien',
+          tooltip: 'Ajouter un lien',
           control: {
-            title: 'Appliquer le lien',
+            title: 'Ajouter un lien',
             href: 'Cible du lien',
             open_in_new_tab: 'Ouvrir dans un nouvel onglet',
-            confirm: 'Appliquer',
+            confirm: 'Ajouter',
             cancel: 'Annuler',
           },
         },
@@ -138,7 +138,7 @@ export default {
         tooltip: 'Police de caractère',
       },
       FontSize: {
-        tooltip: 'Taille de la police',
+        tooltip: 'Taille de police',
         default: 'Par défaut',
       },
       TextColor: {
@@ -183,23 +183,23 @@ export default {
       },
       History: {
         tooltip: {
-          undo: 'Annuler',
-          redo: 'Refaire',
+          undo: 'Annuler l\'action',
+          redo: 'Rétablir',
         },
       },
       Fullscreen: {
         tooltip: {
           fullscreen: 'Plein écran',
-          exit_fullscreen: 'Sortir du plein écran',
+          exit_fullscreen: 'Quitter le plein écran',
         },
       },
       Print: {
         tooltip: 'Impression',
       },
       Preview: {
-        tooltip: 'Prévisualisation',
+        tooltip: 'Aperçu',
         dialog: {
-          title: 'Prévisualisation',
+          title: 'Aperçu',
         },
       },
       SelectAll: {
