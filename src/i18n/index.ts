@@ -20,7 +20,7 @@ const dictionary = {
   de,
   ko,
   es,
-  fr,
+  fr
 };
 
 export const Trans = {

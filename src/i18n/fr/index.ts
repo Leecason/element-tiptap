@@ -14,7 +14,7 @@ export default {
         tooltip: 'Barré',
       },
       Heading: {
-        tooltip: 'Titre',
+        tooltip: 'Styles',
         buttons: {
           paragraph: 'Paragraphe',
           heading: 'Titre',

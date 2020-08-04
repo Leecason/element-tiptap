@@ -33,7 +33,7 @@
 - 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
 - 🔖支持 markdown 语法
 - 📘TypeScript 支持
-- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`). 欢迎贡献更多的语言
+- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`). 欢迎贡献更多的语言
 - 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
 - 💻也可以通过直接控制编辑器的行为来定制编辑器。
@@ -121,6 +121,7 @@ Vue.use(ElementTiptapPlugin, {
 - `ko` by @Hotbrains
 - `es` by @koas
 - `zh_tw` by @eric0324
+- `fr` by @lpabelgium
 
 欢迎贡献更多的语言.
 
