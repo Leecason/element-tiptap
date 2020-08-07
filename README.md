@@ -121,7 +121,7 @@ Available languages:
 - `ko` by @Hotbrains
 - `es` by @koas
 - `zh_tw` by @eric0324
-- `fr` by @lpabelgium
+- `fr` by @LPABelgium
 
 Welcome contribution.
 

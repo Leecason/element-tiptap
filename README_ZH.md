@@ -121,7 +121,7 @@ Vue.use(ElementTiptapPlugin, {
 - `ko` by @Hotbrains
 - `es` by @koas
 - `zh_tw` by @eric0324
-- `fr` by @lpabelgium
+- `fr` by @LPABelgium
 
 欢迎贡献更多的语言.
 
