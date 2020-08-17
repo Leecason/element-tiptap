@@ -1,3 +1,10 @@
+## [1.26.1](https://github.com/Leecason/element-tiptap/compare/@1.26.0...@1.26.1) (2020-08-17)
+
+
+### Bug Fixes
+
+* 🐛 instantiate extension ctor error ([ec03fcd](https://github.com/Leecason/element-tiptap/commit/ec03fcdf8fdb6db5ea9419f38f4b3536c3dad652))
+
 # [1.26.0](https://github.com/Leecason/element-tiptap/compare/@1.25.3...@1.26.0) (2020-08-03)
 
 
