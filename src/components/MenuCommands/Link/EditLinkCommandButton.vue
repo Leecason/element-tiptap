@@ -61,7 +61,7 @@
 
 <script lang="ts">
 import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { Dialog, Form, FormItem, Input, Checkbox } from 'element-ui';
+import { Dialog, Form, FormItem, Input, Checkbox, Button } from 'element-ui';
 import { MenuData } from 'tiptap';
 import CommandButton from '../CommandButton.vue';
 
@@ -72,6 +72,7 @@ import CommandButton from '../CommandButton.vue';
     [FormItem.name]: FormItem,
     [Input.name]: Input,
     [Checkbox.name]: Checkbox,
+    [Button.name]: Button,
     CommandButton,
   },
 })

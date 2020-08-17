@@ -82,7 +82,7 @@
 
 <script lang="ts">
 import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { Dialog, Form, FormItem, Input, Col } from 'element-ui';
+import { Dialog, Form, FormItem, Input, Col, Button } from 'element-ui';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
 import CommandButton from '../CommandButton.vue';
 
@@ -93,6 +93,7 @@ import CommandButton from '../CommandButton.vue';
     [FormItem.name]: FormItem,
     [Input.name]: Input,
     [Col.name]: Col,
+    [Button.name]: Button,
     CommandButton,
   },
 })
