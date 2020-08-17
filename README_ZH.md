@@ -157,24 +157,26 @@ export default {
   data () {
     // 编辑器的 extensions
     // 它们将会按照你声明的顺序被添加到菜单栏和气泡菜单中
-    extensions: [
-      new Doc(),
-      new Text(),
-      new Paragraph(),
-      new Heading({ level: 5 }),
-      new Bold({ bubble: true }), // 在气泡菜单中渲染菜单按钮
-      new Underline({ bubble: true, menubar: false }), // 在气泡菜单而不在菜单栏中渲染菜单按钮
-      new Italic(),
-      new Strike(),
-      new ListItem(),
-      new BulletList(),
-      new OrderedList(),
-    ],
-    // 编辑器的内容
-    content: `
-      <h1>Heading</h1>
-      <p>This Editor is awesome!</p>
-    `,
+    return {
+      extensions: [
+        new Doc(),
+        new Text(),
+        new Paragraph(),
+        new Heading({ level: 5 }),
+        new Bold({ bubble: true }), // 在气泡菜单中渲染菜单按钮
+        new Underline({ bubble: true, menubar: false }), // 在气泡菜单而不在菜单栏中渲染菜单按钮
+        new Italic(),
+        new Strike(),
+        new ListItem(),
+        new BulletList(),
+        new OrderedList(),
+      ],
+      // 编辑器的内容
+      content: `
+        <h1>Heading</h1>
+        <p>This Editor is awesome!</p>
+      `,
+    };
   },
 },
 </script>
