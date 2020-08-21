@@ -212,4 +212,3 @@ export default {
     characters: 'Caractères',
   },
 };
-
