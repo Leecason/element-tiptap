@@ -1,3 +1,11 @@
+## [1.26.2](https://github.com/Leecason/element-tiptap/compare/@1.26.1...@1.26.2) (2020-08-21)
+
+
+### Bug Fixes
+
+* 🐛 Revert "chore: 🔧 bump rollup plugins" ([f85afa5](https://github.com/Leecason/element-tiptap/commit/f85afa58b6506b785d1299c2e9dbe2b56e54c40c))
+* 🐛 ts compiler target ([338f927](https://github.com/Leecason/element-tiptap/commit/338f927f471f63be0101d186a3f2be1da324ffe3))
+
 ## [1.26.1](https://github.com/Leecason/element-tiptap/compare/@1.26.0...@1.26.1) (2020-08-17)
 
 
