@@ -150,7 +150,7 @@ import {
   Strike,
   ListItem,
   BulletList,
-  OrdererList,
+  OrderedList,
 } from 'element-tiptap';
 
 export default {
@@ -169,7 +169,7 @@ export default {
         new Strike(),
         new ListItem(),
         new BulletList(),
-        new OrdererList(),
+        new OrderedList(),
       ],
       // editor's content
       content: `
