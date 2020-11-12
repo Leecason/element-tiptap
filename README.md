@@ -86,7 +86,7 @@ _Or_
 ```vue
 <template>
   <div>
-    <el-tiptap ...><el-tiptap>
+    <el-tiptap ...></el-tiptap>
   </div>
 </template>
 
@@ -150,7 +150,7 @@ import {
   Strike,
   ListItem,
   BulletList,
-  OrderedList,
+  OrdererList,
 } from 'element-tiptap';
 
 export default {
@@ -169,7 +169,7 @@ export default {
         new Strike(),
         new ListItem(),
         new BulletList(),
-        new OrderedList(),
+        new OrdererList(),
       ],
       // editor's content
       content: `
