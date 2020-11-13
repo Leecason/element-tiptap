@@ -15,7 +15,7 @@ export class Image {}
 export class Iframe {}
 export class ListItem { }
 export class BulletList { }
-export class OrdererList { }
+export class OrderedList { }
 export class TodoItem { }
 export class TodoList { }
 export class Table { }
