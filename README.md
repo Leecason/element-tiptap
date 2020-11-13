@@ -86,7 +86,7 @@ _Or_
 ```vue
 <template>
   <div>
-    <el-tiptap ...><el-tiptap>
+    <el-tiptap ...></el-tiptap>
   </div>
 </template>
 
