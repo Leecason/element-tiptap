@@ -101,12 +101,36 @@ export default {
         },
       },
       Iframe: {
-        tooltip: '新增影片',
+        buttons: {
+          insert_iframe: {
+            tooltip: 'Insert media',
+            external: 'Insert media by link',
+          },
+          remove_iframe: {
+            tooltip: 'Remove',
+          },
+          iframe_options: {
+            tooltip: 'Media options',
+          },
+        },
         control: {
-          title: '新增影片',
-          placeholder: '輸入超連結',
-          confirm: '確認',
-          cancel: '取消',
+          insert_by_url: {
+            title: 'Insert media',
+            placeholder: 'Url or embed code',
+            confirm: 'Insert',
+            cancel: 'Cancel',
+            invalid_url: 'Please enter the correct url',
+          },
+          edit_iframe: {
+            title: 'Edit media',
+            confirm: 'Update',
+            cancel: 'Cancel',
+            form: {
+              src: 'Media url',
+              width: 'Width',
+              height: 'Height',
+            },
+          },
         },
       },
       BulletList: {

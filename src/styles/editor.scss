@@ -488,6 +488,121 @@
       }
     }
 
+    .iframe-view {
+      $root: &;
+
+      display: inline-block;
+      float: none;
+      line-height: 0;
+      margin: 12px 0;
+      max-width: 100%;
+      user-select: none;
+      vertical-align: baseline;
+
+      &--inline {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
+      &--block {
+        display: block;
+      }
+
+      &--left {
+        float: left;
+        margin-left: 0;
+        margin-right: 12px;
+      }
+
+      &--right {
+        float: right;
+        margin-left: 12px;
+        margin-right: 0;
+      }
+
+      &__body {
+        clear: both;
+        display: inline-block;
+        max-width: 100%;
+        outline-color: transparent;
+        outline-style: solid;
+        outline-width: 2px;
+        transition: all .2s ease-in;
+        position: relative;
+
+        &:hover {
+          outline-color: #ffc83d;
+        }
+
+        &--focused:hover,
+        &--resizing:hover {
+          outline-color: transparent;
+        }
+
+        &__placeholder {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: -1;
+        }
+
+        &__embed {
+          cursor: pointer;
+          pointer-events: none;
+          margin: 0;
+          border: none;
+        }
+      }
+    }
+
+    .iframe-resizer {
+      border: 1px solid $primary-color;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+
+      &__handler {
+        background-color: $primary-color;
+        border: 1px solid $white-color;
+        border-radius: 2px;
+        box-sizing: border-box;
+        display: block;
+        height: 12px;
+        position: absolute;
+        width: 12px;
+        z-index: 2;
+
+        &--tl {
+          cursor: nw-resize;
+          left: -6px;
+          top: -6px;
+        }
+
+        &--tr {
+          cursor: ne-resize;
+          right: -6px;
+          top: -6px;
+        }
+
+        &--bl {
+          bottom: -6px;
+          cursor: sw-resize;
+          left: -6px;
+        }
+
+        &--br {
+          bottom: -6px;
+          cursor: se-resize;
+          right: -6px;
+        }
+      }
+    }
+
     .resize-cursor {
       cursor: ew-resize;
       cursor: col-resize;
