@@ -257,6 +257,17 @@
   }
 }
 
+.el-tiptap-edit-iframe-dialog {
+  .el-form-item:last-child {
+    margin-bottom: 0;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; // Correct the cursor style of increment and decrement buttons in Chrome
+  }
+}
+
 .el-tiptap-edit-link-dialog {
   .el-form-item:last-child {
     margin-bottom: 0;
