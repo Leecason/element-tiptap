@@ -64,12 +64,12 @@ import { clamp } from '@/utils/shared';
 import { Popover } from 'element-ui';
 import IframeBubbleMenu from '@/components/MenuBubble/IframeBubbleMenu.vue';
 
-  const enum ResizeDirection {
-    TOP_LEFT = 'tl',
-    TOP_RIGHT = 'tr',
-    BOTTOM_LEFT = 'bl',
-    BOTTOM_RIGHT = 'br',
-  };
+const enum ResizeDirection {
+  TOP_LEFT = 'tl',
+  TOP_RIGHT = 'tr',
+  BOTTOM_LEFT = 'bl',
+  BOTTOM_RIGHT = 'br',
+}
 
 const MIN_WIDTH = 300;
 
