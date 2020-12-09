@@ -650,10 +650,8 @@
   }
 }
 
-.el-dialog {
-  font-family: sans-serif;
-}
-
-.el-tooltip__popper {
+.el-dialog,
+.el-tooltip__popper,
+.el-message-box {
   font-family: sans-serif;
 }
