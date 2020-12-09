@@ -36,6 +36,17 @@
         background-color: transparent;
       }
     }
+
+    &__heading {
+      display: flex;
+      align-items: center;
+
+      &__level {
+        font-size: 18px;
+        height: 17px;
+        font-weight: bold;
+      }
+    }
   }
 }
 
