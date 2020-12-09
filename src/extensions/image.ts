@@ -1,10 +1,11 @@
 // @ts-nocheck
-import { Node as ProsemirrorNode, DOMOutputSpec } from 'prosemirror-model';
+import { DOMOutputSpec, Node as ProsemirrorNode } from 'prosemirror-model';
+import { Plugin } from 'prosemirror-state';
 import { Image as TiptapImage } from 'tiptap-extensions';
 import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
 import { ImageDisplay } from '@/utils/image';
-import { DEFAULT_IMAGE_WIDTH, DEFAULT_IMAGE_DISPLAY, DEFAULT_IMAGE_URL_REGEX } from '@/constants';
+import { DEFAULT_IMAGE_DISPLAY, DEFAULT_IMAGE_URL_REGEX, DEFAULT_IMAGE_WIDTH } from '@/constants';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
 
@@ -79,9 +80,7 @@ export default class Image extends TiptapImage implements MenuBtnView {
           default: '',
         },
         width: {
-          default: this.imageDefaultWidth > 0
-            ? this.imageDefaultWidth
-            : DEFAULT_IMAGE_WIDTH,
+          default: null,
         },
         height: {
           default: null,
@@ -110,5 +109,43 @@ export default class Image extends TiptapImage implements MenuBtnView {
         editorContext,
       },
     };
+  }
+
+  get plugins () {
+    return [
+      new Plugin({
+        props: {
+          handleDOMEvents: {
+            paste (view, event) {
+              const items = (event.clipboardData || event.originalEvent.clipboardData).items;
+
+              items.forEach(async item => {
+                const { schema } = view.state;
+                const image = item.getAsFile();
+
+                // Return here, otherwise copying texts won't possible anymore
+                if (!image || !image.type.includes('image')) {
+                  return;
+                }
+
+                event.preventDefault();
+
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function () {
+                  const node = schema.nodes.image.create({
+                    src: reader.result,
+                  });
+                  const transaction = view.state.tr.replaceSelectionWith(node);
+                  view.dispatch(transaction);
+                }, false);
+
+                reader.readAsDataURL(image);
+              });
+            }
+          }
+        }
+      })
+    ];
   }
 }
