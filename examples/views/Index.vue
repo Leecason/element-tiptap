@@ -71,6 +71,10 @@ export default {
         route: 'AllExtensions',
       },
       {
+        label: 'Floating menu',
+        route: 'Floating',
+      },
+      {
         label: 'Bubble Menu',
         route: 'BubbleMenu',
       },
@@ -104,114 +108,114 @@ export default {
 </script>
 
 <style lang="scss">
-.el-container {
-  background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
-  font-family: sans-serif;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  height: 20vh !important;
-  padding-bottom: 20px;
-  padding-top: 20px;
-
-  &__left {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-
-    .logo {
-      height: 50px;
-      margin-bottom: 20px;
-    }
+  .el-container {
+    background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
+    font-family: sans-serif;
   }
 
-  &__right {
-    align-items: flex-start;
+  .header {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 50px;
-    margin-left: 10vw;
-    width: 650px;
+    height: 20vh !important;
+    padding-bottom: 20px;
+    padding-top: 20px;
 
-    .router-link {
-      color: #fff;
-      cursor: pointer;
-      flex-shrink: 0;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin: 15px;
-      transition: all .3s ease-in-out;
+    &__left {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
 
-      &:hover {
-        transform: translateY(-5px);
+      .logo {
+        height: 50px;
+        margin-bottom: 20px;
       }
+    }
 
-      &--active {
-        border-bottom: 1px solid #fff;
-        text-transform: uppercase;
+    &__right {
+      align-items: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+      margin-left: 10vw;
+      width: 750px;
+
+      .router-link {
+        color: #fff;
+        cursor: pointer;
+        flex-shrink: 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 15px;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        &--active {
+          border-bottom: 1px solid #fff;
+          text-transform: uppercase;
+        }
       }
     }
   }
-}
 
-.el-main {
-  display: flex;
-  justify-content: center;
-  overflow: initial;
-  padding: 50px;
-}
-
-.el-tiptap-editor {
-  margin-bottom: 30px;
-
-  &__wrapper {
-    width: 60vw;
+  .el-main {
+    display: flex;
+    justify-content: center;
+    overflow: initial;
+    padding: 50px;
   }
-}
 
-.el-footer {
-  align-items: center;
-  display: flex;
-  font-weight: 700;
-  font-size: 14px;
-  justify-content: center;
-}
+  .el-tiptap-editor {
+    margin-bottom: 30px;
 
-.github-corner:hover {
-  .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
+    &__wrapper {
+      width: 60vw;
+    }
   }
-}
 
-@media (max-width:500px) {
+  .el-footer {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    font-size: 14px;
+    justify-content: center;
+  }
+
   .github-corner:hover {
     .octo-arm {
-      animation: none;
+      animation: octocat-wave 560ms ease-in-out
     }
   }
 
-  .github-corner {
-    .octo-arm{
-      animation: octocat-wave 560ms ease-in-out;
+  @media (max-width:500px) {
+    .github-corner:hover {
+      .octo-arm {
+        animation: none;
+      }
+    }
+
+    .github-corner {
+      .octo-arm{
+        animation: octocat-wave 560ms ease-in-out;
+      }
     }
   }
-}
 
-@keyframes octocat-wave {
-  0%, 100%{
-    transform:rotate(0);
-  }
+  @keyframes octocat-wave {
+    0%, 100%{
+      transform:rotate(0);
+    }
 
-  20%, 60%{
-    transform:rotate(-25deg);
-  }
+    20%, 60%{
+      transform:rotate(-25deg);
+    }
 
-  40%, 80%{
-    transform:rotate(10deg);
+    40%, 80%{
+      transform:rotate(10deg);
+    }
   }
-}
 </style>

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 const Index = () => import('../views/Index.vue');
 const Simple = () => import('../views/Simple.vue');
+const Floating = () => import('../views/Floating.vue');
 const AllExtensions = () => import('../views/AllExtensions.vue');
 const BubbleMenu = () => import('../views/BubbleMenu.vue');
 const Placeholder = () => import('../views/Placeholder.vue');
@@ -23,6 +24,11 @@ const routes = [
         name: 'Simple',
         path: '/',
         component: Simple,
+      },
+      {
+        name: 'Floating',
+        path: '/floating',
+        component: Floating,
       },
       {
         name: 'AllExtensions',

@@ -108,6 +108,22 @@
     }
   }
 
+  &__menu-floating {
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .1s ease-in-out;
+    visibility: hidden;
+    left: 20px;
+    z-index: 1;
+    transform: translateY(-14px);
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
   &__content {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -622,6 +638,14 @@
 
   .ProseMirror {
     outline: 0;
+
+    &-focused {
+      .el-tiptap-editor__placeholder.el-tiptap-editor--empty:first-child:before,
+      .el-tiptap-editor__with-title-placeholder:first-child:before,
+      .el-tiptap-editor__with-title-placeholder:nth-child(2):before {
+        opacity: 0;
+      }
+    }
   }
 
   &__placeholder {
@@ -631,6 +655,7 @@
       float: left;
       height: 0;
       pointer-events: none;
+      transition: .1s ease;
     }
   }
 
