@@ -649,3 +649,11 @@
     color: lighten($regular-text-color, 20%);
   }
 }
+
+.el-dialog {
+  font-family: sans-serif;
+}
+
+.el-tooltip__popper {
+  font-family: sans-serif;
+}
