@@ -101,12 +101,36 @@ export default {
         },
       },
       Iframe: {
-        tooltip: 'Video einfügen',
+        buttons: {
+          insert_iframe: {
+            tooltip: 'Insert media',
+            external: 'Insert media by link',
+          },
+          remove_iframe: {
+            tooltip: 'Remove',
+          },
+          iframe_options: {
+            tooltip: 'Media options',
+          },
+        },
         control: {
-          title: 'Video einfügen',
-          placeholder: 'Link',
-          confirm: 'Einfügen',
-          cancel: 'Abbrechen',
+          insert_by_url: {
+            title: 'Insert media',
+            placeholder: 'Url or embed code',
+            confirm: 'Insert',
+            cancel: 'Cancel',
+            invalid_url: 'Please enter the correct url',
+          },
+          edit_iframe: {
+            title: 'Edit media',
+            confirm: 'Update',
+            cancel: 'Cancel',
+            form: {
+              src: 'Media url',
+              width: 'Width',
+              height: 'Height',
+            },
+          },
         },
       },
       BulletList: {

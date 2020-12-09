@@ -1,45 +1,37 @@
 <template>
   <div>
     <command-button
-      :command="openEditImageDialog"
+      :command="openEditIframeDialog"
       :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Image.buttons.image_options.tooltip')"
+      :tooltip="et.t('editor.extensions.Iframe.buttons.iframe_options.tooltip')"
       icon="cog"
     />
 
     <el-dialog
-      :title="et.t('editor.extensions.Image.control.edit_image.title')"
-      :visible.sync="editImageDialogVisible"
+      :title="et.t('editor.extensions.Iframe.control.edit_iframe.title')"
+      :visible.sync="editIframeDialogVisible"
       :append-to-body="true"
       width="400px"
-      custom-class="el-tiptap-edit-image-dialog"
-      @open="syncImageAttrs"
+      custom-class="el-tiptap-edit-iframe-dialog"
+      @open="syncIframeAttrs"
     >
       <el-form
-        :model="imageAttrs"
+        :model="iframeAttrs"
         label-position="top"
         size="small"
       >
-        <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.src')">
+        <el-form-item :label="et.t('editor.extensions.Iframe.control.edit_iframe.form.src')">
           <el-input
-            :value="imageAttrs.src"
-            autocomplete="off"
-            disabled
-          />
-        </el-form-item>
-
-        <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.alt')">
-          <el-input
-            v-model="imageAttrs.alt"
+            v-model="iframeAttrs.src"
             autocomplete="off"
           />
         </el-form-item>
 
         <el-form-item>
           <el-col :span="11">
-            <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.width')">
+            <el-form-item :label="et.t('editor.extensions.Iframe.control.edit_iframe.form.width')">
               <el-input
-                v-model="imageAttrs.width"
+                v-model="iframeAttrs.width"
                 type="number"
               />
             </el-form-item>
@@ -48,9 +40,9 @@
             :span="11"
             :push="2"
           >
-            <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.height')">
+            <el-form-item :label="et.t('editor.extensions.Iframe.control.edit_iframe.form.height')">
               <el-input
-                v-model="imageAttrs.height"
+                v-model="iframeAttrs.height"
                 type="number"
               />
             </el-form-item>
@@ -61,19 +53,17 @@
       <template #footer>
         <el-button
           size="small"
-          round
-          @click="closeEditImageDialog"
+          @click="closeEditIframeDialog"
         >
-          {{ et.t('editor.extensions.Image.control.edit_image.cancel') }}
+          {{ et.t('editor.extensions.Iframe.control.edit_iframe.cancel') }}
         </el-button>
 
         <el-button
           type="primary"
           size="small"
-          round
-          @click="updateImageAttrs"
+          @click="updateIframeAttrs"
         >
-          {{ et.t('editor.extensions.Image.control.edit_image.confirm') }}
+          {{ et.t('editor.extensions.Iframe.control.edit_iframe.confirm') }}
         </el-button>
       </template>
     </el-dialog>
@@ -97,7 +87,7 @@ import CommandButton from '../CommandButton.vue';
     CommandButton,
   },
 })
-export default class EditImageCommandButton extends Vue {
+export default class EditIframeCommandButton extends Vue {
   @Prop({
     type: ProsemirrorNode,
     required: true,
@@ -112,45 +102,44 @@ export default class EditImageCommandButton extends Vue {
 
   @Inject() readonly et!: any;
 
-  editImageDialogVisible = false;
+  editIframeDialogVisible = false;
 
-  imageAttrs = this.getImageAttrs();
+  iframeAttrs = this.getIframeAttrs();
 
-  private syncImageAttrs () {
-    this.imageAttrs = this.getImageAttrs();
+  private syncIframeAttrs () {
+    this.iframeAttrs = this.getIframeAttrs();
   }
 
-  private getImageAttrs () {
+  private getIframeAttrs () {
     return {
       src: this.node.attrs.src,
-      alt: this.node.attrs.alt,
       width: this.node.attrs.width,
       height: this.node.attrs.height,
     };
   }
 
-  private updateImageAttrs () {
-    let { width, height } = this.imageAttrs;
+  private updateIframeAttrs () {
+    let { src, width, height } = this.iframeAttrs;
 
     // input converts it to string
     width = parseInt(width as string, 10);
     height = parseInt(height as string, 10);
 
     this.updateAttrs({
-      alt: this.imageAttrs.alt,
+      src: src,
       width: width >= 0 ? width : null,
       height: height >= 0 ? height : null,
     });
 
-    this.closeEditImageDialog();
+    this.closeEditIframeDialog();
   }
 
-  private openEditImageDialog () {
-    this.editImageDialogVisible = true;
+  private openEditIframeDialog () {
+    this.editIframeDialogVisible = true;
   }
 
-  private closeEditImageDialog () {
-    this.editImageDialogVisible = false;
+  private closeEditIframeDialog () {
+    this.editIframeDialogVisible = false;
   }
 };
 </script>

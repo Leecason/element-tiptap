@@ -36,6 +36,17 @@
         background-color: transparent;
       }
     }
+
+    &__heading {
+      display: flex;
+      align-items: center;
+
+      &__level {
+        font-size: 18px;
+        height: 17px;
+        font-weight: bold;
+      }
+    }
   }
 }
 
@@ -70,6 +81,7 @@
       color: $primary-text-color;
       cursor: pointer;
       padding: 8px 0;
+      font-family: sans-serif;
 
       &:hover {
         color: $primary-color;
@@ -257,6 +269,17 @@
   }
 }
 
+.el-tiptap-edit-iframe-dialog {
+  .el-form-item:last-child {
+    margin-bottom: 0;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; // Correct the cursor style of increment and decrement buttons in Chrome
+  }
+}
+
 .el-tiptap-edit-link-dialog {
   .el-form-item:last-child {
     margin-bottom: 0;
@@ -271,6 +294,20 @@
   padding: 5px;
 
   .image-bubble-menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.el-popper.el-tiptap-iframe-popper {
+  background-color: $white-color;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  min-width: 0;
+  padding: 5px;
+
+  .iframe-bubble-menu {
     align-items: center;
     display: flex;
     flex-direction: row;

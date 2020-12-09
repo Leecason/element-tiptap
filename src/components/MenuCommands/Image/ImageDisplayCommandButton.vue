@@ -24,7 +24,7 @@
       slot="reference"
       :enable-tooltip="et.tooltip"
       :tooltip="et.t('editor.extensions.Image.buttons.display.tooltip')"
-      icon="regular/image"
+      icon="align-left"
     />
   </el-popover>
 </template>

@@ -8,6 +8,7 @@ declare module 'tiptap' {
   const EditorContent: VueConstructor;
   const EditorMenuBar: VueConstructor;
   const EditorMenuBubble: VueConstructor;
+  const EditorFloatingMenu: VueConstructor;
 
   interface NodeView {
     node?: ProsemirrorNode;

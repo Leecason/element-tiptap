@@ -1,40 +1,53 @@
-// @ts-nocheck
-import { Node, MenuData } from 'tiptap';
+import { MenuData, Node } from 'tiptap';
 import { MenuBtnView } from '@/../types';
-import IframeCommandButton from '@/components/MenuCommands/IframeCommandButton.vue';
+import InsertIframeCommandButton from '@/components/MenuCommands/Iframe/InsertIframeCommandButton.vue';
+import IframeView from '@/components/ExtensionViews/IframeView.vue';
+import { NodeSpec } from 'prosemirror-model';
 
 export default class Iframe extends Node implements MenuBtnView {
   get name () {
     return 'iframe';
   }
 
-  // @ts-ignore
-  get schema () {
+  get schema (): NodeSpec {
     return {
       attrs: {
         src: {
-          default: null,
+          default: '',
+        },
+        width: {
+          default: 400,
+        },
+        height: {
+          default: 250,
         },
       },
       group: 'block',
-      selectable: false,
+      draggable: true,
       parseDOM: [{
         tag: 'iframe',
-        // @ts-ignore
         getAttrs: dom => ({
+          // @ts-ignore
           src: dom.getAttribute('src'),
+          // @ts-ignore
+          width: dom.getAttribute('width') ? dom.getAttribute('width') : 400,
+          // @ts-ignore
+          height: dom.getAttribute('height') ? dom.getAttribute('height') : 250,
         }),
       }],
       toDOM: (node) => ['iframe', {
         src: node.attrs.src,
-        frameborder: 0,
+        width: node.attrs.width,
+        height: node.attrs.height,
+        frameborder: '0',
         allowfullscreen: 'true',
       }],
     };
   }
 
-  commands ({ type }) {
-    return attrs => (state, dispatch) => {
+  // @ts-ignore
+  commands ({ type }): any {
+    return (attrs: any) => (state: any, dispatch: any) => {
       const { selection } = state;
       const position = selection.$cursor ? selection.$cursor.pos : selection.$to.pos;
       const node = type.create(attrs);
@@ -43,32 +56,13 @@ export default class Iframe extends Node implements MenuBtnView {
     };
   }
 
-  get view () {
-    return {
-      props: ['node', 'updateAttrs', 'view'],
-      computed: {
-        src: {
-          get () {
-            return this.node.attrs.src;
-          },
-          set (src) {
-            this.updateAttrs({
-              src,
-            });
-          },
-        },
-      },
-      template: `
-        <div class="iframe">
-          <iframe class="iframe__embed" :src="src"></iframe>
-        </div>
-      `,
-    };
+  get view (): any {
+    return IframeView;
   }
 
   menuBtnView (editorContext: MenuData) {
     return {
-      component: IframeCommandButton,
+      component: InsertIframeCommandButton,
       componentProps: {
         editorContext,
       },
