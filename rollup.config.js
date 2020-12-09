@@ -139,7 +139,10 @@ function getConfig ({
           ],
         ],
       }),
-      terser(),
+      terser({
+        keep_classnames: true,
+        keep_fnames: true
+      }),
     ],
   };
 }
