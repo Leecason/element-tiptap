@@ -29,6 +29,9 @@ export function convertToPX (styleValue: string): string {
   if (!matches) return '';
   const value = matches[1];
   if (!value) return '';
+  if (matches[2] === 'pt') {
+    return `${(parseInt(value, 10) * 4) / 3}`;
+  }
   return value;
 }
 
