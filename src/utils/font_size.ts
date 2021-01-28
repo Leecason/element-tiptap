@@ -22,13 +22,16 @@ export const DEFAULT_FONT_SIZES = [
 
 export const DEFAULT_FONT_SIZE = 'default';
 
-const SIZE_PATTERN = /([\d.]+)px/i;
+const SIZE_PATTERN = /([\d.]+)(px|pt)/i;
 
 export function convertToPX (styleValue: string): string {
   const matches = styleValue.match(SIZE_PATTERN);
   if (!matches) return '';
   const value = matches[1];
   if (!value) return '';
+  if (matches[2] === 'pt') {
+    return `${(parseInt(value, 10) * 4) / 3}`;
+  }
   return value;
 }
 
