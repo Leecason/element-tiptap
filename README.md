@@ -122,7 +122,7 @@ Available languages:
 - `es` by @koas
 - `zh_tw` by @eric0324
 - `fr` by @LPABelgium
-- `pr_br` by @valterleonardo
+- `pt_br` by @valterleonardo
 
 Welcome contribution.
 
