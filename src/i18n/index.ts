@@ -9,6 +9,7 @@ import de from './de';
 import ko from './ko';
 import es from './es';
 import fr from './fr';
+import pt_br from './pt-br'
 
 export const DEFAULT_LANGUAGE = 'en';
 const dictionary = {
@@ -21,6 +22,7 @@ const dictionary = {
   ko,
   es,
   fr,
+  pt_br,
 };
 
 export const Trans = {
