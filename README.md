@@ -43,13 +43,13 @@ English | [简体中文](./README_ZH.md)
 ### NPM
 
 ```shell
-yarn add element-tiptap
+npm install --save element-tiptap
 ```
 
-Or
+### Or Yarn
 
 ```shell
-npm install --save element-tiptap
+yarn add element-tiptap
 ```
 
 #### Install plugin
