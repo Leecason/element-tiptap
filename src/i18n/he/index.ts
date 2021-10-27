@@ -8,207 +8,207 @@ export default {
         tooltip: 'קו תחתון',
       },
       Italic: {
-        tooltip: 'Italic',
+        tooltip: 'הטה',
       },
       Strike: {
-        tooltip: 'Strike through',
+        tooltip: 'קו חוצה',
       },
       Heading: {
-        tooltip: 'Heading',
+        tooltip: 'כותרת',
         buttons: {
-          paragraph: 'Paragraph',
-          heading: 'Heading',
+          paragraph: 'פסקה',
+          heading: 'כותרת',
         }
       },
       Blockquote: {
-        tooltip: 'Block quote',
+        tooltip: 'ציטוט',
       },
       CodeBlock: {
-        tooltip: 'Code block',
+        tooltip: 'קוד',
       },
       Link: {
         add: {
-          tooltip: 'Apply link',
+          tooltip: 'החל קישור',
           control: {
-            title: 'Apply Link',
-            href: 'Href',
-            open_in_new_tab: 'Open in new tab',
-            confirm: 'Apply',
-            cancel: 'Cancel',
+            title: 'החל קישור',
+            href: 'קישור',
+            open_in_new_tab: 'פתח בחלון חדש',
+            confirm: 'החל',
+            cancel: 'ביטול',
           },
         },
         edit: {
-          tooltip: 'Edit link',
+          tooltip: 'ערוך קישור',
           control: {
-            title: 'Edit Link',
-            href: 'Href',
-            open_in_new_tab: 'Open in new tab',
-            confirm: 'Update',
-            cancel: 'Cancel',
+            title: 'ערוך קישור',
+            href: 'קישור',
+            open_in_new_tab: 'פתח בחלון חדש',
+            confirm: 'עידכון',
+            cancel: 'ביטול',
           },
         },
         unlink: {
-          tooltip: 'Unlink',
+          tooltip: 'הסר קישור',
         },
         open: {
-          tooltip: 'Open link',
+          tooltip: 'פתח קישור',
         },
       },
       Image: {
         buttons: {
           insert_image: {
-            tooltip: 'Insert image',
-            external: 'Insert Image By Url',
-            upload: 'Upload Image',
+            tooltip: 'הוספת תמונה',
+            external: 'הוספת תמונה לפי קישור',
+            upload: 'העלאת תמונה',
           },
           remove_image: {
-            tooltip: 'Remove',
+            tooltip: 'הסר',
           },
           image_options: {
-            tooltip: 'Image options',
+            tooltip: 'אפשרויות תמונה',
           },
           display: {
-            tooltip: 'Display',
-            inline: 'Inline',
-            block: 'Break Text',
-            left: 'Float Left',
-            right: 'Float Right',
+            tooltip: 'הצג',
+            inline: 'בשורה',
+            block: 'שבור טקסט',
+            left: 'הצמד לשמאל',
+            right: 'הצמד לימין',
           },
         },
         control: {
           insert_by_url: {
-            title: 'Insert image',
-            placeholder: 'Url of image',
-            confirm: 'Insert',
-            cancel: 'Cancel',
-            invalid_url: 'Please enter the correct url',
+            title: 'הוספת תמונה',
+            placeholder: 'קישור לתמונה',
+            confirm: 'הוספה',
+            cancel: 'ביטול',
+            invalid_url: 'נא הזן קישור תקין',
           },
           upload_image: {
-            title: 'Upload image',
-            button: 'Choose an image file or drag it here',
+            title: 'העלאת תמונה',
+            button: 'לחץ כאן לבחירת תמונה מתיקיה או גרור אותה הנה',
           },
           edit_image: {
-            title: 'Edit image',
-            confirm: 'Update',
-            cancel: 'Cancel',
+            title: 'עריכה תמונה',
+            confirm: 'עדכון',
+            cancel: 'ביטול',
             form: {
-              src: 'Image Url',
-              alt: 'Alternative Text',
-              width: 'Width',
-              height: 'Height',
+              src: 'קישור לתמונה',
+              alt: 'טקסט חלופי',
+              width: 'רוחב',
+              height: 'גובה',
             },
           },
         },
       },
       Iframe: {
-        tooltip: 'Insert video',
+        tooltip: 'הוספת סרטון',
         control: {
-          title: 'Insert video',
-          placeholder: 'Href',
-          confirm: 'Insert',
-          cancel: 'Cancel',
+          title: 'הוספת סרטון',
+          placeholder: 'קישור',
+          confirm: 'הוספה',
+          cancel: 'ביטול',
         },
       },
       BulletList: {
-        tooltip: 'Bullet list',
+        tooltip: 'תבליטים',
       },
       OrderedList: {
-        tooltip: 'Ordered list',
+        tooltip: 'מספור',
       },
       TodoList: {
-        tooltip: 'Todo list',
+        tooltip: 'רשימת משימות',
       },
       TextAlign: {
         buttons: {
           align_left: {
-            tooltip: 'Align left',
+            tooltip: 'ישר לשמאל',
           },
           align_center: {
-            tooltip: 'Align center',
+            tooltip: 'ישר לאמצע',
           },
           align_right: {
-            tooltip: 'Align right',
+            tooltip: 'ישר לימין',
           },
           align_justify: {
-            tooltip: 'Align justify',
+            tooltip: 'ישר לשני הצדדים',
           },
         },
       },
       FontType: {
-        tooltip: 'Font family',
+        tooltip: 'גופן',
       },
       FontSize: {
-        tooltip: 'Font size',
-        default: 'default',
+        tooltip: 'גודל גופן',
+        default: 'ברירת מחדל',
       },
       TextColor: {
-        tooltip: 'Text color',
+        tooltip: 'צבע טקסט',
       },
       TextHighlight: {
-        tooltip: 'Text highlight',
+        tooltip: 'צבע סימון טקסט',
       },
       LineHeight: {
-        tooltip: 'Line height',
+        tooltip: 'גובה שורה',
       },
       Table: {
-        tooltip: 'Table',
+        tooltip: 'טבלה',
         buttons: {
-          insert_table: 'Insert Table',
-          add_column_before: 'Add Column Before',
-          add_column_after: 'Add Column After',
-          delete_column: 'Delete Column',
-          add_row_before: 'Add Row Before',
-          add_row_after: 'Add Row After',
-          delete_row: 'Delete Row',
-          merge_cells: 'Merge Cells',
-          split_cell: 'Split Cell',
-          delete_table: 'Delete Table',
+          insert_table: 'הוסף טבלה',
+          add_column_before: 'הוסף עמודה לפני',
+          add_column_after: 'הוסף עמודה אחרי',
+          delete_column: 'מחק עמודה',
+          add_row_before: 'הוסף שורה לפני',
+          add_row_after: 'הוסף שורה אחרי',
+          delete_row: 'מחק שורה',
+          merge_cells: 'מיזוג תאים',
+          split_cell: 'פיצול תא',
+          delete_table: 'מחיקת טבלה',
         },
       },
       Indent: {
         buttons: {
           indent: {
-            tooltip: 'Indent',
+            tooltip: 'בקטן כניסה',
           },
           outdent: {
-            tooltip: 'Outdent',
+            tooltip: 'הגדל כניסה',
           },
         },
       },
       FormatClear: {
-        tooltip: 'Clear format',
+        tooltip: 'נקה עיצוב',
       },
       HorizontalRule: {
-        tooltip: 'Horizontal rule',
+        tooltip: 'קו אופקי',
       },
       History: {
         tooltip: {
-          undo: 'Undo',
-          redo: 'Redo',
+          undo: 'הקודם',
+          redo: 'הבא',
         },
       },
       Fullscreen: {
         tooltip: {
-          fullscreen: 'Full screen',
-          exit_fullscreen: 'Exit full screen',
+          fullscreen: 'מסך מלא',
+          exit_fullscreen: 'יציאה ממסך מלא',
         },
       },
       Print: {
-        tooltip: 'Print',
+        tooltip: 'הדפס',
       },
       Preview: {
-        tooltip: 'Preview',
+        tooltip: 'תצוגה מקדימה',
         dialog: {
-          title: 'Preview',
+          title: 'תצוגה מקדימה',
         },
       },
       SelectAll: {
-        tooltip: 'Select all',
+        tooltip: 'בחר הכל',
       },
       CodeView: {
-        tooltip: 'Code view',
+        tooltip: 'תצוגת קוד',
       },
     },
-    characters: 'Characters',
+    characters: 'תווים',
   },
 };
