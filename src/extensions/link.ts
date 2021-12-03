@@ -1,6 +1,7 @@
 import { Mark as ProsemirrorMark } from 'prosemirror-model';
 import { Plugin, TextSelection } from 'prosemirror-state';
 import { Link as TiptapLink } from 'tiptap-extensions';
+import { EditorView } from 'prosemirror-view';
 // @ts-ignore
 import { getMarkRange } from 'tiptap-utils';
 import { MenuData } from 'tiptap';
@@ -62,7 +63,7 @@ export default class Link extends TiptapLink implements MenuBtnView {
     return [
       new Plugin({
         props: {
-          handleClick (view, pos) {
+          handleClick (view: EditorView, pos: number) {
             const { schema, doc, tr } = view.state;
 
             const range = getMarkRange(doc.resolve(pos), schema.marks.link);
