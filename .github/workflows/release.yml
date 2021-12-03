@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - beta
+
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: c-hive/gha-yarn-cache@v2
+
+      - run: yarn install --registry=https://registry.yarnpkg.com
+
+      - name: Test
+        run: yarn lint
+
+      - name: Build
+        run: yarn build:lib
+
+      - name: release
+        run: yarn semantic-release
+
