@@ -9,6 +9,7 @@ import de from './de';
 import ko from './ko';
 import es from './es';
 import fr from './fr';
+import pt_br from './pt-br'
 import nl from './nl';
 import he from './he';
 
@@ -23,6 +24,7 @@ const dictionary = {
   ko,
   es,
   fr,
+  pt_br,
   nl,
   he,
 };
