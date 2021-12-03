@@ -33,7 +33,7 @@ English | [简体中文](./README_ZH.md)
 - 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
-- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`). welcome to contribute more languages
+- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
 - 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
 - 🍀Fully extensible, you can customize editor extension and its menu button view
 - 💻Also can control the behavior of the editor directly, customize the editor for yourself.
@@ -123,6 +123,8 @@ Available languages:
 - `zh_tw` by @eric0324
 - `fr` by @LPABelgium
 - `pt_br` by @valterleonardo
+- `nl` by @Arne-Jan
+- `he` by @shovalPMS
 
 Welcome contribution.
 
@@ -539,9 +541,11 @@ Footer of the editor, after the editor content.
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## 📝 Changelog
+
 [Changelog](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## 📄 License
+
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
 ## 💝 Buy Me A Coffee

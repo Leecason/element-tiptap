@@ -33,10 +33,10 @@
 - 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
 - 🔖支持 markdown 语法
 - 📘TypeScript 支持
-- 🌐支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`). 欢迎贡献更多的语言
-- 🎈可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
-- 🍀高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
-- 💻也可以通过直接控制编辑器的行为来定制编辑器。
+- 🌐 支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). 欢迎贡献更多的语言
+- 🎈 可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
+- 🍀 高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
+- 💻 也可以通过直接控制编辑器的行为来定制编辑器。
 
 ## 📦 安装
 
@@ -122,6 +122,9 @@ Vue.use(ElementTiptapPlugin, {
 - `es` by @koas
 - `zh_tw` by @eric0324
 - `fr` by @LPABelgium
+- `pt_br` by @valterleonardo
+- `nl` by @Arne-Jan
+- `he` by @shovalPMS
 
 欢迎贡献更多的语言.
 
@@ -538,9 +541,11 @@ export default {
 详细信息见 [CONTRIBUTING](CONTRIBUTING.md)
 
 ## 📝 更新日志
+
 [更新日志](https://github.com/Leecason/element-tiptap/blob/master/CHANGELOG.md)
 
 ## 📄 许可证
+
 [MIT](https://github.com/Leecason/element-tiptap/blob/master/LICENSE)
 
 ## 💝 Buy Me A Coffee
