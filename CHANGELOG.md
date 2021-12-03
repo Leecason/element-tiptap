@@ -1,3 +1,17 @@
+# [1.27.0](https://github.com/Leecason/element-tiptap/compare/@1.26.2...@1.27.0) (2021-12-03)
+
+
+### Bug Fixes
+
+* link plugin type define ([1181f77](https://github.com/Leecason/element-tiptap/commit/1181f77d9526256f9ddb481c516a161fd1bf85a3))
+* type defines ([c6cd8ef](https://github.com/Leecason/element-tiptap/commit/c6cd8ef46502427a7849a913e3b43ce18d0d65b5))
+
+
+### Features
+
+* ✨ add `pt_br`, `nl`, `he` i18n language ([416933a](https://github.com/Leecason/element-tiptap/commit/416933a1d42d3fed20fb426294db09267acf1162))
+* add new language pt_br ([081c467](https://github.com/Leecason/element-tiptap/commit/081c46712a892e26a254f0d0b6e198366d213575))
+
 ## [1.26.2](https://github.com/Leecason/element-tiptap/compare/@1.26.1...@1.26.2) (2020-08-21)
 
 
