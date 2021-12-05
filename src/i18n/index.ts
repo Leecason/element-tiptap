@@ -12,7 +12,7 @@ import fr from './fr';
 import pt_br from './pt-br'
 import nl from './nl';
 import he from './he';
-import pt_pt from './pt-pt'
+import pt_pt from './pt-pt';
 
 export const DEFAULT_LANGUAGE = 'en';
 const dictionary = {
