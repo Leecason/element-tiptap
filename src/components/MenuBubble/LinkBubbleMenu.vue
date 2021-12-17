@@ -36,7 +36,7 @@ export default class LinkBubbleMenu extends Vue {
   })
   readonly editorContext!: MenuData;
 
-  private get linkAttrs () {
+  private get linkAttrs() {
     const { getMarkAttrs } = this.editorContext;
     const linkAttrs = getMarkAttrs('link');
     return linkAttrs;

@@ -28,7 +28,7 @@ export default class IframeCommandButton extends Vue {
 
   @Inject() readonly et!: any;
 
-  openInsertVideoControl (): void {
+  openInsertVideoControl(): void {
     MessageBox.prompt('', this.et.t('editor.extensions.Iframe.control.title'), {
       confirmButtonText: this.et.t('editor.extensions.Iframe.control.confirm'),
       cancelButtonText: this.et.t('editor.extensions.Iframe.control.cancel'),

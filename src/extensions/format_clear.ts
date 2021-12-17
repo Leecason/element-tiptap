@@ -5,11 +5,11 @@ import { clearMarks } from '@/utils/format_clear';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class FormatClear extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'format_clear';
   }
 
-  commands () {
+  commands() {
     return (): CommandFunction => (state, dispatch) => {
       const tr = clearMarks(state.tr.setSelection(state.selection), state.schema);
 
@@ -21,7 +21,7 @@ export default class FormatClear extends Extension implements MenuBtnView {
     };
   }
 
-  menuBtnView ({ commands, t }: MenuData) {
+  menuBtnView({ commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

@@ -1,9 +1,6 @@
 <template>
   <div class="el-tiptap-editor__wrapper">
-    <el-tiptap
-      :extensions="textExtensions"
-      content="Text Extensions"
-    />
+    <el-tiptap :extensions="textExtensions" content="Text Extensions" />
 
     <el-tiptap
       :extensions="paragraphExtensions"
@@ -70,7 +67,7 @@ import 'codemirror/addon/selection/active-line.js'; // require active-line.js
 import 'codemirror/addon/edit/closetag.js'; // autoCloseTags
 
 export default {
-  data () {
+  data() {
     return {
       textExtensions: [
         new Doc(),

@@ -114,12 +114,12 @@ export default class ColorPopover extends Vue {
   @Watch('selectedColor', {
     immediate: true,
   })
-  onSelectedColorChange (color: string): void {
+  onSelectedColorChange(color: string): void {
     this.color = color;
   }
 
   @Emit('confirm')
-  confirmColor (color: string): string {
+  confirmColor(color: string): string {
     this.popoverVisible = false;
 
     return color;

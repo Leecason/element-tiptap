@@ -25,7 +25,7 @@ export default class OpenLinkCommandButton extends Vue {
 
   @Inject() readonly et!: any;
 
-  openLink () {
+  openLink() {
     if (this.url) {
       // prevent attack
       const newTab = window.open();

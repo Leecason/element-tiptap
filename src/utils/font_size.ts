@@ -24,7 +24,7 @@ export const DEFAULT_FONT_SIZE = 'default';
 
 const SIZE_PATTERN = /([\d.]+)px/i;
 
-export function convertToPX (styleValue: string): string {
+export function convertToPX(styleValue: string): string {
   const matches = styleValue.match(SIZE_PATTERN);
   if (!matches) return '';
   const value = matches[1];
@@ -32,7 +32,7 @@ export function convertToPX (styleValue: string): string {
   return value;
 }
 
-export function setFontSize (tr: Transaction, type: MarkType, fontSize: string): Transaction {
+export function setFontSize(tr: Transaction, type: MarkType, fontSize: string): Transaction {
   const { selection } = tr;
 
   if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
@@ -44,7 +44,7 @@ export function setFontSize (tr: Transaction, type: MarkType, fontSize: string):
   return tr;
 }
 
-export function findActiveFontSize (state: EditorState): string {
+export function findActiveFontSize(state: EditorState): string {
   const { schema, selection, tr } = state;
   const markType = schema.marks.font_size;
 

@@ -41,7 +41,7 @@ import {
 } from 'element-tiptap';
 
 export default {
-  data () {
+  data() {
     return {
       extensions: [
         new Doc(),
@@ -66,46 +66,48 @@ export default {
       ],
 
       editorProperties: {
-        editorProps: { // https://prosemirror.net/docs/ref/#view.EditorProps
-          handleKeyDown () {
+        editorProps: {
+          // https://prosemirror.net/docs/ref/#view.EditorProps
+          handleKeyDown() {
             console.log('🚀EditorProps: Keydown');
           },
-          handleTextInput () {
+          handleTextInput() {
             console.log('🚀EditorProps: TextInput');
           },
         },
       },
 
-      content: '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
+      content:
+        '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
     };
   },
 
   methods: {
-    onInitEvent () {
+    onInitEvent() {
       console.log('🔥init');
     },
 
-    onTransactionEvent () {
+    onTransactionEvent() {
       console.log('🔥transaction');
     },
 
-    onFocusEvent () {
+    onFocusEvent() {
       console.log('🔥focus');
     },
 
-    onBlurEvent () {
+    onBlurEvent() {
       console.log('🔥blur');
     },
 
-    onPasteEvent () {
+    onPasteEvent() {
       console.log('🔥paste');
     },
 
-    onDropEvent () {
+    onDropEvent() {
       console.log('🔥drop');
     },
 
-    onUpdateEvent () {
+    onUpdateEvent() {
       console.log('🔥update');
     },
   },

@@ -9,7 +9,7 @@ import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImag
 import ImageView from '@/components/ExtensionViews/ImageView.vue';
 
 // @ts-ignore
-function getAttrs (dom: HTMLElement): { [key: string]: any } {
+function getAttrs(dom: HTMLElement): { [key: string]: any } {
   const { cssFloat, display } = dom.style;
   let { width, height } = dom.style;
 
@@ -39,7 +39,7 @@ function getAttrs (dom: HTMLElement): { [key: string]: any } {
   };
 }
 
-function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+function toDOM(node: ProsemirrorNode): DOMOutputSpec {
   const { src, alt, title, width, height, display } = node.attrs;
 
   const attrs: { [key: string]: any } = {
@@ -56,7 +56,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 }
 
 export default class Image extends TiptapImage implements MenuBtnView {
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       defaultWidth: DEFAULT_IMAGE_WIDTH,
       defaultDisplay: DEFAULT_IMAGE_DISPLAY,
@@ -65,7 +65,7 @@ export default class Image extends TiptapImage implements MenuBtnView {
     };
   }
 
-  get schema () {
+  get schema() {
     return {
       inline: true,
       attrs: {
@@ -99,11 +99,11 @@ export default class Image extends TiptapImage implements MenuBtnView {
     };
   }
 
-  get view () {
+  get view() {
     return ImageView;
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: InsertImageCommandButton,
       componentProps: {

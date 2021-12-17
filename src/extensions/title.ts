@@ -4,18 +4,18 @@ import { Node as ProsemirrorNode } from 'prosemirror-model';
 import { getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 
 export default class Title extends Node {
-  get name () {
+  get name() {
     return 'title';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       placeholder: '',
       class: '',
     };
   }
 
-  get schema () {
+  get schema() {
     return {
       attrs: {
         textAlign: { default: null },

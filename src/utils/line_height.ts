@@ -12,7 +12,7 @@ export const ALLOWED_NODE_TYPES = [
 
 const NUMBER_VALUE_PATTERN = /^\d+(.\d+)?$/;
 
-export function isLineHeightActive (state: EditorState, lineHeight: string): boolean {
+export function isLineHeightActive(state: EditorState, lineHeight: string): boolean {
   const { selection, doc } = state;
   const { from, to } = selection;
 
@@ -38,7 +38,7 @@ export function isLineHeightActive (state: EditorState, lineHeight: string): boo
   return active;
 }
 
-export function transformLineHeightToCSS (value: string | number): string {
+export function transformLineHeightToCSS(value: string | number): string {
   if (!value) return '';
 
   let strValue = String(value);
@@ -51,7 +51,7 @@ export function transformLineHeightToCSS (value: string | number): string {
   return parseFloat(strValue) * LINE_HEIGHT_100 + '%';
 }
 
-export function transformCSStoLineHeight (value: string): string {
+export function transformCSStoLineHeight(value: string): string {
   if (!value) return '';
   if (value === DEFAULT_LINE_HEIGHT) return '';
 
@@ -72,7 +72,7 @@ interface SetLineHeightTask {
   pos: number,
 }
 
-export function setTextLineHeight (tr: Transaction, lineHeight: string | null): Transaction {
+export function setTextLineHeight(tr: Transaction, lineHeight: string | null): Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) return tr;
@@ -119,7 +119,7 @@ export function setTextLineHeight (tr: Transaction, lineHeight: string | null): 
   return tr;
 }
 
-export function createLineHeightCommand (lineHeight: string): CommandFunction {
+export function createLineHeightCommand(lineHeight: string): CommandFunction {
   return (state, dispatch) => {
     const { selection } = state;
     let { tr } = state;

@@ -19,7 +19,7 @@ const ListItemNodeSpec: NodeSpec = {
 };
 
 // @ts-ignore
-function getAttrs (dom) {
+function getAttrs(dom) {
   let {
     textAlign,
     lineHeight,
@@ -36,7 +36,7 @@ function getAttrs (dom) {
   };
 }
 
-function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+function toDOM(node: ProsemirrorNode): DOMOutputSpec {
   const {
     textAlign,
     lineHeight,
@@ -60,7 +60,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 }
 
 export default class ListItem extends TiptapListItem {
-  get schema () {
+  get schema() {
     return ListItemNodeSpec;
   }
 }

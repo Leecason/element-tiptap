@@ -7,17 +7,17 @@ import FontSizeDropdown from '@/components/MenuCommands/FontSizeDropdown.vue';
 import { DEFAULT_FONT_SIZES, setFontSize, convertToPX } from '@/utils/font_size';
 
 export default class FontSize extends Mark implements MenuBtnView {
-  get name () {
+  get name() {
     return 'font_size';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       fontSizes: DEFAULT_FONT_SIZES,
     };
   }
 
-  get schema () {
+  get schema() {
     return {
       attrs: {
         px: '',
@@ -39,7 +39,7 @@ export default class FontSize extends Mark implements MenuBtnView {
           },
         },
       ],
-      toDOM (node: ProsemirrorNode) {
+      toDOM(node: ProsemirrorNode) {
         const { px } = node.attrs;
         const attrs: { style?: string } = {};
 
@@ -51,7 +51,7 @@ export default class FontSize extends Mark implements MenuBtnView {
     };
   }
 
-  commands ({ type }: { type: MarkType }) {
+  commands({ type }: { type: MarkType }) {
     return (fontSize: string): CommandFunction => (state, dispatch) => {
       let { tr } = state;
       tr = setFontSize(
@@ -67,7 +67,7 @@ export default class FontSize extends Mark implements MenuBtnView {
     };
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: FontSizeDropdown,
       componentProps: {

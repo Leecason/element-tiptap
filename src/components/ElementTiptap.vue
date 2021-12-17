@@ -133,7 +133,7 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
   @Prop({
     type: String,
     default: 'html',
-    validator (output): boolean {
+    validator(output): boolean {
       return ['html', 'json'].includes(output);
     },
   })
@@ -207,21 +207,21 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
   emitAfterOnUpdate: boolean = false;
   isFullscreen: boolean = false;
 
-  @Provide() get et (): ElTiptap {
+  @Provide() get et(): ElTiptap {
     return this;
   };
 
-  get characters (): number {
+  get characters(): number {
     if (!this.editor) return 0;
 
     return this.editor.state.doc.textContent.length;
   }
 
-  get showFooter (): boolean {
+  get showFooter(): boolean {
     return this.charCounterCount && !this.isCodeViewMode;
   }
 
-  get spellcheckEnabled (): boolean {
+  get spellcheckEnabled(): boolean {
     return this.spellcheck == null
       ? this.$elementTiptapPlugin
         ? this.$elementTiptapPlugin.spellcheck
@@ -229,13 +229,13 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
       : this.spellcheck;
   }
 
-  get i18nHandler (): Function {
+  get i18nHandler(): Function {
     const lang = this.lang || this.$elementTiptapPlugin.lang;
     return Trans.buildI18nHandler(lang);
   }
 
   @Watch('content')
-  onContentChange (val: string): void {
+  onContentChange(val: string): void {
     if (this.emitAfterOnUpdate) {
       this.emitAfterOnUpdate = false;
       return;
@@ -245,7 +245,7 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
   }
 
   @Watch('readonly')
-  onReadonlyChange (): void {
+  onReadonlyChange(): void {
     if (this.editor) {
       this.editor.setOptions({
         editable: !this.readonly,
@@ -253,7 +253,7 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
     }
   }
 
-  private mounted () {
+  private mounted() {
     const extensions = this.generateExtensions();
 
     const eventOptions = COMMON_EMIT_EVENTS.reduce((prev, event) => {
@@ -278,11 +278,11 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
     });
   }
 
-  private beforeDestroy () {
+  private beforeDestroy() {
     if (this.editor) this.editor.destroy();
   }
 
-  private generateExtensions (): Array<Extension> {
+  private generateExtensions(): Array<Extension> {
     const extensions: Extension[] = [...this.extensions];
 
     // spellcheck
@@ -298,13 +298,13 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
     return extensions;
   }
 
-  emitEvent (event: EVENTS) {
+  emitEvent(event: EVENTS) {
     this.$emit(this.genEvent(event), {
       editor: this.editor,
     });
   }
 
-  onUpdate (options: EditorUpdateEvent) {
+  onUpdate(options: EditorUpdateEvent) {
     this.emitAfterOnUpdate = true;
 
     let output;
@@ -318,15 +318,15 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
   }
 
   // i18n
-  t (...args: any[]): string {
+  t(...args: any[]): string {
     return this.i18nHandler.apply(this, args);
   }
 
-  private genEvent (event: EVENTS) {
+  private genEvent(event: EVENTS) {
     return `on${capitalize(event)}`;
   }
 
-  private getTitleExtension (): Title | null {
+  private getTitleExtension(): Title | null {
     const doc = this.extensions.find(e => e.name === 'doc');
     if (doc.options.title) {
       const title = this.extensions.find(e => e.name === 'title');
@@ -335,7 +335,7 @@ export default class ElTiptap extends Mixins(EditorStylesMixin, CodeViewMixin) {
     return null;
   }
 
-  private initPlaceholderExtension (): Placeholder {
+  private initPlaceholderExtension(): Placeholder {
     const title = this.getTitleExtension();
     if (title) {
       // @ts-ignore

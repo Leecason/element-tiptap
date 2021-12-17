@@ -37,7 +37,7 @@ export default () => [
   },
 ];
 
-function getConfig ({
+function getConfig({
   file,
   format,
 }) {

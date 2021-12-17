@@ -1,7 +1,7 @@
 import { mergeCells, splitCell } from 'prosemirror-tables';
 import { EditorState } from 'prosemirror-state';
 
-export function isTableActive (state: EditorState): boolean {
+export function isTableActive(state: EditorState): boolean {
   const { selection, doc } = state;
   const { from, to } = selection;
 
@@ -23,10 +23,10 @@ export function isTableActive (state: EditorState): boolean {
   return active;
 }
 
-export function enableMergeCells (state: EditorState): boolean {
+export function enableMergeCells(state: EditorState): boolean {
   return isTableActive(state) && mergeCells(state);
 }
 
-export function enableSplitCell (state: EditorState): boolean {
+export function enableSplitCell(state: EditorState): boolean {
   return isTableActive(state) && splitCell(state);
 }

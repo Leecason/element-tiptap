@@ -4,11 +4,11 @@ import { createLineHeightCommand } from '@/utils/line_height';
 import LineHeightDropdown from '@/components/MenuCommands/LineHeightDropdown.vue';
 
 export default class LineHeight extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'line_height';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       lineHeights: [
         '100%',
@@ -21,11 +21,11 @@ export default class LineHeight extends Extension implements MenuBtnView {
     };
   }
 
-  commands () {
+  commands() {
     return ({ lineHeight }: { lineHeight: string }) => createLineHeightCommand(lineHeight);
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: LineHeightDropdown,
       componentProps: {

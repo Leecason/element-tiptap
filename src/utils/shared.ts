@@ -1,13 +1,13 @@
-export function noop (): void {}
+export function noop(): void {}
 
 /**
  * Check whether a value is NaN
  */
-export function isNaN (val: any) {
+export function isNaN(val: any) {
   return Number.isNaN(val);
 }
 
-export function clamp (val: number, min: number, max: number): number {
+export function clamp(val: number, min: number, max: number): number {
   if (val < min) {
     return min;
   }
@@ -17,7 +17,7 @@ export function clamp (val: number, min: number, max: number): number {
   return val;
 }
 
-export function readFileDataUrl (file: File): Promise<any> {
+export function readFileDataUrl(file: File): Promise<any> {
   const reader = new FileReader();
 
   return new Promise((resolve, reject) => {
@@ -32,10 +32,10 @@ export function readFileDataUrl (file: File): Promise<any> {
 /**
  * Create a cached version of a pure function.
  */
-export function cached (fn: Function): Function {
+export function cached(fn: Function): Function {
   const cache = Object.create(null);
 
-  return function cachedFn (str: string): string {
+  return function cachedFn(str: string): string {
     const hit = cache[str];
     return hit || (cache[str] = fn(str));
   };
@@ -52,6 +52,6 @@ export const capitalize = cached((str: string): string => {
  * Strict object type check. Only returns true
  * for plain JavaScript objects.
  */
-export function isPlainObject (obj: any): boolean {
+export function isPlainObject(obj: any): boolean {
   return Object.prototype.toString.call(obj) === '[object Object]';
 }

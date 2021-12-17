@@ -1,10 +1,6 @@
 <template>
   <div class="el-tiptap-editor__wrapper">
-    <el-tiptap
-      :extensions="extensions"
-      :content="content"
-      :readonly="true"
-    />
+    <el-tiptap :extensions="extensions" :content="content" :readonly="true" />
   </div>
 </template>
 
@@ -28,7 +24,7 @@ import {
 } from 'element-tiptap';
 
 export default {
-  data () {
+  data() {
     return {
       extensions: [
         new Doc(),
@@ -48,7 +44,8 @@ export default {
         new History(),
       ],
 
-      content: '<p>I\' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>',
+      content:
+        '<p>I\' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>',
     };
   },
 };

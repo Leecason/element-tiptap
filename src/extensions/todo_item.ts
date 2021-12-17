@@ -4,7 +4,7 @@ import { transformLineHeightToCSS } from '@/utils/line_height';
 import { ALIGN_PATTERN, LINE_HEIGHT_100 } from '@/constants';
 import TodoItemView from '@/components/ExtensionViews/TodoItemView.vue';
 
-function getAttrs (dom: HTMLElement) {
+function getAttrs(dom: HTMLElement) {
   let {
     textAlign,
     lineHeight,
@@ -22,7 +22,7 @@ function getAttrs (dom: HTMLElement) {
   };
 }
 
-function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+function toDOM(node: ProsemirrorNode): DOMOutputSpec {
   const {
     done,
     textAlign,
@@ -64,7 +64,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 
 export default class TodoItem extends TiptapTodoItem {
   // @ts-ignore
-  get schema () {
+  get schema() {
     return {
       attrs: {
         done: { default: false },
@@ -82,7 +82,7 @@ export default class TodoItem extends TiptapTodoItem {
     };
   }
 
-  get view () {
+  get view() {
     return TodoItemView;
   }
 }

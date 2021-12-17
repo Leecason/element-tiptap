@@ -84,11 +84,11 @@ export default class ImageCommandButton extends Vue {
 
   @Inject() readonly et!: any;
 
-  private get imageNodeOptions () {
+  private get imageNodeOptions() {
     return this.editorContext.editor.extensions.options.image;
   }
 
-  openUrlPrompt (): void {
+  openUrlPrompt(): void {
     MessageBox.prompt('', this.et.t('editor.extensions.Image.control.insert_by_url.title'), {
       confirmButtonText: this.et.t('editor.extensions.Image.control.insert_by_url.confirm'),
       cancelButtonText: this.et.t('editor.extensions.Image.control.insert_by_url.cancel'),
@@ -104,7 +104,7 @@ export default class ImageCommandButton extends Vue {
     });
   }
 
-  async uploadImage (requestOptions: HttpRequestOptions) {
+  async uploadImage(requestOptions: HttpRequestOptions) {
     const { file } = requestOptions;
 
     const uploadRequest = this.imageNodeOptions.uploadRequest;

@@ -2,14 +2,17 @@ import { EditorState, Transaction } from 'prosemirror-state';
 import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
 import { Alignment } from '@/constants';
 
-export function isTextAlignActive (state: EditorState, alignment: Alignment): boolean {
+export function isTextAlignActive(
+  state: EditorState,
+  alignment: Alignment
+): boolean {
   const { selection, doc } = state;
   const { from, to } = selection;
 
   let keepLooking = true;
   let active = false;
 
-  doc.nodesBetween(from, to, (node) => {
+  doc.nodesBetween(from, to, node => {
     if (keepLooking && node.attrs.textAlign === alignment) {
       keepLooking = false;
       active = true;
@@ -29,12 +32,15 @@ const ALLOWED_NODE_TYPES = [
 ];
 
 interface SetTextAlignTask {
-  node: ProsemirrorNode,
-  nodeType: NodeType,
-  pos: number,
+  node: ProsemirrorNode;
+  nodeType: NodeType;
+  pos: number;
 }
 
-export function setTextAlign (tr: Transaction, alignment: Alignment | null): Transaction {
+export function setTextAlign(
+  tr: Transaction,
+  alignment: Alignment | null
+): Transaction {
   const { selection, doc } = tr;
 
   if (!selection || !doc) {

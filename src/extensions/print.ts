@@ -5,17 +5,17 @@ import { printEditorContent } from '@/utils/print';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class Print extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'print';
   }
 
-  commands () {
+  commands() {
     return (): CommandFunction => (_state, _dispatch, view) => {
       return printEditorContent(view);
     };
   }
 
-  keys () {
+  keys() {
     return {
       // @ts-ignore
       'Mod-p': (_state, _dispatch, view) => {
@@ -24,7 +24,7 @@ export default class Print extends Extension implements MenuBtnView {
     };
   }
 
-  menuBtnView ({ commands, t }: MenuData) {
+  menuBtnView({ commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

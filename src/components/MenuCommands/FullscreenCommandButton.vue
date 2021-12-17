@@ -20,16 +20,16 @@ import CommandButton from './CommandButton.vue';
 export default class FullscreenCommandButton extends Vue {
   @Inject() readonly et!: any;
 
-  get isFullscreen (): boolean {
+  get isFullscreen(): boolean {
     return this.et.isFullscreen;
   }
 
-  set isFullscreen (val: boolean) {
+  set isFullscreen(val: boolean) {
     // eslint-disable-next-line no-debugger
     this.et.isFullscreen = val;
   }
 
-  private get buttonTooltip () {
+  private get buttonTooltip() {
     return this.isFullscreen
       ? this.et.t('editor.extensions.Fullscreen.tooltip.exit_fullscreen')
       : this.et.t('editor.extensions.Fullscreen.tooltip.fullscreen');

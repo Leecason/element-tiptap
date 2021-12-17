@@ -5,7 +5,7 @@ import { MenuBtnView } from '@/../types';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class TodoList extends TiptapTodoList implements MenuBtnView {
-  get schema () {
+  get schema() {
     return {
       group: 'block',
       content: 'todo_item+',
@@ -30,7 +30,7 @@ export default class TodoList extends TiptapTodoList implements MenuBtnView {
     };
   }
 
-  menuBtnView ({ isActive, commands, t }: MenuData) {
+  menuBtnView({ isActive, commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

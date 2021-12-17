@@ -94,17 +94,17 @@ export default class EditLinkCommandButton extends Vue {
   linkAttrs = this.initLinkAttrs;
   editLinkDialogVisible = false;
 
-  private updateLinkAttrs () {
+  private updateLinkAttrs() {
     this.editorContext.commands.link(this.linkAttrs);
 
     this.closeEditLinkDialog();
   }
 
-  private openEditLinkDialog () {
+  private openEditLinkDialog() {
     this.editLinkDialogVisible = true;
   }
 
-  private closeEditLinkDialog () {
+  private closeEditLinkDialog() {
     this.editLinkDialogVisible = false;
   }
 };

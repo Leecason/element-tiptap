@@ -1,7 +1,7 @@
 import { EditorView } from 'prosemirror-view';
 import Logger from './logger';
 
-function printHtml (dom: Element) {
+function printHtml(dom: Element) {
   const style :string = Array.from(document.querySelectorAll('style, link'))
     .reduce((str, style) => str + style.outerHTML, '');
 
@@ -22,7 +22,7 @@ function printHtml (dom: Element) {
   }
 
   if (frameWindow) {
-    iframe.onload = function () {
+    iframe.onload = function() {
       try {
         setTimeout(() => {
           frameWindow.focus();
@@ -39,14 +39,14 @@ function printHtml (dom: Element) {
         Logger.error(err);
       }
 
-      setTimeout(function () {
+      setTimeout(function() {
         document.body.removeChild(iframe);
       }, 100);
     };
   }
 }
 
-export function printEditorContent (view: EditorView) {
+export function printEditorContent(view: EditorView) {
   const editorContent = view.dom.closest('.el-tiptap-editor__content');
   if (editorContent) {
     printHtml(editorContent);

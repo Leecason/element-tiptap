@@ -27,7 +27,7 @@ export default class RemoveImageCommandButton extends Vue {
 
   @Inject() readonly et!: any;
 
-  private removeImage () {
+  private removeImage() {
     const { state, dispatch } = this.view;
     deleteSelection(state, dispatch);
   }

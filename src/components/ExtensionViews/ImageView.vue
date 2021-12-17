@@ -147,30 +147,30 @@ export default class ImageView extends Vue {
     dir: '',
   };
 
-  private get src (): string {
+  private get src(): string {
     return this.node.attrs.src;
   }
 
-  private get width (): number {
+  private get width(): number {
     return this.node.attrs.width;
   }
 
-  private get height (): number {
+  private get height(): number {
     return this.node.attrs.height;
   }
 
-  private get display (): ImageDisplay {
+  private get display(): ImageDisplay {
     return this.node.attrs.display;
   }
 
-  private get imageViewClass () {
+  private get imageViewClass() {
     return [
       'image-view',
       `image-view--${this.display}`,
     ];
   }
 
-  private async created () {
+  private async created() {
     const result = await resolveImg(this.src);
 
     if (!result.complete) {
@@ -184,16 +184,16 @@ export default class ImageView extends Vue {
     };
   }
 
-  private mounted () {
+  private mounted() {
     this.resizeOb.observe(this.view.dom);
   }
 
-  private beforeDestroy () {
+  private beforeDestroy() {
     this.resizeOb.disconnect();
   }
 
   // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
-  private selectImage () {
+  private selectImage() {
     const { state } = this.view;
     let { tr } = state;
     const selection = NodeSelection.create(state.doc, this.getPos());
@@ -202,7 +202,7 @@ export default class ImageView extends Vue {
   }
 
   /* invoked when window or editor resize */
-  private getMaxSize () {
+  private getMaxSize() {
     const { width } = getComputedStyle(this.view.dom);
     this.maxSize.width = parseInt(width, 10);
   }
@@ -211,7 +211,7 @@ export default class ImageView extends Vue {
    * record the position where the event is triggered and resize direction
    * calculate the initial width and height of the image
    */
-  private onMouseDown (e: MouseEvent, dir: ResizeDirection): void {
+  private onMouseDown(e: MouseEvent, dir: ResizeDirection): void {
     e.preventDefault();
     e.stopPropagation();
 
@@ -247,7 +247,7 @@ export default class ImageView extends Vue {
     this.onEvents();
   }
 
-  private onMouseMove (e: MouseEvent): void {
+  private onMouseMove(e: MouseEvent): void {
     e.preventDefault();
     e.stopPropagation();
     if (!this.resizing) return;
@@ -263,7 +263,7 @@ export default class ImageView extends Vue {
     });
   }
 
-  private onMouseUp (e: MouseEvent): void {
+  private onMouseUp(e: MouseEvent): void {
     e.preventDefault();
     e.stopPropagation();
     if (!this.resizing) return;
@@ -282,12 +282,12 @@ export default class ImageView extends Vue {
     this.selectImage();
   }
 
-  private onEvents (): void {
+  private onEvents(): void {
     document.addEventListener('mousemove', this.onMouseMove, true);
     document.addEventListener('mouseup', this.onMouseUp, true);
   }
 
-  private offEvents (): void {
+  private offEvents(): void {
     document.removeEventListener('mousemove', this.onMouseMove, true);
     document.removeEventListener('mouseup', this.onMouseUp, true);
   }

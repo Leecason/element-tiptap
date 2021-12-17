@@ -6,14 +6,14 @@ import HeadingDropdown from '@/components/MenuCommands/HeadingDropdown.vue';
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
 
 // @ts-ignore
-function getAttrs (dom) {
+function getAttrs(dom) {
   const attrs = getParagraphNodeAttrs(dom);
   const level = dom.nodeName.match(/[H|h](\d)/)[1];
   attrs.level = Number(level);
   return attrs;
 }
 
-function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+function toDOM(node: ProsemirrorNode): DOMOutputSpec {
   const dom = toParagraphDOM(node);
   const level = node.attrs.level || 1;
   // @ts-ignore
@@ -22,7 +22,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 }
 
 export default class Heading extends TiptapHeading implements MenuBtnView {
-  get schema (): NodeSpec {
+  get schema(): NodeSpec {
     return {
       ...ParagraphNodeSpec,
       attrs: {
@@ -41,7 +41,7 @@ export default class Heading extends TiptapHeading implements MenuBtnView {
     };
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: HeadingDropdown,
       componentProps: {

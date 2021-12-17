@@ -77,7 +77,7 @@ export default class CreateTablePopover extends Vue {
     col: DEFAULT_SELECTED_GRID_SIZE,
   };
 
-  selectTableGridSize (row: number, col: number): void {
+  selectTableGridSize(row: number, col: number): void {
     if (row === this.tableGridSize.row) {
       this.tableGridSize.row = Math.min(row + 1, MAX_GRID_SIZE);
     }
@@ -91,13 +91,13 @@ export default class CreateTablePopover extends Vue {
   }
 
   @Emit('createTable')
-  onMouseDown (row: number, col: number): GridSize {
+  onMouseDown(row: number, col: number): GridSize {
     this.popoverVisible = false;
 
     return { row, col };
   }
 
-  resetTableGridSize (): void {
+  resetTableGridSize(): void {
     this.tableGridSize = {
       row: INIT_GRID_SIZE,
       col: INIT_GRID_SIZE,

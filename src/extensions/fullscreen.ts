@@ -3,11 +3,11 @@ import { MenuBtnView } from '@/../types';
 import FullscreenCommandButton from '@/components/MenuCommands/FullscreenCommandButton.vue';
 
 export default class Fullscreen extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'fullscreen';
   }
 
-  menuBtnView () {
+  menuBtnView() {
     return {
       component: FullscreenCommandButton,
     };

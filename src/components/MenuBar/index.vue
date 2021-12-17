@@ -38,7 +38,7 @@ export default class Menubar extends Vue {
 
   @Inject() readonly et!: any;
 
-  private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
+  private generateCommandButtonComponentSpecs(editorContext: MenuData): MenuBtnViewType[] {
     const extensionManager = this.editor.extensions;
     return extensionManager.extensions.reduce <MenuBtnViewType[]>((acc, extension) => {
       if (extension.options.menubar === false) return acc;

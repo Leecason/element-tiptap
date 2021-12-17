@@ -23,7 +23,7 @@ import {
 } from 'element-tiptap';
 
 export default {
-  data () {
+  data() {
     return {
       extensions: [
         new Doc(),

@@ -1,9 +1,6 @@
 <template>
   <div class="el-tiptap-editor__wrapper">
-    <el-tiptap
-      :extensions="extensions"
-      :content="content"
-    />
+    <el-tiptap :extensions="extensions" :content="content" />
   </div>
 </template>
 
@@ -27,7 +24,7 @@ import {
 } from 'element-tiptap';
 
 export default {
-  data () {
+  data() {
     return {
       extensions: [
         new Doc({ title: true }),

@@ -13,7 +13,7 @@ export const DEFAULT_CODEMIRROR_OPTIONS = {
 };
 
 export default class CodeView extends Extension implements MenuBtnView {
-  constructor (options = {}) {
+  constructor(options = {}) {
     super(options);
 
     // @ts-ignore
@@ -34,11 +34,11 @@ export default class CodeView extends Extension implements MenuBtnView {
     };
   }
 
-  get name () {
+  get name() {
     return 'code_view';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       codemirror: null,
       codemirrorOptions: {
@@ -47,7 +47,7 @@ export default class CodeView extends Extension implements MenuBtnView {
     };
   }
 
-  menuBtnView () {
+  menuBtnView() {
     return {
       component: CodeViewCommandButton,
     };

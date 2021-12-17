@@ -4,9 +4,9 @@
 const inlineElements = /^(a|abbr|acronym|area|base|bdo|big|br|button|caption|cite|code|col|colgroup|dd|del|dfn|em|frame|hr|iframe|img|input|ins|kbd|label|legend|link|map|object|optgroup|option|param|q|samp|script|select|small|span|strong|sub|sup|textarea|tt|var)$/;
 
 // for format code
-export function extendCodemirror (CodeMirror) {
+export function extendCodemirror(CodeMirror) {
   CodeMirror.extendMode('xml', {
-    newlineAfterToken: function (type, content, textAfter, state) {
+    newlineAfterToken: function(type, content, textAfter, state) {
       let inline = false;
       if (this.configuration === 'html') {
         inline = state.context ? inlineElements.test(state.context.tagName) : false;
@@ -16,7 +16,7 @@ export function extendCodemirror (CodeMirror) {
     }
   });
 
-  CodeMirror.defineExtension('autoFormatRange', function (from, to) {
+  CodeMirror.defineExtension('autoFormatRange', function(from, to) {
     const cm = this;
     const outer = cm.getMode();
     const text = cm.getRange(from, to).split('\n');
@@ -27,7 +27,7 @@ export function extendCodemirror (CodeMirror) {
     let lines = 0;
     let atSol = from.ch === 0;
 
-    function newline () {
+    function newline() {
       out += '\n';
       atSol = true;
       ++lines;
@@ -51,7 +51,7 @@ export function extendCodemirror (CodeMirror) {
       if (!atSol && i < text.length - 1) newline();
     }
 
-    cm.operation(function () {
+    cm.operation(function() {
       cm.replaceRange(out, from, to);
       for (let cur = from.line + 1, end = from.line + lines; cur <= end; ++cur) { cm.indentLine(cur, 'smart'); }
       cm.setSelection(from, cm.getCursor(false));

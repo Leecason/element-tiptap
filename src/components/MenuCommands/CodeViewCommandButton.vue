@@ -20,11 +20,11 @@ import CommandButton from './CommandButton.vue';
 export default class CodeViewCommandButton extends Vue {
   @Inject() readonly et!: any;
 
-  get isCodeViewMode (): boolean {
+  get isCodeViewMode(): boolean {
     return this.et.isCodeViewMode;
   }
 
-  set isCodeViewMode (val: boolean) {
+  set isCodeViewMode(val: boolean) {
     this.et.isCodeViewMode = val;
   }
 };

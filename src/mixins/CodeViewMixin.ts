@@ -7,7 +7,7 @@ export default class CodeViewMixin extends Vue {
   isCodeViewMode = false;
 
   @Watch('isCodeViewMode')
-  onCodeViewModeChange (val: boolean): void {
+  onCodeViewModeChange(val: boolean): void {
     if (val) {
       this.$nextTick(() => !this.cmInstance && this.initCodemirror());
     } else { // update editor content
@@ -19,7 +19,7 @@ export default class CodeViewMixin extends Vue {
     }
   }
 
-  private initCodemirror () {
+  private initCodemirror() {
     const codeView = this.extensions.find(e => e.name === 'code_view');
     if (codeView) {
       const { codemirror, codemirrorOptions } = codeView.options;
@@ -37,13 +37,13 @@ export default class CodeViewMixin extends Vue {
     }
   }
 
-  private destroyCodemirror () {
+  private destroyCodemirror() {
     const element = this.cmInstance.doc.cm.getWrapperElement();
     element && element.remove && element.remove();
     this.cmInstance = null;
   }
 
-  private formatCode () {
+  private formatCode() {
     const cm = this.cmInstance;
     cm.execCommand('selectAll');
     const selectedRange = {
