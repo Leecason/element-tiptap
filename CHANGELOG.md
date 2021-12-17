@@ -1,3 +1,10 @@
+## [1.27.1](https://github.com/Leecason/element-tiptap/compare/@1.27.0...@1.27.1) (2021-12-17)
+
+
+### Bug Fixes
+
+* fix "Duplicate use of selection JSON ID cell" ([ac098d7](https://github.com/Leecason/element-tiptap/commit/ac098d70c361045eb5fe371b91f7fd234d2098d2)), closes [#381](https://github.com/Leecason/element-tiptap/issues/381) [#324](https://github.com/Leecason/element-tiptap/issues/324) [#375](https://github.com/Leecason/element-tiptap/issues/375) [#66](https://github.com/Leecason/element-tiptap/issues/66)
+
 # [1.27.0](https://github.com/Leecason/element-tiptap/compare/@1.26.2...@1.27.0) (2021-12-03)
 
 
