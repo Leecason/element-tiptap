@@ -4,7 +4,7 @@ import { MenuBtnView } from '@/../types';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class HorizontalRule extends TiptapHorizontalRule implements MenuBtnView {
-  menuBtnView ({ commands, t }: MenuData) {
+  menuBtnView({ commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

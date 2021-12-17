@@ -116,11 +116,11 @@ export default class EditImageCommandButton extends Vue {
 
   imageAttrs = this.getImageAttrs();
 
-  private syncImageAttrs () {
+  private syncImageAttrs() {
     this.imageAttrs = this.getImageAttrs();
   }
 
-  private getImageAttrs () {
+  private getImageAttrs() {
     return {
       src: this.node.attrs.src,
       alt: this.node.attrs.alt,
@@ -129,7 +129,7 @@ export default class EditImageCommandButton extends Vue {
     };
   }
 
-  private updateImageAttrs () {
+  private updateImageAttrs() {
     let { width, height } = this.imageAttrs;
 
     // input converts it to string
@@ -145,11 +145,11 @@ export default class EditImageCommandButton extends Vue {
     this.closeEditImageDialog();
   }
 
-  private openEditImageDialog () {
+  private openEditImageDialog() {
     this.editImageDialogVisible = true;
   }
 
-  private closeEditImageDialog () {
+  private closeEditImageDialog() {
     this.editImageDialogVisible = false;
   }
 };

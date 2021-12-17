@@ -51,17 +51,17 @@ export default class TodoItemView extends Vue {
   })
   readonly updateAttrs!: Function;
 
-  get done (): boolean {
+  get done(): boolean {
     return this.node.attrs.done;
   }
 
-  set done (done) {
+  set done(done) {
     this.updateAttrs({
       done,
     });
   }
 
-  private get todoItemStyle () {
+  private get todoItemStyle() {
     return {
       lineHeight: transformLineHeightToCSS(this.node.attrs.lineHeight),
     };

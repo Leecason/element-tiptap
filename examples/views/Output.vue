@@ -44,7 +44,7 @@ import {
 } from 'element-tiptap';
 
 export default {
-  data () {
+  data() {
     return {
       extensions: [
         new Doc(),
@@ -68,7 +68,8 @@ export default {
         new History(),
       ],
 
-      content: '<p>The <code>output</code> prop: <strong>HTML or JSON</strong></p>',
+      content:
+        '<p>The <code>output</code> prop: <strong>HTML or JSON</strong></p>',
 
       output: {
         json: 'Update content to see changes',
@@ -78,7 +79,7 @@ export default {
   },
 
   methods: {
-    onUpdate (output, options) {
+    onUpdate(output, options) {
       const { getJSON, getHTML } = options;
 
       this.output.json = getJSON();

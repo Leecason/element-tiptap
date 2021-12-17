@@ -53,15 +53,15 @@ export default class LineHeightDropdown extends Vue {
 
   @Inject() readonly et!: any;
 
-  private get editor () {
+  private get editor() {
     return this.editorContext.editor;
   }
 
-  private get lineHeights () {
+  private get lineHeights() {
     return this.editor.extensions.options.line_height.lineHeights;
   }
 
-  private isLineHeightActive (lineHeight: string): boolean {
+  private isLineHeightActive(lineHeight: string): boolean {
     return isLineHeightActive(this.editor.state, lineHeight);
   }
 };

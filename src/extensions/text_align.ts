@@ -6,11 +6,11 @@ import { Alignment, ALIGN_PATTERN } from '@/constants';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class TextAlign extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'text_align';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       alignments: [
         Alignment.left,
@@ -21,7 +21,7 @@ export default class TextAlign extends Extension implements MenuBtnView {
     };
   }
 
-  commands () {
+  commands() {
     return this.options.alignments.reduce((commands: CommandGetter, alignment: Alignment) => {
       if (!ALIGN_PATTERN.test(alignment)) return commands;
 
@@ -45,7 +45,7 @@ export default class TextAlign extends Extension implements MenuBtnView {
     }, {});
   }
 
-  menuBtnView ({ commands, editor, t }: MenuData) {
+  menuBtnView({ commands, editor, t }: MenuData) {
     return this.options.alignments.reduce((views: Array<MenuBtnComponentOptions>, alignment: Alignment) => {
       if (!ALIGN_PATTERN.test(alignment)) return views;
 

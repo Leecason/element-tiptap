@@ -21,11 +21,11 @@ const BlockquoteNodeSpec: NodeSpec = {
 };
 
 // @ts-ignore
-function getAttrs (dom) {
+function getAttrs(dom) {
   return getParagraphNodeAttrs(dom);
 }
 
-function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+function toDOM(node: ProsemirrorNode): DOMOutputSpec {
   const dom = toParagraphDOM(node);
   // @ts-ignore
   dom[0] = 'blockquote';
@@ -33,11 +33,11 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 }
 
 export default class Blockquote extends TiptapBlockquote implements MenuBtnView {
-  get schema () {
+  get schema() {
     return BlockquoteNodeSpec;
   }
 
-  menuBtnView ({ isActive, commands, t }: MenuData) {
+  menuBtnView({ isActive, commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

@@ -7,7 +7,7 @@ const ElementTiptapPlugin: ElementTiptapPluginInterface = {
   spellcheck: true,
   lang: DEFAULT_LANGUAGE,
 
-  install (Vue, options = {}) {
+  install(Vue, options = {}) {
     if (options.lang) {
       this.lang = options.lang;
     }

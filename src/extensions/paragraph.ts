@@ -19,7 +19,7 @@ export const ParagraphNodeSpec: NodeSpec = {
 };
 
 // @ts-ignore
-function getAttrs (dom): { [key: string]: any } {
+function getAttrs(dom): { [key: string]: any } {
   let {
     textAlign,
     lineHeight,
@@ -39,7 +39,7 @@ function getAttrs (dom): { [key: string]: any } {
   };
 }
 
-function toDOM (node: ProsemirrorNode): DOMOutputSpec {
+function toDOM(node: ProsemirrorNode): DOMOutputSpec {
   const {
     textAlign,
     indent,
@@ -68,7 +68,7 @@ function toDOM (node: ProsemirrorNode): DOMOutputSpec {
 }
 
 export default class Paragraph extends TiptapParagraph {
-  get schema () {
+  get schema() {
     return ParagraphNodeSpec;
   }
 }

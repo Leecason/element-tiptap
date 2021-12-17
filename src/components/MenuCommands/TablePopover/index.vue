@@ -140,27 +140,27 @@ export default class TablePopover extends Vue {
 
   @Inject() readonly et!: any;
 
-  private get editor () {
+  private get editor() {
     return this.editorContext.editor;
   }
 
-  private get isTableActive () {
+  private get isTableActive() {
     return isTableActive(this.editor.state);
   }
 
-  private get enableMergeCells () {
+  private get enableMergeCells() {
     return enableMergeCells(this.editor.state);
   }
 
-  private get enableSplitCell () {
+  private get enableSplitCell() {
     return enableSplitCell(this.editor.state);
   }
 
-  hidePopover (): void {
+  hidePopover(): void {
     this.popoverVisible = false;
   }
 
-  createTable ({ row, col }: { row: number, col: number }): void {
+  createTable({ row, col }: { row: number, col: number }): void {
     this.editorContext.commands.createTable({
       rowsCount: row,
       colsCount: col,

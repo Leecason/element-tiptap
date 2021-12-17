@@ -23,7 +23,7 @@ export const DEFAULT_FONT_TYPE_MAP = DEFAULT_FONT_TYPE_NAMES.reduce((obj: { [key
   return obj;
 }, {});
 
-export function setFontType (tr: Transaction, type: MarkType, name: string): Transaction {
+export function setFontType(tr: Transaction, type: MarkType, name: string): Transaction {
   const { selection } = tr;
 
   if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
@@ -36,7 +36,7 @@ export function setFontType (tr: Transaction, type: MarkType, name: string): Tra
 
 const DEFAULT_FONT_TYPE = '';
 
-export function findActiveFontType (state: EditorState): string {
+export function findActiveFontType(state: EditorState): string {
   const { schema, selection, tr } = state;
   const markType = schema.marks.font_type;
 

@@ -87,23 +87,23 @@ export default class MenuBubble extends Vue {
   activeMenu: MenuType = MenuType.NONE;
   isLinkBack: boolean = false;
 
-  private get bubbleMenuEnable (): boolean {
+  private get bubbleMenuEnable(): boolean {
     return this.linkMenuEnable || this.textMenuEnable;
   }
 
-  private get linkMenuEnable (): boolean {
+  private get linkMenuEnable(): boolean {
     const { schema } = this.editor;
     return !!schema.marks.link;
   }
 
-  private get textMenuEnable (): boolean {
+  private get textMenuEnable(): boolean {
     const extensionManager = this.editor.extensions;
     return extensionManager.extensions.some(extension => {
       return extension.options.bubble;
     });
   }
 
-  private get isLinkSelection (): boolean {
+  private get isLinkSelection(): boolean {
     const { state } = this.editor;
     const { tr } = state;
     const { selection } = tr;
@@ -111,13 +111,13 @@ export default class MenuBubble extends Vue {
     return this.$_isLinkSelection(selection);
   }
 
-  linkBack () {
+  linkBack() {
     this.setMenuType(MenuType.DEFAULT);
     this.isLinkBack = true;
   }
 
   @Watch('editor.state.selection')
-  onSelectionChange (selection: Selection) {
+  onSelectionChange(selection: Selection) {
     if (this.$_isLinkSelection(selection)) {
       if (!this.isLinkBack) {
         this.setMenuType(MenuType.LINK);
@@ -128,7 +128,7 @@ export default class MenuBubble extends Vue {
     }
   }
 
-  private generateCommandButtonComponentSpecs (editorContext: MenuData): MenuBtnViewType[] {
+  private generateCommandButtonComponentSpecs(editorContext: MenuData): MenuBtnViewType[] {
     const extensionManager = this.editor.extensions;
     return extensionManager.extensions.reduce <MenuBtnViewType[]>((acc, extension) => {
       if (!extension.options.bubble) return acc;
@@ -153,11 +153,11 @@ export default class MenuBubble extends Vue {
     }, []);
   }
 
-  setMenuType (type: MenuType) {
+  setMenuType(type: MenuType) {
     this.activeMenu = type;
   }
 
-  $_isLinkSelection (selection: Selection) {
+  $_isLinkSelection(selection: Selection) {
     const { schema } = this.editor;
     const linkType = schema.marks.link;
     if (!linkType) return false;
@@ -170,7 +170,7 @@ export default class MenuBubble extends Vue {
     return range.to === $to.pos;
   }
 
-  $_getCurrentMenuType (): MenuType {
+  $_getCurrentMenuType(): MenuType {
     if (this.isLinkSelection) return MenuType.LINK;
     if (this.editor.state.selection instanceof TextSelection ||
       this.editor.state.selection instanceof AllSelection) {

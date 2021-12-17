@@ -1,13 +1,13 @@
 import { Doc as TiptapDoc } from 'tiptap';
 
 export default class Doc extends TiptapDoc {
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       title: false,
     };
   }
 
-  get schema () {
+  get schema() {
     const title = !!this.options.title;
 
     return {

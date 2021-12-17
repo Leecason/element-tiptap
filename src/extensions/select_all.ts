@@ -5,15 +5,15 @@ import { MenuBtnView } from '@/../types';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class SelectAll extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'select_all';
   }
 
-  commands () {
+  commands() {
     return (): CommandFunction => selectAll;
   }
 
-  menuBtnView ({ commands, t }: MenuData) {
+  menuBtnView({ commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

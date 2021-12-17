@@ -29,13 +29,13 @@ export default class EditorStylesMixin extends Vue {
   })
   readonly charCounterCount!: boolean;
 
-  get elTiptapEditorStyle () {
+  get elTiptapEditorStyle() {
     return [
       this.editorSizeStyle,
     ];
   }
 
-  get editorSizeStyle () {
+  get editorSizeStyle() {
     let { width, height } = this;
 
     width = isNaN(Number(width)) ? width : `${width}${DEFAULT_EDITOR_SIZE_UNIT}`;

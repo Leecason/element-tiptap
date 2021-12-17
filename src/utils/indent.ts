@@ -11,7 +11,7 @@ export const enum IndentProps {
   less = -1,
 }
 
-function updateIndentLevel (tr: Transaction, delta: number): Transaction {
+function updateIndentLevel(tr: Transaction, delta: number): Transaction {
   const { doc, selection } = tr;
 
   if (!doc || !selection) return tr;
@@ -41,7 +41,7 @@ function updateIndentLevel (tr: Transaction, delta: number): Transaction {
   return tr;
 }
 
-function setNodeIndentMarkup (tr: Transaction, pos: number, delta: number): Transaction {
+function setNodeIndentMarkup(tr: Transaction, pos: number, delta: number): Transaction {
   if (!tr.doc) return tr;
 
   const node = tr.doc.nodeAt(pos);
@@ -66,7 +66,7 @@ function setNodeIndentMarkup (tr: Transaction, pos: number, delta: number): Tran
   return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks);
 }
 
-export function createIndentCommand (delta: number): CommandFunction {
+export function createIndentCommand(delta: number): CommandFunction {
   return (state, dispatch) => {
     const { selection } = state;
     let { tr } = state;

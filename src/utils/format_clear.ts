@@ -29,7 +29,7 @@ interface ClearMarksTask {
   pos: number,
 }
 
-export function clearMarks (tr: Transaction, schema: Schema): Transaction {
+export function clearMarks(tr: Transaction, schema: Schema): Transaction {
   const { doc, selection } = tr;
   if (!selection || !doc) return tr;
 

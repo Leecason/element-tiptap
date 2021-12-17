@@ -92,21 +92,21 @@ export default class AddLinkCommandButton extends Vue {
   addLinkDialogVisible = false;
 
   @Watch('addLinkDialogVisible', { immediate: true })
-  onDialogVisibleChange () {
+  onDialogVisibleChange() {
     this.linkAttrs = { href: '', openInNewTab: true };
   }
 
-  private addLink () {
+  private addLink() {
     this.editorContext.commands.link(this.linkAttrs);
 
     this.closeAddLinkDialog();
   }
 
-  private openAddLinkDialog () {
+  private openAddLinkDialog() {
     this.addLinkDialogVisible = true;
   }
 
-  private closeAddLinkDialog () {
+  private closeAddLinkDialog() {
     this.addLinkDialogVisible = false;
   }
 };

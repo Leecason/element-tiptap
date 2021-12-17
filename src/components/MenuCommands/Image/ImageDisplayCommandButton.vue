@@ -66,11 +66,11 @@ export default class ImageDisplayCommandButton extends Vue {
     ImageDisplay.FLOAT_RIGHT,
   ];
 
-  private get currDisplay () {
+  private get currDisplay() {
     return this.node.attrs.display;
   }
 
-  private hidePopover () {
+  private hidePopover() {
     this.popoverVisible = false;
   }
 }

@@ -4,7 +4,7 @@ import { MenuBtnView } from '@/../types';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class Strike extends TiptapStrike implements MenuBtnView {
-  menuBtnView ({ isActive, commands, t }: MenuData) {
+  menuBtnView({ isActive, commands, t }: MenuData) {
     return {
       component: CommandButton,
       componentProps: {

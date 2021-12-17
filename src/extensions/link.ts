@@ -8,14 +8,14 @@ import { MenuData } from 'tiptap';
 import { MenuBtnView } from '@/../types';
 import AddLinkCommandButton from '@/components/MenuCommands/Link/AddLinkCommandButton.vue';
 
-function getAttrs (dom: HTMLElement) {
+function getAttrs(dom: HTMLElement) {
   return {
     href: dom.getAttribute('href'),
     openInNewTab: dom.getAttribute('target') === '_blank',
   };
 }
 
-function toDOM (mark: ProsemirrorMark) {
+function toDOM(mark: ProsemirrorMark) {
   const {
     href,
     openInNewTab,
@@ -38,7 +38,7 @@ function toDOM (mark: ProsemirrorMark) {
 
 export default class Link extends TiptapLink implements MenuBtnView {
   // @ts-ignore
-  get schema () {
+  get schema() {
     return {
       attrs: {
         href: {
@@ -59,11 +59,11 @@ export default class Link extends TiptapLink implements MenuBtnView {
     };
   }
 
-  get plugins () {
+  get plugins() {
     return [
       new Plugin({
         props: {
-          handleClick (view: EditorView, pos: number) {
+          handleClick(view: EditorView, pos: number) {
             const { schema, doc, tr } = view.state;
 
             const range = getMarkRange(doc.resolve(pos), schema.marks.link);
@@ -83,7 +83,7 @@ export default class Link extends TiptapLink implements MenuBtnView {
     ];
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: AddLinkCommandButton,
       componentProps: {

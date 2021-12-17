@@ -1,9 +1,6 @@
 <template>
   <div class="el-tiptap-editor__wrapper">
-    <el-tiptap
-      :extensions="extensions"
-      :content="content1"
-    >
+    <el-tiptap :extensions="extensions" :content="content1">
       <template #menubar="{ commands, isActive }">
         <div class="menubar">
           <el-button
@@ -23,10 +20,7 @@
       </template>
     </el-tiptap>
 
-    <el-tiptap
-      :extensions="extensions"
-      :content="content2"
-    />
+    <el-tiptap :extensions="extensions" :content="content2" />
   </div>
 </template>
 
@@ -54,7 +48,7 @@ import {
 } from 'element-tiptap';
 
 export default {
-  data () {
+  data() {
     return {
       extensions: [
         new Doc(),
@@ -78,8 +72,10 @@ export default {
         new TodoList(),
       ],
 
-      content1: '<p>You can customize the menubar (also bubble menu) with your design.</p>',
-      content2: '<p>The order in which you specify the extensions affects the order of the buttons.',
+      content1:
+        '<p>You can customize the menubar (also bubble menu) with your design.</p>',
+      content2:
+        '<p>The order in which you specify the extensions affects the order of the buttons.',
     };
   },
 };

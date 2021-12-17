@@ -59,11 +59,11 @@ export default class FontTypeDropdown extends Vue {
 
   @Inject() readonly et!: any;
 
-  private get editor () {
+  private get editor() {
     return this.editorContext.editor;
   }
 
-  private get fontTypes () {
+  private get fontTypes() {
     const { fontTypes } = this.editor.extensions.options.font_type;
 
     if (!isPlainObject(fontTypes)) {
@@ -74,11 +74,11 @@ export default class FontTypeDropdown extends Vue {
     return fontTypes;
   }
 
-  private get activeFontType (): string {
+  private get activeFontType(): string {
     return findActiveFontType(this.editor.state);
   }
 
-  private toggleFontType (name: string) {
+  private toggleFontType(name: string) {
     if (name === this.activeFontType) {
       this.editorContext.commands.font_type('');
     } else {

@@ -4,12 +4,12 @@ import { MenuBtnView } from '@/../types';
 import IframeCommandButton from '@/components/MenuCommands/IframeCommandButton.vue';
 
 export default class Iframe extends Node implements MenuBtnView {
-  get name () {
+  get name() {
     return 'iframe';
   }
 
   // @ts-ignore
-  get schema () {
+  get schema() {
     return {
       attrs: {
         src: {
@@ -33,7 +33,7 @@ export default class Iframe extends Node implements MenuBtnView {
     };
   }
 
-  commands ({ type }) {
+  commands({ type }) {
     return attrs => (state, dispatch) => {
       const { selection } = state;
       const position = selection.$cursor ? selection.$cursor.pos : selection.$to.pos;
@@ -43,15 +43,15 @@ export default class Iframe extends Node implements MenuBtnView {
     };
   }
 
-  get view () {
+  get view() {
     return {
       props: ['node', 'updateAttrs', 'view'],
       computed: {
         src: {
-          get () {
+          get() {
             return this.node.attrs.src;
           },
-          set (src) {
+          set(src) {
             this.updateAttrs({
               src,
             });
@@ -66,7 +66,7 @@ export default class Iframe extends Node implements MenuBtnView {
     };
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: IframeCommandButton,
       componentProps: {

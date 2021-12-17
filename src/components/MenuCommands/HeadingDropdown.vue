@@ -71,15 +71,15 @@ export default class HeadingDropdown extends Vue {
 
   @Inject() readonly et!: any;
 
-  private get editor () {
+  private get editor() {
     return this.editorContext.editor;
   }
 
-  private get level () {
+  private get level() {
     return this.editor.extensions.options.heading.level;
   }
 
-  private isHeadingActive (level: number): boolean {
+  private isHeadingActive(level: number): boolean {
     return isHeadingActive(this.editor.state, level);
   }
 };

@@ -3,30 +3,33 @@
   "env": {
     "node": true
   },
-  "extends": [
-    "plugin:vue/essential",
-    "@vue/standard",
-    "@vue/typescript"
-  ],
+  "extends": ["plugin:vue/essential", "@vue/standard", "@vue/typescript"],
   "rules": {
     "comma-dangle": ["error", "only-multiline"],
     "semi": ["error", "always"],
-    "indent": ["error", 2, {
-      "SwitchCase": 1,
-      "VariableDeclarator": {
-        "var": 2,
-        "let": 2,
-        "const": 3
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": {
+          "var": 2,
+          "let": 2,
+          "const": 3
+        }
       }
-    }],
+    ],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
-    "no-multi-spaces": ["error", {
-      "exceptions": {
-        "VariableDeclarator": true
+    "no-multi-spaces": [
+      "error",
+      {
+        "exceptions": {
+          "VariableDeclarator": true
+        }
       }
-    }],
-    "space-before-function-paren": ["error", "always"],
+    ],
+    "space-before-function-paren": ["error", "never"],
     "no-unused-vars": "off",
     "camelcase": "off",
     "@typescript-eslint/no-unused-vars": "error"

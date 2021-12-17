@@ -53,15 +53,15 @@ export default class PreviewCommandButton extends Vue {
   previewDialogVisible: boolean = false;
 
   @Watch('previewDialogVisible')
-  onVisibleChange (visible: boolean) {
+  onVisibleChange(visible: boolean) {
     if (visible) this.getHtml();
   }
 
-  togglePreviewDialogVisible () {
+  togglePreviewDialogVisible() {
     this.previewDialogVisible = !this.previewDialogVisible;
   }
 
-  getHtml () {
+  getHtml() {
     this.html = this.editorContext.editor.getHTML();
   }
 }

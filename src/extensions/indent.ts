@@ -4,32 +4,32 @@ import { createIndentCommand, IndentProps } from '@/utils/indent';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 export default class Indent extends Extension implements MenuBtnView {
-  get name () {
+  get name() {
     return 'indent';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       minIndent: IndentProps.min,
       maxIndent: IndentProps.max,
     };
   }
 
-  commands () {
+  commands() {
     return {
       indent: () => createIndentCommand(IndentProps.more),
       outdent: () => createIndentCommand(IndentProps.less),
     };
   }
 
-  keys () {
+  keys() {
     return {
       Tab: createIndentCommand(IndentProps.more),
       'Shift-Tab': createIndentCommand(IndentProps.less),
     };
   }
 
-  menuBtnView ({ commands, t }: MenuData) {
+  menuBtnView({ commands, t }: MenuData) {
     return [
       {
         component: CommandButton,

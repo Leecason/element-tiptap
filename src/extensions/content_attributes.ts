@@ -2,17 +2,17 @@ import { Extension } from 'tiptap';
 import { Plugin } from 'prosemirror-state';
 
 export default class ContentAttributes extends Extension {
-  get name () {
+  get name() {
     return 'content_attributes';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       spellcheck: true,
     };
   }
 
-  get plugins () {
+  get plugins() {
     return [
       new Plugin({
         props: {

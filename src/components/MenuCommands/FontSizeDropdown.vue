@@ -67,19 +67,19 @@ export default class FontSizeDropdown extends Vue {
 
   @Inject() readonly et!: any;
 
-  private get editor () {
+  private get editor() {
     return this.editorContext.editor;
   }
 
-  private get fontSizes () {
+  private get fontSizes() {
     return this.editor.extensions.options.font_size.fontSizes;
   }
 
-  private get activeFontSize (): string {
+  private get activeFontSize(): string {
     return findActiveFontSize(this.editor.state);
   }
 
-  private toggleFontSize (size: string) {
+  private toggleFontSize(size: string) {
     if (size === this.activeFontSize) {
       this.editorContext.commands.font_size(DEFAULT_FONT_SIZE);
     } else {

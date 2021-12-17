@@ -7,17 +7,17 @@ import FontTypeDropdown from '@/components/MenuCommands/FontTypeDropdown.vue';
 import { DEFAULT_FONT_TYPE_MAP, setFontType } from '@/utils/font_type';
 
 export default class FontType extends Mark implements MenuBtnView {
-  get name () {
+  get name() {
     return 'font_type';
   }
 
-  get defaultOptions () {
+  get defaultOptions() {
     return {
       fontTypes: DEFAULT_FONT_TYPE_MAP,
     };
   }
 
-  get schema () {
+  get schema() {
     return {
       attrs: {
         name: '',
@@ -34,7 +34,7 @@ export default class FontType extends Mark implements MenuBtnView {
           },
         },
       ],
-      toDOM (node: ProsemirrorNode) {
+      toDOM(node: ProsemirrorNode) {
         const { name } = node.attrs;
         const attrs: { style?: string } = {};
 
@@ -46,7 +46,7 @@ export default class FontType extends Mark implements MenuBtnView {
     };
   }
 
-  commands ({ type }: { type: MarkType }) {
+  commands({ type }: { type: MarkType }) {
     return (name: string): CommandFunction => (state, dispatch) => {
       let { tr } = state;
       tr = setFontType(
@@ -62,7 +62,7 @@ export default class FontType extends Mark implements MenuBtnView {
     };
   }
 
-  menuBtnView (editorContext: MenuData) {
+  menuBtnView(editorContext: MenuData) {
     return {
       component: FontTypeDropdown,
       componentProps: {

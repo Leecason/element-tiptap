@@ -109,7 +109,7 @@ export default class CommandButton extends Vue {
   })
   readonly readonly!: boolean;
 
-  private get commandButtonClass (): object {
+  private get commandButtonClass(): object {
     return {
       'el-tiptap-editor__command-button': true,
       'el-tiptap-editor__command-button--active': this.isActive,
@@ -117,7 +117,7 @@ export default class CommandButton extends Vue {
     };
   }
 
-  onClick () {
+  onClick() {
     if (!this.readonly) this.command();
   }
 }
