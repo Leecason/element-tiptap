@@ -1,33 +1,16 @@
-import { ElementTiptapPluginInterface } from '../types';
-import { DEFAULT_LANGUAGE } from '@/i18n/index';
-import ElementTiptap from '@/components/ElementTiptap.vue';
+import { IElementTiptapPlugin } from '../types';
+import ElementTiptap from './components/ElementTiptap.vue';
 
-const ElementTiptapPlugin: ElementTiptapPluginInterface = {
-  installed: false,
+const ElementTiptapPlugin: IElementTiptapPlugin = {
   spellcheck: true,
-  lang: DEFAULT_LANGUAGE,
 
-  install(Vue, options = {}) {
-    if (options.lang) {
-      this.lang = options.lang;
-    }
+  install(app, options = {}) {
+    // this.spellcheck = options.spellcheck == null ? true : options.spellcheck;
 
-    this.spellcheck = options.spellcheck == null
-      ? true
-      : options.spellcheck;
-
-    Vue.component('el-tiptap', ElementTiptap);
-    Vue.prototype.$elementTiptapPlugin = this;
-
-    this.installed = true;
+    app.component('el-tiptap', ElementTiptap);
   },
 };
 
-export * from '@/extensions/index';
-
-export {
-  ElementTiptapPlugin,
-  ElementTiptap,
-};
+export { ElementTiptapPlugin, ElementTiptap };
 
 export default ElementTiptapPlugin;
