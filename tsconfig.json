@@ -16,7 +16,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "demo/env.d.ts",
-    "demo/main.ts"
+    "demos/env.d.ts",
+    "demos/main.ts"
   ]
 }

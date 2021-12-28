@@ -4,9 +4,7 @@
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element UI for Vue.js",
   "author": "leecason",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "dev": "yarn --cwd ./demos vite"
   },
   "files": [
     "lib/*",
@@ -19,14 +17,14 @@
     "@tiptap/extension-document": "^2.0.0-beta.15",
     "@tiptap/extension-paragraph": "^2.0.0-beta.23",
     "@tiptap/extension-text": "^2.0.0-beta.15",
-    "@tiptap/vue-3": "^2.0.0-beta.85",
-    "vue": "^3.2.25"
+    "@tiptap/vue-3": "^2.0.0-beta.85"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.0.0",
     "typescript": "^4.4.4",
-    "vite": "^2.7.2",
-    "vue-tsc": "^0.29.8"
+    "vue": "^3.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "bugs": {
     "url": "https://github.com/Leecason/element-tiptap/issues"

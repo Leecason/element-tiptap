@@ -1,0 +1,22 @@
+{
+  "name": "element-tiptap-demos",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "sass": "^1.45.1",
+    "typescript": "^4.4.4",
+    "unplugin-auto-import": "^0.5.5",
+    "unplugin-vue-components": "^0.17.11",
+    "vite": "^2.7.2",
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.12",
+    "element-plus": "^1.2.0-beta.6"
+  }
+}

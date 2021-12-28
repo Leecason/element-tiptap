@@ -7,7 +7,7 @@ const ElementTiptapPlugin: IElementTiptapPlugin = {
   install(app, options = {}) {
     // this.spellcheck = options.spellcheck == null ? true : options.spellcheck;
 
-    app.component('el-tiptap', ElementTiptap);
+    app.component('element-tiptap', ElementTiptap);
   },
 };
 
