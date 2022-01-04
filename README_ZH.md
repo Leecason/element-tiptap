@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
+<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/demos/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
@@ -26,9 +26,9 @@
 
 ## ✨ 特色
 
-- 🎨使用 [element-ui](https://github.com/ElemeFE/element) 组件
-- 💅许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议👏)
-- 🔖支持 markdown 语法
+- 🎨 使用 [element-ui](https://github.com/ElemeFE/element) 组件
+- 💅 许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议 👏)
+- 🔖 支持 markdown 语法
 - 📘TypeScript 支持
 - 🌐 支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). 欢迎贡献更多的语言
 - 🎈 可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
@@ -63,7 +63,9 @@ import 'element-tiptap/lib/index.css';
 // 安装 ElementUI 插件
 Vue.use(ElementUI);
 // 安装 element-tiptap 插件
-Vue.use(ElementTiptapPlugin, { /* 插件配置项 */ });
+Vue.use(ElementTiptapPlugin, {
+  /* 插件配置项 */
+});
 // 现在你已经在全局注册了 `el-tiptap` 组件。
 ```
 
@@ -130,10 +132,7 @@ Vue.use(ElementTiptapPlugin, {
 ```vue
 <template>
   <div>
-    <el-tiptap
-      v-model="content"
-      :extensions="extensions"
-    />
+    <el-tiptap v-model="content" :extensions="extensions" />
   </div>
 </template>
 
@@ -191,6 +190,7 @@ export default {
 你可以只使用需要的 extension，对应的菜单按钮将会按照你声明的顺序被添加。
 
 所有可用的 extensions:
+
 - `Doc`
 - `Text`
 - `Paragraph`
@@ -235,7 +235,7 @@ export default {
 
 你可以自定义菜单按钮的渲染视图
 
-1) 创建你自己的 extension.
+1. 创建你自己的 extension.
 
 ```js
 // 你的 extension 文件
@@ -259,7 +259,8 @@ export default class CustomBold extends Bold {
 }
 ```
 
-2) 在组件中使用自定义 extension
+2. 在组件中使用自定义 extension
+
 ```vue
 <template>
   <el-tiptap :extensions="extensions" />
@@ -296,7 +297,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 
 [`editorProps`](https://prosemirror.net/docs/ref/#view.EditorProps) 是该列表中一个强大的属性，你可以使用这个属性直接控制编辑器的行为，为自己定制编辑器。
 
-❗一些不可用的属性❗(因为它们已经在这个包中被使用了):
+❗ 一些不可用的属性 ❗(因为它们已经在这个包中被使用了):
 
 - `content`
 - `editable`
@@ -316,9 +317,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 当编辑器没有内容的时候，将会显示 placeholder。
 
 ```html
-<el-tiptap
-  placeholder="Write something …"
-/>
+<el-tiptap placeholder="Write something …" />
 ```
 
 ### 内容 content
@@ -330,18 +329,13 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 编辑器的内容
 
 ```html
-<el-tiptap
-  :content="content"
-  @onUpdate="onEditorUpdate"
-/>
+<el-tiptap :content="content" @onUpdate="onEditorUpdate" />
 ```
 
 或者使用 `'v-model'`
 
 ```html
-<el-tiptap
-  v-model="content"
-/>
+<el-tiptap v-model="content" />
 ```
 
 ### 输出 output
@@ -353,9 +347,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 可被定义为 `'html'`(默认) 或者 `'json'`.
 
 ```html
-<el-tiptap
-  output="json"
-/>
+<el-tiptap output="json" />
 ```
 
 进一步了解: [prosemirror 数据结构](https://prosemirror.net/docs/guide/#doc)
@@ -367,9 +359,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 默认值: `false`
 
 ```html
-<el-tiptap
-  :readonly="true"
-/>
+<el-tiptap :readonly="true" />
 ```
 
 当 `readonly` 为 `true`, 编辑器不可编辑。
@@ -381,10 +371,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 默认值: 插件 `spellcheck` 配置项的值
 
 ```html
-<el-tiptap
-  :spellcheck="true"
->
-</el-tiptap>
+<el-tiptap :spellcheck="true"> </el-tiptap>
 ```
 
 编辑器内容是否开启拼写检查。
@@ -396,11 +383,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 带单位的字符串值，无单位的值会将 **`px`** 作为单位:
 
 ```html
-<el-tiptap
-  :width="700"
-  height="100%"
->
-</el-tiptap>
+<el-tiptap :width="700" height="100%"> </el-tiptap>
 ```
 
 上例会被转换为:
@@ -441,10 +424,7 @@ height: 100%;
 默认值: 插件 `lang` 选项的值
 
 ```html
-<el-tiptap
-  lang="zh"
->
-</el-tiptap>
+<el-tiptap lang="zh"> </el-tiptap>
 ```
 
 指定编辑器国际化语言
@@ -455,9 +435,7 @@ height: 100%;
 
 ```vue
 <template>
-  <el-tiptap
-    @onInit="onInit"
-  />
+  <el-tiptap @onInit="onInit" />
 </template>
 
 <script>
@@ -489,10 +467,7 @@ export default {
 属性：[https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
 
 ```html
-<el-tiptap
-  v-model="content"
-  :extensions="extensions"
->
+<el-tiptap v-model="content" :extensions="extensions">
   <!-- Vue 在 2.6.0 中，为具名插槽和作用域插槽引入了一个新的统一的语法
   https://cn.vuejs.org/v2/guide/components-slots.html -->
   <template #menubar="{ commands, isActive }">
@@ -514,10 +489,7 @@ export default {
 属性: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
 
 ```html
-<el-tiptap
-  v-model="content"
-  :extensions="extensions"
->
+<el-tiptap v-model="content" :extensions="extensions">
   <template #menububble="{ commands, isActive }">
     <custom-button
       :class="{ 'is-active': isActive.bold() }"

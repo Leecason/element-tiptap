@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/examples/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
+<p align="center"><a href="https://github.com/Leecason/element-tiptap" target="_blank" rel="noopener noreferrer"><img src="/demos/assets/logo_for_github.png?raw=true" alt="ElTiptap logo"></a></p>
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
@@ -63,7 +63,9 @@ import 'element-tiptap/lib/index.css';
 // use ElementUI's plugin
 Vue.use(ElementUI);
 // use this package's plugin
-Vue.use(ElementTiptapPlugin, { /* plugin options */ });
+Vue.use(ElementTiptapPlugin, {
+  /* plugin options */
+});
 // Now you register `'el-tiptap'` component globally.
 ```
 
@@ -130,10 +132,7 @@ Welcome contribution.
 ```vue
 <template>
   <div>
-    <el-tiptap
-      v-model="content"
-      :extensions="extensions"
-    />
+    <el-tiptap v-model="content" :extensions="extensions" />
   </div>
 </template>
 
@@ -191,6 +190,7 @@ Type: `Array`
 You can use the necessary extensions. The corresponding command-buttons will be added by declaring the order of the extension.
 
 All available extensions:
+
 - `Doc`
 - `Text`
 - `Paragraph`
@@ -235,7 +235,7 @@ You can find all extensions docs [here](https://github.com/Leecason/element-tipt
 
 You can customize the extension menu button view
 
-1) create your custom extension.
+1. create your custom extension.
 
 ```js
 // create your extension file
@@ -259,7 +259,8 @@ export default class CustomBold extends Bold {
 }
 ```
 
-2) use custom extension in component
+2. use custom extension in component
+
 ```vue
 <template>
   <el-tiptap :extensions="extensions" />
@@ -316,9 +317,7 @@ Default: `''`
 When editor is empty, placeholder will display.
 
 ```html
-<el-tiptap
-  placeholder="Write something …"
-/>
+<el-tiptap placeholder="Write something …" />
 ```
 
 ### content
@@ -330,18 +329,13 @@ Default: `''`
 Editor's content
 
 ```html
-<el-tiptap
-  :content="content"
-  @onUpdate="onEditorUpdate"
-/>
+<el-tiptap :content="content" @onUpdate="onEditorUpdate" />
 ```
 
 or Use `'v-model'`
 
 ```html
-<el-tiptap
-  v-model="content"
-/>
+<el-tiptap v-model="content" />
 ```
 
 ### output
@@ -353,9 +347,7 @@ Default: `'html'`
 Output can be defined to `'html'` or `'json'`.
 
 ```html
-<el-tiptap
-  output="json"
-/>
+<el-tiptap output="json" />
 ```
 
 further reading: [prosemirror data structure](https://prosemirror.net/docs/guide/#doc)
@@ -367,9 +359,7 @@ Type: `boolean`
 Default: `false`
 
 ```html
-<el-tiptap
-  :readonly="true"
-/>
+<el-tiptap :readonly="true" />
 ```
 
 when `readonly` is `true`, editor is not editable.
@@ -381,10 +371,7 @@ Type: `boolean`
 Default: plugin `spellcheck` option value
 
 ```html
-<el-tiptap
-  :spellcheck="true"
->
-</el-tiptap>
+<el-tiptap :spellcheck="true"> </el-tiptap>
 ```
 
 Whether the content is spellcheck enabled.
@@ -396,11 +383,7 @@ Type: `string | number`
 A string value with unit or a simple value (the default unit is **`px`**)：
 
 ```html
-<el-tiptap
-  :width="700"
-  height="100%"
->
-</el-tiptap>
+<el-tiptap :width="700" height="100%"> </el-tiptap>
 ```
 
 The above example will be converted to:
@@ -441,10 +424,7 @@ Type: `string`
 Default: plugin `lang` option value
 
 ```html
-<el-tiptap
-  lang="zh"
->
-</el-tiptap>
+<el-tiptap lang="zh"> </el-tiptap>
 ```
 
 Specifies the editor i18n language.
@@ -455,9 +435,7 @@ Specifies the editor i18n language.
 
 ```vue
 <template>
-  <el-tiptap
-    @onInit="onInit"
-  />
+  <el-tiptap @onInit="onInit" />
 </template>
 
 <script>
@@ -489,10 +467,7 @@ You can customize the menubar and will receive some properties through a scoped 
 properties: [https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
 
 ```html
-<el-tiptap
-  v-model="content"
-  :extensions="extensions"
->
+<el-tiptap v-model="content" :extensions="extensions">
   <!-- new syntax for slot since Vue 2.6.0
   see: https://vuejs.org/v2/guide/components-slots.html -->
   <template #menubar="{ commands, isActive }">
@@ -514,10 +489,7 @@ Customize the bubble menu like menubar.
 properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
 
 ```html
-<el-tiptap
-  v-model="content"
-  :extensions="extensions"
->
+<el-tiptap v-model="content" :extensions="extensions">
   <template #menububble="{ commands, isActive }">
     <custom-button
       :class="{ 'is-active': isActive.bold() }"

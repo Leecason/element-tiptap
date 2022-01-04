@@ -4,10 +4,12 @@
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element UI for Vue.js",
   "author": "leecason",
   "scripts": {
-    "serve": "vue-cli-service serve --open examples/main.js",
-    "lint": "vue-cli-service lint",
-    "build:example": "vue-cli-service build --dest dist examples/main.js",
+    "dev": "vite",
+    "demo:preview": "vite preview",
+    "build:demo": "vite build",
     "build:lib": "rollup -c --environment BUILD:production",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "yarn lint --fix",
     "semantic-release": "semantic-release"
   },
   "main": "lib/element-tiptap.common.js",
@@ -43,16 +45,10 @@
     "@types/prosemirror-view": "^1.11.2",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
-    "@vue/cli-plugin-babel": "~4.4.1",
-    "@vue/cli-plugin-eslint": "~4.4.6",
-    "@vue/cli-plugin-router": "~4.2.2",
-    "@vue/cli-plugin-typescript": "~4.4.1",
-    "@vue/cli-service": "~4.4.6",
     "@vue/eslint-config-standard": "^5.1.0",
     "@vue/eslint-config-typescript": "^5.0.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "babel-plugin-component": "^1.1.1",
     "element-ui": "^2.13.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",
@@ -76,9 +72,13 @@
     "sass-loader": "^8.0.0",
     "semantic-release": "^17.0.4",
     "typescript": "~3.9.3",
+    "unplugin-vue-components": "^0.17.11",
+    "vite": "^2.7.10",
+    "vite-plugin-vue2": "^1.9.2",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "yorkie": "^2.0.0"
   },
   "peerDependencies": {
     "element-ui": "^2.0.0",
@@ -102,12 +102,13 @@
     "tiptap",
     "prosemirror",
     "vue.js",
+    "vue",
     "wysiwyg"
   ],
   "license": "MIT",
   "lint-staged": {
     "*.{js,vue}": [
-      "vue-cli-service lint",
+      "yarn lint",
       "git add"
     ]
   },

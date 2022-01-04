@@ -2,7 +2,7 @@
 
 set -e
 
-npm run build:example
+npm run build:demo
 
 cd dist
 
