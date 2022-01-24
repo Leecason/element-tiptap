@@ -1,7 +1,7 @@
 import { VueConstructor } from 'vue';
 import { default as ElTiptap } from '@/components/ElementTiptap.vue';
 
-export * from './extensions';
+export * as ElementTiptapPlugin from './extensions';
 
 export interface OptionsInterface {
   lang?: string;
