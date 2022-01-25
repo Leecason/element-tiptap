@@ -2131,9 +2131,9 @@
     "@types/prosemirror-model" "*"
 
 "@types/prosemirror-view@*", "@types/prosemirror-view@^1.11.2":
-  version "1.11.4"
-  resolved "https://registry.yarnpkg.com/@types/prosemirror-view/-/prosemirror-view-1.11.4.tgz#580f5044fc600c79e199dfb56bf988028422c4e4"
-  integrity sha512-Hh8v2tpCEMaIesQuw7Y7Pz6imoC1T/bR5OlNGVtp944PZvctXiBvFRkQIb0YvZpt7vVkFzeq2kmR+7mnUfvWiw==
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@types/prosemirror-view/-/prosemirror-view-1.18.0.tgz#3ec23f48f0d8d9fe290a9bd43a91ce0622bec9b1"
+  integrity sha512-7NBy7qIV/ig49ThfkrIJrvW8E+HwumMgmpopUTYJlKwOh/fQ6SVUG/RtdnAIBLD+4uK0R2SMObbGZm06x6OwbA==
   dependencies:
     "@types/prosemirror-model" "*"
     "@types/prosemirror-state" "*"
