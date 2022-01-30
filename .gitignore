@@ -3,6 +3,9 @@ node_modules
 /dist
 /lib
 
+auto-imports.d.ts
+components.d.ts
+
 # local env files
 .env.local
 .env.*.local

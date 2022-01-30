@@ -1,5 +1,5 @@
+import type { Command } from '@tiptap/core';
 import { TextSelection, AllSelection, Transaction } from 'prosemirror-state';
-import { CommandFunction } from 'tiptap-commands';
 import { isListNode } from './list';
 import { clamp } from './shared';
 
@@ -11,12 +11,18 @@ export const enum IndentProps {
   less = -1,
 }
 
-function updateIndentLevel(tr: Transaction, delta: number): Transaction {
+function updateIndentLevel(
+  tr: Transaction,
+  delta: number,
+  types: string[]
+): Transaction {
   const { doc, selection } = tr;
 
   if (!doc || !selection) return tr;
 
-  if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
+  if (
+    !(selection instanceof TextSelection || selection instanceof AllSelection)
+  ) {
     return tr;
   }
 
@@ -25,11 +31,7 @@ function updateIndentLevel(tr: Transaction, delta: number): Transaction {
   doc.nodesBetween(from, to, (node, pos) => {
     const nodeType = node.type;
 
-    if (
-      nodeType.name === 'paragraph' ||
-      nodeType.name === 'heading' ||
-      nodeType.name === 'blockquote'
-    ) {
+    if (types.includes(nodeType.name)) {
       tr = setNodeIndentMarkup(tr, pos, delta);
       return false;
     } else if (isListNode(node)) {
@@ -41,7 +43,11 @@ function updateIndentLevel(tr: Transaction, delta: number): Transaction {
   return tr;
 }
 
-function setNodeIndentMarkup(tr: Transaction, pos: number, delta: number): Transaction {
+function setNodeIndentMarkup(
+  tr: Transaction,
+  pos: number,
+  delta: number
+): Transaction {
   if (!tr.doc) return tr;
 
   const node = tr.doc.nodeAt(pos);
@@ -50,11 +56,7 @@ function setNodeIndentMarkup(tr: Transaction, pos: number, delta: number): Trans
   const minIndent = IndentProps.min;
   const maxIndent = IndentProps.max;
 
-  const indent = clamp(
-    (node.attrs.indent || 0) + delta,
-    minIndent,
-    maxIndent,
-  );
+  const indent = clamp((node.attrs.indent || 0) + delta, minIndent, maxIndent);
 
   if (indent === node.attrs.indent) return tr;
 
@@ -66,12 +68,18 @@ function setNodeIndentMarkup(tr: Transaction, pos: number, delta: number): Trans
   return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks);
 }
 
-export function createIndentCommand(delta: number): CommandFunction {
-  return (state, dispatch) => {
+export function createIndentCommand({
+  delta,
+  types,
+}: {
+  delta: number;
+  types: string[];
+}): Command {
+  return ({ state, dispatch }) => {
     const { selection } = state;
     let { tr } = state;
     tr = tr.setSelection(selection);
-    tr = updateIndentLevel(tr, delta);
+    tr = updateIndentLevel(tr, delta, types);
 
     if (tr.docChanged) {
       dispatch && dispatch(tr);

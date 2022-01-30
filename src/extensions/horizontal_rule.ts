@@ -1,17 +1,25 @@
-import { HorizontalRule as TiptapHorizontalRule } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapHorizontalRule } from '@tiptap/extension-horizontal-rule';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class HorizontalRule extends TiptapHorizontalRule implements MenuBtnView {
-  menuBtnView({ commands, t }: MenuData) {
+const HorizontalRule = TiptapHorizontalRule.extend({
+  addOptions() {
     return {
-      component: CommandButton,
-      componentProps: {
-        command: commands.horizontal_rule,
-        icon: 'minus',
-        tooltip: t('editor.extensions.HorizontalRule.tooltip'),
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton,
+          componentProps: {
+            command: () => {
+              editor.commands.setHorizontalRule();
+            },
+            icon: 'minus',
+            tooltip: t('editor.extensions.HorizontalRule.tooltip'),
+          },
+        };
       },
     };
-  }
-}
+  },
+});
+
+export default HorizontalRule;

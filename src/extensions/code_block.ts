@@ -1,18 +1,26 @@
-import { CodeBlock as TiptapCodeBlock } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapCodeBlock } from '@tiptap/extension-code-block';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class CodeBlock extends TiptapCodeBlock implements MenuBtnView {
-  menuBtnView({ isActive, commands, t }: MenuData) {
+const CodeBlock = TiptapCodeBlock.extend({
+  addOptions() {
     return {
-      component: CommandButton,
-      componentProps: {
-        command: commands.code_block,
-        isActive: isActive.code_block(),
-        icon: 'code',
-        tooltip: t('editor.extensions.CodeBlock.tooltip'),
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton,
+          componentProps: {
+            command: () => {
+              editor.commands.toggleCodeBlock();
+            },
+            isActive: editor.isActive('codeBlock'),
+            icon: 'code',
+            tooltip: t('editor.extensions.CodeBlock.tooltip'),
+          },
+        };
       },
     };
-  }
-}
+  },
+});
+
+export default CodeBlock;

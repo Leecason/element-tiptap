@@ -15,7 +15,7 @@
     height: 40px;
     margin: 2px;
     outline: 0;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     width: 40px;
 
     &:hover {
@@ -29,7 +29,7 @@
 
     &--readonly {
       cursor: default;
-      opacity: .3;
+      opacity: 0.3;
       pointer-events: none;
 
       &:hover {
@@ -39,16 +39,22 @@
   }
 }
 
+.el-tiptap-dropdown-popper {
+  .el-dropdown-menu__item {
+    padding: 0;
+  }
+}
+
 .el-tiptap-dropdown-menu {
   $menu: &;
 
   #{$menu}__item {
     color: $primary-text-color;
     line-height: 1.5;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 20px;
+    width: 100%;
 
-    [data-item-type=heading] {
+    [data-item-type='heading'] {
       margin-bottom: 0;
       margin-top: 0;
     }
@@ -81,7 +87,7 @@
 
       &--disabled {
         cursor: default;
-        opacity: .2;
+        opacity: 0.2;
 
         &:hover {
           color: inherit;
@@ -138,11 +144,12 @@
 
   .color {
     border-radius: 50%;
-    box-shadow: rgba(0, 0, 0, .2) 0px 3px 3px -2px, rgba(0, 0, 0, .14) 0px 3px 4px 0px, rgba(0, 0, 0, .12) 0px 1px 8px 0px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+      rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
     box-sizing: border-box;
     color: $white-color;
     height: 30px;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     width: 30px;
 
     &__wrapper {
@@ -184,7 +191,7 @@
         margin: 2px 0;
         top: 0;
         transform: translateX(-50%);
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         width: 2px;
       }
     }
@@ -251,8 +258,8 @@
     margin-bottom: 0;
   }
 
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none; // Correct the cursor style of increment and decrement buttons in Chrome
   }
 }
@@ -266,7 +273,8 @@
 .el-popper.el-tiptap-image-popper {
   background-color: $white-color;
   border-radius: 8px;
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
   min-width: 0;
   padding: 5px;
 

@@ -1,43 +1,48 @@
 import path from 'path';
 import { defineConfig } from 'vite';
-import { createVuePlugin } from 'vite-plugin-vue2';
+import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 function kebabCase(key: string) {
   const result = key.replace(/([A-Z])/g, ' $1').trim();
-  return result
-    .split(' ')
-    .join('-')
-    .toLowerCase();
+  return result.split(' ').join('-').toLowerCase();
 }
 
 export default defineConfig({
   plugins: [
-    createVuePlugin(),
+    vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
     Components({
-      resolvers: [{
-        type: 'component',
-        resolve: (name: string) => {
-          if (name.startsWith('El')) {
-            const compName = name.slice(2);
-            if (compName !== 'Tiptap') {
-              const partialName = kebabCase(compName);
-              if (partialName === 'collapse-transition') {
-                return {
-                  path: `element-ui/lib/transitions/${partialName}`,
-                };
-              }
-              return {
-                path: `element-ui/lib/${partialName}`,
-                sideEffects: [
-                  'element-ui/packages/theme-chalk/src/base.scss',
-                  `element-ui/packages/theme-chalk/src/${partialName}.scss`,
-                ],
-              };
-            }
-          }
-        },
-      }],
+      resolvers: [
+        ElementPlusResolver(),
+        // {
+        //   type: 'component',
+        //   resolve: (name: string) => {
+        //     if (name.startsWith('El')) {
+        //       const compName = name.slice(2);
+        //       if (compName !== 'Tiptap') {
+        //         const partialName = kebabCase(compName);
+        //         if (partialName === 'collapse-transition') {
+        //           return {
+        //             path: `element-ui/lib/transitions/${partialName}`,
+        //           };
+        //         }
+        //         return {
+        //           path: `element-ui/lib/${partialName}`,
+        //           sideEffects: [
+        //             'element-ui/packages/theme-chalk/src/base.scss',
+        //             `element-ui/packages/theme-chalk/src/${partialName}.scss`,
+        //           ],
+        //         };
+        //       }
+        //     }
+        //   },
+        // },
+      ],
     }),
   ],
   server: {

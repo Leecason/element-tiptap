@@ -1,28 +1,27 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import {
   // layout
-  Container,
-  Header,
-  Main,
-  Footer,
-  Button,
-} from 'element-ui';
+  ElContainer,
+  ElHeader,
+  ElMain,
+  ElFooter,
+  ElButton,
+} from 'element-plus';
 
-import { ElementTiptapPlugin } from 'element-tiptap';
+import { ElementTiptap } from 'element-tiptap';
 import App from './App.vue';
 import router from './router';
 
-Vue.use(Container);
-Vue.use(Header);
-Vue.use(Main);
-Vue.use(Footer);
-Vue.use(Button);
+const app = createApp(App);
 
-Vue.use(ElementTiptapPlugin);
+app.use(router);
 
-Vue.config.productionTip = false;
+app.use(ElContainer);
+app.use(ElHeader);
+app.use(ElMain);
+app.use(ElFooter);
+app.use(ElButton);
 
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app');
+app.component('element-tiptap', ElementTiptap);
+
+app.mount('#app');

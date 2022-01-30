@@ -1,65 +1,27 @@
-import { Mark as ProsemirrorMark } from 'prosemirror-model';
+import { getMarkRange } from '@tiptap/core';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapLink } from '@tiptap/extension-link';
 import { Plugin, TextSelection } from 'prosemirror-state';
-import { Link as TiptapLink } from 'tiptap-extensions';
 import { EditorView } from 'prosemirror-view';
-// @ts-ignore
-import { getMarkRange } from 'tiptap-utils';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
 import AddLinkCommandButton from '@/components/MenuCommands/Link/AddLinkCommandButton.vue';
 
-function getAttrs(dom: HTMLElement) {
-  return {
-    href: dom.getAttribute('href'),
-    openInNewTab: dom.getAttribute('target') === '_blank',
-  };
-}
-
-function toDOM(mark: ProsemirrorMark) {
-  const {
-    href,
-    openInNewTab,
-  } = mark.attrs;
-
-  const attrs: any = {};
-  attrs.href = href;
-
-  let ref = 'nofollow';
-
-  if (openInNewTab) {
-    attrs.target = '_blank';
-    ref += ' noopener noreferrer';
-  }
-
-  attrs.ref = ref.trim();
-
-  return ['a', attrs, 0];
-}
-
-export default class Link extends TiptapLink implements MenuBtnView {
-  // @ts-ignore
-  get schema() {
+const Link = TiptapLink.extend({
+  addOptions() {
     return {
-      attrs: {
-        href: {
-          default: null,
-        },
-        openInNewTab: {
-          default: true,
-        },
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: AddLinkCommandButton,
+          componentProps: {
+            editor,
+            t,
+          },
+        };
       },
-      inclusive: false,
-      parseDOM: [
-        {
-          tag: 'a[href]',
-          getAttrs,
-        },
-      ],
-      toDOM,
     };
-  }
+  },
 
-  get plugins() {
+  addProseMirrorPlugins() {
     return [
       new Plugin({
         props: {
@@ -73,7 +35,9 @@ export default class Link extends TiptapLink implements MenuBtnView {
             const $start = doc.resolve(range.from);
             const $end = doc.resolve(range.to);
 
-            const transaction = tr.setSelection(new TextSelection($start, $end));
+            const transaction = tr.setSelection(
+              new TextSelection($start, $end)
+            );
 
             view.dispatch(transaction);
             return true;
@@ -81,14 +45,7 @@ export default class Link extends TiptapLink implements MenuBtnView {
         },
       }),
     ];
-  }
+  },
+});
 
-  menuBtnView(editorContext: MenuData) {
-    return {
-      component: AddLinkCommandButton,
-      componentProps: {
-        editorContext,
-      },
-    };
-  }
-}
+export default Link;

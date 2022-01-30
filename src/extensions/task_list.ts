@@ -1,8 +1,8 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapBlockquote } from '@tiptap/extension-blockquote';
+import { default as TiptapTaskList } from '@tiptap/extension-task-list';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-const Blockquote = TiptapBlockquote.extend({
+const TaskList = TiptapTaskList.extend({
   addOptions() {
     return {
       ...this.parent?.(),
@@ -11,11 +11,11 @@ const Blockquote = TiptapBlockquote.extend({
           component: CommandButton,
           componentProps: {
             command: () => {
-              editor.commands.toggleBlockquote();
+              editor.commands.toggleTaskList();
             },
-            isActive: editor.isActive('blockquote'),
-            icon: 'quote-right',
-            tooltip: t('editor.extensions.Blockquote.tooltip'),
+            isActive: editor.isActive('taskList'),
+            icon: 'tasks',
+            tooltip: t('editor.extensions.TodoList.tooltip'),
           },
         };
       },
@@ -23,4 +23,4 @@ const Blockquote = TiptapBlockquote.extend({
   },
 });
 
-export default Blockquote;
+export default TaskList;
