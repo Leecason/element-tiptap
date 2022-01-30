@@ -1,52 +1,109 @@
-import { Extension, MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
-import { createIndentCommand, IndentProps } from '@/utils/indent';
+import { Extension } from '@tiptap/core';
+import type { Editor } from '@tiptap/core';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
+import { createIndentCommand, IndentProps } from '@/utils/indent';
 
-export default class Indent extends Extension implements MenuBtnView {
-  get name() {
-    return 'indent';
+export interface IdentOptions {
+  types: string[];
+  minIndent: number;
+  maxIndent: number;
+}
+
+declare module '@tiptap/core' {
+  interface Commands<ReturnType> {
+    indent: {
+      /**
+       * Set the indent attribute
+       */
+      indent: () => ReturnType;
+      /**
+       * Set the outdent attribute
+       */
+      outdent: () => ReturnType;
+    };
   }
+}
 
-  get defaultOptions() {
+const Indent = Extension.create<IdentOptions>({
+  name: 'indent',
+
+  addOptions() {
     return {
+      types: ['paragraph', 'heading', 'blockquote'],
       minIndent: IndentProps.min,
       maxIndent: IndentProps.max,
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return [
+          {
+            component: CommandButton,
+            componentProps: {
+              command: () => {
+                editor.commands.indent();
+              },
+              icon: 'indent',
+              tooltip: t('editor.extensions.Indent.buttons.indent.tooltip'),
+            },
+          },
+          {
+            component: CommandButton,
+            componentProps: {
+              command: () => {
+                editor.commands.outdent();
+              },
+              icon: 'outdent',
+              tooltip: t('editor.extensions.Indent.buttons.outdent.tooltip'),
+            },
+          },
+        ];
+      },
     };
-  }
+  },
 
-  commands() {
-    return {
-      indent: () => createIndentCommand(IndentProps.more),
-      outdent: () => createIndentCommand(IndentProps.less),
-    };
-  }
-
-  keys() {
-    return {
-      Tab: createIndentCommand(IndentProps.more),
-      'Shift-Tab': createIndentCommand(IndentProps.less),
-    };
-  }
-
-  menuBtnView({ commands, t }: MenuData) {
+  addGlobalAttributes() {
     return [
       {
-        component: CommandButton,
-        componentProps: {
-          command: commands.indent,
-          icon: 'indent',
-          tooltip: t('editor.extensions.Indent.buttons.indent.tooltip'),
-        },
-      },
-      {
-        component: CommandButton,
-        componentProps: {
-          command: commands.outdent,
-          icon: 'outdent',
-          tooltip: t('editor.extensions.Indent.buttons.outdent.tooltip'),
+        types: this.options.types,
+        attributes: {
+          indent: {
+            default: 0,
+            parseHTML: (element) => {
+              const identAttr = element.getAttribute('data-indent');
+              return (identAttr ? parseInt(identAttr, 10) : 0) || 0;
+            },
+            renderHTML: (attributes) => {
+              if (!attributes.indent) {
+                return {};
+              }
+
+              return { ['data-indent']: attributes.indent };
+            },
+          },
         },
       },
     ];
-  }
-}
+  },
+
+  addCommands() {
+    return {
+      indent: () =>
+        createIndentCommand({
+          delta: IndentProps.more,
+          types: this.options.types,
+        }),
+      outdent: () =>
+        createIndentCommand({
+          delta: IndentProps.less,
+          types: this.options.types,
+        }),
+    };
+  },
+
+  addKeyboardShortcuts() {
+    return {
+      Tab: () => this.editor.commands.indent(),
+      'Shift-Tab': () => this.editor.commands.outdent(),
+    };
+  },
+});
+
+export default Indent;

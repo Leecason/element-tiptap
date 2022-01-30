@@ -1,27 +1,39 @@
-import { History as TiptapHistory } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapHistory } from '@tiptap/extension-history';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class History extends TiptapHistory implements MenuBtnView {
-  menuBtnView({ commands, t }: MenuData) {
-    return [
-      {
-        component: CommandButton,
-        componentProps: {
-          command: commands.undo,
-          icon: 'undo',
-          tooltip: t('editor.extensions.History.tooltip.undo'),
-        },
+const History = TiptapHistory.extend({
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return [
+          {
+            component: CommandButton,
+            componentProps: {
+              command: () => {
+                editor.commands.undo();
+              },
+
+              icon: 'undo',
+              tooltip: t('editor.extensions.History.tooltip.undo'),
+            },
+          },
+          {
+            component: CommandButton,
+            componentProps: {
+              command: () => {
+                editor.commands.redo();
+              },
+
+              icon: 'redo',
+              tooltip: t('editor.extensions.History.tooltip.redo'),
+            },
+          },
+        ];
       },
-      {
-        component: CommandButton,
-        componentProps: {
-          command: commands.redo,
-          icon: 'redo',
-          tooltip: t('editor.extensions.History.tooltip.redo'),
-        },
-      },
-    ];
-  }
-}
+    };
+  },
+});
+
+export default History;

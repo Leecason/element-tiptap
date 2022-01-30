@@ -1,50 +1,38 @@
 <template>
   <div>
     <command-button
-      :is-active="editorContext.isActive.link()"
-      :readonly="et.isCodeViewMode"
+      :is-active="editor.isActive('link')"
       :command="openAddLinkDialog"
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Link.add.tooltip')"
+      :enable-tooltip="true"
+      :tooltip="t('editor.extensions.Link.add.tooltip')"
       icon="link"
     />
 
     <el-dialog
-      :title="et.t('editor.extensions.Link.add.control.title')"
-      :visible.sync="addLinkDialogVisible"
+      v-model="addLinkDialogVisible"
+      :title="t('editor.extensions.Link.add.control.title')"
       :append-to-body="true"
       width="400px"
       custom-class="el-tiptap-edit-link-dialog"
     >
-      <el-form
-        :model="linkAttrs"
-        label-position="right"
-        size="small"
-      >
+      <el-form :model="linkAttrs" label-position="right" size="small">
         <el-form-item
-          :label="et.t('editor.extensions.Link.add.control.href')"
+          :label="t('editor.extensions.Link.add.control.href')"
           prop="href"
         >
-          <el-input
-            v-model="linkAttrs.href"
-            autocomplete="off"
-          />
+          <el-input v-model="linkAttrs.href" autocomplete="off" />
         </el-form-item>
 
         <el-form-item prop="openInNewTab">
           <el-checkbox v-model="linkAttrs.openInNewTab">
-            {{ et.t('editor.extensions.Link.add.control.open_in_new_tab') }}
+            {{ t('editor.extensions.Link.add.control.open_in_new_tab') }}
           </el-checkbox>
         </el-form-item>
       </el-form>
 
       <template #footer>
-        <el-button
-          size="small"
-          round
-          @click="closeAddLinkDialog"
-        >
-          {{ et.t('editor.extensions.Link.add.control.cancel') }}
+        <el-button size="small" round @click="closeAddLinkDialog">
+          {{ t('editor.extensions.Link.add.control.cancel') }}
         </el-button>
 
         <el-button
@@ -54,7 +42,7 @@
           @mousedown.prevent
           @click="addLink"
         >
-          {{ et.t('editor.extensions.Link.add.control.confirm') }}
+          {{ t('editor.extensions.Link.add.control.confirm') }}
         </el-button>
       </template>
     </el-dialog>
@@ -62,52 +50,78 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue, Watch } from 'vue-property-decorator';
-import { Dialog, Form, FormItem, Input, Checkbox, Button } from 'element-ui';
-import { MenuData } from 'tiptap';
+import { defineComponent } from 'vue';
+import {
+  ElDialog,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCheckbox,
+  ElButton,
+} from 'element-plus';
+import { Editor } from '@tiptap/core';
 import CommandButton from '../CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'AddLinkCommandButton',
+
   components: {
-    [Dialog.name]: Dialog,
-    [Form.name]: Form,
-    [FormItem.name]: FormItem,
-    [Input.name]: Input,
-    [Checkbox.name]: Checkbox,
-    [Button.name]: Button,
+    ElDialog,
+    ElForm,
+    ElFormItem,
+    ElInput,
+    ElCheckbox,
+    ElButton,
     CommandButton,
   },
-})
-export default class AddLinkCommandButton extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  @Inject() readonly et!: any;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+    t: {
+      type: Function,
+      required: true,
+    },
+  },
 
-  linkAttrs = {};
+  data() {
+    return {
+      linkAttrs: {
+        href: '',
+        openInNewTab: true,
+      },
 
-  addLinkDialogVisible = false;
+      addLinkDialogVisible: false,
+    };
+  },
 
-  @Watch('addLinkDialogVisible', { immediate: true })
-  onDialogVisibleChange() {
-    this.linkAttrs = { href: '', openInNewTab: true };
-  }
+  watch: {
+    addLinkDialogVisible() {
+      this.linkAttrs = { href: '', openInNewTab: true };
+    },
+  },
 
-  private addLink() {
-    this.editorContext.commands.link(this.linkAttrs);
+  methods: {
+    openAddLinkDialog() {
+      this.addLinkDialogVisible = true;
+    },
+    closeAddLinkDialog() {
+      this.addLinkDialogVisible = false;
+    },
+    addLink() {
+      if (this.linkAttrs.openInNewTab) {
+        this.editor.commands.setLink({
+          href: this.linkAttrs.href,
+          target: '_blank',
+        });
+      } else {
+        this.editor.commands.setLink({ href: this.linkAttrs.href });
+      }
 
-    this.closeAddLinkDialog();
-  }
-
-  private openAddLinkDialog() {
-    this.addLinkDialogVisible = true;
-  }
-
-  private closeAddLinkDialog() {
-    this.addLinkDialogVisible = false;
-  }
-};
+      this.closeAddLinkDialog();
+    },
+  },
+});
 </script>

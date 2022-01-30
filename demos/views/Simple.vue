@@ -1,83 +1,77 @@
 <template>
   <div class="el-tiptap-editor__wrapper">
-    <el-tiptap
-      :extensions="extensions"
-      :content="content"
-      :spellcheck="false"
-      :menu-bubble-options="{ 'keep-in-bounds': false }"
-      placeholder="Write something ..."
-    />
+    <element-tiptap :content="content" placeholder="Write something ..." />
   </div>
 </template>
 
 <script>
-import {
-  Doc,
-  Text,
-  Paragraph,
-  Heading,
-  Bold,
-  Underline,
-  Italic,
-  Strike,
-  Code,
-  Link,
-  Image,
-  Blockquote,
-  ListItem,
-  BulletList,
-  OrderedList,
-  TodoItem,
-  TodoList,
-  TextAlign,
-  Indent,
-  HardBreak,
-  HorizontalRule,
-  CodeView,
-  Fullscreen,
-  History,
-} from 'element-tiptap';
+// import {
+//   Doc,
+//   Text,
+//   Paragraph,
+//   Heading,
+//   Bold,
+//   Underline,
+//   Italic,
+//   Strike,
+//   Code,
+//   Link,
+//   Image,
+//   Blockquote,
+//   ListItem,
+//   BulletList,
+//   OrderedList,
+//   TodoItem,
+//   TodoList,
+//   TextAlign,
+//   Indent,
+//   HardBreak,
+//   HorizontalRule,
+//   CodeView,
+//   Fullscreen,
+//   History,
+// } from 'element-tiptap';
 
-import codemirror from 'codemirror';
-import 'codemirror/lib/codemirror.css'; // import base style
-import 'codemirror/mode/xml/xml.js'; // language
-import 'codemirror/addon/selection/active-line.js'; // require active-line.js
-import 'codemirror/addon/edit/closetag.js'; // autoCloseTags
+// import codemirror from 'codemirror';
+// import 'codemirror/lib/codemirror.css'; // import base style
+// import 'codemirror/mode/xml/xml.js'; // language
+// import 'codemirror/addon/selection/active-line.js'; // require active-line.js
+// import 'codemirror/addon/edit/closetag.js'; // autoCloseTags
 
 export default {
   data() {
     return {
       extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Heading({ level: 5 }),
-        new Bold({ bubble: true }),
-        new Underline({ bubble: true }),
-        new Italic({ bubble: true }),
-        new Strike({ bubble: true }),
-        new Code(),
-        new Link({ bubble: true }),
-        new Image(),
-        new Blockquote(),
-        new TextAlign(),
-        new ListItem(),
-        new BulletList({ bubble: true }),
-        new OrderedList({ bubble: true }),
-        new TodoItem(),
-        new TodoList(),
-        new Indent(),
-        new HardBreak(),
-        new HorizontalRule({ bubble: true }),
-        new CodeView({
-          codemirror,
-          codemirrorOptions: {
-            styleActiveLine: true,
-            autoCloseTags: true,
-          },
-        }),
-        new Fullscreen(),
-        new History(),
+        // new Doc(),
+        // new Text(),
+        // new Paragraph(),
+        // new Heading({ level: 5 }),
+        // new Bold({ bubble: true }),
+        // new Underline({ bubble: true }),
+        // new Italic({ bubble: true }),
+        // new Strike({ bubble: true }),
+        // new Code(),
+        // new Link({ bubble: true }),
+        // new Image(),
+        // new Blockquote(),
+        // new TextAlign(),
+        // new ListItem(),
+        // new BulletList({ bubble: true }),
+        // new OrderedList({ bubble: true }),
+        // new TodoItem(),
+        // new TodoList(),
+        // new Indent(),
+        // new HardBreak(),
+        // new HorizontalRule({ bubble: true }),
+        // new CodeView({
+        //   codemirror,
+        //   codemirrorOptions: {
+        //     styleActiveLine: true,
+        //     autoCloseTags: true,
+        //   },
+        // }),
+        // new Fullscreen(),
+        // new History(),
       ],
 
       content:

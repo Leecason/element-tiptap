@@ -1,18 +1,26 @@
-import { Bold as TiptapBold } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapBold } from '@tiptap/extension-bold';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class Bold extends TiptapBold implements MenuBtnView {
-  menuBtnView({ isActive, commands, t }: MenuData) {
+const Bold = TiptapBold.extend({
+  addOptions() {
     return {
-      component: CommandButton,
-      componentProps: {
-        command: commands.bold,
-        isActive: isActive.bold(),
-        icon: 'bold',
-        tooltip: t('editor.extensions.Bold.tooltip'),
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton,
+          componentProps: {
+            command: () => {
+              editor.commands.toggleBold();
+            },
+            isActive: editor.isActive('bold'),
+            icon: 'bold',
+            tooltip: t('editor.extensions.Bold.tooltip'),
+          },
+        };
       },
     };
-  }
-}
+  },
+});
+
+export default Bold;

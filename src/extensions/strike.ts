@@ -1,18 +1,26 @@
-import { Strike as TiptapStrike } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapStrike } from '@tiptap/extension-strike';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class Strike extends TiptapStrike implements MenuBtnView {
-  menuBtnView({ isActive, commands, t }: MenuData) {
+const Strike = TiptapStrike.extend({
+  addOptions() {
     return {
-      component: CommandButton,
-      componentProps: {
-        command: commands.strike,
-        isActive: isActive.strike(),
-        icon: 'strikethrough',
-        tooltip: t('editor.extensions.Strike.tooltip'),
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton,
+          componentProps: {
+            command: () => {
+              editor.commands.toggleStrike();
+            },
+            isActive: editor.isActive('strike'),
+            icon: 'strikethrough',
+            tooltip: t('editor.extensions.Strike.tooltip'),
+          },
+        };
       },
     };
-  }
-}
+  },
+});
+
+export default Strike;

@@ -2,85 +2,92 @@
   <el-dropdown
     placement="bottom"
     trigger="click"
-    @command="i => i > 0
-      ? editorContext.commands.heading({ level: i })
-      : editorContext.commands.paragraph()
-    "
+    popper-class="el-tiptap-dropdown-popper"
+    @command="toggleHeading"
   >
     <command-button
-      :is-active="isHeadingActive()"
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Heading.tooltip')"
-      :readonly="et.isCodeViewMode"
+      enable-tooltip
+      :is-active="editor.isActive('heading')"
+      :tooltip="t('editor.extensions.Heading.tooltip')"
       icon="heading"
     />
-    <el-dropdown-menu
-      slot="dropdown"
-      class="el-tiptap-dropdown-menu"
-    >
-      <el-dropdown-item
-        :command="0"
-        :class="{
-          'el-tiptap-dropdown-menu__item--active': editorContext.isActive.paragraph(),
-        }"
-        class="el-tiptap-dropdown-menu__item"
-      >
-        <span>{{ et.t('editor.extensions.Heading.buttons.paragraph') }}</span>
-      </el-dropdown-item>
-      <el-dropdown-item
-        v-for="i in level"
-        :key="i"
-        :command="i"
-        :class="{
-          'el-tiptap-dropdown-menu__item--active': isHeadingActive(i),
-        }"
-        class="el-tiptap-dropdown-menu__item"
-      >
-        <component
-          :is="'h' +i"
-          data-item-type="heading"
+    <template #dropdown>
+      <el-dropdown-menu slot="dropdown" class="el-tiptap-dropdown-menu">
+        <el-dropdown-item
+          v-for="level in [0, ...levels]"
+          :key="level"
+          :command="level"
         >
-          {{ et.t('editor.extensions.Heading.buttons.heading') }} {{ i }}
-        </component>
-      </el-dropdown-item>
-    </el-dropdown-menu>
+          <div
+            :class="[
+              {
+                'el-tiptap-dropdown-menu__item--active':
+                  level > 0
+                    ? editor.isActive('heading', {
+                        level,
+                      })
+                    : editor.isActive('paragraph'),
+              },
+              'el-tiptap-dropdown-menu__item',
+            ]"
+          >
+            <template v-if="level > 0">
+              <component :is="'h' + level" data-item-type="heading">
+                {{ t('editor.extensions.Heading.buttons.heading') }} {{ level }}
+              </component>
+            </template>
+            <span v-else>{{
+              t('editor.extensions.Heading.buttons.paragraph')
+            }}</span>
+          </div>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
   </el-dropdown>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { MenuData } from 'tiptap';
-import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import { isHeadingActive } from '@/utils/heading';
+import { defineComponent } from 'vue';
+import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus';
+import type { Level } from '@tiptap/extension-heading';
+import { Editor } from '@tiptap/core';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'HeadingDropdown',
+
   components: {
-    [Dropdown.name]: Dropdown,
-    [DropdownMenu.name]: DropdownMenu,
-    [DropdownItem.name]: DropdownItem,
+    ElDropdown,
+    ElDropdownMenu,
+    ElDropdownItem,
     CommandButton,
   },
-})
-export default class HeadingDropdown extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  @Inject() readonly et!: any;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
 
-  private get editor() {
-    return this.editorContext.editor;
-  }
+    t: {
+      type: Function,
+      required: true,
+    },
 
-  private get level() {
-    return this.editor.extensions.options.heading.level;
-  }
+    levels: {
+      type: Array,
+      required: true,
+    },
+  },
 
-  private isHeadingActive(level: number): boolean {
-    return isHeadingActive(this.editor.state, level);
-  }
-};
+  methods: {
+    toggleHeading(level: Level) {
+      if (level > 0) {
+        this.editor.commands.toggleHeading({ level });
+      } else {
+        this.editor.commands.setParagraph();
+      }
+    },
+  },
+});
 </script>

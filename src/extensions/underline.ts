@@ -1,18 +1,26 @@
-import { Underline as TiptapUnderline } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapUnderline } from '@tiptap/extension-underline';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class Underline extends TiptapUnderline implements MenuBtnView {
-  menuBtnView({ isActive, commands, t }: MenuData) {
+const Underline = TiptapUnderline.extend({
+  addOptions() {
     return {
-      component: CommandButton,
-      componentProps: {
-        command: commands.underline,
-        isActive: isActive.underline(),
-        icon: 'underline',
-        tooltip: t('editor.extensions.Underline.tooltip'),
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton,
+          componentProps: {
+            command: () => {
+              editor.commands.toggleUnderline();
+            },
+            isActive: editor.isActive('underline'),
+            icon: 'underline',
+            tooltip: t('editor.extensions.Underline.tooltip'),
+          },
+        };
       },
     };
-  }
-}
+  },
+});
+
+export default Underline;

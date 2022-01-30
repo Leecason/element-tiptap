@@ -1,18 +1,26 @@
-import { Italic as TiptapItalic } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { default as TiptapItalic } from '@tiptap/extension-italic';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
-export default class Italic extends TiptapItalic implements MenuBtnView {
-  menuBtnView({ isActive, commands, t }: MenuData) {
+const Italic = TiptapItalic.extend({
+  addOptions() {
     return {
-      component: CommandButton,
-      componentProps: {
-        command: commands.italic,
-        isActive: isActive.italic(),
-        icon: 'italic',
-        tooltip: t('editor.extensions.Italic.tooltip'),
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: CommandButton,
+          componentProps: {
+            command: () => {
+              editor.commands.toggleItalic();
+            },
+            isActive: editor.isActive('italic'),
+            icon: 'italic',
+            tooltip: t('editor.extensions.Italic.tooltip'),
+          },
+        };
       },
     };
-  }
-}
+  },
+});
+
+export default Italic;

@@ -1,24 +1,21 @@
 <template>
   <el-tooltip
     :content="tooltip"
-    :open-delay="350"
+    :show-after="350"
     :disabled="!enableTooltip || readonly"
     transition="el-zoom-in-bottom"
     effect="dark"
     placement="top"
   >
-    <div
-      :class="commandButtonClass"
-      @mousedown.prevent
-      @click="onClick"
-    >
-      <v-icon :name="icon"/>
+    <div :class="commandButtonClass" @mousedown.prevent @click="onClick">
+      {{ icon }}
+      <!-- <v-icon :name="icon" /> -->
     </div>
   </el-tooltip>
 </template>
 
 <script lang="ts">
-import Icon from 'vue-awesome/components/Icon.vue';
+// import Icon from 'vue-awesome/components/Icon.vue';
 import 'vue-awesome/icons/heading';
 import 'vue-awesome/icons/font';
 import 'vue-awesome/icons/tint';
@@ -62,63 +59,61 @@ import 'vue-awesome/icons/regular/object-group';
 import 'vue-awesome/icons/regular/file-code';
 import 'vue-awesome/icons/arrow-left';
 
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Tooltip } from 'element-ui';
+import { defineComponent } from 'vue';
+import { ElTooltip } from 'element-plus';
 import { noop } from '@/utils/shared';
 
-@Component({
+export default defineComponent({
   components: {
-    'v-icon': Icon,
-    [Tooltip.name]: Tooltip,
+    // 'v-icon': Icon,
+    ElTooltip,
   },
-})
-export default class CommandButton extends Vue {
-  @Prop({
-    type: String,
-    required: true,
-  })
-  readonly icon!: string;
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
 
-  @Prop({
-    type: Boolean,
-    default: false,
-  })
-  readonly isActive!: boolean;
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
 
-  @Prop({
-    type: String,
-    required: true,
-  })
-  readonly tooltip!: string;
+    tooltip: {
+      type: String,
+      required: true,
+    },
 
-  @Prop({
-    type: Boolean,
-    required: true,
-  })
-  readonly enableTooltip!: boolean;
+    enableTooltip: {
+      type: Boolean,
+      required: true,
+    },
 
-  @Prop({
-    type: Function,
-    default: noop,
-  })
-  readonly command!: Function;
+    command: {
+      type: Function,
+      default: noop,
+    },
 
-  @Prop({
-    type: Boolean,
-    default: false,
-  })
-  readonly readonly!: boolean;
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
+  },
 
-  private get commandButtonClass(): object {
-    return {
-      'el-tiptap-editor__command-button': true,
-      'el-tiptap-editor__command-button--active': this.isActive,
-      'el-tiptap-editor__command-button--readonly': this.readonly,
-    };
-  }
+  computed: {
+    commandButtonClass(): object {
+      return {
+        'el-tiptap-editor__command-button': true,
+        'el-tiptap-editor__command-button--active': this.isActive,
+        'el-tiptap-editor__command-button--readonly': this.readonly,
+      };
+    },
+  },
 
-  onClick() {
-    if (!this.readonly) this.command();
-  }
-}
+  methods: {
+    onClick() {
+      if (!this.readonly) this.command();
+    },
+  },
+});
 </script>

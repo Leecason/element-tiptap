@@ -92,13 +92,14 @@
   &__menu-bubble {
     background-color: $white-color;
     border-radius: 8px;
-    box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
     display: flex;
     padding: 5px;
     opacity: 0;
     position: absolute;
     transform: translateX(-50%);
-    transition: opacity .3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     visibility: hidden;
     z-index: 50;
 
@@ -235,22 +236,22 @@
       margin: 12px 0;
       max-width: 100%;
 
-      &[data-display=inline] {
+      &[data-display='inline'] {
         margin-left: 12px;
         margin-right: 12px;
       }
 
-      &[data-display=block] {
+      &[data-display='block'] {
         display: block;
       }
 
-      &[data-display=left] {
+      &[data-display='left'] {
         float: left;
         margin-left: 0;
         margin-right: 12px;
       }
 
-      &[data-display=right] {
+      &[data-display='right'] {
         float: right;
         margin-left: 12px;
         margin-right: 0;
@@ -296,7 +297,7 @@
         outline-color: transparent;
         outline-style: solid;
         outline-width: 2px;
-        transition: all .2s ease-in;
+        transition: all 0.2s ease-in;
         position: relative;
 
         &:hover {
@@ -370,29 +371,35 @@
       }
     }
 
-    ul[data-type=todo_list] {
+    ul[data-type='taskList'] {
       margin-left: 5px;
 
-      .todo-item {
+      .task-item-wrapper {
+        display: flex;
+      }
+
+      li[data-type='taskItem'] {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         margin-bottom: 0;
+        width: 100%;
 
-        &[data-text-align=right] {
+        &[data-text-align='right'] {
           justify-content: flex-end !important;
         }
 
-        &[data-text-align=center] {
+        &[data-text-align='center'] {
           justify-content: center !important;
         }
 
-        &[data-text-align=justify] {
+        &[data-text-align='justify'] {
           text-align: space-between !important;
         }
 
         .todo-content {
           padding-left: 10px;
+          width: 100%;
 
           > p {
             font-size: 16px;
@@ -403,12 +410,8 @@
           }
         }
 
-        &--done {
-          > .todo-checkbox {
-            color: $primary-color;
-          }
-
-          > .todo-content>p {
+        &[data-done='done'] {
+          > .todo-content > p {
             color: $primary-color;
             text-decoration: line-through;
           }
@@ -424,7 +427,7 @@
     @for $i from 1 through 7 /* max-indent */ {
       $indent-margin-base: 30px;
 
-      *[data-indent="#{$i}"] {
+      *[data-indent='#{$i}'] {
         margin-left: $indent-margin-base * $i !important;
       }
     }
