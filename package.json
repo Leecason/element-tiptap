@@ -72,7 +72,7 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "rollup-plugin-vue": "^5.1.4",
     "sass-loader": "^8.0.0",
-    "semantic-release": "^17.0.4",
+    "semantic-release": "^19.0.3",
     "typescript": "~3.9.3",
     "unplugin-vue-components": "^0.17.11",
     "vite": "^2.7.10",
