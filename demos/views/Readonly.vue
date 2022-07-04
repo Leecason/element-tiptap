@@ -6,7 +6,7 @@
 
 <script>
 import {
-  Doc,
+  Document,
   Text,
   Paragraph,
   Heading,
@@ -15,7 +15,6 @@ import {
   Italic,
   Strike,
   Code,
-  ListItem,
   BulletList,
   OrderedList,
   TextAlign,
@@ -27,25 +26,24 @@ export default {
   data() {
     return {
       extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Heading({ level: 3 }),
-        new Bold(),
-        new Underline(),
-        new Italic(),
-        new Strike(),
-        new Code(),
-        new TextAlign(),
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-        new Indent(),
-        new History(),
+        Document,
+        Text,
+        Paragraph,
+        Heading.configure({ level: 3 }),
+        Bold,
+        Underline,
+        Italic,
+        Strike,
+        Code,
+        TextAlign,
+        BulletList,
+        OrderedList,
+        Indent,
+        History,
       ],
 
       content:
-        '<p>I\' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>',
+        "<p>I' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>",
     };
   },
 };

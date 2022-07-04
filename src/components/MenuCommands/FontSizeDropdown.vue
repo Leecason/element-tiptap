@@ -1,90 +1,96 @@
 <template>
-  <el-dropdown
-    placement="bottom"
-    trigger="click"
-    @command="toggleFontSize"
-  >
+  <el-dropdown placement="bottom" trigger="click" @command="toggleFontSize">
     <command-button
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.FontSize.tooltip')"
-      :readonly="et.isCodeViewMode"
-      icon="text-width"
+      :enable-tooltip="true"
+      :tooltip="t('editor.extensions.FontSize.tooltip')"
+      :readonly="false"
+      icon="font-size"
     />
 
-    <el-dropdown-menu
-      slot="dropdown"
-      class="el-tiptap-dropdown-menu"
-    >
-      <!-- default size -->
-      <el-dropdown-item
-        :command="defaultSize"
-        :class="{
-          'el-tiptap-dropdown-menu__item--active': activeFontSize === defaultSize,
-        }"
-        class="el-tiptap-dropdown-menu__item"
-      >
-        <span data-font-size="default">{{ et.t('editor.extensions.FontSize.default') }}</span>
-      </el-dropdown-item>
+    <template #dropdown>
+      <el-dropdown-menu class="el-tiptap-dropdown-menu">
+        <!-- default size -->
+        <el-dropdown-item
+          :command="defaultSize"
+          :class="{
+            'el-tiptap-dropdown-menu__item--active':
+              activeFontSize === defaultSize,
+          }"
+          class="el-tiptap-dropdown-menu__item"
+        >
+          <span data-font-size="default">{{
+            t('editor.extensions.FontSize.default')
+          }}</span>
+        </el-dropdown-item>
 
-      <el-dropdown-item
-        v-for="fontSize in fontSizes"
-        :key="fontSize"
-        :command="fontSize"
-        :class="{
-          'el-tiptap-dropdown-menu__item--active': fontSize === activeFontSize,
-        }"
-        class="el-tiptap-dropdown-menu__item"
-      >
-        <span :data-font-size="fontSize">{{ fontSize }}</span>
-      </el-dropdown-item>
-    </el-dropdown-menu>
+        <el-dropdown-item
+          v-for="fontSize in fontSizes"
+          :key="fontSize"
+          :command="fontSize"
+          :class="{
+            'el-tiptap-dropdown-menu__item--active':
+              fontSize === activeFontSize,
+          }"
+          class="el-tiptap-dropdown-menu__item"
+        >
+          <span :data-font-size="fontSize">{{ fontSize }}</span>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
   </el-dropdown>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { MenuData } from 'tiptap';
-import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import { DEFAULT_FONT_SIZE, findActiveFontSize } from '@/utils/font_size';
+import { defineComponent, inject } from 'vue';
+import { Editor, getMarkAttributes } from '@tiptap/vue-3';
+import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus';
+import { DEFAULT_FONT_SIZE } from '@/utils/font-size';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'FontSizeDropdown',
+
   components: {
-    [Dropdown.name]: Dropdown,
-    [DropdownMenu.name]: DropdownMenu,
-    [DropdownItem.name]: DropdownItem,
+    ElDropdown,
+    ElDropdownMenu,
+    ElDropdownItem,
     CommandButton,
   },
-})
-export default class FontSizeDropdown extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  defaultSize = DEFAULT_FONT_SIZE;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  @Inject() readonly et!: any;
+  setup() {
+    const t = inject('t');
 
-  private get editor() {
-    return this.editorContext.editor;
-  }
+    return { t, defaultSize: DEFAULT_FONT_SIZE };
+  },
 
-  private get fontSizes() {
-    return this.editor.extensions.options.font_size.fontSizes;
-  }
+  computed: {
+    fontSizes(): string[] {
+      const fontSizeOptions = this.editor.extensionManager.extensions.find(
+        (e) => e.name === 'fontSize'
+      )!.options;
+      return fontSizeOptions.fontSizes;
+    },
 
-  private get activeFontSize(): string {
-    return findActiveFontSize(this.editor.state);
-  }
+    activeFontSize() {
+      return getMarkAttributes(this.editor.state, 'textStyle').fontSize || '';
+    },
+  },
 
-  private toggleFontSize(size: string) {
-    if (size === this.activeFontSize) {
-      this.editorContext.commands.font_size(DEFAULT_FONT_SIZE);
-    } else {
-      this.editorContext.commands.font_size(size);
-    }
-  }
-};
+  methods: {
+    toggleFontSize(size: string) {
+      if (size === this.activeFontSize) {
+        this.editor.commands.unsetFontSize();
+      } else {
+        this.editor.commands.setFontSize(size);
+      }
+    },
+  },
+});
 </script>

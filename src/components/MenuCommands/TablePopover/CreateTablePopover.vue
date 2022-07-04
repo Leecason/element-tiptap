@@ -1,5 +1,6 @@
 <template>
   <el-popover
+    ref="popoverRef"
     v-model="popoverVisible"
     placement="right"
     trigger="hover"
@@ -7,9 +8,7 @@
     @after-leave="resetTableGridSize"
   >
     <div class="table-grid-size-editor">
-      <div
-        class="table-grid-size-editor__body"
-      >
+      <div class="table-grid-size-editor__body">
         <div
           v-for="row in tableGridSize.row"
           :key="'r' + row"
@@ -19,11 +18,13 @@
             v-for="col in tableGridSize.col"
             :key="'c' + col"
             :class="{
-              'table-grid-size-editor__cell--selected': col <= selectedTableGridSize.col && row <= selectedTableGridSize.row
+              'table-grid-size-editor__cell--selected':
+                col <= selectedTableGridSize.col &&
+                row <= selectedTableGridSize.row,
             }"
             class="table-grid-size-editor__cell"
             @mouseover="selectTableGridSize(row, col)"
-            @mousedown="onMouseDown(row, col)"
+            @mousedown="confirmCreateTable(row, col)"
           >
             <div class="table-grid-size-editor__cell__inner" />
           </div>
@@ -35,18 +36,17 @@
       </div>
     </div>
 
-    <div
-      slot="reference"
-      @mouseover="popoverVisible = true"
-    >
-      <span>{{ et.t('editor.extensions.Table.buttons.insert_table') }}</span>
-    </div>
+    <template #reference>
+      <div>
+        {{ t('editor.extensions.Table.buttons.insert_table') }}
+      </div>
+    </template>
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Emit, Inject, Vue } from 'vue-property-decorator';
-import { Popover } from 'element-ui';
+import { defineComponent, inject, ref, unref } from 'vue';
+import { ElPopover } from 'element-plus';
 
 const INIT_GRID_SIZE = 5;
 const MAX_GRID_SIZE = 10;
@@ -57,56 +57,66 @@ interface GridSize {
   col: number;
 }
 
-@Component({
+export default defineComponent({
+  name: 'CreateTablePopover',
+
   components: {
-    [Popover.name]: Popover,
+    ElPopover,
   },
-})
-export default class CreateTablePopover extends Vue {
-  @Inject() et!: any;
 
-  private popoverVisible = false;
+  setup(_, { emit }) {
+    const t = inject('t');
 
-  tableGridSize: GridSize = {
-    row: INIT_GRID_SIZE,
-    col: INIT_GRID_SIZE,
-  };
+    const popoverRef = ref();
+    const popoverVisible = ref(false);
 
-  selectedTableGridSize: GridSize = {
-    row: DEFAULT_SELECTED_GRID_SIZE,
-    col: DEFAULT_SELECTED_GRID_SIZE,
-  };
+    const confirmCreateTable = (row: number, col: number) => {
+      unref(popoverRef).hide();
 
-  selectTableGridSize(row: number, col: number): void {
-    if (row === this.tableGridSize.row) {
-      this.tableGridSize.row = Math.min(row + 1, MAX_GRID_SIZE);
-    }
-
-    if (col === this.tableGridSize.col) {
-      this.tableGridSize.col = Math.min(col + 1, MAX_GRID_SIZE);
-    }
-
-    this.selectedTableGridSize.row = row;
-    this.selectedTableGridSize.col = col;
-  }
-
-  @Emit('createTable')
-  onMouseDown(row: number, col: number): GridSize {
-    this.popoverVisible = false;
-
-    return { row, col };
-  }
-
-  resetTableGridSize(): void {
-    this.tableGridSize = {
-      row: INIT_GRID_SIZE,
-      col: INIT_GRID_SIZE,
+      emit('createTable', { row, col });
     };
 
-    this.selectedTableGridSize = {
-      row: DEFAULT_SELECTED_GRID_SIZE,
-      col: DEFAULT_SELECTED_GRID_SIZE,
+    return { t, popoverVisible, popoverRef, confirmCreateTable };
+  },
+
+  data() {
+    return {
+      tableGridSize: {
+        row: INIT_GRID_SIZE,
+        col: INIT_GRID_SIZE,
+      },
+      selectedTableGridSize: {
+        row: DEFAULT_SELECTED_GRID_SIZE,
+        col: DEFAULT_SELECTED_GRID_SIZE,
+      },
     };
-  }
-};
+  },
+
+  methods: {
+    selectTableGridSize(row: number, col: number): void {
+      if (row === this.tableGridSize.row) {
+        this.tableGridSize.row = Math.min(row + 1, MAX_GRID_SIZE);
+      }
+
+      if (col === this.tableGridSize.col) {
+        this.tableGridSize.col = Math.min(col + 1, MAX_GRID_SIZE);
+      }
+
+      this.selectedTableGridSize.row = row;
+      this.selectedTableGridSize.col = col;
+    },
+
+    resetTableGridSize() {
+      this.tableGridSize = {
+        row: INIT_GRID_SIZE,
+        col: INIT_GRID_SIZE,
+      };
+
+      this.selectedTableGridSize = {
+        row: DEFAULT_SELECTED_GRID_SIZE,
+        col: DEFAULT_SELECTED_GRID_SIZE,
+      };
+    },
+  },
+});
 </script>

@@ -1,15 +1,20 @@
-import { Extension } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { Extension } from '@tiptap/core';
 import FullscreenCommandButton from '@/components/MenuCommands/FullscreenCommandButton.vue';
 
-export default class Fullscreen extends Extension implements MenuBtnView {
-  get name() {
-    return 'fullscreen';
-  }
+const Fullscreen = Extension.create({
+  name: 'fullscreen',
 
-  menuBtnView() {
+  addOptions() {
     return {
-      component: FullscreenCommandButton,
+      ...this.parent?.(),
+      button({ editor }: { editor: Editor }) {
+        return {
+          component: FullscreenCommandButton,
+        };
+      },
     };
-  }
-}
+  },
+});
+
+export default Fullscreen;

@@ -22,7 +22,7 @@
 
 <script>
 import {
-  Doc,
+  Document,
   Text,
   Paragraph,
   Heading,
@@ -33,13 +33,11 @@ import {
   Blockquote,
   Code,
   CodeBlock,
-  ListItem,
   BulletList,
   OrderedList,
   TextAlign,
   Indent,
   LineHeight,
-  TrailingNode,
   History,
 } from 'element-tiptap';
 
@@ -47,25 +45,23 @@ export default {
   data() {
     return {
       extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Heading({ level: 3 }),
-        new Bold(),
-        new Underline(),
-        new Italic(),
-        new Strike(),
-        new Blockquote(),
-        new Code(),
-        new CodeBlock(),
-        new TextAlign(),
-        new LineHeight(),
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-        new Indent(),
-        new TrailingNode(),
-        new History(),
+        Document,
+        Text,
+        Paragraph,
+        Heading.configure({ level: 3 }),
+        Bold,
+        Underline,
+        Italic,
+        Strike,
+        Blockquote,
+        Code,
+        CodeBlock,
+        TextAlign,
+        LineHeight,
+        BulletList,
+        OrderedList,
+        Indent,
+        History,
       ],
 
       content:
@@ -79,11 +75,9 @@ export default {
   },
 
   methods: {
-    onUpdate(output, options) {
-      const { getJSON, getHTML } = options;
-
-      this.output.json = getJSON();
-      this.output.html = getHTML();
+    onUpdate(output, editor) {
+      this.output.json = editor.getJSON();
+      this.output.html = editor.getHTML();
     },
   },
 };

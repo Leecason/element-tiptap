@@ -1,16 +1,14 @@
 <template>
   <el-popover
-    v-model="popoverVisible"
-    :disabled="et.isCodeViewMode"
+    :disabled="false"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
+    ref="popoverRef"
   >
     <div class="el-tiptap-popper__menu">
       <div class="el-tiptap-popper__menu__item">
-        <create-table-popover
-          @createTable="createTable"
-        />
+        <create-table-popover @createTable="createTable" />
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -19,27 +17,29 @@
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.addColumnBefore"
+        @click="editor.commands.addColumnBefore"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.add_column_before') }}</span>
+        <span>{{
+          t('editor.extensions.Table.buttons.add_column_before')
+        }}</span>
       </div>
 
       <div
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.addColumnAfter"
+        @click="editor.commands.addColumnAfter"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.add_column_after') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_column_after') }}</span>
       </div>
 
       <div
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.deleteColumn"
+        @click="editor.commands.deleteColumn"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.delete_column') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.delete_column') }}</span>
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -48,27 +48,27 @@
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.addRowBefore"
+        @click="editor.commands.addRowBefore"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.add_row_before') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_row_before') }}</span>
       </div>
 
       <div
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.addRowAfter"
+        @click="editor.commands.addRowAfter"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.add_row_after') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.add_row_after') }}</span>
       </div>
 
       <div
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.deleteRow"
+        @click="editor.commands.deleteRow"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.delete_row') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.delete_row') }}</span>
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -77,18 +77,18 @@
         :class="{ 'el-tiptap-popper__menu__item--disabled': !enableMergeCells }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.mergeCells"
+        @click="editor.commands.mergeCells"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.merge_cells') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.merge_cells') }}</span>
       </div>
 
       <div
         :class="{ 'el-tiptap-popper__menu__item--disabled': !enableSplitCell }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.splitCell"
+        @click="editor.commands.splitCell"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.split_cell') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.split_cell') }}</span>
       </div>
 
       <div class="el-tiptap-popper__menu__item__separator" />
@@ -97,77 +97,90 @@
         :class="{ 'el-tiptap-popper__menu__item--disabled': !isTableActive }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="editorContext.commands.deleteTable"
+        @click="editor.commands.deleteTable"
       >
-        <span>{{ et.t('editor.extensions.Table.buttons.delete_table') }}</span>
+        <span>{{ t('editor.extensions.Table.buttons.delete_table') }}</span>
       </div>
     </div>
 
-    <command-button
-      slot="reference"
-      :is-active="isTableActive"
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Table.tooltip')"
-      :readonly="et.isCodeViewMode"
-      icon="table"
-    />
+    <template #reference>
+      <span>
+        <command-button
+          :is-active="isTableActive"
+          :enable-tooltip="true"
+          :tooltip="t('editor.extensions.Table.tooltip')"
+          :readonly="false"
+          icon="table"
+        />
+      </span>
+    </template>
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { MenuData } from 'tiptap';
-import { Popover } from 'element-ui';
-import { isTableActive, enableMergeCells, enableSplitCell } from '@/utils/table';
+import { defineComponent, inject, ref, unref } from 'vue';
+import { Editor } from '@tiptap/vue-3';
+import { ElPopover } from 'element-plus';
+import {
+  isTableActive,
+  enableMergeCells,
+  enableSplitCell,
+} from '@/utils/table';
 import CommandButton from '../CommandButton.vue';
 import CreateTablePopover from './CreateTablePopover.vue';
 
-@Component({
+export default defineComponent({
+  name: 'TablePopover',
+
   components: {
-    [Popover.name]: Popover,
+    ElPopover,
     CommandButton,
     CreateTablePopover,
   },
-})
-export default class TablePopover extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  private popoverVisible: boolean = false;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  @Inject() readonly et!: any;
+  setup() {
+    const t = inject('t');
 
-  private get editor() {
-    return this.editorContext.editor;
-  }
+    const popoverRef = ref();
 
-  private get isTableActive() {
-    return isTableActive(this.editor.state);
-  }
+    const hidePopover = () => {
+      unref(popoverRef).hide();
+    };
 
-  private get enableMergeCells() {
-    return enableMergeCells(this.editor.state);
-  }
+    return { t, popoverRef, hidePopover };
+  },
 
-  private get enableSplitCell() {
-    return enableSplitCell(this.editor.state);
-  }
+  computed: {
+    isTableActive() {
+      return isTableActive(this.editor.state);
+    },
 
-  hidePopover(): void {
-    this.popoverVisible = false;
-  }
+    enableMergeCells() {
+      return enableMergeCells(this.editor.state);
+    },
 
-  createTable({ row, col }: { row: number, col: number }): void {
-    this.editorContext.commands.createTable({
-      rowsCount: row,
-      colsCount: col,
-      withHeaderRow: true,
-    });
+    enableSplitCell() {
+      return enableSplitCell(this.editor.state);
+    },
+  },
 
-    this.hidePopover();
-  }
-};
+  methods: {
+    createTable({ row, col }: { row: number; col: number }): void {
+      this.editor.commands.insertTable({
+        rows: row,
+        cols: col,
+        withHeaderRow: true,
+      });
+
+      this.hidePopover();
+    },
+  },
+});
 </script>

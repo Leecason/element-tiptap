@@ -1,15 +1,28 @@
-import { Table as TiptapTable } from 'tiptap-extensions';
-import { MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import type { Editor } from '@tiptap/core';
+import { Table as TiptapTable } from '@tiptap/extension-table';
+import TableRow from '@tiptap/extension-table-row';
+import TableHeader from '@tiptap/extension-table-header';
+import TableCell from '@tiptap/extension-table-cell';
 import TablePopover from '@/components/MenuCommands/TablePopover/index.vue';
 
-export default class Table extends TiptapTable implements MenuBtnView {
-  menuBtnView(editorContext: MenuData) {
+const Table = TiptapTable.extend({
+  addOptions() {
     return {
-      component: TablePopover,
-      componentProps: {
-        editorContext,
+      ...this.parent?.(),
+      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+        return {
+          component: TablePopover,
+          componentProps: {
+            editor,
+          },
+        };
       },
     };
-  }
-}
+  },
+
+  addExtensions() {
+    return [TableRow, TableHeader, TableCell];
+  },
+});
+
+export default Table;

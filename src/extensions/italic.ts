@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapItalic } from '@tiptap/extension-italic';
+import TiptapItalic from '@tiptap/extension-italic';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const Italic = TiptapItalic.extend({

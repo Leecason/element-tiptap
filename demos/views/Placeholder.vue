@@ -9,14 +9,13 @@
 
 <script>
 import {
-  Doc,
+  Document,
   Text,
   Paragraph,
   Bold,
   Underline,
   Italic,
   Strike,
-  ListItem,
   BulletList,
   OrderedList,
   History,
@@ -26,17 +25,16 @@ export default {
   data() {
     return {
       extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Bold(),
-        new Underline(),
-        new Italic(),
-        new Strike(),
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-        new History(),
+        Document,
+        Text,
+        Paragraph,
+        Bold,
+        Underline,
+        Italic,
+        Strike,
+        BulletList,
+        OrderedList,
+        History,
       ],
     };
   },

@@ -29,18 +29,17 @@ export default () => [
   }),
   {
     input: './types/index.d.ts',
-    output: [{
-      file: path.resolve(libDir, 'index.d.ts'),
-      format: 'es'
-    }],
+    output: [
+      {
+        file: path.resolve(libDir, 'index.d.ts'),
+        format: 'es',
+      },
+    ],
     plugins: [dts()],
   },
 ];
 
-function getConfig({
-  file,
-  format,
-}) {
+function getConfig({ file, format }) {
   return {
     input: path.resolve(srcDir, 'index.ts'),
     output: {
@@ -49,8 +48,6 @@ function getConfig({
       exports: 'named',
       format,
       globals: {
-        vue: 'Vue',
-        // TODO: tiptap
         'element-ui/lib/button': 'ELEMENT.Button',
         'element-ui/lib/checkbox': 'ELEMENT.Checkbox',
         'element-ui/lib/tooltip': 'ELEMENT.Tooltip',
@@ -67,10 +64,10 @@ function getConfig({
       'vue',
       'tiptap',
       'tiptap-extensions',
-      'prosemirror-utils',
-      'prosemirror-state',
-      'prosemirror-model',
-      'prosemirror-tables',
+      // 'prosemirror-utils',
+      // 'prosemirror-state',
+      // 'prosemirror-model',
+      // 'prosemirror-tables',
       'element-ui/lib/button',
       'element-ui/lib/checkbox',
       'element-ui/lib/tooltip',
@@ -81,7 +78,6 @@ function getConfig({
       'element-ui/lib/dropdown',
       'element-ui/lib/dropdown-menu',
       'element-ui/lib/dropdown-item',
-      'vue-awesome',
     ],
     plugins: [
       replace({
@@ -105,9 +101,7 @@ function getConfig({
       postcss({
         extract: path.resolve(libDir, 'index.css'),
         minimize: true,
-        plugins: [
-          postcssPresetEnv()
-        ]
+        plugins: [postcssPresetEnv()],
       }),
       vue({
         defaultLang: {
@@ -135,7 +129,7 @@ function getConfig({
             {
               libraryName: 'element-ui',
               style: false,
-            }
+            },
           ],
         ],
       }),

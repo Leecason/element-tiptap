@@ -3,7 +3,7 @@ import type { Editor } from '@tiptap/core';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 import { createIndentCommand, IndentProps } from '@/utils/indent';
 
-export interface IdentOptions {
+export interface IndentOptions {
   types: string[];
   minIndent: number;
   maxIndent: number;
@@ -24,7 +24,7 @@ declare module '@tiptap/core' {
   }
 }
 
-const Indent = Extension.create<IdentOptions>({
+const Indent = Extension.create<IndentOptions>({
   name: 'indent',
 
   addOptions() {

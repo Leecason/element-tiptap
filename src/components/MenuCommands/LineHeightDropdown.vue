@@ -2,67 +2,76 @@
   <el-dropdown
     placement="bottom"
     trigger="click"
-    @command="lineHeight => editorContext.commands.line_height({ lineHeight })"
+    @command="(lineHeight) => editor.commands.setLineHeight(lineHeight)"
   >
     <command-button
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.LineHeight.tooltip')"
-      :readonly="et.isCodeViewMode"
+      :enable-tooltip="true"
+      :tooltip="t('editor.extensions.LineHeight.tooltip')"
+      :readonly="false"
       icon="text-height"
     />
-    <el-dropdown-menu
-      slot="dropdown"
-      class="el-tiptap-dropdown-menu"
-    >
-      <el-dropdown-item
-        v-for="lineHeight in lineHeights"
-        :key="lineHeight"
-        :command="lineHeight"
-        :class="{
-          'el-tiptap-dropdown-menu__item--active': isLineHeightActive(lineHeight),
-        }"
-        class="el-tiptap-dropdown-menu__item"
-      >
-        <span>{{ lineHeight }}</span>
-      </el-dropdown-item>
-    </el-dropdown-menu>
+    <template #dropdown>
+      <el-dropdown-menu slot="dropdown" class="el-tiptap-dropdown-menu">
+        <el-dropdown-item
+          v-for="lineHeight in lineHeights"
+          :key="lineHeight"
+          :command="lineHeight"
+          :class="{
+            'el-tiptap-dropdown-menu__item--active':
+              isLineHeightActive(lineHeight),
+          }"
+          class="el-tiptap-dropdown-menu__item"
+        >
+          <span>{{ lineHeight }}</span>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
   </el-dropdown>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { MenuData } from 'tiptap';
-import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui';
-import { isLineHeightActive } from '@/utils/line_height';
+import { defineComponent, inject } from 'vue';
+import { Editor } from '@tiptap/vue-3';
+import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus';
+import { isLineHeightActive } from '@/utils/line-height';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'LineHeightDropdown',
+
   components: {
-    [Dropdown.name]: Dropdown,
-    [DropdownMenu.name]: DropdownMenu,
-    [DropdownItem.name]: DropdownItem,
+    ElDropdown,
+    ElDropdownMenu,
+    ElDropdownItem,
     CommandButton,
   },
-})
-export default class LineHeightDropdown extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  @Inject() readonly et!: any;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  private get editor() {
-    return this.editorContext.editor;
-  }
+  setup() {
+    const t = inject('t');
 
-  private get lineHeights() {
-    return this.editor.extensions.options.line_height.lineHeights;
-  }
+    return { t };
+  },
 
-  private isLineHeightActive(lineHeight: string): boolean {
-    return isLineHeightActive(this.editor.state, lineHeight);
-  }
-};
+  computed: {
+    lineHeights() {
+      const lineHeightOptions = this.editor.extensionManager.extensions.find(
+        (e) => e.name === 'lineHeight'
+      )!.options;
+      return lineHeightOptions.lineHeights;
+    },
+  },
+
+  methods: {
+    isLineHeightActive(lineHeight: string) {
+      return isLineHeightActive(this.editor.state, lineHeight);
+    },
+  },
+});
 </script>

@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapHistory } from '@tiptap/extension-history';
+import TiptapHistory from '@tiptap/extension-history';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const History = TiptapHistory.extend({

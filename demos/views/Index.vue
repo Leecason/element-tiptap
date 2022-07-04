@@ -10,6 +10,7 @@
           v-for="{ label, route } in routes"
           :key="label"
           :to="{ name: route }"
+          custom
           v-slot="{ navigate, isExactActive }"
         >
           <span
@@ -88,38 +89,34 @@ export default {
         label: 'Simple Usage',
         route: 'Simple',
       },
-      // {
-      //   label: 'All Extensions',
-      //   route: 'AllExtensions',
-      // },
-      // {
-      //   label: 'Bubble Menu',
-      //   route: 'BubbleMenu',
-      // },
-      // {
-      //   label: 'Placeholder',
-      //   route: 'Placeholder',
-      // },
-      // {
-      //   label: 'Readonly',
-      //   route: 'Readonly',
-      // },
-      // {
-      //   label: 'Title',
-      //   route: 'Title',
-      // },
-      // {
-      //   label: 'Custom Menubar',
-      //   route: 'CustomMenubar',
-      // },
-      // {
-      //   label: 'Event',
-      //   route: 'Event',
-      // },
-      // {
-      //   label: 'Output',
-      //   route: 'Output',
-      // },
+      {
+        label: 'All Extensions',
+        route: 'AllExtensions',
+      },
+      {
+        label: 'Bubble Menu',
+        route: 'BubbleMenu',
+      },
+      {
+        label: 'Placeholder',
+        route: 'Placeholder',
+      },
+      {
+        label: 'Readonly',
+        route: 'Readonly',
+      },
+      {
+        label: 'Title',
+        route: 'Title',
+      },
+      {
+        label: 'Event',
+        route: 'Event',
+      },
+      {
+        label: 'Output',
+        route: 'Output',
+      },
     ],
   }),
 };

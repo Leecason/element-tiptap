@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapBlockquote } from '@tiptap/extension-blockquote';
+import TiptapBlockquote from '@tiptap/extension-blockquote';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const Blockquote = TiptapBlockquote.extend({

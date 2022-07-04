@@ -1,77 +1,83 @@
-// @ts-nocheck
-import { Node, MenuData } from 'tiptap';
-import { MenuBtnView } from '@/../types';
+import { Node, mergeAttributes } from '@tiptap/core';
+import { Editor, VueNodeViewRenderer } from '@tiptap/vue-3';
 import IframeCommandButton from '@/components/MenuCommands/IframeCommandButton.vue';
+import IframeView from '@/components/ExtensionViews/IframeView.vue';
 
-export default class Iframe extends Node implements MenuBtnView {
-  get name() {
-    return 'iframe';
-  }
-
-  // @ts-ignore
-  get schema() {
-    return {
-      attrs: {
-        src: {
-          default: null,
-        },
-      },
-      group: 'block',
-      selectable: false,
-      parseDOM: [{
-        tag: 'iframe',
-        // @ts-ignore
-        getAttrs: dom => ({
-          src: dom.getAttribute('src'),
-        }),
-      }],
-      toDOM: (node) => ['iframe', {
-        src: node.attrs.src,
-        frameborder: 0,
-        allowfullscreen: 'true',
-      }],
-    };
-  }
-
-  commands({ type }) {
-    return attrs => (state, dispatch) => {
-      const { selection } = state;
-      const position = selection.$cursor ? selection.$cursor.pos : selection.$to.pos;
-      const node = type.create(attrs);
-      const transaction = state.tr.insert(position, node);
-      dispatch(transaction);
-    };
-  }
-
-  get view() {
-    return {
-      props: ['node', 'updateAttrs', 'view'],
-      computed: {
-        src: {
-          get() {
-            return this.node.attrs.src;
-          },
-          set(src) {
-            this.updateAttrs({
-              src,
-            });
-          },
-        },
-      },
-      template: `
-        <div class="iframe">
-          <iframe class="iframe__embed" :src="src"></iframe>
-        </div>
-      `,
-    };
-  }
-
-  menuBtnView(editorContext: MenuData) {
-    return {
-      component: IframeCommandButton,
-      componentProps: {
-        editorContext,
-      },
+declare module '@tiptap/core' {
+  interface Commands<ReturnType> {
+    iframe: {
+      setIframe: (options: { src: string }) => ReturnType;
     };
   }
 }
+
+const Iframe = Node.create({
+  name: 'iframe',
+
+  // schema
+  group: 'block',
+  selectable: false,
+
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      src: {
+        default: null,
+        parseHTML: (element) => {
+          const src = element.getAttribute('src');
+          return src;
+        },
+      },
+    };
+  },
+
+  parseHTML() {
+    return [
+      {
+        tag: 'iframe',
+      },
+    ];
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    return [
+      'iframe',
+      mergeAttributes(HTMLAttributes, {
+        frameborder: 0,
+        allowfullscreen: 'true',
+      }),
+    ];
+  },
+
+  addCommands() {
+    return {
+      setIframe:
+        (options) =>
+        ({ commands }) => {
+          return commands.insertContent({
+            type: this.name,
+            attrs: options,
+          });
+        },
+    };
+  },
+
+  addOptions() {
+    return {
+      button({ editor }: { editor: Editor }) {
+        return {
+          component: IframeCommandButton,
+          componentProps: {
+            editor,
+          },
+        };
+      },
+    };
+  },
+
+  addNodeView() {
+    return VueNodeViewRenderer(IframeView);
+  },
+});
+
+export default Iframe;

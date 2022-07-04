@@ -8,7 +8,7 @@ import {
   ElButton,
 } from 'element-plus';
 
-import { ElementTiptap } from 'element-tiptap';
+import ElementTiptap from 'element-tiptap';
 import App from './App.vue';
 import router from './router';
 
@@ -22,6 +22,6 @@ app.use(ElMain);
 app.use(ElFooter);
 app.use(ElButton);
 
-app.component('element-tiptap', ElementTiptap);
+app.use(ElementTiptap);
 
 app.mount('#app');

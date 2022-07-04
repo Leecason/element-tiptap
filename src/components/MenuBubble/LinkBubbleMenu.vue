@@ -2,46 +2,41 @@
   <div class="link-bubble-menu">
     <slot name="prepend" />
 
-    <open-link-command-button
-      :url="linkAttrs.href"
-    />
-    <edit-link-command-button
-      :editor-context="editorContext"
-      :init-link-attrs="linkAttrs"
-    />
-    <unlink-command-button
-      :editor-context="editorContext"
-    />
+    <open-link-command-button :url="linkAttrs.href" />
+    <edit-link-command-button :editor="editor" :init-link-attrs="linkAttrs" />
+    <unlink-command-button :editor="editor" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { MenuData } from 'tiptap';
+import { Editor } from '@tiptap/vue-3';
+import { defineComponent } from 'vue';
 import OpenLinkCommandButton from '@/components/MenuCommands/Link/OpenLinkCommandButton.vue';
 import EditLinkCommandButton from '@/components/MenuCommands/Link/EditLinkCommandButton.vue';
 import UnlinkCommandButton from '@/components/MenuCommands/Link/UnlinkCommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'LinkBubbleMenu',
+
   components: {
     OpenLinkCommandButton,
     EditLinkCommandButton,
     UnlinkCommandButton,
   },
-})
-export default class LinkBubbleMenu extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  private get linkAttrs() {
-    const { getMarkAttrs } = this.editorContext;
-    const linkAttrs = getMarkAttrs('link');
-    return linkAttrs;
-  }
-};
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
+
+  computed: {
+    linkAttrs() {
+      return this.editor.getAttributes('link');
+    },
+  },
+});
 </script>
 
 <style lang="scss">

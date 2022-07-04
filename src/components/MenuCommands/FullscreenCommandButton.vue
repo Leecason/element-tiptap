@@ -1,7 +1,7 @@
 <template>
   <command-button
-    :command="() => isFullscreen = !isFullscreen"
-    :enable-tooltip="et.tooltip"
+    :command="() => toggleFullscreen(!isFullscreen)"
+    :enable-tooltip="true"
     :tooltip="buttonTooltip"
     :icon="isFullscreen ? 'compress' : 'expand'"
     :is-active="isFullscreen"
@@ -9,30 +9,38 @@
 </template>
 
 <script lang="ts">
-import { Component, Inject, Vue } from 'vue-property-decorator';
+import { defineComponent, inject } from 'vue';
+import { Editor } from '@tiptap/core';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'FullscreenCommandButton',
+
   components: {
     CommandButton,
   },
-})
-export default class FullscreenCommandButton extends Vue {
-  @Inject() readonly et!: any;
 
-  get isFullscreen(): boolean {
-    return this.et.isFullscreen;
-  }
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  set isFullscreen(val: boolean) {
-    // eslint-disable-next-line no-debugger
-    this.et.isFullscreen = val;
-  }
+  setup() {
+    const t = inject('t');
+    const isFullscreen = inject('isFullscreen', false);
+    const toggleFullscreen = inject('toggleFullscreen');
 
-  private get buttonTooltip() {
-    return this.isFullscreen
-      ? this.et.t('editor.extensions.Fullscreen.tooltip.exit_fullscreen')
-      : this.et.t('editor.extensions.Fullscreen.tooltip.fullscreen');
-  }
-};
+    return { t, isFullscreen, toggleFullscreen };
+  },
+
+  computed: {
+    buttonTooltip() {
+      return this.isFullscreen
+        ? this.t('editor.extensions.Fullscreen.tooltip.exit_fullscreen')
+        : this.t('editor.extensions.Fullscreen.tooltip.fullscreen');
+    },
+  },
+});
 </script>

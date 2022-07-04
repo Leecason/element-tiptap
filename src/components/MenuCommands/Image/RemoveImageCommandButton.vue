@@ -1,35 +1,42 @@
 <template>
   <command-button
     :command="removeImage"
-    :enable-tooltip="et.tooltip"
-    :tooltip="et.t('editor.extensions.Image.buttons.remove_image.tooltip')"
-    icon="regular/trash-alt"
+    enable-tooltip
+    :tooltip="t('editor.extensions.Image.buttons.remove_image.tooltip')"
+    icon="trash-alt"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { EditorView } from 'prosemirror-view';
-import { deleteSelection } from 'prosemirror-commands';
+import { defineComponent, inject } from 'vue';
+import { Editor } from '@tiptap/vue-3';
 import CommandButton from '../CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'RemoveImageCommandButton',
+
   components: {
     CommandButton,
   },
-})
-export default class RemoveImageCommandButton extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly view!: EditorView;
 
-  @Inject() readonly et!: any;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  private removeImage() {
-    const { state, dispatch } = this.view;
-    deleteSelection(state, dispatch);
-  }
-};
+  setup() {
+    const t = inject('t');
+
+    return { t };
+  },
+
+  methods: {
+    removeImage() {
+      const a = this.editor?.commands.deleteNode('image');
+      console.log(a);
+    },
+  },
+});
 </script>

@@ -3,23 +3,18 @@
     <el-tiptap
       :extensions="extensions"
       :content="content"
-      :editor-properties="editorProperties"
       placeholder="Write something ..."
-      @onInit="onInitEvent"
-      @onTransaction="onTransactionEvent"
+      @onCreate="onCreateEvent"
       @onFocus="onFocusEvent"
       @onBlur="onBlurEvent"
-      @onPaste="onPasteEvent"
-      @onDrop="onDropEvent"
       @onUpdate="onUpdateEvent"
     />
   </div>
 </template>
 
 <script>
-/* eslint-disable no-console */
 import {
-  Doc,
+  Document,
   Text,
   Paragraph,
   Heading,
@@ -30,52 +25,38 @@ import {
   Blockquote,
   CodeBlock,
   Image,
-  ListItem,
   BulletList,
   OrderedList,
-  TodoItem,
-  TodoList,
+  TaskList,
   TextAlign,
   Indent,
   History,
 } from 'element-tiptap';
 
+import { ElNotification } from 'element-plus';
+
 export default {
   data() {
     return {
       extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Heading({ level: 5 }),
-        new Bold(),
-        new Underline(),
-        new Italic(),
-        new Strike(),
-        new Blockquote(),
-        new CodeBlock(),
-        new Image(),
-        new TextAlign(),
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-        new TodoItem(),
-        new TodoList(),
-        new Indent(),
-        new History(),
+        Document,
+        Text,
+        Paragraph,
+        Heading.configure({ level: 5 }),
+        Bold,
+        Underline,
+        Italic,
+        Strike,
+        Blockquote,
+        CodeBlock,
+        Image,
+        TextAlign,
+        BulletList,
+        OrderedList,
+        TaskList,
+        Indent,
+        History,
       ],
-
-      editorProperties: {
-        editorProps: {
-          // https://prosemirror.net/docs/ref/#view.EditorProps
-          handleKeyDown() {
-            console.log('🚀EditorProps: Keydown');
-          },
-          handleTextInput() {
-            console.log('🚀EditorProps: TextInput');
-          },
-        },
-      },
 
       content:
         '<p><img src="https://i.ibb.co/4pJs2Lx/undraw-static-assets-rpm6.png" width="300"></p><p>Open <strong>Console</strong>, your action on the editor will be logged.</p>',
@@ -83,32 +64,32 @@ export default {
   },
 
   methods: {
-    onInitEvent() {
-      console.log('🔥init');
-    },
-
-    onTransactionEvent() {
-      console.log('🔥transaction');
+    onCreateEvent() {
+      ElNotification.info({
+        title: 'Editor Event',
+        message: '🔥create',
+      });
     },
 
     onFocusEvent() {
-      console.log('🔥focus');
+      ElNotification.info({
+        title: 'Editor Event',
+        message: '🔥focus',
+      });
     },
 
     onBlurEvent() {
-      console.log('🔥blur');
-    },
-
-    onPasteEvent() {
-      console.log('🔥paste');
-    },
-
-    onDropEvent() {
-      console.log('🔥drop');
+      ElNotification.info({
+        title: 'Editor Event',
+        message: '🔥blur',
+      });
     },
 
     onUpdateEvent() {
-      console.log('🔥update');
+      ElNotification.info({
+        title: 'Editor Event',
+        message: '🔥update',
+      });
     },
   },
 };
