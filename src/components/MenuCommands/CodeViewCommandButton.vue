@@ -1,31 +1,30 @@
 <template>
   <command-button
-    :command="() => isCodeViewMode = !isCodeViewMode"
-    :enable-tooltip="et.tooltip"
-    :tooltip="et.t('editor.extensions.CodeView.tooltip')"
-    icon="regular/file-code"
+    :command="() => toggleIsCodeViewMode(!isCodeViewMode)"
+    :enable-tooltip="true"
+    :tooltip="t('editor.extensions.CodeView.tooltip')"
+    icon="file-code"
     :is-active="isCodeViewMode"
   />
 </template>
 
 <script lang="ts">
-import { Component, Inject, Vue } from 'vue-property-decorator';
+import { defineComponent, inject } from 'vue';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'CodeViewCommandButton',
+
   components: {
     CommandButton,
   },
-})
-export default class CodeViewCommandButton extends Vue {
-  @Inject() readonly et!: any;
 
-  get isCodeViewMode(): boolean {
-    return this.et.isCodeViewMode;
-  }
+  setup() {
+    const t = inject('t');
+    const isCodeViewMode = inject('isCodeViewMode', false);
+    const toggleIsCodeViewMode = inject('toggleIsCodeViewMode');
 
-  set isCodeViewMode(val: boolean) {
-    this.et.isCodeViewMode = val;
-  }
-};
+    return { t, isCodeViewMode, toggleIsCodeViewMode };
+  },
+});
 </script>

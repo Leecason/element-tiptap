@@ -1,9 +1,9 @@
 <template>
   <el-popover
-    v-model="popoverVisible"
     placement="top"
     trigger="click"
     popper-class="el-tiptap-popper"
+    ref="popoverRef"
   >
     <div class="el-tiptap-popper__menu">
       <div
@@ -14,64 +14,72 @@
         }"
         class="el-tiptap-popper__menu__item"
         @mousedown="hidePopover"
-        @click="updateAttrs({ display })"
+        @click="updateAttrs!({ display })"
       >
-        <span>{{ et.t(`editor.extensions.Image.buttons.display.${display}`) }}</span>
+        <span>{{
+          t(`editor.extensions.Image.buttons.display.${display}`)
+        }}</span>
       </div>
     </div>
 
-    <command-button
-      slot="reference"
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Image.buttons.display.tooltip')"
-      icon="regular/image"
-    />
+    <template #reference>
+      <span>
+        <command-button
+          enable-tooltip
+          :tooltip="t('editor.extensions.Image.buttons.display.tooltip')"
+          icon="image-align"
+        />
+      </span>
+    </template>
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { Popover } from 'element-ui';
-import { Node as ProsemirrorNode } from 'prosemirror-model';
+import { defineComponent, inject } from 'vue';
+import { nodeViewProps } from '@tiptap/vue-3';
+import { ElPopover } from 'element-plus';
 import { ImageDisplay } from '@/utils/image';
 import CommandButton from '../CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'ImageDisplayCommandButton',
+
   components: {
-    [Popover.name]: Popover,
+    ElPopover,
     CommandButton,
   },
-})
-export default class ImageDisplayCommandButton extends Vue {
-  @Prop({
-    type: ProsemirrorNode,
-    required: true,
-  })
-  readonly node!: ProsemirrorNode;
+  props: {
+    node: nodeViewProps['node'],
+    updateAttrs: nodeViewProps['updateAttributes'],
+  },
 
-  @Prop({
-    type: Function,
-    required: true,
-  })
-  readonly updateAttrs!: Function;
+  data() {
+    return {
+      displayCollection: [
+        ImageDisplay.INLINE,
+        ImageDisplay.BREAK_TEXT,
+        ImageDisplay.FLOAT_LEFT,
+        ImageDisplay.FLOAT_RIGHT,
+      ],
+    };
+  },
 
-  @Inject() readonly et!: any;
+  setup() {
+    const t = inject<(k: string) => string>('t', (k) => k);
 
-  popoverVisible = false;
+    return { t };
+  },
 
-  displayCollection = [
-    ImageDisplay.INLINE,
-    ImageDisplay.BREAK_TEXT,
-    ImageDisplay.FLOAT_LEFT,
-    ImageDisplay.FLOAT_RIGHT,
-  ];
+  computed: {
+    currDisplay() {
+      return this.node!.attrs.display;
+    },
+  },
 
-  private get currDisplay() {
-    return this.node.attrs.display;
-  }
-
-  private hidePopover() {
-    this.popoverVisible = false;
-  }
-}
+  methods: {
+    hidePopover() {
+      this.$refs.popoverRef?.hide();
+    },
+  },
+});
 </script>

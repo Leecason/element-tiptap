@@ -2,78 +2,61 @@
   <div>
     <command-button
       :command="openEditImageDialog"
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Image.buttons.image_options.tooltip')"
+      enable-tooltip
+      :tooltip="t('editor.extensions.Image.buttons.image_options.tooltip')"
       icon="ellipsis-h"
     />
 
     <el-dialog
-      :title="et.t('editor.extensions.Image.control.edit_image.title')"
-      :visible.sync="editImageDialogVisible"
+      v-model="editImageDialogVisible"
+      :title="t('editor.extensions.Image.control.edit_image.title')"
       :append-to-body="true"
       width="400px"
       custom-class="el-tiptap-edit-image-dialog"
       @open="syncImageAttrs"
     >
-      <el-form
-        :model="imageAttrs"
-        label-position="top"
-        size="small"
-      >
-        <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.src')">
-          <el-input
-            :value="imageAttrs.src"
-            autocomplete="off"
-            disabled
-          />
+      <el-form :model="imageAttrs" label-position="top" size="small">
+        <el-form-item
+          :label="t('editor.extensions.Image.control.edit_image.form.src')"
+        >
+          <el-input :value="imageAttrs.src" autocomplete="off" disabled />
         </el-form-item>
 
-        <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.alt')">
-          <el-input
-            v-model="imageAttrs.alt"
-            autocomplete="off"
-          />
+        <el-form-item
+          :label="t('editor.extensions.Image.control.edit_image.form.alt')"
+        >
+          <el-input v-model="imageAttrs.alt" autocomplete="off" />
         </el-form-item>
 
         <el-form-item>
           <el-col :span="11">
-            <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.width')">
-              <el-input
-                v-model="imageAttrs.width"
-                type="number"
-              />
+            <el-form-item
+              :label="
+                t('editor.extensions.Image.control.edit_image.form.width')
+              "
+            >
+              <el-input v-model="imageAttrs.width" type="number" />
             </el-form-item>
           </el-col>
-          <el-col
-            :span="11"
-            :push="2"
-          >
-            <el-form-item :label="et.t('editor.extensions.Image.control.edit_image.form.height')">
-              <el-input
-                v-model="imageAttrs.height"
-                type="number"
-              />
+          <el-col :span="11" :push="2">
+            <el-form-item
+              :label="
+                t('editor.extensions.Image.control.edit_image.form.height')
+              "
+            >
+              <el-input v-model="imageAttrs.height" type="number" />
             </el-form-item>
           </el-col>
         </el-form-item>
       </el-form>
 
       <template #footer>
-        <el-button
-          size="small"
-          round
-          @click="closeEditImageDialog"
-        >
-          {{ et.t('editor.extensions.Image.control.edit_image.cancel') }}
+        <el-button size="small" round @click="closeEditImageDialog">
+          {{ t('editor.extensions.Image.control.edit_image.cancel') }}
         </el-button>
 
-        <el-button
-          type="primary"
-          size="small"
-          round
-          @click="updateImageAttrs"
-        >
-          {{ et.t('editor.extensions.Image.control.edit_image.confirm') }}
+        <el-button type="primary" size="small" round @click="updateImageAttrs">
+          {{ t('editor.extensions.Image.control.edit_image.confirm') }}
         </el-button>
       </template>
     </el-dialog>
@@ -81,76 +64,85 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { Dialog, Form, FormItem, Input, Col, Button } from 'element-ui';
-import { Node as ProsemirrorNode } from 'prosemirror-model';
+import { defineComponent, inject } from 'vue';
+import { nodeViewProps } from '@tiptap/vue-3';
+import {
+  ElDialog,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCol,
+  ElButton,
+} from 'element-plus';
 import CommandButton from '../CommandButton.vue';
 
-@Component({
+export default defineComponent({
   components: {
-    [Dialog.name]: Dialog,
-    [Form.name]: Form,
-    [FormItem.name]: FormItem,
-    [Input.name]: Input,
-    [Col.name]: Col,
-    [Button.name]: Button,
+    ElDialog,
+    ElForm,
+    ElFormItem,
+    ElInput,
+    ElCol,
+    ElButton,
     CommandButton,
   },
-})
-export default class EditImageCommandButton extends Vue {
-  @Prop({
-    type: ProsemirrorNode,
-    required: true,
-  })
-  readonly node!: ProsemirrorNode;
 
-  @Prop({
-    type: Function,
-    required: true,
-  })
-  readonly updateAttrs!: Function;
+  props: {
+    node: nodeViewProps['node'],
+    updateAttrs: nodeViewProps['updateAttributes'],
+  },
 
-  @Inject() readonly et!: any;
-
-  editImageDialogVisible = false;
-
-  imageAttrs = this.getImageAttrs();
-
-  private syncImageAttrs() {
-    this.imageAttrs = this.getImageAttrs();
-  }
-
-  private getImageAttrs() {
+  data() {
     return {
-      src: this.node.attrs.src,
-      alt: this.node.attrs.alt,
-      width: this.node.attrs.width,
-      height: this.node.attrs.height,
+      editImageDialogVisible: false,
+
+      imageAttrs: this.getImageAttrs(),
     };
-  }
+  },
 
-  private updateImageAttrs() {
-    let { width, height } = this.imageAttrs;
+  setup() {
+    const t = inject<(k: string) => string>('t', (k) => k);
 
-    // input converts it to string
-    width = parseInt(width as string, 10);
-    height = parseInt(height as string, 10);
+    return { t };
+  },
 
-    this.updateAttrs({
-      alt: this.imageAttrs.alt,
-      width: width >= 0 ? width : null,
-      height: height >= 0 ? height : null,
-    });
+  methods: {
+    syncImageAttrs() {
+      this.imageAttrs = this.getImageAttrs();
+    },
 
-    this.closeEditImageDialog();
-  }
+    getImageAttrs() {
+      return {
+        src: this.node!.attrs.src,
+        alt: this.node!.attrs.alt,
+        width: this.node!.attrs.width,
+        height: this.node!.attrs.height,
+      };
+    },
 
-  private openEditImageDialog() {
-    this.editImageDialogVisible = true;
-  }
+    updateImageAttrs() {
+      let { width, height } = this.imageAttrs;
 
-  private closeEditImageDialog() {
-    this.editImageDialogVisible = false;
-  }
-};
+      // input converts it to string
+      width = parseInt(width as string, 10);
+      height = parseInt(height as string, 10);
+
+      this.updateAttrs!({
+        alt: this.imageAttrs.alt,
+        width: width >= 0 ? width : null,
+        height: height >= 0 ? height : null,
+      });
+
+      this.closeEditImageDialog();
+    },
+
+    openEditImageDialog() {
+      this.editImageDialogVisible = true;
+    },
+
+    closeEditImageDialog() {
+      this.editImageDialogVisible = false;
+    },
+  },
+});
 </script>

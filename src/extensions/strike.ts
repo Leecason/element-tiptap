@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapStrike } from '@tiptap/extension-strike';
+import TiptapStrike from '@tiptap/extension-strike';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const Strike = TiptapStrike.extend({

@@ -107,9 +107,11 @@ export default defineComponent({
     openAddLinkDialog() {
       this.addLinkDialogVisible = true;
     },
+
     closeAddLinkDialog() {
       this.addLinkDialogVisible = false;
     },
+
     addLink() {
       if (this.linkAttrs.openInNewTab) {
         this.editor.commands.setLink({

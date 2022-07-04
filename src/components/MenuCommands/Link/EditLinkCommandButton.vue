@@ -2,47 +2,36 @@
   <div>
     <command-button
       :command="openEditLinkDialog"
-      :enable-tooltip="et.tooltip"
-      :tooltip="et.t('editor.extensions.Link.edit.tooltip')"
+      :enable-tooltip="true"
+      :tooltip="t('editor.extensions.Link.edit.tooltip')"
       icon="edit"
     />
 
     <el-dialog
-      :title="et.t('editor.extensions.Link.edit.control.title')"
+      :title="t('editor.extensions.Link.edit.control.title')"
       :visible.sync="editLinkDialogVisible"
       :append-to-body="true"
       width="400px"
       custom-class="el-tiptap-edit-link-dialog"
     >
-      <el-form
-        :model="linkAttrs"
-        label-position="right"
-        size="small"
-      >
+      <el-form :model="linkAttrs" label-position="right" size="small">
         <el-form-item
-          :label="et.t('editor.extensions.Link.edit.control.href')"
+          :label="t('editor.extensions.Link.edit.control.href')"
           prop="href"
         >
-          <el-input
-            v-model="linkAttrs.href"
-            autocomplete="off"
-          />
+          <el-input v-model="linkAttrs.href" autocomplete="off" />
         </el-form-item>
 
         <el-form-item prop="openInNewTab">
           <el-checkbox v-model="linkAttrs.openInNewTab">
-            {{ et.t('editor.extensions.Link.edit.control.open_in_new_tab') }}
+            {{ t('editor.extensions.Link.edit.control.open_in_new_tab') }}
           </el-checkbox>
         </el-form-item>
       </el-form>
 
       <template #footer>
-        <el-button
-          size="small"
-          round
-          @click="closeEditLinkDialog"
-        >
-          {{ et.t('editor.extensions.Link.edit.control.cancel') }}
+        <el-button size="small" round @click="closeEditLinkDialog">
+          {{ t('editor.extensions.Link.edit.control.cancel') }}
         </el-button>
 
         <el-button
@@ -52,7 +41,7 @@
           @mousedown.prevent
           @click="updateLinkAttrs"
         >
-          {{ et.t('editor.extensions.Link.edit.control.confirm') }}
+          {{ t('editor.extensions.Link.edit.control.confirm') }}
         </el-button>
       </template>
     </el-dialog>
@@ -60,52 +49,70 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { Dialog, Form, FormItem, Input, Checkbox, Button } from 'element-ui';
-import { MenuData } from 'tiptap';
+import { defineComponent, inject } from 'vue';
+import { Editor } from '@tiptap/vue-3';
+import {
+  ElDialog,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCheckbox,
+  ElButton,
+} from 'element-plus';
 import CommandButton from '../CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'EditLinkCommandButton',
+
   components: {
-    [Dialog.name]: Dialog,
-    [Form.name]: Form,
-    [FormItem.name]: FormItem,
-    [Input.name]: Input,
-    [Checkbox.name]: Checkbox,
-    [Button.name]: Button,
+    ElDialog,
+    ElForm,
+    ElFormItem,
+    ElInput,
+    ElCheckbox,
+    ElButton,
     CommandButton,
   },
-})
-export default class EditLinkCommandButton extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly initLinkAttrs!: object;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
 
-  @Inject() readonly et!: any;
+    initLinkAttrs: {
+      type: Object,
+      required: true,
+    },
+  },
 
-  linkAttrs = this.initLinkAttrs;
-  editLinkDialogVisible = false;
+  setup() {
+    const t = inject('t');
 
-  private updateLinkAttrs() {
-    this.editorContext.commands.link(this.linkAttrs);
+    return { t };
+  },
 
-    this.closeEditLinkDialog();
-  }
+  data() {
+    return {
+      linkAttrs: this.initLinkAttrs,
+      editLinkDialogVisible: false,
+    };
+  },
 
-  private openEditLinkDialog() {
-    this.editLinkDialogVisible = true;
-  }
+  methods: {
+    updateLinkAttrs() {
+      this.editor.commands.setLink(this.linkAttrs);
 
-  private closeEditLinkDialog() {
-    this.editLinkDialogVisible = false;
-  }
-};
+      this.closeEditLinkDialog();
+    },
+
+    openEditLinkDialog() {
+      this.editLinkDialogVisible = true;
+    },
+
+    closeEditLinkDialog() {
+      this.editLinkDialogVisible = false;
+    },
+  },
+});
 </script>

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { ELEMENT_TIPTAP_TIP } from '@/constants';
 
 export default class Logger {

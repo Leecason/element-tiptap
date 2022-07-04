@@ -1,39 +1,53 @@
 <template>
   <command-button
     :command="openLink"
-    :enable-tooltip="et.tooltip"
-    :tooltip="et.t('editor.extensions.Link.open.tooltip')"
-    icon="external-link-alt"
+    :enable-tooltip="true"
+    :tooltip="t('editor.extensions.Link.open.tooltip')"
+    icon="external-link"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
+import { defineComponent, inject } from 'vue';
+import { Editor } from '@tiptap/vue-3';
 import CommandButton from '../CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'OpenLinkCommandButton',
+
   components: {
     CommandButton,
   },
-})
-export default class OpenLinkCommandButton extends Vue {
-  @Prop({
-    type: String,
-    required: true,
-  })
-  readonly url!: string;
 
-  @Inject() readonly et!: any;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
 
-  openLink() {
-    if (this.url) {
-      // prevent attack
-      const newTab = window.open();
-      if (newTab) {
-        newTab.opener = null;
-        newTab.location.href = this.url;
+    url: {
+      type: String,
+      required: true,
+    },
+  },
+
+  setup() {
+    const t = inject('t');
+
+    return { t };
+  },
+
+  methods: {
+    openLink() {
+      if (this.url) {
+        // prevent attack
+        const newTab = window.open();
+        if (newTab) {
+          newTab.opener = null;
+          newTab.location.href = this.url;
+        }
       }
-    }
-  }
-};
+    },
+  },
+});
 </script>

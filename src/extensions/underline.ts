@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapUnderline } from '@tiptap/extension-underline';
+import TiptapUnderline from '@tiptap/extension-underline';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const Underline = TiptapUnderline.extend({

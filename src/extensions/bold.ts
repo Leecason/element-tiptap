@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import { default as TiptapBold } from '@tiptap/extension-bold';
+import TiptapBold from '@tiptap/extension-bold';
 import CommandButton from '@/components/MenuCommands/CommandButton.vue';
 
 const Bold = TiptapBold.extend({

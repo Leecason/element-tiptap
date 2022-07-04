@@ -1,37 +1,25 @@
-// @ts-nocheck
-import { Node } from 'tiptap';
-import { Node as ProsemirrorNode } from 'prosemirror-model';
-import { getParagraphNodeAttrs, toParagraphDOM } from './paragraph';
+import { Node, mergeAttributes } from '@tiptap/core';
 
-export default class Title extends Node {
-  get name() {
-    return 'title';
-  }
+const Title = Node.create({
+  name: 'title',
 
-  get defaultOptions() {
+  // schema
+  content: 'inline*',
+
+  addOptions() {
     return {
+      ...this.parent?.(),
       placeholder: '',
-      class: '',
     };
-  }
+  },
 
-  get schema() {
-    return {
-      attrs: {
-        textAlign: { default: null },
-      },
-      content: 'inline*',
-      parseDOM: [{
-        tag: 'h1',
-        getAttrs: getParagraphNodeAttrs,
-      }],
-      toDOM: (node: ProsemirrorNode) => {
-        const dom = toParagraphDOM(node);
-        return ['h1', {
-          ...dom[1],
-          class: this.options.class,
-        }, 0];
-      },
-    };
-  }
-}
+  parseHTML() {
+    return [{ tag: 'h1' }];
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    return ['h1', mergeAttributes(HTMLAttributes), 0];
+  },
+});
+
+export default Title;

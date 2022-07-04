@@ -1,5 +1,5 @@
 <template>
-  <span :class="imageViewClass">
+  <node-view-wrapper as="span" :class="imageViewClass">
     <div
       :class="{
         'image-view__body--focused': selected,
@@ -9,16 +9,16 @@
     >
       <img
         :src="src"
-        :title="node.attrs.title"
-        :alt="node.attrs.alt"
+        :title="node!.attrs.title"
+        :alt="node!.attrs.alt"
         :width="width"
         :height="height"
         class="image-view__body__image"
         @click="selectImage"
-      >
+      />
 
       <div
-        v-if="view.editable"
+        v-if="editor?.isEditable"
         v-show="selected || resizing"
         class="image-resizer"
       >
@@ -35,33 +35,29 @@
       bubble menu's position is miscalculated
       use el-popover instead bubble menu -->
       <el-popover
-        :value="selected"
-        :visible-arrow="false"
+        :visible="selected"
+        :show-arrow="false"
         placement="top"
-        trigger="manual"
         popper-class="el-tiptap-image-popper"
       >
         <image-bubble-menu
           :node="node"
-          :view="view"
-          :update-attrs="updateAttrs"
+          :editor="editor"
+          :update-attrs="updateAttributes"
         />
 
-        <div
-          slot="reference"
-          class="image-view__body__placeholder"
-        />
+        <template #reference>
+          <div class="image-view__body__placeholder" />
+        </template>
       </el-popover>
     </div>
-  </span>
+  </node-view-wrapper>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Popover } from 'element-ui';
-import { Node as ProsemirrorNode } from 'prosemirror-model';
-import { NodeSelection } from 'prosemirror-state';
-import { EditorView } from 'prosemirror-view';
+import { defineComponent } from 'vue';
+import { NodeViewWrapper, nodeViewProps } from '@tiptap/vue-3';
+import { ElPopover } from 'element-plus';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { resolveImg, ImageDisplay } from '@/utils/image';
 import { clamp } from '@/utils/shared';
@@ -72,105 +68,76 @@ const enum ResizeDirection {
   TOP_RIGHT = 'tr',
   BOTTOM_LEFT = 'bl',
   BOTTOM_RIGHT = 'br',
-};
+}
 
 const MIN_SIZE = 20;
 const MAX_SIZE = 100000;
 
-@Component({
+export default defineComponent({
+  name: 'ImageView',
+
   components: {
-    [Popover.name]: Popover,
+    ElPopover,
+    NodeViewWrapper,
     ImageBubbleMenu,
   },
-})
-export default class ImageView extends Vue {
-  @Prop({
-    type: ProsemirrorNode,
-    required: true,
-  })
-  readonly node!: ProsemirrorNode;
 
-  @Prop({
-    // TODO: EditorView type check failed
-    // issue: https://github.com/Leecason/element-tiptap/issues/21#issuecomment-605615966
-    type: Object,
-    required: true,
-  })
-  readonly view!: EditorView;
+  props: nodeViewProps,
 
-  @Prop({
-    type: Function,
-    required: true,
-  })
-  readonly getPos!: Function;
+  data() {
+    return {
+      maxSize: {
+        width: MAX_SIZE,
+        height: MAX_SIZE,
+      },
 
-  @Prop({
-    type: Function,
-    required: true,
-  })
-  readonly updateAttrs!: Function;
+      originalSize: {
+        width: 0,
+        height: 0,
+      },
 
-  @Prop({
-    type: Boolean,
-    required: true,
-  })
-  readonly selected!: boolean;
+      resizeDirections: [
+        ResizeDirection.TOP_LEFT,
+        ResizeDirection.TOP_RIGHT,
+        ResizeDirection.BOTTOM_LEFT,
+        ResizeDirection.BOTTOM_RIGHT,
+      ],
 
-  maxSize = {
-    width: MAX_SIZE,
-    height: MAX_SIZE,
-  };
+      resizing: false,
 
-  originalSize = {
-    width: 0,
-    height: 0,
-  };
+      resizerState: {
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+        dir: '',
+      },
+    };
+  },
 
-  resizeOb = new ResizeObserver(() => {
-    this.getMaxSize();
-  });
+  computed: {
+    src(): string {
+      return this.node!.attrs.src;
+    },
 
-  resizeDirections = [
-    ResizeDirection.TOP_LEFT,
-    ResizeDirection.TOP_RIGHT,
-    ResizeDirection.BOTTOM_LEFT,
-    ResizeDirection.BOTTOM_RIGHT,
-  ];
+    width(): number {
+      return this.node!.attrs.width;
+    },
 
-  resizing = false;
+    height(): number {
+      return this.node!.attrs.height;
+    },
 
-  resizerState = {
-    x: 0,
-    y: 0,
-    w: 0,
-    h: 0,
-    dir: '',
-  };
+    display(): ImageDisplay {
+      return this.node!.attrs.display;
+    },
 
-  private get src(): string {
-    return this.node.attrs.src;
-  }
+    imageViewClass() {
+      return ['image-view', `image-view--${this.display}`];
+    },
+  },
 
-  private get width(): number {
-    return this.node.attrs.width;
-  }
-
-  private get height(): number {
-    return this.node.attrs.height;
-  }
-
-  private get display(): ImageDisplay {
-    return this.node.attrs.display;
-  }
-
-  private get imageViewClass() {
-    return [
-      'image-view',
-      `image-view--${this.display}`,
-    ];
-  }
-
-  private async created() {
+  async created() {
     const result = await resolveImg(this.src);
 
     if (!result.complete) {
@@ -182,114 +149,115 @@ export default class ImageView extends Vue {
       width: result.width,
       height: result.height,
     };
-  }
+  },
 
-  private mounted() {
-    this.resizeOb.observe(this.view.dom);
-  }
-
-  private beforeDestroy() {
-    this.resizeOb.disconnect();
-  }
-
-  // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
-  private selectImage() {
-    const { state } = this.view;
-    let { tr } = state;
-    const selection = NodeSelection.create(state.doc, this.getPos());
-    tr = tr.setSelection(selection);
-    this.view.dispatch(tr);
-  }
-
-  /* invoked when window or editor resize */
-  private getMaxSize() {
-    const { width } = getComputedStyle(this.view.dom);
-    this.maxSize.width = parseInt(width, 10);
-  }
-
-  /* on resizer handler mousedown
-   * record the position where the event is triggered and resize direction
-   * calculate the initial width and height of the image
-   */
-  private onMouseDown(e: MouseEvent, dir: ResizeDirection): void {
-    e.preventDefault();
-    e.stopPropagation();
-
-    this.resizerState.x = e.clientX;
-    this.resizerState.y = e.clientY;
-
-    const originalWidth = this.originalSize.width;
-    const originalHeight = this.originalSize.height;
-    const aspectRatio = originalWidth / originalHeight;
-
-    let { width, height } = this.node.attrs;
-    const maxWidth = this.maxSize.width;
-
-    if (width && !height) {
-      width = width > maxWidth ? maxWidth : width;
-      height = Math.round(width / aspectRatio);
-    } else if (height && !width) {
-      width = Math.round(height * aspectRatio);
-      width = width > maxWidth ? maxWidth : width;
-    } else if (!width && !height) {
-      width = originalWidth > maxWidth ? maxWidth : originalWidth;
-      height = Math.round(width / aspectRatio);
-    } else {
-      width = width > maxWidth ? maxWidth : width;
-    }
-
-    this.resizerState.w = width;
-    this.resizerState.h = height;
-    this.resizerState.dir = dir;
-
-    this.resizing = true;
-
-    this.onEvents();
-  }
-
-  private onMouseMove(e: MouseEvent): void {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!this.resizing) return;
-
-    const { x, y, w, h, dir } = this.resizerState;
-
-    const dx = (e.clientX - x) * (/l/.test(dir) ? -1 : 1);
-    const dy = (e.clientY - y) * (/t/.test(dir) ? -1 : 1);
-
-    this.updateAttrs({
-      width: clamp(w + dx, MIN_SIZE, this.maxSize.width),
-      height: Math.max(h + dy, MIN_SIZE),
+  mounted() {
+    this.resizeOb = new ResizeObserver(() => {
+      this.getMaxSize();
     });
-  }
+    this.resizeOb.observe(this.editor!.view.dom);
+  },
 
-  private onMouseUp(e: MouseEvent): void {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!this.resizing) return;
+  beforeUnmount() {
+    this.resizeOb.disconnect();
+  },
 
-    this.resizing = false;
+  methods: {
+    // https://github.com/scrumpy/tiptap/issues/361#issuecomment-540299541
+    selectImage() {
+      this.editor?.commands.setNodeSelection(this.getPos!());
+    },
 
-    this.resizerState = {
-      x: 0,
-      y: 0,
-      w: 0,
-      h: 0,
-      dir: '',
-    };
+    /* invoked when window or editor resize */
+    getMaxSize() {
+      const { width } = getComputedStyle(this.editor!.view.dom);
+      this.maxSize.width = parseInt(width, 10);
+    },
 
-    this.offEvents();
-    this.selectImage();
-  }
+    /* on resizer handler mousedown
+     * record the position where the event is triggered and resize direction
+     * calculate the initial width and height of the image
+     */
+    onMouseDown(e: MouseEvent, dir: ResizeDirection): void {
+      e.preventDefault();
+      e.stopPropagation();
 
-  private onEvents(): void {
-    document.addEventListener('mousemove', this.onMouseMove, true);
-    document.addEventListener('mouseup', this.onMouseUp, true);
-  }
+      this.resizerState.x = e.clientX;
+      this.resizerState.y = e.clientY;
 
-  private offEvents(): void {
-    document.removeEventListener('mousemove', this.onMouseMove, true);
-    document.removeEventListener('mouseup', this.onMouseUp, true);
-  }
-};
+      const originalWidth = this.originalSize.width;
+      const originalHeight = this.originalSize.height;
+      const aspectRatio = originalWidth / originalHeight;
+
+      let { width, height } = this.node!.attrs;
+      const maxWidth = this.maxSize.width;
+
+      if (width && !height) {
+        width = width > maxWidth ? maxWidth : width;
+        height = Math.round(width / aspectRatio);
+      } else if (height && !width) {
+        width = Math.round(height * aspectRatio);
+        width = width > maxWidth ? maxWidth : width;
+      } else if (!width && !height) {
+        width = originalWidth > maxWidth ? maxWidth : originalWidth;
+        height = Math.round(width / aspectRatio);
+      } else {
+        width = width > maxWidth ? maxWidth : width;
+      }
+
+      this.resizerState.w = width;
+      this.resizerState.h = height;
+      this.resizerState.dir = dir;
+
+      this.resizing = true;
+
+      this.onEvents();
+    },
+
+    onMouseMove(e: MouseEvent): void {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!this.resizing) return;
+
+      const { x, y, w, h, dir } = this.resizerState;
+
+      const dx = (e.clientX - x) * (/l/.test(dir) ? -1 : 1);
+      const dy = (e.clientY - y) * (/t/.test(dir) ? -1 : 1);
+
+      this.updateAttributes?.({
+        width: clamp(w + dx, MIN_SIZE, this.maxSize.width),
+        height: Math.max(h + dy, MIN_SIZE),
+      });
+    },
+
+    onMouseUp(e: MouseEvent): void {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!this.resizing) return;
+
+      this.resizing = false;
+
+      this.resizerState = {
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+        dir: '',
+      };
+
+      this.offEvents();
+      this.selectImage();
+    },
+
+    onEvents(): void {
+      document.addEventListener('mousemove', this.onMouseMove, true);
+      document.addEventListener('mouseup', this.onMouseUp, true);
+    },
+
+    offEvents(): void {
+      document.removeEventListener('mousemove', this.onMouseMove, true);
+      document.removeEventListener('mouseup', this.onMouseUp, true);
+    },
+  },
+});
 </script>

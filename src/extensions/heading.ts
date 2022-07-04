@@ -1,6 +1,6 @@
 import type { Editor, Extension } from '@tiptap/core';
 import type { HeadingOptions } from '@tiptap/extension-heading';
-import { default as TiptapHeading } from '@tiptap/extension-heading';
+import TiptapHeading from '@tiptap/extension-heading';
 import HeadingDropdown from '@/components/MenuCommands/HeadingDropdown.vue';
 
 const Heading = TiptapHeading.extend({

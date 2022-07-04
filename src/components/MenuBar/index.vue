@@ -14,9 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, inject } from 'vue';
-// import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
 import { Editor } from '@tiptap/core';
-// import { MenuBtnViewType } from '@/../types';
 
 export default defineComponent({
   name: 'Menubar',
@@ -37,7 +35,6 @@ export default defineComponent({
   methods: {
     generateCommandButtonComponentSpecs() {
       const extensionManager = this.editor.extensionManager;
-      console.log(extensionManager.extensions);
       return extensionManager.extensions.reduce((acc, extension) => {
         const { button } = extension.options;
         if (!button || typeof button !== 'function') return acc;
@@ -53,16 +50,6 @@ export default defineComponent({
         }
 
         return [...acc, menuBtnComponentSpec];
-
-        // const menuBtnComponentSpec = extension.menuBtnView({
-        //   editor: this.editor,
-        //   // t: this.et.t, // i18n
-        // });
-        // if (Array.isArray(menuBtnComponentSpec)) {
-        //   return [...acc, ...menuBtnComponentSpec];
-        // }
-
-        // return [...acc, menuBtnComponentSpec];
       }, []);
     },
   },

@@ -1,17 +1,13 @@
 <template>
   <el-popover
-    v-model="popoverVisible"
-    :disabled="et.isCodeViewMode"
+    :disabled="false"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
+    ref="popoverRef"
   >
     <div class="color-set">
-      <div
-        v-for="color in colorSet"
-        :key="color"
-        class="color__wrapper"
-      >
+      <div v-for="color in colorSet" :key="color" class="color__wrapper">
         <div
           :style="{
             'background-color': color,
@@ -27,14 +23,14 @@
         <div
           class="color color--remove"
           @mousedown.prevent
-          @click.stop="confirmColor('')"
+          @click.stop="confirmColor()"
         />
       </div>
     </div>
 
     <div class="color-hex">
       <el-input
-        v-model="color"
+        v-model="colorText"
         placeholder="HEX"
         autofocus="true"
         maxlength="7"
@@ -43,86 +39,92 @@
       />
 
       <el-button
-        type="text"
+        text
+        type="primary"
         size="small"
         class="color-hex__button"
-        @click="confirmColor(color)"
+        @click="confirmColor(colorText)"
       >
-        {{ confirmText }}
+        OK
       </el-button>
     </div>
 
-    <command-button
-      slot="reference"
-      :enable-tooltip="et.tooltip"
-      :tooltip="tooltip"
-      :icon="icon"
-      :readonly="et.isCodeViewMode"
-    />
+    <template #reference>
+      <span>
+        <command-button
+          :enable-tooltip="true"
+          :tooltip="t('editor.extensions.TextColor.tooltip')"
+          icon="font-color"
+          :readonly="false"
+        />
+      </span>
+    </template>
   </el-popover>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Emit, Vue, Inject } from 'vue-property-decorator';
-import { Button, Popover, Input } from 'element-ui';
+import { computed, defineComponent, inject, ref, unref, watch } from 'vue';
+import { Editor, getMarkAttributes } from '@tiptap/vue-3';
+import { ElButton, ElPopover, ElInput } from 'element-plus';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'ColorPopover',
+
   components: {
-    [Button.name]: Button,
-    [Popover.name]: Popover,
-    [Input.name]: Input,
+    ElButton,
+    ElPopover,
+    ElInput,
     CommandButton,
   },
-})
-export default class ColorPopover extends Vue {
-  @Prop({
-    type: Array,
-    default: () => [],
-  })
-  readonly colorSet!: string[];
 
-  @Prop({
-    type: String,
-    default: '',
-  })
-  readonly selectedColor!: string;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  @Prop({
-    type: String,
-    required: true,
-  })
-  readonly tooltip!: string;
+  setup(props) {
+    const t = inject('t');
 
-  @Prop({
-    type: String,
-    required: true,
-  })
-  readonly icon!: string;
+    const popoverRef = ref();
+    const colorText = ref('');
 
-  @Prop({
-    type: String,
-    default: 'OK',
-  })
-  readonly confirmText!: string; // TODO: i18n ?
+    function confirmColor(color?: string) {
+      if (color) {
+        props.editor.commands.setColor(color);
+      } else {
+        props.editor.commands.unsetColor();
+      }
 
-  private color: string = '';
-  private popoverVisible: boolean = false;
+      unref(popoverRef).hide();
+    }
 
-  @Inject() readonly et!: any;
+    const selectedColor = computed<string>(() => {
+      return getMarkAttributes(props.editor.state, 'textStyle').color || '';
+    });
 
-  @Watch('selectedColor', {
-    immediate: true,
-  })
-  onSelectedColorChange(color: string): void {
-    this.color = color;
-  }
+    watch(selectedColor, (color) => {
+      colorText.value = color;
+    });
 
-  @Emit('confirm')
-  confirmColor(color: string): string {
-    this.popoverVisible = false;
+    return {
+      t,
+      popoverRef,
+      colorText,
+      selectedColor,
+      confirmColor,
+    };
+  },
 
-    return color;
-  }
-};
+  computed: {
+    colorSet(): string[] {
+      const colorOptions = this.editor.extensionManager.extensions.find(
+        (e) => e.name === 'color'
+      )!.options;
+      return colorOptions.colors;
+    },
+  },
+});
 </script>

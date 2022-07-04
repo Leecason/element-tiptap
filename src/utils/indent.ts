@@ -1,6 +1,6 @@
-import type { Command } from '@tiptap/core';
+import type { Command, Editor } from '@tiptap/core';
+import { isList } from '@tiptap/core';
 import { TextSelection, AllSelection, Transaction } from 'prosemirror-state';
-import { isListNode } from './list';
 import { clamp } from './shared';
 
 export const enum IndentProps {
@@ -14,7 +14,8 @@ export const enum IndentProps {
 function updateIndentLevel(
   tr: Transaction,
   delta: number,
-  types: string[]
+  types: string[],
+  editor: Editor
 ): Transaction {
   const { doc, selection } = tr;
 
@@ -34,7 +35,7 @@ function updateIndentLevel(
     if (types.includes(nodeType.name)) {
       tr = setNodeIndentMarkup(tr, pos, delta);
       return false;
-    } else if (isListNode(node)) {
+    } else if (isList(node.type.name, editor.extensionManager.extensions)) {
       return false;
     }
     return true;
@@ -75,11 +76,11 @@ export function createIndentCommand({
   delta: number;
   types: string[];
 }): Command {
-  return ({ state, dispatch }) => {
+  return ({ state, dispatch, editor }) => {
     const { selection } = state;
     let { tr } = state;
     tr = tr.setSelection(selection);
-    tr = updateIndentLevel(tr, delta, types);
+    tr = updateIndentLevel(tr, delta, types, editor);
 
     if (tr.docChanged) {
       dispatch && dispatch(tr);

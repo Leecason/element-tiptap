@@ -1,45 +1,56 @@
 <template>
   <command-button
     :command="openInsertVideoControl"
-    :enable-tooltip="et.tooltip"
-    :tooltip="et.t('editor.extensions.Iframe.tooltip')"
-    :readonly="et.isCodeViewMode"
+    :enable-tooltip="true"
+    :tooltip="t('editor.extensions.Iframe.tooltip')"
+    :readonly="false"
     icon="video"
   />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Inject, Vue } from 'vue-property-decorator';
-import { MessageBox } from 'element-ui';
-import { MenuData } from 'tiptap';
+import { defineComponent, inject } from 'vue';
+import { Editor } from '@tiptap/vue-3';
+import { ElMessageBox } from 'element-plus';
 import CommandButton from './CommandButton.vue';
 
-@Component({
+export default defineComponent({
+  name: 'IframeCommandButton',
+
   components: {
     CommandButton,
   },
-})
-export default class IframeCommandButton extends Vue {
-  @Prop({
-    type: Object,
-    required: true,
-  })
-  readonly editorContext!: MenuData;
 
-  @Inject() readonly et!: any;
+  props: {
+    editor: {
+      type: Editor,
+      required: true,
+    },
+  },
 
-  openInsertVideoControl(): void {
-    MessageBox.prompt('', this.et.t('editor.extensions.Iframe.control.title'), {
-      confirmButtonText: this.et.t('editor.extensions.Iframe.control.confirm'),
-      cancelButtonText: this.et.t('editor.extensions.Iframe.control.cancel'),
-      inputPlaceholder: this.et.t('editor.extensions.Iframe.control.placeholder'),
-      roundButton: true,
-    // @ts-ignore
-    }).then(({ value: href }) => {
-      this.editorContext.commands.iframe({ src: href });
-    }).catch(() => {
+  setup() {
+    const t = inject('t');
 
-    });
-  }
-};
+    return { t };
+  },
+
+  methods: {
+    async openInsertVideoControl() {
+      const { value: href } = await ElMessageBox.prompt(
+        '',
+        this.t('editor.extensions.Iframe.control.title'),
+        {
+          confirmButtonText: this.t('editor.extensions.Iframe.control.confirm'),
+          cancelButtonText: this.t('editor.extensions.Iframe.control.cancel'),
+          inputPlaceholder: this.t(
+            'editor.extensions.Iframe.control.placeholder'
+          ),
+          roundButton: true,
+        }
+      );
+
+      this.editor.commands.setIframe({ src: href });
+    },
+  },
+});
 </script>
