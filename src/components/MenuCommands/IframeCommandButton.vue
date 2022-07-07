@@ -1,7 +1,7 @@
 <template>
   <command-button
     :command="openInsertVideoControl"
-    :enable-tooltip="true"
+    :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.Iframe.tooltip')"
     :readonly="false"
     icon="video"
@@ -30,8 +30,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   methods: {

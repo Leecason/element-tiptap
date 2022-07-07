@@ -1,7 +1,7 @@
 <template>
   <el-dropdown placement="bottom" trigger="click" @command="toggleFontType">
     <command-button
-      :enable-tooltip="true"
+      :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.FontType.tooltip')"
       :readonly="false"
       icon="font-family"
@@ -51,8 +51,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   computed: {

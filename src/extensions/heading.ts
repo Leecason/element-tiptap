@@ -10,7 +10,6 @@ const Heading = TiptapHeading.extend({
       button({
         editor,
         extension,
-        t,
       }: {
         editor: Editor;
         extension: Extension;
@@ -21,7 +20,6 @@ const Heading = TiptapHeading.extend({
           componentProps: {
             levels: (extension.options as HeadingOptions).levels,
             editor,
-            t,
           },
         };
       },

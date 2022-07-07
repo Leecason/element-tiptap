@@ -1,7 +1,7 @@
 <template>
   <command-button
     :command="() => toggleIsCodeViewMode(!isCodeViewMode)"
-    :enable-tooltip="true"
+    :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.CodeView.tooltip')"
     icon="file-code"
     :is-active="isCodeViewMode"
@@ -21,10 +21,11 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
     const isCodeViewMode = inject('isCodeViewMode', false);
     const toggleIsCodeViewMode = inject('toggleIsCodeViewMode');
 
-    return { t, isCodeViewMode, toggleIsCodeViewMode };
+    return { t, enableTooltip, isCodeViewMode, toggleIsCodeViewMode };
   },
 });
 </script>

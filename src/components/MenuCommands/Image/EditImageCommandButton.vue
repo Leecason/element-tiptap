@@ -2,7 +2,7 @@
   <div>
     <command-button
       :command="openEditImageDialog"
-      enable-tooltip
+      :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.Image.buttons.image_options.tooltip')"
       icon="ellipsis-h"
     />
@@ -101,9 +101,10 @@ export default defineComponent({
   },
 
   setup() {
-    const t = inject<(k: string) => string>('t', (k) => k);
+    const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   methods: {

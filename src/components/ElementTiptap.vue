@@ -81,6 +81,7 @@ interface Props {
   height?: string | number;
   output: 'html' | 'json';
   readonly?: boolean;
+  tooltip?: boolean;
   enableCharCount?: boolean;
   charCountMax?: number;
   spellcheck?: boolean;
@@ -141,6 +142,10 @@ export default defineComponent({
     readonly: {
       type: Boolean,
       default: false,
+    },
+    tooltip: {
+      type: Boolean,
+      default: true,
     },
     enableCharCount: {
       type: Boolean,
@@ -205,6 +210,8 @@ export default defineComponent({
         output = editor.getJSON();
       }
 
+      emit('update:content', output);
+
       emit('onUpdate', output, editor);
     };
 
@@ -252,6 +259,8 @@ export default defineComponent({
     };
     provide('isFullscreen', isFullscreen);
     provide('toggleFullscreen', toggleFullscreen);
+
+    provide('enableTooltip', props.tooltip);
 
     const { isCodeViewMode, cmTextAreaRef } = useCodeView(editor);
 

@@ -31,7 +31,7 @@
     <template #reference>
       <span>
         <command-button
-          :enable-tooltip="true"
+          :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.TextHighlight.tooltip')"
           icon="highlight"
           :readonly="false"
@@ -66,6 +66,7 @@ export default defineComponent({
 
   setup(props) {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
     const popoverRef = ref();
     const popoverVisible = ref(false);
@@ -86,6 +87,7 @@ export default defineComponent({
 
     return {
       t,
+      enableTooltip,
       popoverRef,
       selectedColor,
       popoverVisible,

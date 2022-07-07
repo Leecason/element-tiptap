@@ -5,7 +5,7 @@
     @command="(lineHeight) => editor.commands.setLineHeight(lineHeight)"
   >
     <command-button
-      :enable-tooltip="true"
+      :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.LineHeight.tooltip')"
       :readonly="false"
       icon="text-height"
@@ -55,8 +55,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   computed: {

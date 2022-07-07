@@ -107,7 +107,7 @@
       <span>
         <command-button
           :is-active="isTableActive"
-          :enable-tooltip="true"
+          :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.Table.tooltip')"
           :readonly="false"
           icon="table"
@@ -147,6 +147,7 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
     const popoverRef = ref();
 
@@ -154,7 +155,7 @@ export default defineComponent({
       unref(popoverRef).hide();
     };
 
-    return { t, popoverRef, hidePopover };
+    return { t, enableTooltip, popoverRef, hidePopover };
   },
 
   computed: {

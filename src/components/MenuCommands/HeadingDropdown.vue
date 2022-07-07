@@ -6,7 +6,7 @@
     @command="toggleHeading"
   >
     <command-button
-      enable-tooltip
+      :enable-tooltip="enableTooltip"
       :is-active="editor.isActive('heading')"
       :tooltip="t('editor.extensions.Heading.tooltip')"
       icon="heading"
@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus';
 import type { Level } from '@tiptap/extension-heading';
 import { Editor } from '@tiptap/core';
@@ -69,15 +69,17 @@ export default defineComponent({
       required: true,
     },
 
-    t: {
-      type: Function,
-      required: true,
-    },
-
     levels: {
       type: Array,
       required: true,
     },
+  },
+
+  setup() {
+    const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
+
+    return { t, enableTooltip };
   },
 
   methods: {

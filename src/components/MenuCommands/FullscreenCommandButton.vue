@@ -1,7 +1,7 @@
 <template>
   <command-button
     :command="() => toggleFullscreen(!isFullscreen)"
-    :enable-tooltip="true"
+    :enable-tooltip="enableTooltip"
     :tooltip="buttonTooltip"
     :icon="isFullscreen ? 'compress' : 'expand'"
     :is-active="isFullscreen"
@@ -29,10 +29,11 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
     const isFullscreen = inject('isFullscreen', false);
     const toggleFullscreen = inject('toggleFullscreen');
 
-    return { t, isFullscreen, toggleFullscreen };
+    return { t, enableTooltip, isFullscreen, toggleFullscreen };
   },
 
   computed: {

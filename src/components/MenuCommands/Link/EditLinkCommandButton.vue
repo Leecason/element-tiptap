@@ -2,7 +2,7 @@
   <div>
     <command-button
       :command="openEditLinkDialog"
-      :enable-tooltip="true"
+      :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.Link.edit.tooltip')"
       icon="edit"
     />
@@ -88,8 +88,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   data() {

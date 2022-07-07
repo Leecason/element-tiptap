@@ -1,7 +1,7 @@
 <template>
   <command-button
     :command="openLink"
-    :enable-tooltip="true"
+    :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.Link.open.tooltip')"
     icon="external-link"
   />
@@ -33,8 +33,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   methods: {

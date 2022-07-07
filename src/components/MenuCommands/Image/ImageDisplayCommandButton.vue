@@ -25,7 +25,7 @@
     <template #reference>
       <span>
         <command-button
-          enable-tooltip
+          :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.Image.buttons.display.tooltip')"
           icon="image-align"
         />
@@ -65,9 +65,10 @@ export default defineComponent({
   },
 
   setup() {
-    const t = inject<(k: string) => string>('t', (k) => k);
+    const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   computed: {
