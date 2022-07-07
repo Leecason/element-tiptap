@@ -1,6 +1,6 @@
 <template>
   <el-popover
-    :disabled="false"
+    :disabled="isCodeViewMode"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
@@ -55,7 +55,7 @@
           :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.TextColor.tooltip')"
           icon="font-color"
-          :readonly="false"
+          :readonly="isCodeViewMode"
         />
       </span>
     </template>
@@ -88,6 +88,7 @@ export default defineComponent({
   setup(props) {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
     const popoverRef = ref();
     const colorText = ref('');
@@ -113,6 +114,7 @@ export default defineComponent({
     return {
       t,
       enableTooltip,
+      isCodeViewMode,
       popoverRef,
       colorText,
       selectedColor,

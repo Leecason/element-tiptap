@@ -3,7 +3,7 @@
     <command-button
       :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.FontType.tooltip')"
-      :readonly="false"
+      :readonly="isCodeViewMode"
       icon="font-family"
     />
 
@@ -52,8 +52,9 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
-    return { t, enableTooltip };
+    return { t, enableTooltip, isCodeViewMode };
   },
 
   computed: {

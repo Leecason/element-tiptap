@@ -26,7 +26,7 @@
           :is="spec.component"
           :enable-tooltip="enableTooltip"
           v-bind="spec.componentProps"
-          :readonly="false"
+          :readonly="isCodeViewMode"
           v-on="spec.componentEvents || {}"
         />
       </template>
@@ -79,8 +79,9 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
-    return { t, enableTooltip };
+    return { t, enableTooltip, isCodeViewMode };
   },
 
   computed: {

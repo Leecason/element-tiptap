@@ -264,6 +264,8 @@ export default defineComponent({
 
     const { isCodeViewMode, cmTextAreaRef } = useCodeView(editor);
 
+    provide('isCodeViewMode', isCodeViewMode);
+
     const { characters } = useCharacterCount(editor);
 
     const showFooter = computed(() => {

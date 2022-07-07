@@ -1,6 +1,6 @@
 <template>
   <el-popover
-    :disabled="false"
+    :disabled="isCodeViewMode"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
@@ -109,7 +109,7 @@
           :is-active="isTableActive"
           :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.Table.tooltip')"
-          :readonly="false"
+          :readonly="isCodeViewMode"
           icon="table"
         />
       </span>
@@ -148,6 +148,7 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
     const popoverRef = ref();
 
@@ -155,7 +156,7 @@ export default defineComponent({
       unref(popoverRef).hide();
     };
 
-    return { t, enableTooltip, popoverRef, hidePopover };
+    return { t, enableTooltip, isCodeViewMode, popoverRef, hidePopover };
   },
 
   computed: {
