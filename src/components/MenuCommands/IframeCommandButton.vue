@@ -3,7 +3,7 @@
     :command="openInsertVideoControl"
     :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.Iframe.tooltip')"
-    :readonly="false"
+    :readonly="isCodeViewMode"
     icon="video"
   />
 </template>
@@ -31,8 +31,9 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
-    return { t, enableTooltip };
+    return { t, enableTooltip, isCodeViewMode };
   },
 
   methods: {
