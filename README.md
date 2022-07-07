@@ -10,7 +10,7 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-A WYSIWYG rich-text editor using [tiptap](https://github.com/scrumpy/tiptap) and [Element UI](https://github.com/ElemeFE/element) for Vue.js
+A WYSIWYG rich-text editor using [tiptap](https://github.com/ueberdosis/tiptap) and [Element Plus](https://github.com/element-plus/element-plus) for Vue3
 
 that's easy to use, friendly to developers, fully extensible and clean in design.
 
@@ -26,12 +26,12 @@ English | [简体中文](./README_ZH.md)
 
 ## ✨ Features
 
-- 🎨Use [element-ui](https://github.com/ElemeFE/element) components
+- 🎨Use [element-plus](https://github.com/element-plus/element-plus) components
 - 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
 - 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
-- 🎈Events you might use: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
+- 🎈Events you might use: `create`, `transaction`, `focus`, `blur`, `destroy`
 - 🍀Fully extensible, you can customize editor extension and its menu button view
 - 💻Also can control the behavior of the editor directly, customize the editor for yourself.
 
@@ -52,30 +52,22 @@ npm install --save element-tiptap
 #### Install plugin
 
 ```js
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import { ElementTiptapPlugin } from 'element-tiptap';
-// import ElementUI's styles
-import 'element-ui/lib/theme-chalk/index.css';
-// import this package's styles
-import 'element-tiptap/lib/index.css';
+import { createApp } from 'vue';
+import App from './App.vue';
+import ElementPlus from 'element-plus';
+import ElementTiptapPlugin from 'element-tiptap';
+// import ElementTiptap's styles
+import 'element-tiptap/lib/style.css';
 
-// use ElementUI's plugin
-Vue.use(ElementUI);
+const app = createApp(App);
+
+// use ElementPlus's plugin
+app.use(ElementPlus);
 // use this package's plugin
-Vue.use(ElementTiptapPlugin, {
-  /* plugin options */
-});
+app.use(ElementTiptapPlugin);
 // Now you register `'el-tiptap'` component globally.
-```
 
-Default plugin options:
-
-```js
-{
-  lang: "en", // see i18n
-  spellcheck: true, // can be overwritten by editor prop
-}
+app.mount('#app');
 ```
 
 _Or_
@@ -84,59 +76,23 @@ _Or_
 
 ```vue
 <template>
-  <div>
-    <el-tiptap ...></el-tiptap>
-  </div>
+  <el-tiptap ...></el-tiptap>
 </template>
 
-<script>
+<script setup>
 import { ElementTiptap } from 'element-tiptap';
-
-export default {
-  components: {
-    'el-tiptap': ElementTiptap,
-  },
-};
 </script>
 ```
-
-## 🌐 I18n
-
-You can declare when you install the plugin.
-
-```js
-Vue.use(ElementTiptapPlugin, {
-  lang: 'zh',
-});
-```
-
-Available languages:
-
-- `en`(default)
-- `zh`
-- `pl` by @FurtakM
-- `ru` by @baitkul
-- `de` by @Thesicstar
-- `ko` by @Hotbrains
-- `es` by @koas
-- `zh_tw` by @eric0324
-- `fr` by @LPABelgium
-- `pt_br` by @valterleonardo
-- `nl` by @Arne-Jan
-- `he` by @shovalPMS
-
-Welcome contribution.
 
 ## 🚀 Usage
 
 ```vue
 <template>
-  <div>
-    <el-tiptap v-model="content" :extensions="extensions" />
-  </div>
+  <el-tiptap v-model:content="content" :extensions="extensions" />
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import {
   // necessary extensions
   Doc,
@@ -147,37 +103,30 @@ import {
   Underline,
   Italic,
   Strike,
-  ListItem,
   BulletList,
   OrderedList,
 } from 'element-tiptap';
 
-export default {
-  data () {
-    // editor extensions
-    // they will be added to menubar and bubble menu by the order you declare.
-    return {
-      extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Heading({ level: 5 }),
-        new Bold({ bubble: true }), // render command-button in bubble menu.
-        new Underline({ bubble: true, menubar: false }), // render command-button in bubble menu but not in menubar.
-        new Italic(),
-        new Strike(),
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-      ],
-      // editor's content
-      content: `
-        <h1>Heading</h1>
-        <p>This Editor is awesome!</p>
-      `,
-    };
-  },
-},
+// editor extensions
+// they will be added to menubar and bubble menu by the order you declare.
+const extensions = [
+  Doc,
+  Text,
+  Paragraph,
+  Heading.configure({ level: 5 }),
+  Bold.configure({ bubble: true }), // render command-button in bubble menu.
+  Underline.configure({ bubble: true, menubar: false }), // render command-button in bubble menu but not in menubar.
+  Italic,
+  Strike,
+  BulletList,
+  OrderedList,
+];
+
+// editor's content
+const content = ref(`
+  <h1>Heading</h1>
+  <p>This Editor is awesome!</p>
+`);
 </script>
 ```
 
@@ -204,109 +153,29 @@ All available extensions:
 - `Iframe`
 - `CodeBlock`
 - `Blockquote`
-- `ListItem`
-- `BulletList` (use with `ListItem`)
-- `OrderedList` (use with `ListItem`)
-- `TodoItem`
-- `TodoList` (use with `TodoItem`)
+- `BulletList`
+- `OrderedList`
+- `TaskList`
 - `TextAlign`
 - `Indent`
 - `LineHeight`
 - `HorizontalRule`
 - `HardBreak`
-- `TrailingNode`
 - `History`
-- `Table` (use with `TableHeader`, `TableCell`, `TableRow`)
-- `TableHeader`
-- `TableCell`
-- `TableRow`
+- `Table`
 - `FormatClear`
-- `TextColor`
-- `TextHighlight`
-- `Preview`
+- `Color`
+- `Highlight`
 - `Print`
 - `Fullscreen`
 - `SelectAll`
-- `FontType`
+- `FontFamily`
 - `FontSize`
-- `CodeView` (🆕)
+- `CodeView`
 
 You can find all extensions docs [here](https://github.com/Leecason/element-tiptap/issues/107).
 
-You can customize the extension menu button view
-
-1. create your custom extension.
-
-```js
-// create your extension file
-import { Bold } from 'element-tiptap';
-
-export default class CustomBold extends Bold {
-  menuBtnView (editorContext) {
-    // editorContext contains some properties that are useful to you, such as isActive, commands, etc
-    // more detailed docs check this https://github.com/scrumpy/tiptap#editormenubar
-    // this package append editor instance to editorContext
-    return {
-      component: CustomButton, // your component
-      componentProps: { // bind to your component with v-bind
-        ...
-      },
-      componentEvents: { // bind to your component with v-on
-        ...
-      },
-    },
-  }
-}
-```
-
-2. use custom extension in component
-
-```vue
-<template>
-  <el-tiptap :extensions="extensions" />
-</template>
-
-<script>
-import CustomBold from '...'; // import your extension
-
-export default {
-  ...
-  data () {
-    return {
-      extensions: [
-        ...
-        new CustomBold(),
-      ],
-    };
-  },
-};
-</script>
-```
-
-[Here](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545) is the example of how to create your extension button view (an extension can also render multiple menu buttons).
-
-### editorProperties
-
-Type: `Object`
-
-Default: `{}`
-
-Tiptap `Editor` properties (passed to the constructor).
-
-see the full list of properties [here](https://github.com/scrumpy/tiptap#editor-properties).
-
-[`editorProps`](https://prosemirror.net/docs/ref/#view.EditorProps) is a powerful prop in this list, you can use this prop to control the behavior of the editor directly, customize the editor for yourself.
-
-❗not available properties❗(they are used in this package):
-
-- `content`
-- `editable`
-- `useBuiltInExtensions`
-- `extensions`
-- `onInit`
-- `OnFocus`
-- `onBlur`
-- `onUpdate`
+You can customize the extension. See [Custom extensions](https://tiptap.dev/guide/custom-extensions).
 
 ### placeholder
 
@@ -335,7 +204,7 @@ Editor's content
 or Use `'v-model'`
 
 ```html
-<el-tiptap v-model="content" />
+<el-tiptap v-model:content="content" />
 ```
 
 ### output
@@ -359,7 +228,7 @@ Type: `boolean`
 Default: `false`
 
 ```html
-<el-tiptap :readonly="true" />
+<el-tiptap readonly />
 ```
 
 when `readonly` is `true`, editor is not editable.
@@ -368,10 +237,10 @@ when `readonly` is `true`, editor is not editable.
 
 Type: `boolean`
 
-Default: plugin `spellcheck` option value
+Default: `false`
 
 ```html
-<el-tiptap :spellcheck="true"> </el-tiptap>
+<el-tiptap spellcheck> </el-tiptap>
 ```
 
 Whether the content is spellcheck enabled.
@@ -393,15 +262,7 @@ width: 700px;
 height: 100%;
 ```
 
-### showMenubar
-
-Type: `boolean`
-
-Default: `true`
-
-Enables or disables the display of the menubar.
-
-### charCounterCount
+### enableCharCount
 
 Type: `boolean`
 
@@ -417,93 +278,61 @@ Default: `true`
 
 Control if tooltips are shown when getting with mouse over the buttons from the toolbar.
 
-### lang
-
-Type: `string`
-
-Default: plugin `lang` option value
-
-```html
-<el-tiptap lang="zh"> </el-tiptap>
-```
+### locale
 
 Specifies the editor i18n language.
 
-## 👽 Events
-
-### Init
-
-```vue
+```js
 <template>
-  <el-tiptap @onInit="onInit" />
+  <el-tiptap :locale="en"></el-tiptap>
 </template>
 
-<script>
-export default {
-  ...
-  methods: {
-    /*
-     * the tiptap editor instance
-     * see https://tiptap.scrumpy.io/docs/guide/editor.html
-    */
-    onInit ({ editor }) {
-
-    },
-  },
-},
+<script setup>
+import { ElementTiptap } from 'element-tiptap';
+import en from 'element-tiptap/lib/locales/en';
 </script>
 ```
 
-### Transaction, Focus, Blur, Paste, Drop
+Available languages:
 
-The same as `init`
+- `en`(default)
+- `zh`
+- `pl` by @FurtakM
+- `ru` by @baitkul
+- `de` by @Thesicstar
+- `ko` by @Hotbrains
+- `es` by @koas
+- `zh_tw` by @eric0324
+- `fr` by @LPABelgium
+- `pt_br` by @valterleonardo
+- `nl` by @Arne-Jan
+- `he` by @shovalPMS
 
-## ⚗️ Slots
+Welcome contribution.
 
-### menubar
+## 👽 Events
 
-You can customize the menubar and will receive some properties through a scoped slot.
+### onCreate
 
-properties: [https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
+```vue
+<template>
+  <el-tiptap @onCreate="onCreate" />
+</template>
 
-```html
-<el-tiptap v-model="content" :extensions="extensions">
-  <!-- new syntax for slot since Vue 2.6.0
-  see: https://vuejs.org/v2/guide/components-slots.html -->
-  <template #menubar="{ commands, isActive }">
-    <!--You can render custom menu buttons.-->
-    <custom-button
-      :class="{ 'is-active': isActive.bold() }"
-      @click="commands.bold"
-    >
-      Bold
-    </custom-button>
-  </template>
-</el-tiptap>
+<script setup>
+/**
+ * the tiptap editor instance
+ * see https://tiptap.dev/api/editor
+ */
+const onCreate = ({ editor }) => {
+  // ...
+};
+</script>
 ```
 
-### menububble
+### onTransaction, onFocus, onBlur, onDestroy
 
-Customize the bubble menu like menubar.
-
-properties: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
-
-```html
-<el-tiptap v-model="content" :extensions="extensions">
-  <template #menububble="{ commands, isActive }">
-    <custom-button
-      :class="{ 'is-active': isActive.bold() }"
-      @click="commands.bold"
-    >
-      Bold
-    </custom-button>
-  </template>
-</el-tiptap>
-```
-
-### footer
-
-Footer of the editor, after the editor content.
+The same as `onCreate`
 
 ## 🏗 Contributing
 
