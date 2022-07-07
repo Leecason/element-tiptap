@@ -10,7 +10,7 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-一个 Vue.js 的基于 [tiptap](https://github.com/scrumpy/tiptap) 和 [element-ui](https://github.com/ElemeFE/element) 的 「所见即所得」 富文本编辑器
+一个 Vue3 的基于 [tiptap](https://github.com/ueberdosis/tiptap) 和 [Element Plus](https://github.com/element-plus/element-plus) 的 「所见即所得」 富文本编辑器
 
 易上手，对开发者友好，可扩展性强，设计简洁
 
@@ -26,12 +26,12 @@
 
 ## ✨ 特色
 
-- 🎨 使用 [element-ui](https://github.com/ElemeFE/element) 组件
+- 🎨 使用 [element-plus](https://github.com/element-plus/element-plus) 组件
 - 💅 许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议 👏)
 - 🔖 支持 markdown 语法
 - 📘TypeScript 支持
 - 🌐 支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). 欢迎贡献更多的语言
-- 🎈 可用的 `events`: `init`, `transaction`, `focus`, `blur`, `paste`, `drop`, `update`
+- 🎈 可用的 `events`: `create`, `transaction`, `focus`, `blur`, `destroy`
 - 🍀 高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
 - 💻 也可以通过直接控制编辑器的行为来定制编辑器。
 
@@ -52,30 +52,20 @@ npm install --save element-tiptap
 #### 安装插件
 
 ```js
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import { ElementTiptapPlugin } from 'element-tiptap';
-// 引入 ElementUI 样式
-import 'element-ui/lib/theme-chalk/index.css';
+import { createApp } from 'vue';
+import App from './App.vue';
+import ElementPlus from 'element-plus';
+import ElementTiptapPlugin from 'element-tiptap';
 // import element-tiptap 样式
-import 'element-tiptap/lib/index.css';
+import 'element-tiptap/lib/style.css';
 
 // 安装 ElementUI 插件
-Vue.use(ElementUI);
+app.use(ElementPlus);
 // 安装 element-tiptap 插件
-Vue.use(ElementTiptapPlugin, {
-  /* 插件配置项 */
-});
+app.use(ElementTiptapPlugin);
 // 现在你已经在全局注册了 `el-tiptap` 组件。
-```
 
-默认插件配置项:
-
-```js
-{
-  lang: "en", // 见 i18n
-  spellcheck: true, // 可被 editor 同名 prop 重写
-}
+app.mount('#app');
 ```
 
 _或者_
@@ -84,59 +74,23 @@ _或者_
 
 ```vue
 <template>
-  <div>
-    <el-tiptap ...><el-tiptap>
-  </div>
+  <el-tiptap ...><el-tiptap>
 </template>
 
-<script>
+<script setup>
 import { ElementTiptap } from 'element-tiptap';
-
-export default {
-  components: {
-    'el-tiptap': ElementTiptap,
-  },
-};
 </script>
 ```
-
-## 🌐 国际化
-
-你可以在安装插件的时候声明
-
-```js
-Vue.use(ElementTiptapPlugin, {
-  lang: 'zh',
-});
-```
-
-可用的语言:
-
-- `en`(默认)
-- `zh`
-- `pl` by @FurtakM
-- `ru` by @baitkul
-- `de` by @Thesicstar
-- `ko` by @Hotbrains
-- `es` by @koas
-- `zh_tw` by @eric0324
-- `fr` by @LPABelgium
-- `pt_br` by @valterleonardo
-- `nl` by @Arne-Jan
-- `he` by @shovalPMS
-
-欢迎贡献更多的语言.
 
 ## 🚀 用法
 
 ```vue
 <template>
-  <div>
-    <el-tiptap v-model="content" :extensions="extensions" />
-  </div>
+  <el-tiptap v-model:content="content" :extensions="extensions" />
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import {
   // 需要的 extensions
   Doc,
@@ -147,37 +101,30 @@ import {
   Underline,
   Italic,
   Strike,
-  ListItem,
   BulletList,
   OrderedList,
 } from 'element-tiptap';
 
-export default {
-  data () {
-    // 编辑器的 extensions
-    // 它们将会按照你声明的顺序被添加到菜单栏和气泡菜单中
-    return {
-      extensions: [
-        new Doc(),
-        new Text(),
-        new Paragraph(),
-        new Heading({ level: 5 }),
-        new Bold({ bubble: true }), // 在气泡菜单中渲染菜单按钮
-        new Underline({ bubble: true, menubar: false }), // 在气泡菜单而不在菜单栏中渲染菜单按钮
-        new Italic(),
-        new Strike(),
-        new ListItem(),
-        new BulletList(),
-        new OrderedList(),
-      ],
-      // 编辑器的内容
-      content: `
-        <h1>Heading</h1>
-        <p>This Editor is awesome!</p>
-      `,
-    };
-  },
-},
+// 编辑器的 extensions
+// 它们将会按照你声明的顺序被添加到菜单栏和气泡菜单中
+const extensions = [
+  Doc,
+  Text,
+  Paragraph,
+  Heading.configure({ level: 5 }),
+  Bold.configure({ bubble: true }), // 在气泡菜单中渲染菜单按钮
+  Underline.configure({ bubble: true, menubar: false }), // 在气泡菜单而不在菜单栏中渲染菜单按钮
+  Italic,
+  Strike,
+  BulletList,
+  OrderedList,
+];
+
+// 编辑器的内容
+const content = ref(`
+  <h1>Heading</h1>
+  <p>This Editor is awesome!</p>
+`);
 </script>
 ```
 
@@ -204,109 +151,29 @@ export default {
 - `Iframe`
 - `CodeBlock`
 - `Blockquote`
-- `ListItem`
-- `BulletList` (与 `ListItem` 一起使用)
-- `OrderedList` (与 `ListItem`一起使用)
-- `TodoItem`
-- `TodoList` (与 `TodoItem` 一起使用)
+- `BulletList`
+- `OrderedList`
+- `TaskList`
 - `TextAlign`
 - `Indent`
 - `LineHeight`
 - `HorizontalRule`
 - `HardBreak`
-- `TrailingNode`
 - `History`
-- `Table` (与 `TableHeader`, `TableCell`, `TableRow` 一起使用)
-- `TableHeader`
-- `TableCell`
-- `TableRow`
+- `Table`
 - `FormatClear`
-- `TextColor`
-- `TextHighlight`
-- `Preview`
+- `Color`
+- `Highlight`
 - `Print`
 - `Fullscreen`
 - `SelectAll`
-- `FontType`
+- `FontFamily`
 - `FontSize`
-- `CodeView` (🆕)
+- `CodeView`
 
 [查看](https://github.com/Leecason/element-tiptap/issues/107)所有 extensions 的文档
 
-你可以自定义菜单按钮的渲染视图
-
-1. 创建你自己的 extension.
-
-```js
-// 你的 extension 文件
-import { Bold } from 'element-tiptap';
-
-export default class CustomBold extends Bold {
-  menuBtnView (editorContext) {
-    // editorContext 包含了一些对你有用的属性，例如 isActive, commands 等
-    // 更详细的文档请查看此 https://github.com/scrumpy/tiptap#editormenubar
-    // ElementTiptap 将 editor 实例也添加到了其中
-    return {
-      component: CustomButton, // 你的组件
-      componentProps: { // 会通过 v-bind 绑定到你的组件
-        ...
-      },
-      componentEvents: { // 会通过 v-on 绑定到你的组件
-        ...
-      },
-    },
-  }
-}
-```
-
-2. 在组件中使用自定义 extension
-
-```vue
-<template>
-  <el-tiptap :extensions="extensions" />
-</template>
-
-<script>
-import CustomBold from '...'; // 引入你的 extension
-
-export default {
-  ...
-  data () {
-    return {
-      extensions: [
-        ...
-        new CustomBold(),
-      ],
-    };
-  },
-};
-</script>
-```
-
-这是一个是如何自定义 extension 菜单按钮的[示例](https://github.com/Leecason/element-tiptap/issues/10#issuecomment-600979545)(一个 extension 可对应多个菜单按钮)
-
-### editorProperties
-
-类型: `Object`
-
-默认值: `{}`
-
-Tiptap `Editor` 属性（将作为参数传入 constructor）
-
-[这里](https://github.com/scrumpy/tiptap#editor-properties)可以查看所有的属性
-
-[`editorProps`](https://prosemirror.net/docs/ref/#view.EditorProps) 是该列表中一个强大的属性，你可以使用这个属性直接控制编辑器的行为，为自己定制编辑器。
-
-❗ 一些不可用的属性 ❗(因为它们已经在这个包中被使用了):
-
-- `content`
-- `editable`
-- `useBuiltInExtensions`
-- `extensions`
-- `onInit`
-- `OnFocus`
-- `onBlur`
-- `onUpdate`
+你可以自定义 extension. 查看 [Custom extensions](https://tiptap.dev/guide/custom-extensions).
 
 ### 占位符 placeholder
 
@@ -335,7 +202,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 或者使用 `'v-model'`
 
 ```html
-<el-tiptap v-model="content" />
+<el-tiptap v-model:content="content" />
 ```
 
 ### 输出 output
@@ -359,7 +226,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 默认值: `false`
 
 ```html
-<el-tiptap :readonly="true" />
+<el-tiptap readonly />
 ```
 
 当 `readonly` 为 `true`, 编辑器不可编辑。
@@ -371,7 +238,7 @@ Tiptap `Editor` 属性（将作为参数传入 constructor）
 默认值: 插件 `spellcheck` 配置项的值
 
 ```html
-<el-tiptap :spellcheck="true"> </el-tiptap>
+<el-tiptap spellcheck> </el-tiptap>
 ```
 
 编辑器内容是否开启拼写检查。
@@ -401,7 +268,7 @@ height: 100%;
 
 是否显示 menubar
 
-### charCounterCount
+### enableCharCount
 
 类型: `boolean`
 
@@ -417,93 +284,61 @@ height: 100%;
 
 鼠标移到按钮上时是否显示 tooltip
 
-### lang
-
-类型: `string`
-
-默认值: 插件 `lang` 选项的值
-
-```html
-<el-tiptap lang="zh"> </el-tiptap>
-```
+### locale
 
 指定编辑器国际化语言
 
-## 👽 事件 Events
-
-### Init
-
-```vue
+```js
 <template>
-  <el-tiptap @onInit="onInit" />
+  <el-tiptap :locale="zh"></el-tiptap>
 </template>
 
-<script>
-export default {
-  ...
-  methods: {
-    /*
-     * tiptap editor 实例
-     * 阅读 https://tiptap.scrumpy.io/docs/guide/editor.html
-    */
-    onInit ({ editor }) {
-
-    },
-  },
-},
+<script setup>
+import { ElementTiptap } from 'element-tiptap';
+import zh from 'element-tiptap/lib/locales/zh';
 </script>
 ```
 
-### Transaction, Focus, Blur, Paste, Drop
+可用的语言:
+
+- `en`(默认)
+- `zh`
+- `pl` by @FurtakM
+- `ru` by @baitkul
+- `de` by @Thesicstar
+- `ko` by @Hotbrains
+- `es` by @koas
+- `zh_tw` by @eric0324
+- `fr` by @LPABelgium
+- `pt_br` by @valterleonardo
+- `nl` by @Arne-Jan
+- `he` by @shovalPMS
+
+欢迎贡献更多的语言.
+
+## 👽 事件 Events
+
+### onCreate
+
+```vue
+<template>
+  <el-tiptap @onCreate="onCreate" />
+</template>
+
+<script setup>
+/**
+ * tiptap editor 实例
+ * 阅读 https://tiptap.scrumpy.io/docs/guide/editor.html
+ */
+const onCreate = ({ editor }) => {
+  // ...
+};
+</script>
+```
+
+### onTransaction, onFocus, onBlur, onDestroy
 
 用法与 `init` 相同
-
-## ⚗️ 插槽
-
-### 菜单栏 menubar
-
-你可以自定义菜单栏并且可以通过作用域插槽获取到一些属性。
-
-属性：[https://github.com/scrumpy/tiptap#editormenubar](https://github.com/scrumpy/tiptap#editormenubar)
-
-```html
-<el-tiptap v-model="content" :extensions="extensions">
-  <!-- Vue 在 2.6.0 中，为具名插槽和作用域插槽引入了一个新的统一的语法
-  https://cn.vuejs.org/v2/guide/components-slots.html -->
-  <template #menubar="{ commands, isActive }">
-    <!--渲染自定义菜单按钮-->
-    <custom-button
-      :class="{ 'is-active': isActive.bold() }"
-      @click="commands.bold"
-    >
-      Bold
-    </custom-button>
-  </template>
-</el-tiptap>
-```
-
-### 气泡菜单 menububble
-
-与自定义菜单栏相同的方式来自定义气泡菜单。
-
-属性: [https://github.com/scrumpy/tiptap#editormenububble](https://github.com/scrumpy/tiptap#editormenububble)
-
-```html
-<el-tiptap v-model="content" :extensions="extensions">
-  <template #menububble="{ commands, isActive }">
-    <custom-button
-      :class="{ 'is-active': isActive.bold() }"
-      @click="commands.bold"
-    >
-      Bold
-    </custom-button>
-  </template>
-</el-tiptap>
-```
-
-### 底部 footer
-
-编辑器的底部，在编辑器内容的后面
 
 ## 🏗 贡献代码
 
