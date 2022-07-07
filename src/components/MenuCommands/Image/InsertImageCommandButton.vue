@@ -24,7 +24,7 @@
     <template #reference>
       <span>
         <command-button
-          :enable-tooltip="true"
+          :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
           icon="image"
         />
@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import {
   ElDialog,
   ElUpload,
@@ -84,11 +84,13 @@ export default defineComponent({
       type: Editor,
       required: true,
     },
+  },
 
-    t: {
-      type: Function,
-      required: true,
-    },
+  setup() {
+    const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
+
+    return { t, enableTooltip };
   },
 
   data() {

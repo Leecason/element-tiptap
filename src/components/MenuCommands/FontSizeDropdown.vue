@@ -1,7 +1,7 @@
 <template>
   <el-dropdown placement="bottom" trigger="click" @command="toggleFontSize">
     <command-button
-      :enable-tooltip="true"
+      :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.FontSize.tooltip')"
       :readonly="false"
       icon="font-size"
@@ -66,8 +66,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t, defaultSize: DEFAULT_FONT_SIZE };
+    return { t, enableTooltip, defaultSize: DEFAULT_FONT_SIZE };
   },
 
   computed: {

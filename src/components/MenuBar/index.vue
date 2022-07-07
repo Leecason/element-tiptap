@@ -4,7 +4,7 @@
       v-for="(spec, i) in generateCommandButtonComponentSpecs()"
       :key="'command-button' + i"
       :is="spec.component"
-      :enable-tooltip="true"
+      :enable-tooltip="enableTooltip"
       v-bind="spec.componentProps"
       :readonly="false"
       v-on="spec.componentEvents || {}"
@@ -28,8 +28,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 
   methods: {

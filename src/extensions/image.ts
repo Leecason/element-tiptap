@@ -87,12 +87,11 @@ const Image = TiptapImage.extend({
       inline: true,
       uploadRequest: null,
       urlPattern: DEFAULT_IMAGE_URL_REGEX,
-      button({ editor, t }: { editor: Editor; t: (...args: any[]) => string }) {
+      button({ editor }: { editor: Editor }) {
         return {
           component: InsertImageCommandButton,
           componentProps: {
             editor,
-            t,
           },
         };
       },

@@ -52,7 +52,7 @@
     <template #reference>
       <span>
         <command-button
-          :enable-tooltip="true"
+          :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.TextColor.tooltip')"
           icon="font-color"
           :readonly="false"
@@ -87,6 +87,7 @@ export default defineComponent({
 
   setup(props) {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
     const popoverRef = ref();
     const colorText = ref('');
@@ -111,6 +112,7 @@ export default defineComponent({
 
     return {
       t,
+      enableTooltip,
       popoverRef,
       colorText,
       selectedColor,

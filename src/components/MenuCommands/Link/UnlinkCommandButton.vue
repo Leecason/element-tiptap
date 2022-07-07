@@ -1,7 +1,7 @@
 <template>
   <command-button
     :command="() => editor.commands.unsetLink()"
-    :enable-tooltip="true"
+    :enable-tooltip="enableTooltip"
     :tooltip="t('editor.extensions.Link.unlink.tooltip')"
     icon="unlink"
   />
@@ -28,8 +28,9 @@ export default defineComponent({
 
   setup() {
     const t = inject('t');
+    const enableTooltip = inject('enableTooltip', true);
 
-    return { t };
+    return { t, enableTooltip };
   },
 });
 </script>
