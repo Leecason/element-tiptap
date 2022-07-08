@@ -1,11 +1,13 @@
 <template>
-  <command-button
-    :command="() => toggleFullscreen(!isFullscreen)"
-    :enable-tooltip="enableTooltip"
-    :tooltip="buttonTooltip"
-    :icon="isFullscreen ? 'compress' : 'expand'"
-    :is-active="isFullscreen"
-  />
+  <div>
+    <command-button
+      :command="() => toggleFullscreen(!isFullscreen)"
+      :enable-tooltip="enableTooltip"
+      :tooltip="buttonTooltip"
+      :icon="isFullscreen ? 'compress' : 'expand'"
+      :is-active="isFullscreen"
+    />
+  </div>
 </template>
 
 <script lang="ts">

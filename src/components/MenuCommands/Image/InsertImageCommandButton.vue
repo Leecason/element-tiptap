@@ -1,5 +1,6 @@
 <template>
   <el-popover
+    :disabled="isCodeViewMode"
     placement="bottom"
     trigger="click"
     popper-class="el-tiptap-popper"
@@ -26,6 +27,7 @@
         <command-button
           :enable-tooltip="enableTooltip"
           :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
+          :readonly="isCodeViewMode"
           icon="image"
         />
       </span>
@@ -89,8 +91,9 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
-    return { t, enableTooltip };
+    return { t, enableTooltip, isCodeViewMode };
   },
 
   data() {
