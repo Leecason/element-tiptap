@@ -1,32 +1,31 @@
 {
   "branches": [
     "master",
-    { "name": "beta", "prerelease": true }
+    { "name": "beta", "prerelease": true },
+    { "name": "alpha", "prerelease": true }
   ],
   "tagFormat": "@${version}",
   "plugins": [
-    ["@semantic-release/commit-analyzer", {
-      "preset": "angular",
-      "releaseRules": [
-        {"type": "docs", "scope":"README", "release": "patch"},
-        {"type": "refactor", "release": "patch"},
-        {"type": "style", "release": "patch"},
-        {"type": "chore", "release": false},
-        {"type": "example", "release": false}
-      ]
-    }],
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          { "type": "docs", "scope": "README", "release": "patch" },
+          { "type": "refactor", "release": "patch" },
+          { "type": "style", "release": "patch" },
+          { "type": "chore", "release": false },
+          { "type": "example", "release": false }
+        ]
+      }
+    ],
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/changelog", {
-      "changelogFile": "CHANGELOG.md"
-    }],
-    ["@semantic-release/github", {
-      "assets": [
-        { "path": "lib/element-tiptap.js", "label": "UMD module" },
-        { "path": "lib/element-tiptap.min.js", "label": "UMD optimize module" },
-        { "path": "lib/element-tiptap.common.js", "label": "CommonJs module" },
-        { "path": "lib/element-tiptap.esm.js", "label": "ECMAScript 6 module" }
-      ]
-    }],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
     "@semantic-release/npm",
     "@semantic-release/git"
   ]

@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - beta
+      - alpha
 
 jobs:
   build:
@@ -20,8 +21,8 @@ jobs:
 
       - run: yarn install --registry=https://registry.yarnpkg.com
 
-      - name: Test
-        run: yarn lint
+      # - name: Test
+      #   run: yarn lint
 
       - name: Build
         run: yarn build:lib
@@ -31,4 +32,3 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
