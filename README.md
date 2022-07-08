@@ -14,6 +14,10 @@ A WYSIWYG rich-text editor using [tiptap](https://github.com/scrumpy/tiptap) and
 
 that's easy to use, friendly to developers, fully extensible and clean in design.
 
+## 💥 2.0 is in alpha
+
+Support Vue3, use [tiptap2](https://github.com/ueberdosis/tiptap) and [Element Plus](https://github.com/element-plus/element-plus), see [here](https://github.com/Leecason/element-tiptap/tree/alpha)
+
 ## 📔 Languages
 
 English | [简体中文](./README_ZH.md)

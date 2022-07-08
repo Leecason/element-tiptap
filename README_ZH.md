@@ -14,6 +14,10 @@
 
 易上手，对开发者友好，可扩展性强，设计简洁
 
+## 💥 2.0 目前在 alpha 版本
+
+支持 Vue3，基于 [tiptap2](https://github.com/ueberdosis/tiptap) 和 [Element Plus](https://github.com/element-plus/element-plus)，[查看详情](https://github.com/Leecason/element-tiptap/tree/alpha)
+
 ## 📔 选择语言
 
 [English](./README.md) | 简体中文
