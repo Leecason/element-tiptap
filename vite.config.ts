@@ -31,6 +31,13 @@ export default ({ mode }) => {
       ElementPlus(),
       svgLoader(),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          charset: false,
+        },
+      },
+    },
     server: {
       port: 8080,
     },
