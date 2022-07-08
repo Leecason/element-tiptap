@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   Document,
   Text,
@@ -22,29 +22,23 @@ import {
   History,
 } from 'element-tiptap';
 
-export default {
-  data() {
-    return {
-      extensions: [
-        Document,
-        Text,
-        Paragraph,
-        Heading.configure({ level: 3 }),
-        Bold,
-        Underline,
-        Italic,
-        Strike,
-        Code,
-        TextAlign,
-        BulletList,
-        OrderedList,
-        Indent,
-        History,
-      ],
+const extensions = [
+  Document,
+  Text,
+  Paragraph,
+  Heading.configure({ level: 3 }),
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Code,
+  TextAlign,
+  BulletList,
+  OrderedList,
+  Indent,
+  History,
+];
 
-      content:
-        "<p>I' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>",
-    };
-  },
-};
+const content =
+  "<p>I' m non-editable now. 😰</p><p></p><p>pass prop <code>readonly: true</code> to the editor.</p>";
 </script>

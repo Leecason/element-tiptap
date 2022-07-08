@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   Document,
   Text,
@@ -21,22 +21,16 @@ import {
   History,
 } from 'element-tiptap';
 
-export default {
-  data() {
-    return {
-      extensions: [
-        Document,
-        Text,
-        Paragraph,
-        Bold,
-        Underline,
-        Italic,
-        Strike,
-        BulletList,
-        OrderedList,
-        History,
-      ],
-    };
-  },
-};
+const extensions = [
+  Document,
+  Text,
+  Paragraph,
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  BulletList,
+  OrderedList,
+  History,
+];
 </script>
