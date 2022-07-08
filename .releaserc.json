@@ -11,6 +11,7 @@
       {
         "preset": "angular",
         "releaseRules": [
+          { "type": "breaking", "release": "major" },
           { "type": "docs", "scope": "README", "release": "patch" },
           { "type": "refactor", "release": "patch" },
           { "type": "style", "release": "patch" },
