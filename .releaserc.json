@@ -26,15 +26,6 @@
         "changelogFile": "CHANGELOG.md"
       }
     ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": [
-          { "path": "lib/element-tiptap.umd.js", "label": "UMD module" },
-          { "path": "lib/element-tiptap.es.js", "label": "ECMAScript 6 module" }
-        ]
-      }
-    ],
     "@semantic-release/npm",
     "@semantic-release/git"
   ]
