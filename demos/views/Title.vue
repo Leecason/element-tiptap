@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   Document,
   Text,
@@ -22,27 +22,21 @@ import {
   History,
 } from 'element-tiptap';
 
-export default {
-  data() {
-    return {
-      extensions: [
-        Document.configure({ title: true }),
-        Text,
-        Paragraph,
-        Heading.configure({ level: 3 }),
-        Bold,
-        Underline,
-        Italic,
-        Strike,
-        Code,
-        TextAlign,
-        BulletList,
-        OrderedList,
-        Indent,
-        History,
-      ],
-      content: '<h1>Title Line</h1><p>The body content</p>',
-    };
-  },
-};
+const extensions = [
+  Document.configure({ title: true }),
+  Text,
+  Paragraph,
+  Heading.configure({ level: 3 }),
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Code,
+  TextAlign,
+  BulletList,
+  OrderedList,
+  Indent,
+  History,
+];
+const content = '<h1>Title Line</h1><p>The body content</p>';
 </script>

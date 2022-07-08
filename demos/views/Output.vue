@@ -3,7 +3,7 @@
     <div class="editor">
       <el-tiptap
         :extensions="extensions"
-        :content="content"
+        :v-model:content="content"
         @onUpdate="onUpdate"
       />
     </div>
@@ -20,7 +20,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import {
   Document,
   Text,
@@ -41,45 +42,38 @@ import {
   History,
 } from 'element-tiptap';
 
-export default {
-  data() {
-    return {
-      extensions: [
-        Document,
-        Text,
-        Paragraph,
-        Heading.configure({ level: 3 }),
-        Bold,
-        Underline,
-        Italic,
-        Strike,
-        Blockquote,
-        Code,
-        CodeBlock,
-        TextAlign,
-        LineHeight,
-        BulletList,
-        OrderedList,
-        Indent,
-        History,
-      ],
+const extensions = [
+  Document,
+  Text,
+  Paragraph,
+  Heading.configure({ level: 3 }),
+  Bold,
+  Underline,
+  Italic,
+  Strike,
+  Blockquote,
+  Code,
+  CodeBlock,
+  TextAlign,
+  LineHeight,
+  BulletList,
+  OrderedList,
+  Indent,
+  History,
+];
 
-      content:
-        '<p>The <code>output</code> prop: <strong>HTML or JSON</strong></p>',
+const content = ref(
+  '<p>The <code>output</code> prop: <strong>HTML or JSON</strong></p>'
+);
 
-      output: {
-        json: 'Update content to see changes',
-        html: 'Update content to see changes',
-      },
-    };
-  },
+const output = ref({
+  json: 'Update content to see changes',
+  html: 'Update content to see changes',
+});
 
-  methods: {
-    onUpdate(output, editor) {
-      this.output.json = editor.getJSON();
-      this.output.html = editor.getHTML();
-    },
-  },
+const onUpdate = (output, editor) => {
+  this.output.value.json = editor.getJSON();
+  this.output.value.html = editor.getHTML();
 };
 </script>
 

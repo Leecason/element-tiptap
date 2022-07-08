@@ -79,47 +79,41 @@
   </el-container>
 </template>
 
-<script>
-export default {
-  name: 'index',
-
-  data: () => ({
-    routes: [
-      {
-        label: 'Simple Usage',
-        route: 'Simple',
-      },
-      {
-        label: 'All Extensions',
-        route: 'AllExtensions',
-      },
-      {
-        label: 'Bubble Menu',
-        route: 'BubbleMenu',
-      },
-      {
-        label: 'Placeholder',
-        route: 'Placeholder',
-      },
-      {
-        label: 'Readonly',
-        route: 'Readonly',
-      },
-      {
-        label: 'Title',
-        route: 'Title',
-      },
-      {
-        label: 'Event',
-        route: 'Event',
-      },
-      {
-        label: 'Output',
-        route: 'Output',
-      },
-    ],
-  }),
-};
+<script setup>
+const routes = [
+  {
+    label: 'Simple Usage',
+    route: 'Simple',
+  },
+  {
+    label: 'All Extensions',
+    route: 'AllExtensions',
+  },
+  {
+    label: 'Bubble Menu',
+    route: 'BubbleMenu',
+  },
+  {
+    label: 'Placeholder',
+    route: 'Placeholder',
+  },
+  {
+    label: 'Readonly',
+    route: 'Readonly',
+  },
+  {
+    label: 'Title',
+    route: 'Title',
+  },
+  {
+    label: 'Event',
+    route: 'Event',
+  },
+  {
+    label: 'Output',
+    route: 'Output',
+  },
+];
 </script>
 
 <style lang="scss">
