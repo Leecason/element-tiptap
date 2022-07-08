@@ -22,10 +22,12 @@ export default ({ mode }) => {
           postcssOptions: 'postcss.config.js',
         },
       }),
-      dts({
-        include: ['src'],
-        insertTypesEntry: true,
-      }),
+      IS_DEMO
+        ? null
+        : dts({
+            include: ['src'],
+            insertTypesEntry: true,
+          }),
       ElementPlus(),
       svgLoader(),
     ],
