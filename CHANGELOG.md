@@ -1,3 +1,17 @@
+# [2.0.0-alpha.1](https://github.com/Leecason/element-tiptap/compare/@1.27.1...@2.0.0-alpha.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* disable command button when editor is in code view mode ([6e0b41f](https://github.com/Leecason/element-tiptap/commit/6e0b41fc64d8d489b2b5d009bbe9655dbc3d8530))
+* in code view mode, disable menu button ([3d5e8d8](https://github.com/Leecason/element-tiptap/commit/3d5e8d8531baa6736356ba6ef0b21e5e066ead20))
+
+
+### Features
+
+* add `tooltip` prop, enable to hide tooltip ([4d1aa2f](https://github.com/Leecason/element-tiptap/commit/4d1aa2f6dd75601cdacff48d9d554dbd87cde4f0))
+* build library and demo site with vite, remove rollup config ([f6bf8f2](https://github.com/Leecason/element-tiptap/commit/f6bf8f2082a2c867e91f80953c0905a9f916aa51))
+
 ## [1.27.1](https://github.com/Leecason/element-tiptap/compare/@1.27.0...@1.27.1) (2021-12-17)
 
 
