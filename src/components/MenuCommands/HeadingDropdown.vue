@@ -9,6 +9,7 @@
       :enable-tooltip="enableTooltip"
       :is-active="editor.isActive('heading')"
       :tooltip="t('editor.extensions.Heading.tooltip')"
+      :disabled="isCodeViewMode"
       icon="heading"
     />
     <template #dropdown>
@@ -78,8 +79,9 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', false);
 
-    return { t, enableTooltip };
+    return { t, enableTooltip, isCodeViewMode };
   },
 
   methods: {

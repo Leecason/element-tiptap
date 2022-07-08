@@ -1,11 +1,13 @@
 <template>
-  <command-button
-    :command="() => toggleIsCodeViewMode(!isCodeViewMode)"
-    :enable-tooltip="enableTooltip"
-    :tooltip="t('editor.extensions.CodeView.tooltip')"
-    icon="file-code"
-    :is-active="isCodeViewMode"
-  />
+  <div>
+    <command-button
+      :command="() => toggleIsCodeViewMode(!isCodeViewMode)"
+      :enable-tooltip="enableTooltip"
+      :tooltip="t('editor.extensions.CodeView.tooltip')"
+      icon="file-code"
+      :is-active="isCodeViewMode"
+    />
+  </div>
 </template>
 
 <script lang="ts">

@@ -2,6 +2,7 @@
   <div>
     <command-button
       :is-active="editor.isActive('link')"
+      :readonly="isCodeViewMode"
       :command="openAddLinkDialog"
       :enable-tooltip="enableTooltip"
       :tooltip="t('editor.extensions.Link.add.tooltip')"
@@ -85,8 +86,9 @@ export default defineComponent({
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);
+    const isCodeViewMode = inject('isCodeViewMode', true);
 
-    return { t, enableTooltip };
+    return { t, enableTooltip, isCodeViewMode };
   },
 
   data() {
