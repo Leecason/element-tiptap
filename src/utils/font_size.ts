@@ -22,14 +22,30 @@ export const DEFAULT_FONT_SIZES = [
 
 export const DEFAULT_FONT_SIZE = 'default';
 
-const SIZE_PATTERN = /([\d.]+)px/i;
+const SIZE_PATTERN = /([\d.]+)(px|pt|pc|in|mm|cm|%|em)/i;
+
+type Conversion = {
+  [key: string]: number;
+};
+
+const toPixel:Conversion = {
+  px: 1,
+  pt: 4 / 3,
+  in: 96,
+  pc: 16,
+  mm: 3.78,
+  cm: 37.8,
+  em: 16,
+  '%': 16,
+};
 
 export function convertToPX(styleValue: string): string {
   const matches = styleValue.match(SIZE_PATTERN);
-  if (!matches) return '';
-  const value = matches[1];
-  if (!value) return '';
-  return value;
+  if (!matches) return DEFAULT_FONT_SIZE;
+  if (!matches[2]) return DEFAULT_FONT_SIZE;
+  const value = parseFloat(matches[1]) * toPixel[matches[2]];
+  if (!value) return DEFAULT_FONT_SIZE;
+  return value.toString();
 }
 
 export function setFontSize(tr: Transaction, type: MarkType, fontSize: string): Transaction {
