@@ -1,6 +1,7 @@
 {
   "branches": [
     "master",
+    "next-major",
     { "name": "next", "prerelease": false },
     { "name": "beta", "prerelease": true },
     { "name": "alpha", "prerelease": true }
