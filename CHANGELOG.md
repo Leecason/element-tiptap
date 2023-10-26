@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/Leecason/element-tiptap/compare/@2.0.0...@2.1.0) (2023-10-26)
+
+
+### Features
+
+* README update ([c11e27e](https://github.com/Leecason/element-tiptap/commit/c11e27eb279449508b5e86cc7c0cdc9afab21680))
+
 # [2.0.0](https://github.com/Leecason/element-tiptap/compare/@1.27.1...@2.0.0) (2023-10-26)
 
 
