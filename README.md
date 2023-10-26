@@ -10,13 +10,13 @@
 
 <h3 align="center">Element Tiptap Editor</h3>
 
-A WYSIWYG rich-text editor using [tiptap](https://github.com/ueberdosis/tiptap) and [Element Plus](https://github.com/element-plus/element-plus) for Vue3
+A WYSIWYG rich-text editor using [tiptap2](https://github.com/ueberdosis/tiptap) and [Element Plus](https://github.com/element-plus/element-plus) for Vue3
 
 that's easy to use, friendly to developers, fully extensible and clean in design.
 
-## 💥 Element Tiptap 1.0
+## 🧊 Legacy
 
-[here](https://github.com/Leecason/element-tiptap/tree/master)
+[Element Tiptap 1.0](https://github.com/Leecason/element-tiptap/tree/master)
 
 ## 📔 Languages
 
