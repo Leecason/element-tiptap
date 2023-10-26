@@ -1,3 +1,11 @@
+## [2.2.1](https://github.com/Leecason/element-tiptap/compare/@2.2.0...@2.2.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* next branch trigger regular release not pre-release ([6b655c8](https://github.com/Leecason/element-tiptap/commit/6b655c8c7d1d3e3d2142cc8cc48e49ad50901906))
+* next branch trigger regular release not pre-release ([47627d8](https://github.com/Leecason/element-tiptap/commit/47627d82cc569e74079d070f69e71ebeda30f9c0))
+
 # [2.2.0](https://github.com/Leecason/element-tiptap/compare/@2.1.0...@2.2.0) (2023-10-26)
 
 
