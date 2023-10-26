@@ -1,6 +1,6 @@
 import type { Command, Editor } from '@tiptap/core';
 import { isList } from '@tiptap/core';
-import { TextSelection, AllSelection, Transaction } from 'prosemirror-state';
+import { TextSelection, AllSelection, Transaction } from '@tiptap/pm/state';
 import { clamp } from './shared';
 
 export const enum IndentProps {

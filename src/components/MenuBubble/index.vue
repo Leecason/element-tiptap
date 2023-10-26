@@ -38,7 +38,7 @@
 import { defineComponent, inject } from 'vue';
 import { Editor, BubbleMenu } from '@tiptap/vue-3';
 import { getMarkRange } from '@tiptap/core';
-import { TextSelection, AllSelection, Selection } from 'prosemirror-state';
+import { TextSelection, AllSelection, Selection } from '@tiptap/pm/state';
 import VIcon from '../Icon/Icon.vue';
 import LinkBubbleMenu from './LinkBubbleMenu.vue';
 

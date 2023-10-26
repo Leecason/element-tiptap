@@ -1,8 +1,8 @@
 import { getMarkRange } from '@tiptap/core';
 import type { Editor } from '@tiptap/core';
 import TiptapLink from '@tiptap/extension-link';
-import { Plugin, TextSelection } from 'prosemirror-state';
-import { EditorView } from 'prosemirror-view';
+import { Plugin, TextSelection } from '@tiptap/pm/state';
+import { EditorView } from '@tiptap/pm/view';
 import AddLinkCommandButton from '@/components/MenuCommands/Link/AddLinkCommandButton.vue';
 
 const Link = TiptapLink.extend({

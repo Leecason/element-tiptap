@@ -1,5 +1,5 @@
-import { mergeCells, splitCell } from 'prosemirror-tables';
-import { EditorState } from 'prosemirror-state';
+import { mergeCells, splitCell } from '@tiptap/pm/tables';
+import { EditorState } from '@tiptap/pm/state';
 
 export function isTableActive(state: EditorState): boolean {
   const { selection, doc } = state;
@@ -12,7 +12,10 @@ export function isTableActive(state: EditorState): boolean {
     const name = node.type.name;
     if (
       keepLooking &&
-      (name === 'table' || name === 'table_row' || name === 'table_column' || name === 'table_cell')
+      (name === 'table' ||
+        name === 'table_row' ||
+        name === 'table_column' ||
+        name === 'table_cell')
     ) {
       keepLooking = false;
       active = true;

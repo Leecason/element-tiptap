@@ -3,8 +3,8 @@ import {
   AllSelection,
   EditorState,
   Transaction,
-} from 'prosemirror-state';
-import { Node as ProsemirrorNode, NodeType } from 'prosemirror-model';
+} from '@tiptap/pm/state';
+import { Node as ProsemirrorNode, NodeType } from '@tiptap/pm/model';
 import { LINE_HEIGHT_100, DEFAULT_LINE_HEIGHT } from '@/constants';
 import type { Command } from '@tiptap/core';
 

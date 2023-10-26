@@ -1,19 +1,25 @@
-import { EditorView } from 'prosemirror-view';
+import { EditorView } from '@tiptap/pm/view';
 import Logger from './logger';
 
 function printHtml(dom: Element) {
-  const style :string = Array.from(document.querySelectorAll('style, link'))
-    .reduce((str, style) => str + style.outerHTML, '');
+  const style: string = Array.from(
+    document.querySelectorAll('style, link')
+  ).reduce((str, style) => str + style.outerHTML, '');
 
   const content: string = style + dom.outerHTML;
 
   const iframe: HTMLIFrameElement = document.createElement('iframe');
   iframe.id = 'el-tiptap-iframe';
-  iframe.setAttribute('style', 'position: absolute; width: 0; height: 0; top: -10px; left: -10px;');
+  iframe.setAttribute(
+    'style',
+    'position: absolute; width: 0; height: 0; top: -10px; left: -10px;'
+  );
   document.body.appendChild(iframe);
 
   const frameWindow = iframe.contentWindow;
-  const doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+  const doc =
+    iframe.contentDocument ||
+    (iframe.contentWindow && iframe.contentWindow.document);
 
   if (doc) {
     doc.open();
@@ -22,7 +28,7 @@ function printHtml(dom: Element) {
   }
 
   if (frameWindow) {
-    iframe.onload = function() {
+    iframe.onload = function () {
       try {
         setTimeout(() => {
           frameWindow.focus();
@@ -39,7 +45,7 @@ function printHtml(dom: Element) {
         Logger.error(err);
       }
 
-      setTimeout(function() {
+      setTimeout(function () {
         document.body.removeChild(iframe);
       }, 100);
     };
