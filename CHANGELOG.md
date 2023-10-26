@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/Leecason/element-tiptap/compare/@2.1.0...@2.2.0) (2023-10-26)
+
+
+### Bug Fixes
+
+* fix tiptap different instances of a keyed plugin ([583a4e6](https://github.com/Leecason/element-tiptap/commit/583a4e64b0ea03aaba1512dd960127bd7ab8b0de))
+
+
+### Features
+
+* upgrade to latest tiptap, pm type import from tiptap/pm ([bcfdf40](https://github.com/Leecason/element-tiptap/commit/bcfdf4057f72f7d438407c740dc2b0ae8dd9931b))
+
 # [2.1.0](https://github.com/Leecason/element-tiptap/compare/@2.0.0...@2.1.0) (2023-10-26)
 
 
