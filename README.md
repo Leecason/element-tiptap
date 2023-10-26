@@ -3,7 +3,7 @@
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/element-tiptap">
   <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/Leecason/element-tiptap">
-  <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/element-tiptap/peer/vue?color=vue">
+  <img alt="npm peer dependency version" src="https://img.shields.io/badge/vue-%5E3.0.0-vue">
   <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
   <img alt="GitHub" src="https://img.shields.io/github/license/Leecason/element-tiptap">
 </p>
@@ -14,9 +14,9 @@ A WYSIWYG rich-text editor using [tiptap](https://github.com/ueberdosis/tiptap) 
 
 that's easy to use, friendly to developers, fully extensible and clean in design.
 
-## 💥 2.0 is in alpha
+## 💥 Element Tiptap 1.0
 
-Support Vue3, use [tiptap2](https://github.com/ueberdosis/tiptap) and [Element Plus](https://github.com/element-plus/element-plus), see [here](https://github.com/Leecason/element-tiptap/tree/alpha)
+[here](https://github.com/Leecason/element-tiptap/tree/master)
 
 ## 📔 Languages
 
