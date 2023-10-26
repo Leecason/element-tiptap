@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - next
+      - next-major
       - beta
       - alpha
 
