@@ -24,20 +24,20 @@ English | [简体中文](./README_ZH.md)
 
 ## 🎄 Demo
 
-👉[https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
+👉 [https://leecason.github.io/element-tiptap](https://leecason.github.io/element-tiptap)
 
-👾[Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
+👾 [Code Sandbox](https://codesandbox.io/s/element-tiptap-bwlnj)
 
 ## ✨ Features
 
-- 🎨Use [element-plus](https://github.com/element-plus/element-plus) components
-- 💅Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
-- 🔖Markdown support
-- 📘TypeScript support
-- 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
-- 🎈Events you might use: `create`, `transaction`, `focus`, `blur`, `destroy`
-- 🍀Fully extensible, you can customize editor extension and its menu button view
-- 💻Also can control the behavior of the editor directly, customize the editor for yourself.
+- 🎨 Use [element-plus](https://github.com/element-plus/element-plus) components
+- 💅 Many out of box [extensions](https://github.com/Leecason/element-tiptap#extensions) (welcome to submit an issue for feature request👏)
+- 🔖 Markdown support
+- 📘 TypeScript support
+- 🌐 I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
+- 🎈 Events you might use: `create`, `transaction`, `focus`, `blur`, `destroy`
+- 🍀 Fully extensible, you can customize editor extension and its menu button view
+- 💻 Also can control the behavior of the editor directly, customize the editor for yourself.
 
 ## 📦 Installation
 

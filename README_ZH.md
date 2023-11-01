@@ -33,7 +33,7 @@
 - 🎨 使用 [element-plus](https://github.com/element-plus/element-plus) 组件
 - 💅 许多开箱即用的 [extension](https://github.com/Leecason/element-tiptap#extensions) (欢迎提交 issue 为新的 feature 留下建议 👏)
 - 🔖 支持 markdown 语法
-- 📘TypeScript 支持
+- 📘 TypeScript 支持
 - 🌐 支持 i18n(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). 欢迎贡献更多的语言
 - 🎈 可用的 `events`: `create`, `transaction`, `focus`, `blur`, `destroy`
 - 🍀 高度自定义, 你可以自定义 extension 和它对应的菜单按钮视图
